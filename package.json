@@ -12,6 +12,8 @@
     "@ag-grid-community/client-side-row-model": "^32.3.3",
     "ag-grid-community": "^33.0.4",
     "ag-grid-react": "^33.0.4",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.5",
     "next": "15.1.4",
     "nodemailer": "^6.9.16",
