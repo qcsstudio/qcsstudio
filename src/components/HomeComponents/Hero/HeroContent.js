@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Graphic1 from '../../../public/images/graphic1.png';
+import Graphic1 from '../../../../public/images/graphic1.png';
 
 export default function HeroContent() {
   return (

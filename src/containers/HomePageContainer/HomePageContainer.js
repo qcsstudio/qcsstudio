@@ -1,16 +1,15 @@
-import LowerHome from '../../components/HomeComponents/LowerHome'
-import Hero from '../../components/HomeComponents/Hero'
+import Hero from '../../components/HomeComponents/Hero/Hero'
 import React from 'react'
-import AboutHero from '@/components/AboutCompnents/AboutHero'
+import Section2 from '@/components/HomeComponents/Section2/Section2'
+import LowerHome from '@/components/HomeComponents/Hero/LowerHome';
+import Lists from '@/components/HomeComponents/Section3/Lists';
 
 const HomePageContainer = () => {
   return (
     <div>
-         {/*<Header />
-        <Hero /> */}
         <Hero />
-        <LowerHome />
-        <AboutHero />
+        <Section2 />
+        <Lists />
     </div>
   )
 }

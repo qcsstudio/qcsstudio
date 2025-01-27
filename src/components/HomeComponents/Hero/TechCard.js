@@ -1,12 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
-interface TechCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
 const TechCard = ({ icon, title, description }) => {
   return (
     <div className="bg-white p-6 h-full transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">

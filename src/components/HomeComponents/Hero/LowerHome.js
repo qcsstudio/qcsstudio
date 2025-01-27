@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { techCategories } from '@/Data/techCategories';
 
 function renderTechCard(icon, title, description) {
-    console.log("icon" , icon)
+
     return (
         <div className="bg-[#1d447e85] p-6 h-[270px] transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1 hover:h-[300px] border-l-[1px] border-r-[1px] border-[#4073BF] relative left-[110px]">
             <div className=" text-blue-600 mb-4 w-12 h-12 rounded-lg flex items-center justify-center">
