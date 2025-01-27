@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Facebook from '../../../public/icons/facebook.png';
-import Linkedin from '../../../public/icons/linkedin.png';
-import Instagram from '../../../public/icons/instagram.png';
+import Facebook from '../../../../public/icons/facebook.png';
+import Linkedin from '../../../../public/icons/linkedin.png';
+import Instagram from '../../../../public/icons/instagram.png';
 
 export default function SocialSidebar() {
   return (
