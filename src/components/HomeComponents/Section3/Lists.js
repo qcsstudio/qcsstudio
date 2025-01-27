@@ -4,7 +4,6 @@ import React from 'react'
 const Lists = () => {
   return (
     <>
-
       <div className='ListPage flex justify-center space-x-[20vw] mt-60'>
       <div className='PhaseOne'>
        <span>
