@@ -8,13 +8,13 @@ function Section2() {
   return (
     <div className="w-full flex flex-col">
       {/* Row 1 */}
-      <div className="grid grid-cols-3">
+      <div className="flex flex-col md:grid md:grid-cols-3">
         <AboutSection />
         <TakshashilaLabs />
       </div>
 
       {/* Row 2 */}
-      <div className="grid grid-cols-3">
+      <div className="flex flex-col md:grid md:grid-cols-3">
         <CommitmentSection />
         <VisualRepresentation />
       </div>
