@@ -8,24 +8,22 @@ import LowerHome from './LowerHome';
 export default function Hero() {
   return (
     <>
-    <TopHeader />
+      <TopHeader />
+      <Header />
+      <div className="Hero relative min-h-[calc(100vh-80px)] flex flex-col md:flex-row items-center">
+        {/* Social Media Sidebar */}
+        <SocialSidebar />
 
-    <Header />
-    <div className="Hero relative min-h-[calc(100vh-80px)] flex items-center">
-  
-
-      {/* Social Media Sidebar */}
-      <SocialSidebar />
-
-      {/* Main Content */}
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
-        <HeroContent />
-        <HeroImage />
-      
+        {/* Main Content */}
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
+          <HeroContent />
+          <HeroImage />
+        </div>
       </div>
-    </div>
-    <LowerHome />
+      {/* Ensure LowerHome is fully visible on mobile */}
+      <div className="w-full">
+        <LowerHome />
+      </div>
     </>
   );
 }
-

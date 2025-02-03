@@ -1,18 +1,20 @@
-import Image from 'next/image';
+import Image from "next/image";
 import Graphic1 from '../../../../public/images/graphic1.png';
 
 export default function HeroContent() {
   return (
-    <div>
+    <div className="relative mt-4 md:mt-0">
       <h1 className="text-xl md:text-4xl text-white mb-4">
         IGNITE YOUR <span className="text-white font-bold">TECH PASSION</span>
         <br />
         LAUNCH YOUR DREAM <span className="text-white font-bold">CAREER</span>
       </h1>
 
-      <h2 className="text-2xl text-white mb-6">Transformative tech education</h2>
+      <h2 className="text-2xl text-white mb-6">
+        Transformative tech education
+      </h2>
 
-      <p className="text-gray-300 mb-8">
+      <p className="text-gray-300 mb-8 md:mb-10 w-[90%] ml-8 md:ml-0"> {/* Adjusted width and left margin for paragraph */}
         At Takshashila Labs, your journey begins with you. We don’t just enroll students – we take the time to
         understand your unique passions, interests, and career goals. By learning what excites and motivates you, we
         guide you to the course that aligns perfectly with your strengths and aspirations. Whether your passion lies in
@@ -23,15 +25,14 @@ export default function HeroContent() {
       </p>
 
       <Image
-        className="z-0 absolute top-[320px] left-[280px] h-[340px]"
+        className="absolute h-[340px] md:left-[280px] left-1/2 transform -translate-x-1/2 top-[320px] z-0"
         src={Graphic1}
         alt="Graphic"
       />
 
-      <div className="flex gap-4">
+      <div className="flex gap-4 mt-4">
         <button
-          size="lg"
-          className="rounded-lg w-[200px] z-10 h-[45px] bg-gradient-to-r from-[#cce973] to-[#46d3c1] text-[#ffff] hover:bg-none hover:border hover:border-white"
+          className="rounded-lg w-[200px] h-[45px] bg-gradient-to-r from-[#cce973] to-[#46d3c1] text-[#ffff] hover:bg-none hover:border hover:border-white"
         >
           ENROLL NOW
         </button>
