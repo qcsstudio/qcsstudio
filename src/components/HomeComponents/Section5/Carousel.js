@@ -2,12 +2,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import one from '../../../../public/carousel/1.jpg'
-import two from '../../../../public/carousel/2.jpg'
-import three from '../../../../public/carousel/3.jpg'
-import four from '../../../../public/carousel/4.jpg'
+import car1 from "../../../../public/images/car1.jpg"
+import car2 from "../../../../public/images/car2.jpg"
+import car3 from "../../../../public/images/car3.jpg"
+import car4 from "../../../../public/images/car4.jpg"
+import car5 from "../../../../public/images/car5.jpg"
 
-// Custom Hook: useTilt
 const useTilt = (animationDuration = "150ms") => {
   const ref = useRef(null);
 
@@ -57,7 +57,7 @@ const useTilt = (animationDuration = "150ms") => {
   return ref;
 };
 
-// Slide Component
+
 const Slide = ({ image, title, subtitle, description, offset, isPageBackground }) => {
   const ref = useTilt();
   const active = offset === 0;
@@ -83,7 +83,7 @@ const Slide = ({ image, title, subtitle, description, offset, isPageBackground }
         style={{ backgroundImage: `url('${image}')` }}
       >
         <div className="slideContentInner">
-          {title && <h2 className="slideTitle">{title}</h2>}
+          {title && <h2 className="slideTitle font-bold">{title}</h2>}
           {subtitle && <h3 className="slideSubtitle">— {subtitle}</h3>}
           {description && <p className="slideDescription">{description}</p>}
         </div>
@@ -92,18 +92,9 @@ const Slide = ({ image, title, subtitle, description, offset, isPageBackground }
   );
 };
 
-Slide.propTypes = {
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  description: PropTypes.string,
-  offset: PropTypes.number.isRequired,
-  isPageBackground: PropTypes.bool,
-};
 
-// Carousel Component
 const Carousel = ({ slides, isPageBackground }) => {
-  const [slideIndex, setSlideIndex] = useState(2); // Set the default slide to the third one
+  const [slideIndex, setSlideIndex] = useState(2); 
 
   const handlePrevSlide = () =>
     setSlideIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
@@ -122,10 +113,10 @@ const Carousel = ({ slides, isPageBackground }) => {
           return (
             <Slide
               key={i}
-              image={slide.image}
-              title={slide.title}
-              subtitle={slide.subtitle}
-              description={slide.description}
+              image={slide.image.src}
+              title={""}
+              subtitle={""}
+              description={""}
               offset={offset}
               isPageBackground={isPageBackground}
             />
@@ -158,31 +149,31 @@ const slidesData = [
     title: "First",
     subtitle: "Slide",
     description: "This is the first slide description.",
-    image: "https://picsum.photos/id/1/500/500",
+    image: car1,
   },
   {
     title: "Second",
     subtitle: "Slide",
     description: "This is the second slide description.",
-    image: "https://picsum.photos/id/2/500/500",
+    image: car2,
   },
   {
     title: "Third",
     subtitle: "Slide",
     description: "This is the third slide description.",
-    image: "https://picsum.photos/id/7/500/500",
+    image: car5,
   },
   {
     title: "Forth",
     subtitle: "Slide",
     description: "This is the third slide description.",
-    image: "https://picsum.photos/id/6/500/500",
+    image:car3,
   },
   {
     title: "Five",
     subtitle: "Slide",
     description: "This is the third slide description.",
-    image: "https://picsum.photos/id/5/500/500",
+    image: car4,
   },
 ];
 

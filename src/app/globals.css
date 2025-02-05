@@ -16,12 +16,13 @@
 
 
 }
+
 .PhaseOne{
   display: flex !important;
-  justify-content: center !important;
   align-items: center !important;
   flex-direction: column !important;
 }
+
 .PhaseTwo{
   background-color: rgb(120, 161, 206);
   margin-right: 220px !important;
@@ -85,8 +86,8 @@ body {
 }
 
 .slideContent {
-  width: 250px;
-  height: 600px;
+  width: 300px;
+  height: 500px;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -173,7 +174,7 @@ body {
 }
 
 .slidesWrapper {
-  min-height: 500px;
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
