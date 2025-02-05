@@ -45,7 +45,7 @@ export default function Navbar() {
         }`}
       >
         <Link href="/" className="text-[#c4ef01] underline">Home</Link>
-        <Link href="/about" className="text-white hover:text-[#c4ef01]">About Us</Link>
+        <Link href={{pathname:''}} className="text-white hover:text-[#c4ef01]">About Us</Link>
         <Link href="/courses" className="text-white hover:text-[#c4ef01]">Courses</Link>
         <Link href="/blogs" className="text-white hover:text-[#c4ef01]">Blogs</Link>
         <button className="bg-[#0e2d5b] text-white border w-[150px] rounded-lg h-[40px] hover:bg-gradient-to-r from-[#cce973] to-[#46d3c1] transition">
