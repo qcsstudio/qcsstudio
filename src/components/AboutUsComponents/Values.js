@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import student from '../../../public/Images/student.png'
+import student from '../../../public/images/student.png'
 import fly from '../../../public/images/fly.png'
 import bgBlu from '../../../public/images/bgBlu.png'
 
