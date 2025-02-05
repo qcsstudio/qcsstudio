@@ -1,0 +1,18 @@
+import BlogFilteredButtons from '@/components/BlogpageComponents/BlogFilteredButtons'
+import BlogFirstSection from '@/components/BlogpageComponents/BlogFirstSection'
+import BlogRecentBlog from '@/components/BlogpageComponents/BlogRecentBlog'
+import Navbar from '@/components/HomeComponents/Hero/Header'
+import React from 'react'
+
+const BlogPageContainer = () => {
+  return (
+    <div>
+      <Navbar/>
+      <BlogFirstSection/>
+      <BlogFilteredButtons/>
+      <BlogRecentBlog/>
+    </div>
+  )
+}
+
+export default BlogPageContainer

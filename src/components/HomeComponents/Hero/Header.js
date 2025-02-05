@@ -15,13 +15,14 @@ export default function Navbar() {
         <div className="hidden md:flex items-center space-x-8 gap-10 relative right-[34px]">
           <Link href="/" className="text-[#c4ef01] underline hover:text-[#c4ef01] hover:underline transition">Home</Link>
           <Link href="/about" className="text-white hover:text-[#c4ef01] hover:underline transition">About Us</Link>
-          <Link href="/courses" className="text-white hover:text-[#c4ef01] hover:underline transition">Courses</Link>
-          <Link href="/blogs" className="text-white hover:text-[#c4ef01] hover:underline transition">Blogs</Link>
+          <Link href="/Courses" className="text-white hover:text-[#c4ef01] hover:underline transition">Courses</Link>
+          <Link href="/Blogs" className="text-white hover:text-[#c4ef01] hover:underline transition">Blogs</Link>
         </div>
-
-        <button className="bg-[0e2d5b] text-[#ffff] border w-[170px] rounded-lg h-[40px] relative right-[70px] hover:bg-gradient-to-r from-[#cce973] to-[#46d3c1] transition">
+         <Link href='/contact-us'>
+         <button className="bg-[0e2d5b] text-[#ffff] border w-[170px] rounded-lg h-[40px] relative right-[70px] hover:bg-gradient-to-r from-[#cce973] to-[#46d3c1] transition">
           CONTACT US
         </button>
+         </Link>
       </div>
     </nav>
   );
