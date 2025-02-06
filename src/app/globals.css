@@ -63,6 +63,87 @@
   z-index: -1;
   background: linear-gradient(to bottom, #16366a, #0D1C34);
 }
+/* Ensure the parent container is relative */
+.courses {
+  position: relative;
+  padding-bottom: 50px; /* Prevents arrows from overlapping content */
+}
+
+/* Slick arrows styling */
+.courses .slick-prev,
+.courses .slick-next {
+  position: absolute;
+  bottom: 0; 
+  width: 45px;
+  height: 45px;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+/* Left arrow */
+.courses .slick-prev {
+  right: 60px; 
+  left: auto;
+  bottom:0 !important;
+}
+
+/* Right arrow */
+.courses .slick-next {
+  right: 10px; /* Stick to the right */
+  bottom:0 !important;
+}
+
+/* Custom arrow icons */
+.courses .slick-prev:before {
+  content: url('/arrowLeft.svg');
+}
+
+.courses .slick-next:before {
+  content: url('/arrowRight.svg');
+}
+
+/* Hover effect */
+.courses .slick-prev:hover,
+.courses .slick-next:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive Fixes */
+@media (max-width: 1024px) {
+  .courses .slick-prev,
+  .courses .slick-next {
+    width: 40px;
+    height: 40px;
+  }
+  .courses .slick-prev { right: 55px; }
+  .courses .slick-next { right: 5px; }
+}
+
+@media (max-width: 768px) {
+  .courses .slick-prev,
+  .courses .slick-next {
+    width: 35px;
+    height: 35px;
+  }
+  .courses .slick-prev { right: 50px; }
+  .courses .slick-next { right: 5px; }
+}
+
+@media (max-width: 480px) {
+  .courses .slick-prev,
+  .courses .slick-next {
+    width: 30px;
+    height: 30px;
+  }
+  .courses .slick-prev { right: 40px; }
+  .courses .slick-next { right: 0; }
+}
 
 
 html,
