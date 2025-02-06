@@ -12,6 +12,15 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        'scale-pulse': 'scaleAnimation 2s infinite ease-in-out',
+      },
+      keyframes: {
+        scaleAnimation: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.2)' },
+        },
+      },
     },
   },
   plugins: [],

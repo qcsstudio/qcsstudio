@@ -1,24 +1,30 @@
-import React from 'react';
-import bgGraphic from '../../../../public/images/Mask.jpg';
-import arrow from '../../../../public/images/arrow.png';
+import React from "react";
+import bgGraphic from "../../../../public/images/home_about.png";
+import arrow from "../../../../public/images/arrow.png";
+import Image from "next/image";
 
 const AboutSection = () => {
   return (
     <div className="col-span-1 bg-white border border-gray-300 h-[60vh] flex flex-col items-center justify-center">
       <div className="relative w-full">
-        <img
-          className="object-contain w-[200px] h-[300px]"
-          src={bgGraphic.src}
-          alt="Background Graphic"
+        <Image
+          className=" absolute top-0   object-contain w-[200px] h-[300px] " 
+          src={bgGraphic}
+          alt="Background Graphic  "
         />
-        <div className="absolute top-0 z-10 mt-[20%] ml-[4%]">
+        <div className="z-10  ml-[4%]">
           <h6 className="text-[#527CBD] text-lg font-semibold">Who we are</h6>
-          <h2 className="text-[#032263] text-4xl font-bold">ABOUT US</h2>
+          <h2 className="text-[#032263] text-4xl font-bold">
+            &quot;Transforming Passion into Profession&quot; Welcome to
+            QuantumCrafters Studio, where learning meets opportunity. We believe
+            that every student’s journey starts with passion, and we are here to
+            turn that passion into a thriving tech career.
+          </h2> 
         </div>
-        <img
-          src={arrow.src}
+        <Image
+          src={arrow}
           alt="Arrow"
-          className="absolute -top-[5rem] h-[200px] -right-6 w-[200px] object-contain z-0"
+          className="absolute top-0 -right-[4rem] w-[200px] object-contain z-0"
         />
       </div>
     </div>
