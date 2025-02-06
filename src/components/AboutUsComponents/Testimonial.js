@@ -8,7 +8,7 @@ import bgBlu from '../../../public/images/bgBlu.png'
 
 const Testimonial = () => {
     return (
-        <div className=" bg-[url('/images/bg.jpg')] bg-cover bg-center bg-no-repeat min-h-screen w-full flex justify-center items-center">
+        <div className=" overflow-hidden bg-[url('/images/bg.jpg')] bg-cover bg-center bg-no-repeat min-h-screen w-full flex justify-center items-center">
             <div className='relative flex flex-col gap-8 justify-center items-center w-full max-w-[1200px] text-center p-4'>
                 {/* Heading */}
                 <div>
