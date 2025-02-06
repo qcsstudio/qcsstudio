@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import blueBg from "../../../../public/images/blueBg.png";
+// import blueBg from "../../../../public/images/blueBg.png";
 import redCircle from "../../../../public/images/redCircle.png";
 import Image from "next/image";
 
@@ -84,13 +84,13 @@ const TestimonialCarousel = () => {
             achieved success in the tech industry
           </p>
           <div>
-            <Image
+            {/* <Image
               className="flex absolute -left-[1%] bottom-[-662%] z-10"
               alt="blue"
               src={blueBg.src}
               height={150}
               width={150}
-            />
+            /> */}
           </div>
         </div>
       </div>
