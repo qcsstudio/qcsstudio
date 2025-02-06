@@ -1,7 +1,7 @@
 import BlogFilteredButtons from '@/components/BlogpageComponents/BlogFilteredButtons'
 import BlogFirstSection from '@/components/BlogpageComponents/BlogFirstSection'
 import BlogRecentBlog from '@/components/BlogpageComponents/BlogRecentBlog'
-import Navbar from '@/components/HomeComponents/Hero/Header'
+import Navbar from '@/components/Navbar'
 import React from 'react'
 
 const BlogPageContainer = () => {
