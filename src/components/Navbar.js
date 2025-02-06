@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react"; // Icons for mobile menu
 import logo from "../../public/images/logo.png"; // Adjust the path as needed
+import RealLogo from '../../public/images/RealLogo.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ const Navbar = () => {
         {/* Logo Container */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
-            <Image src={logo} alt="Logo" width={150} height={100} />
+            <Image src={RealLogo} alt="Logo" width={150} height={100} />
           </Link>
         </div>
 

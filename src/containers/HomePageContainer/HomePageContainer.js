@@ -11,7 +11,7 @@ import HomeAboutSection from '@/components/HomeComponents/Section2/HomeAboutSect
 
 const HomePageContainer = () => {
   return (
-    <div className="w-full max-w-[100%] overflow-hidden py-[10px]">
+    <div className="w-full max-w-[100%] overflow-hidden ">
       <Hero />
       <HomeAboutSection />
       <Lists />
