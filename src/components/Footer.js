@@ -4,6 +4,7 @@ import footerLg from '../../public/images/footerLg.png';
 import location from '../../public/icons/location.png'
 import phone from '../../public/icons/phone.png'
 import RealLogo from '../../public/images/RealLogo.png'
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -28,21 +29,24 @@ const Footer = () => {
         </div>
       </div>
 
+
       {/* Links and Newsletter Section */}
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-3 mt-10 w-full text-white">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 py-3 mt-10 w-full text-white">
         {/* Navigation Links */}
-        <div className='grid grid-cols-2 gap-5 text-center'>
+       <div className='flex flex-col gap-10'>
+       <div className='grid grid-cols-4 gap-5 text-center'>
           <li className='list-none'>HOME</li>
           <li className='list-none'>ABOUT</li>
           <li className='list-none'>CONTACT US</li>
           <li className='list-none'>COURSES </li>
         </div>
-        <div className='grid grid-cols-2 gap-5 text-center pb-5'>
-          <li className='list-none'>Terms Of Service</li>
-          <li className='list-none'>Privacy Policy</li>
-          <li className='list-none'>Refund Policy</li>
+        <div className='grid grid-cols-3 gap-5 text-center pb-5'>
+        <Link href='/terms-conditions'  className='hover:text-[#c4ef01] hover:underline'><li  className='list-none'>Terms Of Service</li></Link>  
+        <Link href='/privacy-policy'className='hover:text-[#c4ef01] hover:underline'> <li className='list-none'>Privacy Policy</li></Link> 
+        <Link href='/refund-policy' className='hover:text-[#c4ef01] hover:underline'>  <li className='list-none'>Refund Policy</li></Link>
         </div>
-
+       </div>
+        
         {/* Newsletter Signup */}
         <div className='flex flex-col gap-4 items-center'>
           <h1 className='font-bold text-lg text-center'>SIGN UP TO OUR NEWSLETTER</h1>
