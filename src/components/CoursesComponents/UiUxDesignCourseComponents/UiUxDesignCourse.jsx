@@ -11,6 +11,7 @@ import { roadMapLongData } from "@/Data/roadMapLong";
 import { technologyIcons } from "@/Data/technologyIcons";
 import { technologyData } from "@/Data/technologyData"
 import { CareerData } from "@/Data/career";
+import Footer from "@/components/Footer";
 
 const UiUxDesignCourse = () => {
     const courseDetailObject = coursesData[2];
@@ -27,6 +28,7 @@ const UiUxDesignCourse = () => {
       <Career careerObject={careerObject} />
       <Enroll/>
       <FAQ />
+      <Footer/>
     </>
   )
 }

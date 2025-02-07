@@ -11,6 +11,7 @@ import { technologyIcons } from "@/Data/technologyIcons";
 import { technologyData } from "@/Data/technologyData"
 import Career from "../Common/Career/Career";
 import { CareerData } from "@/Data/career";
+import Footer from "@/components/Footer";
 
 const DigitalMarketingCourse = () => {
     const courseDetailObject = coursesData[3];
@@ -27,6 +28,7 @@ const DigitalMarketingCourse = () => {
       <Career careerObject={careerObject} />
       <Enroll/>
       <FAQ/>
+      <Footer/>
     </>
   )
 }

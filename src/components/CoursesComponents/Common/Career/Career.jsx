@@ -5,7 +5,7 @@ const Career = ({careerObject}) => {
     const {id,course,heading,highlight_heading,after_heading,description,sub_description,career,salary,salary_description,potential_description} = careerObject;
    return (
       <>
-         <div className="careerContainer w-[100vw] bg-[#EFFAFF] sm:p-[6rem] xs:p-[4rem] relative overflow-hidden">
+         <div className="careerContainer w-[100vw] bg-[#EFFAFF] sm:p-[6rem] xs:p-[2rem] relative overflow-hidden">
 
             <div className="innerContainer z-[10] flex flex-col">
                 <div className="headingContainer">

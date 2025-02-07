@@ -8,7 +8,7 @@ const Enroll = () => {
     const {id,heading,subHeading,description} = enrollData[0];
    return (
       <>
-         <div className="cont w-[100vw] py-[4rem] md:px-[5rem] relative xs:px-[2.5rem]" style={{background: "rgb(4,36,82)", background: "radial-gradient(circle, rgba(4,36,82,1) 0%, rgba(2,13,41,1) 100%)"}}>
+         <div className="cont w-[100vw] py-[4rem] md:px-[5rem] overflow-hidden relative xs:px-[2.5rem]" style={{background: "rgb(4,36,82)", background: "radial-gradient(circle, rgba(4,36,82,1) 0%, rgba(2,13,41,1) 100%)"}}>
 
             <div className="innerCont w-[100%]  flex flex-col items-center">
                 <div className="topCont w-[100%] overflow-hidden">
