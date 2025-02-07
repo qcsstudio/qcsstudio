@@ -2,6 +2,7 @@ import ContactUsContainer from '@/containers/ContactUsContainer/ContactUsContain
 import React from 'react'
 
 function ContactUsPage() {
+  
   return (
     <div>
       <ContactUsContainer/>
