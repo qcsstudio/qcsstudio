@@ -29,7 +29,7 @@ function HomeAboutSection() {
                 <h6 className="text-[#527CBD] text-lg py-2 font-semibold">
                   Who we are
                 </h6>
-                <h2 className="text-[#032263] text-[2vw]  z-20 relative leading-[2vw]  font-bold">
+                <h2 className="text-[#032263] md:text-[2vw] text-[5vw] z-20 relative md:leading-[2vw] leading-[5vw]  font-bold">
                   &quot;Transforming Passion into Profession &quot; Welcome to
                   QuantumCrafters Studio, where learning meets opportunity. We
                   believe that every student’s journey starts with passion, and
@@ -89,7 +89,7 @@ function HomeAboutSection() {
             />
           </motion.div>
 
-          <div className="col-span-2 bg-white border-l-[1.4px] border-black z-[1] flex flex-col p-6 h-full">
+          <div className="col-span-2 bg-white  md:border-l-[1.4px] border-black z-[1] flex flex-col pb-[40px] md:pb-[0px] lg:p-6 h-full">
             <h3 className="text-[#527CBD] text-2xl sm:text-3xl font-bold mt-6 sm:mt-8 text-center sm:text-left">
               QuantumCrafters Studio
             </h3>
@@ -97,7 +97,7 @@ function HomeAboutSection() {
             <div className="text-[#4E535CE5] mt-4 text-sm sm:text-base">
               <span className="font-bold text-lg">Our Vision:</span> Unlocking Passions, Empowering Futures
               <br /> <br />
-              <div className="text-center sm:text-left">
+              <div className=" sm:text-left">
               At QuantumCrafters Studio, our vision is to close the gap between academic learning and the practical skills needed in the tech industry. By understanding your unique passions, interests, and career goals, we focus on what excites and motivates you. Through real-world applications and hands-on training, we are committed to cultivating tech professionals who are prepared to lead and innovate
               </div>
             </div>
