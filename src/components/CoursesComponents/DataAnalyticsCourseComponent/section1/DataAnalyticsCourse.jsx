@@ -23,12 +23,12 @@ const DataAnalyticsCourse = () => {
 
   return (
     <>
-      {/* <CourseDetail courseDetailObject={courseDetailObject} /> */}
+      <CourseDetail courseDetailObject={courseDetailObject} />
       <RoadMap roadMapObject={roadMapObject} iconData={iconData} technologies={technologies}/>
-      {/* <Career careerObject={careerObject}/> */}
-      {/* <Enroll/> */}
-      {/* <FAQ /> */}
-      {/* <Footer/> */}
+      <Career careerObject={careerObject}/>
+      <Enroll/>
+      <FAQ />
+      <Footer/>
 
     </>
   )
