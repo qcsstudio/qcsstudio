@@ -12,6 +12,7 @@ import { roadMapData } from "@/Data/roadMap";
 import { technologyIcons } from "@/Data/technologyIcons";
 import { technologyData } from "@/Data/technologyData"
 import { CareerData } from "@/Data/career";
+import Footer from "@/components/Footer";
 
 
 
@@ -29,6 +30,7 @@ const NetworkingCourse = () => {
       <Career careerObject={careerObject} />
       <Enroll/>
       <FAQ/>
+      <Footer/>
     </>
   )
 }

@@ -26,7 +26,7 @@ const RoadMap = ({roadMapObject,iconData,technologies}) => {
                 
 
                 {/* ================================= LOWER CONTAINER ======================== */}
-                <div className="lowerCont z-100 bg-white w-[100%]  py-[3rem] px-[4rem]">
+                <div className="lowerCont z-100 bg-white w-[100%]  py-[3rem] sm:px-[4rem] xs:px-[2rem]">
                     {/* Heading Container --------------------------------------- */}
                     <div className="headingContainer z-10 w-[100%] flex justify-center ">
                         <h2 className="heading z-10 text-[#213B61] text-[40px] font-semibold">Technologies & Tools:</h2>
