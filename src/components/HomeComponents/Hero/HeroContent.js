@@ -25,7 +25,7 @@ export default function HeroContent() {
       >
         <Image src={homeheader} width={300} height={300} alt="this is image" />
       </motion.div>
-
+  
       <div className="relative  hidden lg:flex flex-col-reverse items-center gap-6 h-auto lg:h-[500px] justify-center">
         <div className="hidden lg:block w-[2px] h-[120px] bg-gradient-to-t from-white to-transparent"></div>
         <div className="flex flex-row lg:flex-col items-center gap-5">
@@ -55,8 +55,9 @@ export default function HeroContent() {
       </div>
       <div className="w-[1px] h-[500px] lg:block hidden bg-white"></div>
       {/* Hero Text Section */}
-      <div className="text-center lg:text-left flex-1 max-w-3xl">
-        <div className="text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
+
+      <div className="text-center lg:text-left flex-1 text-div ">
+        <div className="lg:text-[3vw]  text-[5vw] leading-[5vw]  lg:leading-[3vw] text-white ">
           <span className="font-thin text-slate-300">IGNITE YOUR</span>
           <span className="font-bold"> TECH PASSION</span> <br />
           <span className="font-thin text-slate-300">LAUNCH YOUR DREAM</span>
@@ -65,7 +66,7 @@ export default function HeroContent() {
         <h2 className="text-lg sm:text-xl md:text-2xl text-gray-300 mt-4">
           Transformative tech education
         </h2>
-        <p className="text-gray-300 mt-6 max-w-2xl mx-auto lg:mx-0 text-sm sm:text-base">
+        <p className="text-gray-300 mt-6 max-w-2xl mx-auto lg:mx-0 text-sm  sm:text-base">
           At QuantumCrafters Studio, your journey begins with you. We don’t just
           enroll students – we take the time to understand your unique passions,
           interests, and career goals. By learning what excites and motivates
@@ -73,11 +74,7 @@ export default function HeroContent() {
           strengths and aspirations. Whether your passion lies in coding,
           design, data analytics, marketing or cybersecurity, we provide the
           tailored training and mentorship you need to unlock your full
-          potential and achieve success in the ever-evolving tech industry. Your
-          future deserves a thoughtful start – and that’s what we promise. Ready
-          to turn your passion into a career? Let’s discover your path together.
-          Enroll now and take the first step toward building the career you’ve
-          always dreamed of!
+          potential and achieve success in the ever-evolving tech industry. 
         </p>
 
         <div className="mt-6 sm:mt-8">
@@ -88,14 +85,12 @@ export default function HeroContent() {
       </div>
 
       {/* Hero Image */}
-      <div className="w-full sm:w-[450px] md:w-[600px] lg:w-[700px]">
+      <div className="w-full  lg:w-[30%] xl:w-[40%]">
         <Image
           src={heroMain}
           alt="Hero Main"
-          className="object-cover rounded-lg shadow-lg"
+          className="w-full h-auto rounded-lg shadow-lg"
           layout="responsive"
-          width={800}
-          height={600}
         />
       </div>
     </div>
