@@ -2,6 +2,7 @@ import React from "react";
 import lap from "../../../../public/images/lap.png";
 import Image from "next/image";
 import socials from "../../../../public/images/socials.png";
+import Link from "next/link";
 
 const Launch = () => {
   return (
@@ -28,9 +29,14 @@ const Launch = () => {
           <h3 className="text-xl uppercase font-extrabold bg-gradient-to-r from-green-500 via-green-300 to-blue-500 bg-clip-text text-transparent text-[#527CBD] mb-2">
             Enroll Now
           </h3>
-          <button className="bg-[#112E58] text-white uppercase py-2 my-5 font-thin px-4 rounded-lg shadow hover:bg-[#3A5A8D] transition duration-300">
-            Book a Free Consultation
-          </button>
+
+          <Link href={'/contact-us'}>
+            <button className="bg-[#112E58] text-white uppercase py-2 my-5 font-thin px-4 rounded-lg shadow hover:bg-[#3A5A8D] transition duration-300">
+              Book a Free Consultation
+            </button>
+          </Link>
+
+
         </div>
 
         {/* Right Section with Image */}

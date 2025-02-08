@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer'
-import Navbar from '@/components/HomeComponents/Hero/Header'
+import Navbar from '@/components/Navbar'
 import EnrollNowContainer from '@/containers/EnrollNowContainer/EnrollNowContainer'
 import React from 'react'
 

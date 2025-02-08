@@ -9,6 +9,7 @@ import mbg3 from "../../../../public/images/mbg3.jpg";
 import mbg4 from "../../../../public/images/mbg4.jpg";
 import mbg5 from "../../../../public/images/mbg5.jpg";
 import mbg6 from "../../../../public/images/Mbg6.jpg";
+import Link from "next/link";
 
 const Mentor = () => {
   return (
@@ -55,9 +56,12 @@ const Mentor = () => {
           They all guide you, inspire you, and help you navigate the challenges
           of the tech world.
         </span>
-        <button className="bg-[#112E58] mt-20 text-white w-[10rem] h-[2rem] rounded-lg">
-          Enroll Now
-        </button>
+        <Link href={'enroll-now'}>
+          <button className="bg-[#112E58] mt-20 text-white w-[10rem] h-[2rem] rounded-lg">
+            Enroll Now
+          </button>
+        </Link>
+
         <Image height={100} width={400} alt="mentor-main" src={m1.src} />
       </div>
 
@@ -82,7 +86,7 @@ const Mentor = () => {
           width={80}
           alt="mentor-right-3"
           src={mbg3.src}
-          className="self-end rounded-2xl  md:mr-[30%]  xl:mr-[350%]  animate-scale-pulse hidden lg:block"   
+          className="self-end rounded-2xl  md:mr-[30%]  xl:mr-[350%]  animate-scale-pulse hidden lg:block"
         />
       </div>
     </div>

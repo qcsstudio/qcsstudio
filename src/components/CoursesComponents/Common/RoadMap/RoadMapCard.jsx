@@ -1,6 +1,5 @@
 const RoadMapCard = ({data}) => {
     const {id,heading,startingMonth,endingMonth,lessons} = data;
-    console.log(lessons);
    return (
       <>
          <div className={`cardCont w-[100%] z-10 `}>

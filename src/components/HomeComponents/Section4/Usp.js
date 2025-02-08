@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import usp from "../../../../public/images/usp.png";
+import Link from "next/link";
 
 const Usp = () => {
   return (
@@ -55,9 +56,12 @@ const Usp = () => {
           matches your passion and potential.
         </p>
 
-        <button className="bg-[#112E58] hover:bg-[#0d2245] text-white py-3 px-6 rounded-lg text-lg font-medium transition-all">
-          Enroll Now
-        </button>
+        <Link href={'enroll-now'}>
+         <button className="bg-[#112E58] hover:bg-[#0d2245] text-white py-3 px-6 rounded-lg text-lg font-medium transition-all">
+           Enroll Now
+         </button>
+        </Link>
+        
       </div>
 
       <div className="flex justify-center">

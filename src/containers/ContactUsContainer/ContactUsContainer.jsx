@@ -3,17 +3,17 @@ import ContactUsForm from "@/components/ContactUsComponents/ContactUsForm";
 import CUFirstSec from "@/components/ContactUsComponents/CUFirstSec";
 import LocateUs from "@/components/ContactUsComponents/LocateUs";
 import NextStep from "@/components/ContactUsComponents/NextStep";
-import Navbar from "@/components/HomeComponents/Hero/Header";
+import Navbar from "@/components/Navbar";
 
 const ContactUsContainer = () => {
   return (
     <>
-    <Navbar/>
-    <CUFirstSec/>
-    <ContactInfo/>
-    <ContactUsForm/>
-   <LocateUs/>
-   <NextStep/>
+      <Navbar />
+      <CUFirstSec />
+      <ContactInfo />
+      <ContactUsForm />
+      <LocateUs />
+      <NextStep />
     </>
   );
 };

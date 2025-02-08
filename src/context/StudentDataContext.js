@@ -26,7 +26,7 @@ export const StudentDataContextProvider = ({ children }) => {
 
   const CreateStudentData = async (APIData) => {
     try {
-      console.log("studentData Before submission", APIData);
+
       const url = "api/students";
       const response = await fetch(url, {
         method: 'POST',
@@ -56,7 +56,7 @@ export const StudentDataContextProvider = ({ children }) => {
 
   const CreateQuizQuestion = async (APIData) => {
     try {
-      console.log("Quiz Data Before submission", APIData);
+      ("Quiz Data Before submission", APIData);
       const url = "api/questions";
       const response = await fetch(url, {
         method: 'POST',
@@ -86,7 +86,6 @@ export const StudentDataContextProvider = ({ children }) => {
 
   const EditQuizQuestion = async (APIData , id) => {
     try {
-      console.log("Quiz Data Before edit", APIData);
       const url = `api/questions/${id}`;
       const response = await fetch(url, {
         method: 'PUT',

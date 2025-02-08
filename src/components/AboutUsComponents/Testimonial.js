@@ -20,9 +20,9 @@ const Testimonial = () => {
                 {/* Testimonials */}
                 <div className='mt-10 flex gap-10 justify-center items-center flex-wrap lg:flex-nowrap w-full'>
                     {[
-                        { name: "Vishal Verma", field: "Web Development", text: "Takshashila Labs gave me the confidence and skills to land my dream job as a front-end developer. The hands-on projects and mentorship were invaluable.", img: Stu1 },
-                        { name: "Aman Kashyap", field: "UI/UX Design", text: "I was hesitant to switch careers, but Takshashila Labs made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.", img: Stu2 },
-                        { name: "Amit Kumar", field: "Digital Marketing", text: "Takshashila Labs taught me the latest digital marketing strategies and tools, and I'm now confidently managing campaigns for multiple clients.", img: Stu3 }
+                        { name: "Vishal Verma", field: "Web Development", text: "QCS gave me the confidence and skills to land my dream job as a front-end developer. The hands-on projects and mentorship were invaluable.", img: Stu1 },
+                        { name: "Aman Kashyap", field: "UI/UX Design", text: "I was hesitant to switch careers, but QCS made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.", img: Stu2 },
+                        { name: "Amit Kumar", field: "Digital Marketing", text: "QCS taught me the latest digital marketing strategies and tools, and I'm now confidently managing campaigns for multiple clients.", img: Stu3 }
                     ].map((item, index) => (
                         <div key={index} className='flex flex-col justify-center items-center text-center w-full sm:w-[80%] md:w-[50%] lg:w-[25vw]'>
                             <Image className='h-[220px] w-[220px]' src={item.img} alt='' />

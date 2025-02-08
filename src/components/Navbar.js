@@ -39,11 +39,11 @@ const Navbar = () => {
         </div>
 
         {/* Contact Button (Always Visible) */}
-        <div className="hidden lg:block">
+        <Link className="hidden lg:block" href={'/contact-us'}>
           <button className="bg-[#0e2d5b] text-white border w-[170px] rounded-lg h-[40px] hover:bg-gradient-to-r from-[#cce973] to-[#46d3c1] transition">
             CONTACT US
           </button>
-        </div>
+        </Link>
       </div>
 
       {/* Mobile Menu */}

@@ -6,6 +6,7 @@ import Image from "next/image";
 import HomeAbout from "../../../../public/images/HomeAbout.png";
 import { motion } from "framer-motion";
 import homeheader from "../../../../public/images/home-header.png";
+import Link from "next/link";
 
 function HomeAboutSection() {
   return (
@@ -67,9 +68,12 @@ function HomeAboutSection() {
             <p className="text-[#527CBD] text-xl sm:text-2xl pb-[10px]">
               QuantumCrafters Studio Now!
             </p>
-            <button className="rounded-lg w-full sm:w-[220px] h-[50px] sm:h-[55px] bg-[#032263] hover:bg-gradient-to-r hover:from-[#cce973] hover:to-[#46d3c1] text-white text-lg font-semibold transition-transform">
+            <Link href={'enroll-now'}>
+             <button className="rounded-lg w-full sm:w-[220px] h-[50px] sm:h-[55px] bg-[#032263] hover:bg-gradient-to-r hover:from-[#cce973] hover:to-[#46d3c1] text-white text-lg font-semibold transition-transform">
               ENROLL NOW
-            </button>
+             </button>
+            </Link>
+           
           </div>
         </div>
 

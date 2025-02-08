@@ -40,7 +40,6 @@ const EnrollNowContainer = () => {
     e.preventDefault();
     const formErrors = validateForm();
     if (Object.keys(formErrors).length === 0) {
-      console.log("Form submitted successfully!", formData);
       // Handle form submission (e.g., send to an API)
     } else {
       setErrors(formErrors);

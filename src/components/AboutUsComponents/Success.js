@@ -12,8 +12,7 @@ const Success = () => {
                         our Priority
                     </h1>
                     <p className=' tracking-wider lg:tracking-normal w-full lg:w-[30vw] text-white text-[16px]'>
-                        At Takshashila Labs, your success is our top priority. We're not just here to teach you; we're here to guide you, support you, and empower you to achieve your dreams.
-                    </p>
+                    At QuantumCrafters Studio, your success is our top priority. We're not just here to teach you; we're here to guide you, support you, and empower you to achieve your dreams.                    </p>
                 </div>
                 <div className='flex flex-col lg:flex-row gap-2 m-2 -mt-4 lg:m-24 lg:-mt-10 '>
                     <div className='flex flex-col gap-2 '>

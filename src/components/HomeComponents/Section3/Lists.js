@@ -9,6 +9,7 @@ import Network from "../../../../public/images/Network.png";
 import UXDesign from "../../../../public/images/UX-Design.png";
 import coures from "../../../../public/images/Course.png";
 import circle from "../../../../public/images/semiCircle.png";
+import Link from "next/link";
 
 const courses = [
   {
@@ -52,9 +53,8 @@ const HighlightHeader = () => (
 
 const ListItem = ({ text, onClick, isActive }) => (
   <li
-    className={`relative flex items-center cursor-pointer text-lg sm:text-xl md:text-2xl transition-all duration-300 ${
-      isActive ? "text-black font-bold pl-[50px]" : "text-gray-400 hover:text-black"
-    }`}
+    className={`relative flex items-center cursor-pointer text-lg sm:text-xl md:text-2xl transition-all duration-300 ${isActive ? "text-black font-bold pl-[50px]" : "text-gray-400 hover:text-black"
+      }`}
     onClick={onClick}
   >
     {isActive && (
@@ -89,9 +89,13 @@ const PhaseTwo = ({ selectedCourse }) => (
       {selectedCourse.des}
     </p>
 
-    <button className="text-white flex h-10 items-center mt-4 justify-center w-40 border rounded-lg bg-gradient-to-r from-[#cce973] to-[#46d3c1]">
-      Enroll Now
-    </button>
+    <Link href={'/enroll-now'} className="">
+      <button className="text-white flex h-10 items-center mt-4 justify-center w-40 border rounded-lg bg-gradient-to-r from-[#cce973] to-[#46d3c1]">
+        Enroll Now
+      </button>
+    </Link>
+
+
 
     <div className="relative w-full md:w-[500px] lg:w-[550px] h-[250px] md:h-[400px] lg:h-[450px] mt-6 flex items-center justify-center">
       <Image

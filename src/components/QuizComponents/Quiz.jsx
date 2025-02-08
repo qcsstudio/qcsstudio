@@ -128,13 +128,11 @@ const Quiz = () => {
       option_e: quizData.option_e,
     }
 
-    console.log("APIData",APIData);
     CreateStudentData(APIData);
   };
 
 
   useEffect(() => {
-    console.log('Updated studentData:', studentData);
   }, [studentData]);
 
   return (

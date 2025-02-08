@@ -3,6 +3,7 @@ import React from 'react'
 import computer from '../../../public/images/computer.png'
 import paper from '../../../public/images/paper.png'
 import sideArr from '../../../public/images/Sidearr.png'
+import Link from 'next/link'
 
 const Future = () => {
     return (
@@ -16,9 +17,12 @@ const Future = () => {
                         <h1 className='text-[24px] lg:text-[40px] text-[#032263] font-extrabold tracking-normal '>
                             are you ready to turn your passion into profession?
                         </h1>
-                        <button className='p-[12px] border border-[#032263] mt-4 text-[#032263] w-[250px] md:w-[250px] lg:w-auto rounded rounded-lg'>
+                        <Link href={"/contact-us"}>
+                         <button className='p-[12px] border border-[#032263] mt-4 text-[#032263] w-[250px] md:w-[250px] lg:w-auto rounded rounded-lg'>
                             Book a Free Consultation
-                        </button>
+                         </button>
+                        </Link>
+                       
                     </div>
                 </div>
                 <Image src={sideArr} className=' absolute h-[150px] w-[100px] lg:w-auto lg:h-[200px]' alt=''/>

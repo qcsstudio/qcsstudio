@@ -49,9 +49,8 @@ const CourseDetail = ({courseDetailObject}) => {
                                 return (<>
                                 
                                 {images?.length > 1 ? 
-                                <Image width={100} height={100} className={`${(data.id%2==0) ? "mt-[30]" : "mt-[17%]"} xl:w-[33%] xl:h-[30%] lg:w-[33%] lg:h-[30%] md:w-[33%] md:h-[70%] xs:w-[45%] `} key={index} src={data.url} alt={data.alt} /> : 
-
-                                <Image width={100} height={100} className={`${id==3 ? "lg:w-[70%] right-[0rem] bottom-[0rem] xs:w-[60%]"  : "lg:w-[100%] sm:w-[70%]" } `} key={index} src={data.url} alt={data.alt} />}
+                                  <Image width={100} height={100} className={`${(data.id%2==0) ? "mt-[30]" : "mt-[17%]"} xl:w-[33%] xl:h-[30%] lg:w-[33%] lg:h-[30%] md:w-[33%] md:h-[70%] xs:w-[45%] `} key={index} src={data.url} alt={data.alt} /> : 
+                                  <Image width={100} height={100} className={`${id==3 ? "lg:w-[70%] right-[0rem] bottom-[0rem] xs:w-[60%]"  : "lg:w-[100%] sm:w-[70%]" } `} key={index} src={data.url} alt={data.alt} />}
                                 </> )
                             })
                         }
