@@ -33,20 +33,39 @@ const Footer = () => {
       {/* Links and Newsletter Section */}
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 py-3 mt-10 w-full text-white">
         {/* Navigation Links */}
-       <div className='flex flex-col gap-10'>
-       <div className='grid grid-cols-4 gap-5 text-center'>
-          <li className='list-none'>HOME</li>
-          <li className='list-none'>ABOUT</li>
-          <li className='list-none'>CONTACT US</li>
-          <li className='list-none'>COURSES </li>
+        <div className='flex flex-col gap-10'>
+          <div className='grid grid-cols-4 gap-5 text-center'>
+
+            {
+              ["home", "about-us", "contact-us", "coures"].map((item, index) => {
+                return (
+                  <Link
+                    key={index}
+                    href={`/${item}`}
+                    className='hover:text-[#c4ef01] uppercase list-none hover:underline'>
+                    <li className='list-none'>{item.replace("-", " ")}</li>
+                  </Link>
+                );
+              })
+            }
+
+          </div>
+
+          <div className='grid grid-cols-3 gap-5 text-center pb-5'>
+            {
+              ["terms-of-service", "privacy-policy", "refund-policy"].map((item, index) => {
+                return (
+                  <Link href={`/${item}`}
+                    key={index}
+                    className='hover:text-[#c4ef01] uppercase hover:underline'>
+                    <li className='list-none'>{item.replaceAll("-"," ")}</li>
+                  </Link>
+                )
+              })
+            }
+          </div>
         </div>
-        <div className='grid grid-cols-3 gap-5 text-center pb-5'>
-        <Link href='/terms-conditions'  className='hover:text-[#c4ef01] hover:underline'><li  className='list-none'>Terms Of Service</li></Link>  
-        <Link href='/privacy-policy'className='hover:text-[#c4ef01] hover:underline'> <li className='list-none'>Privacy Policy</li></Link> 
-        <Link href='/refund-policy' className='hover:text-[#c4ef01] hover:underline'>  <li className='list-none'>Refund Policy</li></Link>
-        </div>
-       </div>
-        
+
         {/* Newsletter Signup */}
         <div className='flex flex-col gap-4 items-center'>
           <h1 className='font-bold text-lg text-center'>SIGN UP TO OUR NEWSLETTER</h1>
