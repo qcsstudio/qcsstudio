@@ -3,48 +3,38 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import redCircle from "../../../../public/images/redCircle.png";
 import Image from "next/image";
-import blueBg from "../../../../public/images/bluebg.png"
+import blueBg from "../../../../public/images/bluebg.png";
+import Stu1 from '../../../../public/images/Stu1.png'  
+import Stu2 from '../../../../public/images/Stu2.png'
+import Stu3 from '../../../../public/images/Stu3.png'
 
 const testimonials = [
   {
     id: 1,
-    image:
-      "https://i.pinimg.com/originals/e7/f9/d3/e7f9d3388abf5920c7a84a86ad9e9cbc.jpg",
-    name: "John Doe",
-    role: "Software Engineer",
+    image:Stu1,
+    name: "Vishal Verma",
+    role: "Software Developer",
     content:
-      "I was hesitant to switch careers, but Takshashila Labs made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
-    rating: 5, // Rating out of 5
+      "I was hesitant to switch careers, but QCS made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
+    rating: 5, 
   },
   {
     id: 2,
-    image:
-      "https://designimages.appypie.com/profilepicture/profilepicture-2-portrait-head.jpg",
-    name: "Jane Smith",
-    role: "Product Manager",
+    image:Stu2,
+    name: "Amit Kumar",
+    role: "Digital Marketing",
     content:
-      "I was hesitant to switch careers, but Takshashila Labs made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
-    rating: 4, // Rating out of 5
+      "QCS gave me the confidence and skills to land my dream job as a front-end developer. The hands-on projects and mentorship were invaluable.",
+    rating: 4,
   },
   {
     id: 3,
-    image:
-      "https://pics.craiyon.com/2023-10-25/b65f72d6d11a48c1bc560059cc36e31f.webp",
-    name: "Alex Johnson",
+    image:Stu3,
+    name: "Aman Kashyap",
     role: "UX Designer",
     content:
-      "I was hesitant to switch careers, but Takshashila Labs made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
-    rating: 4, // Rating out of 5
-  },
-  {
-    id: 3,
-    image:
-      "https://i.pinimg.com/originals/4f/51/76/4f5176cf66df79e26c35469ad178eddd.jpg",
-    name: "Alex Johnson",
-    role: "UX Designer",
-    content:
-      "I was hesitant to switch careers, but Takshashila Labs made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
-    rating: 5, // Rating out of 5
+      "QCS taught me the latest digital marketing strategies and tools, and I'm now confidently managing campaigns for multiple clients.",
+    rating: 4, 
   },
 ];
 
@@ -75,17 +65,20 @@ const TestimonialCarousel = () => {
           <span className="text-[#527CBD] text-medium">
             Hear from Our Students
           </span>
-          <h1 className="text-[#032263] text-3xl font-bold uppercase">
-            Testimonials & Success
+          <h1 className="text-[#032263] text-2xl lg:text-4xl font-[800] uppercase">
+            Success Stories: Real Results, Real Impact
           </h1>
-          <p className="w-[100%]  xl:w-[43%] text-[#051332] text-sm">
-            Feature a few powerful testimonials (even if hypothetical initially)
-            from students who have benefited from similar programs or have
-            achieved success in the tech industry
+          <p className="w-[100%]  lg:w-[70%] text-[#051332] text-sm">
+            Each student’s success is a testament to our commitment to providing
+            a transformative, career-focused education. Each testimonial
+            reflects our commitment to empowering students with the skills,
+            confidence, and industry-relevant knowledge they need to excel. By
+            sharing these stories, we aim to inspire prospective students to see
+            what’s possible when they choose QuantumCrafters Studio.
           </p>
           <div>
             <Image
-              className="flex absolute -left-[1%] bottom-[-662%] z-10"
+              className="flex  absolute -left-[1%] bottom-[-662%] z-10"
               alt="blue"
               src={blueBg.src}
               height={150}
@@ -96,21 +89,21 @@ const TestimonialCarousel = () => {
       </div>
       <div className="w-full bg-[#EFFAFF] relative p-[6%] pt-12">
         <motion.div
-          className=" rounded-lg p-6 flex items-center transition-transform duration-500"
+          className=" rounded-lg p-6 flex items-center transition-transform duration-500 "
           key={currentIndex}
         >
           <div className=" flex flex-col lg:flex-row text-center lg:text-left items-center  bg-[#EFFAFF]">
             <motion.img
-              src={testimonials[currentIndex].image}
+              src={testimonials[currentIndex].image.src}
               alt={testimonials[currentIndex].name}
-              className="w-72 h-72 rounded-full border-2 border-gray-300 mr-4 ml-4"
+              className="w-72 h-72 rounded-full  mr-4 border-[20px]  border-slate-400  ml-4"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
             />
             <div className="flex flex-col gap-y-3 ml-4">
               <motion.p
-                className="text-gray-700 italic"
+                className="text-gray-700 py-3 lg:py-0 italic"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -141,18 +134,18 @@ const TestimonialCarousel = () => {
             </div>
           </div>
         </motion.div>
-        <div className="absolute -top-20  right-[10%] z-10 flex space-x-2 ">
+        <div className="absolute  lg:-top-20 top-5 right-[10%] z-10 flex space-x-2 ">
           <motion.button
             onClick={prevTestimonial}
             whileHover={{ scale: 1.1 }}
-            className="w-8 h-8 text-white bg-[#051332] flex items-center justify-center rounded-full"
+            className="w-8 h-8 text-white bg-[#051332] flex items-center justify-center "
           >
             &#8592;
           </motion.button>
           <motion.button
             onClick={nextTestimonial}
             whileHover={{ scale: 1.1 }}
-            className="w-8 h-8 text-white bg-[#051332] flex items-center justify-center rounded-full"
+            className="w-8 h-8 text-white bg-[#051332] flex items-center justify-center"
           >
             &#8594;
           </motion.button>
