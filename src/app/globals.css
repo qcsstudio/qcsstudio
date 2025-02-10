@@ -69,6 +69,12 @@
   padding-bottom: 50px; /* Prevents arrows from overlapping content */
 }
 
+
+.aplha{
+  font-size: 50px !important;
+ 
+}
+
 /* Slick arrows styling */
 .courses .slick-prev,
 .courses .slick-next {

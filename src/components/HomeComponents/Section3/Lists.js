@@ -40,12 +40,12 @@ const courses = [
 ];
 
 const HighlightHeader = () => (
-  <div className="flex flex-col gap-2 text-center md:text-left">
+  <div className="flex flex-col gap-2 md:text-left py-10 lg:py-20 max-w-lg">
     <span className="text-blue-700 text-lg md:text-xl">What we have</span>
-    <h2 className="text-xl sm:text-2xl md:text-3xl uppercase text-[#032263] font-bold">
+    <h2 className="text-xl lg:text-4xl md:text-3xl uppercase text-[#032263] font-bold">
       Course Highlights
     </h2>
-    <p className="mt-2 text-sm text-gray-600">
+    <p className="mt-2 text-2xl text-gray-600">
       Our Programs: Your Pathway to Tech Success
     </p>
   </div>
@@ -53,7 +53,7 @@ const HighlightHeader = () => (
 
 const ListItem = ({ text, onClick, isActive }) => (
   <li
-    className={`relative flex items-center cursor-pointer text-lg sm:text-xl md:text-2xl transition-all duration-300 ${isActive ? "text-black font-bold pl-[50px]" : "text-gray-400 hover:text-black"
+    className={`relative flex items-center pl-10cursor-pointer text-lg sm:text-xl md:text-2xl transition-all duration-300 ${isActive ? "text-black font-bold pl-[60px] text-4xl" : "text-gray-400 hover:text-black"
       }`}
     onClick={onClick}
   >
@@ -65,7 +65,7 @@ const ListItem = ({ text, onClick, isActive }) => (
 );
 
 const CourseList = ({ selectedCourse, setSelectedCourse }) => (
-  <ul className="flex flex-col py-10 gap-6 md:gap-8">
+  <ul className="flex flex-col py-10 lg:py-0 gap-6 md:gap-8">
     {courses.map((course) => (
       <ListItem
         key={course.name}
@@ -77,27 +77,44 @@ const CourseList = ({ selectedCourse, setSelectedCourse }) => (
   </ul>
 );
 
+const capitalizeAndBoldFirstWord = (text) => {
+  if (!text) return text;
+
+
+  const capitalizedText = text.charAt(0).toUpperCase() + text.slice(1);
+
+  const words = capitalizedText.split('');
+
+  const transformedText = `<strong class="aplha">${words[0]}</strong> ${words.slice(1).join('')}`;
+
+  return transformedText;
+};
+
+
+
 const PhaseTwo = ({ selectedCourse }) => (
-  <div className="w-full md:w-[90%] lg:w-[85%] xl:w-[80%] flex flex-col items-center md:items-start relative bg-[#527CBD] p-6 md:p-10 rounded-lg">
+  <div className="w-full flex flex-col items-start justify-start lg:items-center relative bg-[#527CBD] lg:p-6 p-3 md:p-10 ">
     <Image
       src={circle}
       alt="circle background"
       className="absolute top-0 -right-10 w-[150px] md:w-[200px] h-[150px] md:h-[200px]"
     />
-
-    <p className="p-4 text-center md:text-left text-white bg-opacity-80 rounded-lg">
-      {selectedCourse.des}
-    </p>
-
+    <div className='flex flex-col items-start gap-5 lg:gap-16 '>
+    <div className="p-4 text-left md:text-left  text-white bg-opacity-80 text-sm lg:text-lg tracking-wide rounded-lg"
+     dangerouslySetInnerHTML={{ __html: capitalizeAndBoldFirstWord(selectedCourse.des) }}
+    >
+    </div>
+     <Image className='absolute left-56 top-24' src='/images/aero.png' height={130} width={130} alt='aero'></Image>
     <Link href={'/enroll-now'} className="">
-      <button className="text-white flex h-10 items-center mt-4 justify-center w-40 border rounded-lg bg-gradient-to-r from-[#cce973] to-[#46d3c1]">
+      <button className="text-white flex py-2 px-4  lg:py-3 lg:px-10 text-lg lg:text-xl  items-center  justify-center  border rounded-xl bg-gradient-to-r from-[#cce973] to-[#46d3c1]">
         Enroll Now
       </button>
     </Link>
+    </div>
 
 
 
-    <div className="relative w-full md:w-[500px] lg:w-[550px] h-[250px] md:h-[400px] lg:h-[450px] mt-6 flex items-center justify-center">
+    <div className="relative w-full md:w-[500px] lg:w-[600px] h-[250px] md:h-[400px] lg:h-[450px] mt-6 flex items-center justify-center">
       <Image
         src={selectedCourse.img}
         alt={selectedCourse.name}
@@ -112,7 +129,7 @@ const Lists = () => {
   const [selectedCourse, setSelectedCourse] = useState(courses[0]);
 
   return (
-    <div className="bg-white relative flex flex-col lg:grid lg:grid-cols-2 justify-between items-center lg:items-start gap-10 lg:gap-16 px-6 md:px-12 lg:px-24 xl:px-40 py-20">
+    <div className="bg-white relative flex flex-col lg:grid lg:grid-cols-2 justify-center mx-auto items-start lg:items-start px-3  lg:px-16">
       <Image
         src={coures}
         alt="course icon"
@@ -121,7 +138,7 @@ const Lists = () => {
         className="absolute hidden lg:block top-1/2 -translate-y-1/2 right-4 md:right-10"
       />
 
-      <div className="w-full flex flex-col items-center lg:items-start">
+      <div className="w-full flex flex-col items-start justify-center lg:items-start">
         <HighlightHeader />
         <CourseList
           selectedCourse={selectedCourse}
