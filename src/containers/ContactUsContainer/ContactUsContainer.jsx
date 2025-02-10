@@ -3,6 +3,8 @@ import ContactUsForm from "@/components/ContactUsComponents/ContactUsForm";
 import CUFirstSec from "@/components/ContactUsComponents/CUFirstSec";
 import LocateUs from "@/components/ContactUsComponents/LocateUs";
 import NextStep from "@/components/ContactUsComponents/NextStep";
+import FAQ from "@/components/CoursesComponents/Common/FAQ/FAQ";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 const ContactUsContainer = () => {
@@ -13,7 +15,9 @@ const ContactUsContainer = () => {
       <ContactInfo />
       <ContactUsForm />
       <LocateUs />
+      <FAQ/>
       <NextStep />
+      <Footer/>
     </>
   );
 };

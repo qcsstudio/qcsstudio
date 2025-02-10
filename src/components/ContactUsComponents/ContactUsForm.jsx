@@ -38,11 +38,11 @@ const ContactUsForm = () => {
     } else {
       setStatus("Error sending message.");
     }
-  };
+  }
 
   return (
     
-    <div className='flex w-full relative  flex-wrap justify-around gap-10 p-6  lg:gap-0 py-10  item-center'
+    <div className='flex flex-wrap md:flex-nowrap w-full relative mx-auto  justify-center gap-12 p-6  lg:gap-24 py-16  item-center'
     style={{ 
       backgroundImage: `url('/images/Group (14).png')`, 
       backgroundSize: 'cover', 
@@ -50,19 +50,19 @@ const ContactUsForm = () => {
       backgroundRepeat: 'no-repeat',
     }}>
       {/* floating Images */}
-    <Image src='/images/Rectangleform.png' className="hidden lg:block absolute opacity-5 left-96 " width={200} height={200} alt='' ></Image>
-    <Image src='/images/Group (15).png' className=" hidden lg:block  absolute bottom-0 left-auto " width={100} height={100} alt='' ></Image>
+    <Image src='/images/Rectangleform.png' className="hidden lg:block absolute opacity-5  " width={200} height={200} alt='' ></Image>
+    <Image src='/images/Group (15).png' className=" hidden lg:block  absolute bottom-0 left-auto " width={150} height={150} alt='' ></Image>
      {/* left div */}
       <div className="flex lg:flex-col md:flex-col  flex-col-reverse gap-2">
-        <p className="text-[#527CBD] font-bold  lg:text-xl md:text-4xl text-xl max-w-2xl lg:leading-[56px] tracking-[3%]">Have A Question?</p>
-        <h1 className="text-[#0F2E5B] font-bold  lg:text-5xl md:text-4xl text-xl max-w-2xl lg:leading-[56px] tracking-[3%] ">Get in touch</h1>
-        <Image src='/images/formPic.png' height={500} width={500} alt='formpic'></Image>
+        <p className="text-[#527CBD] font-bold  lg:text-xl  text-md max-w-2xl lg:leading-[56px] tracking-[3%]">Have A Question?</p>
+        <h1 className="text-[#0F2E5B] font-bold  lg:text-5xl md:text-2xl text-xl max-w-2xl lg:leading-[56px] tracking-[3%] ">Get in touch</h1>
+        <Image src='/images/formPic.png' height={500} width={600} alt='formpic'></Image>
       </div>
-      <div className="w-[350px] lg:w-[400px] p-6  rounded-lg shadow-md  " style={{background:'radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,21,70,1) 100%)'}}>
+      <div className="w-[500px] p-10 lg:p-16 rounded-lg shadow-md  " style={{background:'radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,21,70,1) 100%)'}}>
       {/* <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">Contact Us</h1> */}
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="w-full px-4 py-2 border flex gap-0  border-gray-300 bg-[#DDF3FF] rounded-md focus-within:ring-2 focus-within:ring-indigo-500">
+        <div className="w-full px-5 py-2 border flex gap-0  border-gray-300 bg-[#DDF3FF] rounded-2xl focus-within:ring-2 focus-within:ring-indigo-500">
           {/* <label htmlFor="name" className="block text-gray-700 font-medium">Name</label> */}
           <Image src='/profile.svg' width={30} height={20} alt='profile'></Image>
           <input
@@ -73,11 +73,11 @@ const ContactUsForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-           className="w-full px-4 py-2 border-none  bg-[#DDF3FF] rounded-md focus:outline-none"
+           className="w-full px-4 py-2 border-none  bg-[#DDF3FF] rounded-lg focus:outline-none"
           />
         </div>
 
-        <div className="w-full flex px-4 py-2 border  border-gray-300 bg-[#DDF3FF] rounded-md focus-within:ring-2 focus-within:ring-indigo-500">
+        <div className="w-full flex px-4 py-2 border  border-gray-300 bg-[#DDF3FF] rounded-2xl focus-within:ring-2 focus-within:ring-indigo-500">
           {/* <label htmlFor="email" className="block text-gray-700 font-medium">Email</label> */}
           <Image src='/email.svg' width={30} height={20} alt='profile'></Image>
           <input
@@ -88,10 +88,10 @@ const ContactUsForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border-none  bg-[#DDF3FF] rounded-md focus:outline-none"
+            className="w-full px-4 py-2 border-none  bg-[#DDF3FF] rounded-lg focus:outline-none"
           />
         </div>
-        <div className="w-full flex px-4 py-2 border  border-gray-300 bg-[#DDF3FF] rounded-md focus-within:ring-2 focus-within:ring-indigo-500">
+        <div className="w-full flex px-4 py-2 border  border-gray-300 bg-[#DDF3FF] rounded-2xl focus-within:ring-2 focus-within:ring-indigo-500">
           {/* <label htmlFor="email" className="block text-gray-700 font-medium">Email</label> */}
           <Image src='/phone.svg' width={30} height={20} alt='profile'></Image>
           <input
@@ -102,11 +102,11 @@ const ContactUsForm = () => {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border-none  bg-[#DDF3FF] rounded-md focus:outline-none"
+            className="w-full px-4 py-2 border-none  bg-[#DDF3FF] rounded-lg focus:outline-none"
           />
         </div>
 
-        <div className="w-full flex px-4 py-2 border items-start justify-center border-gray-300 bg-[#DDF3FF] rounded-md focus-within:ring-2 focus-within:ring-indigo-500">
+        <div className="w-full flex px-4 py-2 border items-start justify-center border-gray-300 bg-[#DDF3FF] rounded-2xl focus-within:ring-2 focus-within:ring-indigo-500">
           {/* <label htmlFor="message" className="block text-gray-700 font-medium">Message</label> */}
           <Image src='/message.svg' width={30} height={20} alt='profile'></Image>
           <textarea
@@ -117,7 +117,7 @@ const ContactUsForm = () => {
             onChange={handleChange}
             required
             rows="6"
-            className="w-full px-4  border-none  bg-[#DDF3FF] rounded-md focus:outline-none "
+            className="w-full px-4  border-none  bg-[#DDF3FF] rounded-lg focus:outline-none "
           />
         </div>
 
