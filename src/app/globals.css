@@ -16,6 +16,14 @@
 
 
 }
+.CarIcon{
+  display: block;
+}
+@media (max-width: 640px) {
+  .CarIcon{
+    display: none !important;
+  }
+}
 .PhaseOne{
   display: flex !important;
   align-items: center !important;

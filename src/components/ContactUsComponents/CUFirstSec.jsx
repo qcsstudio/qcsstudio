@@ -31,7 +31,7 @@ const CUFirstSec = () => {
       {/* Wrapper for Centering */}
       <div className="relative z-20 flex justify-start w-full max-w-[1200px]">
         {/* Content Box */}
-        <div className="flex flex-col gap-6 text-left max-w-3xl lg:max-w-3xl">
+        <div className="flex flex-col lg:-ml-8 gap-6 text-left max-w-3xl lg:max-w-3xl">
           <p className="text-[#C4EF01] text-xl lg:text-2xl xl:text-3xl font-bold">Let’s Connect!</p>
           <h1 className="font-bold text-white text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl leading-tight">
             WE’RE HERE TO HELP YOU LAUNCH YOUR TECH CAREER

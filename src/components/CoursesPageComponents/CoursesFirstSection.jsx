@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import side2pic from '../../../public/images/slide2pic.png'
 import Dm from '../../../public/images/DM.png'
-import board from '../../../public/images/seo.png'
+import seo from '../../../public/images/seo.png'
 import ai from '../../../public/images/coursesfirstsec.png'
 import react from '../../../public/images/react.png'
 import dj from '../../../public/images/dj.png'
@@ -18,8 +18,16 @@ import graph from '../../../public/images/seo.png'
 import google from '../../../public/images/google-ana.png'
 import meta from '../../../public/images/meta.png';
 import nodejs from '../../../public/images/js.png';
-import pythonReal from '../../../public/images/python.png';
-import ui from '../../../public/images/ui.png';
+import kaliIcon from '../../../public/images/kaliIcon.png';
+import iconweb from '../../../public/images/iconweb.png';
+import seoicon from '../../../public/images/seoicon.png';
+import icondm from '../../../public/images/iconDm.png';
+import pencion from '../../../public/images/penicon.png';
+import iconcil from '../../../public/images/iconcil.png';
+import iconData from '../../../public/images/iconData.png';
+import cloudIcon from '../../../public/images/cloudIcon.png'; 
+import lock from '../../../public/images/lock.png'
+import board from '../../../public/images/board.png'
 
 const slides = [
   {
@@ -29,9 +37,10 @@ const slides = [
     image: ai,
     icon: {
 
-        i1: { iconUrl: pythonReal, iconTop: '', iconLeft: '' },
+        i1: { iconUrl: python, iconTop: '', iconLeft: '' },
         i2: { iconUrl: shark, iconTop: '', iconLeft: '' },
-        i3: { iconUrl: python, iconTop: '', iconLeft: '' }
+        i3: { iconUrl: cloudIcon, iconTop: 'bottom-[280px]', iconLeft: 'left-[280px]' },
+        i4: { iconUrl: iconData, iconTop: 'bottom-[180px]', iconLeft: '-left-[40]' }
 
     }
   },
@@ -44,7 +53,8 @@ const slides = [
 
         i1: { iconUrl: react, iconTop: '', iconLeft: '' },
         i2: { iconUrl: dj, iconTop: '', iconLeft: '' },
-        i3: { iconUrl: nodejs, iconTop: '', iconLeft: '' }
+        i3: { iconUrl: nodejs, iconTop: 'bottom-[250px]', iconLeft: '' },
+        i4: { iconUrl: iconweb, iconTop: 'bottom-[290px]', iconLeft: 'left-[80px]' }
 
     }
   },
@@ -55,9 +65,10 @@ const slides = [
     image: Dm,
     icon: {
 
-        i1: { iconUrl: react, iconTop: '', iconLeft: '' },
-        i2: { iconUrl: dj, iconTop: '', iconLeft: '' },
-        i3: { iconUrl: graph, iconTop: '', iconLeft: '' }
+        i1: { iconUrl: react, iconTop: '', iconLeft: 'left-[190px]' },
+        i2: { iconUrl: icondm, iconTop: 'bottom-[50px]', iconLeft: '' },
+        i3: { iconUrl: graph, iconTop: 'bottom-[180px]', iconLeft: '' },
+        i4: { iconUrl: seoicon, iconTop: 'bottom-[280px]', iconLeft: 'left-[280px]' }
 
     }
   },
@@ -68,9 +79,10 @@ const slides = [
     image: board,
     icon: {
 
-        i1: { iconUrl: Figma, iconTop: '', iconLeft: '' },
-        i2: { iconUrl: diamond, iconTop: '', iconLeft: '' },
-        i3: { iconUrl: ui, iconTop: '', iconLeft: '' }
+        i1: { iconUrl: Figma, iconTop: 'bottom-[270px]', iconLeft: '-left-[30]' },
+        i2: { iconUrl: diamond, iconTop: '-bottom-[20px]', iconLeft: '' },
+        i3: { iconUrl: pencion, iconTop: 'bottom-[290px]', iconLeft: 'left-[290px]' },
+        i4: { iconUrl: iconcil, iconTop: 'bottom-[200px]', iconLeft: 'left-[440px]' }
 
     }
   },
@@ -78,12 +90,13 @@ const slides = [
     title: "NETWORK & NETWORK SECURITY",
     description: "From stunning websites to powerful web applications, master the art of coding and build the digital future.",
     buttonText: "EXPLORE UI/UX DESIGNING",
-    image: board,
+    image: lock,
     icon: {
 
-        i1: { iconUrl: shark, iconTop: '', iconLeft: '' },
-        i2: { iconUrl: meta, iconTop: '', iconLeft: '' },
-        i3: { iconUrl: google, iconTop: '', iconLeft: '' }
+        i1: { iconUrl: shark, iconTop: '-bottom-[80px]', iconLeft: '' },
+        i2: { iconUrl: meta, iconTop: 'bottom-[40px]', iconLeft: '' },
+        i3: { iconUrl: google, iconTop: 'bottom-[180px]', iconLeft: 'left-[560px]' },
+        i4: { iconUrl: kaliIcon, iconTop: '', iconLeft: '-left-[40]' }
 
     }
   }
@@ -116,9 +129,10 @@ const Slide = ({ title, description, buttonText, image, icon }) => (
 
       {/* Rendering icons */}
       <div className=" bottom-5 right-5 flex gap-2">
-        <Image className=" hidden absolute -bottom-14 left-12 h-[60px] w-[60px] lg:block"  src={icon.i1.iconUrl} width={40} height={40} alt="Icon 1" />
-        <Image className=" hidden absolute -bottom-[40px] left-[380px] h-[60px] w-[60px]" src={icon.i2.iconUrl} width={40} height={40} alt="Icon 2" />
-        <Image className=" hidden absolute bottom-[80px] left-[500px] h-[60px] w-[60px]" src={icon.i3.iconUrl} width={40} height={40} alt="Icon 3" /> {/* Fixed duplicate i2 */}
+        <Image className={` ${icon.i1.iconTop} ${icon.i1.iconLeft} CarIcon absolute -bottom-14 left-12 h-[60px] w-[60px] lg:block`}  src={icon.i1.iconUrl} width={40} height={40} alt="Icon 1" />
+        <Image className= {` ${icon.i2.iconTop} ${icon.i2.iconLeft} CarIcon absolute -bottom-[40px] left-[380px] h-[60px] w-[60px]`} src={icon.i2.iconUrl} width={40} height={40} alt="Icon 2" />
+        <Image className={` ${icon.i3.iconTop} ${icon.i3.iconLeft} CarIcon absolute left-[500px] h-[60px] w-[60px]`} src={icon.i3.iconUrl} width={40} height={40} alt="Icon 3" /> {/* Fixed duplicate i2 */}
+        <Image className={` ${icon.i4.iconTop} ${icon.i4.iconLeft} CarIcon absolute h-[60px] w-[60px]`} src={icon.i4.iconUrl} width={40} height={40} alt="Icon 3" /> {/* Fixed duplicate i2 */}
       </div>
     </div>
   </div>
@@ -128,7 +142,7 @@ const CoursesFirstSection = () => {
   return (
     <div className="h-[100vh] flex justify-center items-center"
       style={{ backgroundImage: "url('/images/CoursesBackground.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-      <div className="w-[75vw] h-[80vh] border rounded-xl"
+      <div className="w-[75vw] h-[70vh] items-center justify-center lg:h-[80vh] border rounded-xl"
         style={{ backgroundImage: "url('/images/CoursesBg2.png')", backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
         <Slider {...settings} className='courses'>
           {slides.map((slide, index) => <Slide key={index} {...slide} />)}
