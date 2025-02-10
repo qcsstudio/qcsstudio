@@ -101,7 +101,7 @@ const TestimonialCarousel = () => {
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
             />
-            <div className="flex flex-col gap-y-3 ml-4">
+            <div className="flex flex-col lg:gap-y-1 ml-4">
               <motion.p
                 className="text-gray-700 py-3 lg:py-0 italic"
                 initial={{ opacity: 0 }}
