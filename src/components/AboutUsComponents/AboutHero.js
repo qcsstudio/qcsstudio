@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const AboutHero = () => {
   return (
-    <div className='py-10 lg:pt-0 relative z-1 bg-gradient-to-r from-[#020D29] via-[#020D29] to-[#0f0b36] text-white lg:min-h-[90vh] flex items-start lg:items-center'>
+    <div className='py-10 lg:pl-[3vw] lg:pt-0 relative z-1 bg-gradient-to-r from-[#020D29] via-[#020D29] to-[#0f0b36] text-white lg:min-h-[90vh] flex items-start lg:items-center'>
       <div className=' relative z-10 flex flex-col ml-5 gap-5  lg:gap-5 lg:w-[50vw] lg:pt-18 lg:ml-20'>
         <span className='text-[#C4EF01] text-[21px]'>
           Our Story
