@@ -89,11 +89,24 @@ export const BlogDataContextProvider = ({ children }) => {
       try {
         const url = "/api/blogs/"
         const response = await fetch(url);
-        console.log("Data From backend response : ---------------------",response);
         
         if (response.status === 200){
           const result = await response.json();
           setmultipleBlogData(result.blog_data);
+        }
+      } catch (error) {
+        console.log("Blog data not get ! ",error);
+      }
+  }
+
+  const GetSingleBlogData = async (slug) => {
+      try {
+        const url = `/api/blogs/${slug}`
+        const response = await fetch(url);
+        
+        if (response.status === 200){
+          const result = await response.json();
+          setblogData(result.blog_data);
         }
       } catch (error) {
         console.log("Blog data not get ! ",error);
@@ -136,6 +149,7 @@ export const BlogDataContextProvider = ({ children }) => {
       try {
         const url = `/api/blogs/${slug}`
         const response = await fetch(url);
+        console.log(response);
         if (response.status === 200) {
           const result = await response.json()
           setblogData(result.blog_data);
@@ -150,24 +164,23 @@ export const BlogDataContextProvider = ({ children }) => {
       const res = await fetch("/api/admin/uploadblog", {
           method: "POST",
           headers: {
-              "Content-Type": "application/json",
+              "content-type": "application/json",
           },
           body: JSON.stringify({title,thumbnail,category,showOnFront,description}),
       });
   
       const data = await res.json();
-      console.log("Data from backend :",data);
       setmultipleBlogData(data);
-      setADD(false);
-      
+      return data;
   } catch (error) {
       console.log("Upload Error :- ",error);
       alert("Upload Error !!! (check console)");
+      return false;
   }
   }
 
   return (
-    <BlogDataContext.Provider value={{ categoryData, setCategoryData, GetCategoryData, DeleteCategoryData, UpdateCategoryData,PostCategoryData,multipleBlogData,setmultipleBlogData,GetBlogData,DeleteBlog,UpdateBlog,GetSingleBlog,PostBlogData}}>
+    <BlogDataContext.Provider value={{ categoryData, setCategoryData, GetCategoryData, DeleteCategoryData, UpdateCategoryData,PostCategoryData,multipleBlogData,setmultipleBlogData,GetBlogData,DeleteBlog,UpdateBlog,GetSingleBlog,PostBlogData,GetSingleBlogData,setblogData,blogData}}>
       {children}
     </BlogDataContext.Provider>
   );

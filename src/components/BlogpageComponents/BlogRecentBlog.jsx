@@ -1,10 +1,30 @@
 "use client"
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
+import { BlogDataContext } from '@/context/BlogData';
+import Link from 'next/link';
 
 const BlogRecentBlog = () => {
 
+  const {multipleBlogData,GetBlogData,DeleteBlog,categoryData,GetCategoryData} = useContext(BlogDataContext);
+  const [blogData,setBlogData] = useState([]);
+  const [initialBlog,setInitialBlog] = useState(4);
+
   
+
+  useEffect(()=>{
+    GetBlogData();
+  },[]);
+
+  useEffect(()=>{
+    const newArray = multipleBlogData.slice(1,initialBlog);
+    setBlogData(newArray);
+  },[multipleBlogData,initialBlog]);
+
+  const getDate = (createdAt)=>{
+    const newDate = new Date(createdAt).toLocaleDateString();
+    return newDate;
+  }
 
   return (
     <div className="relative px-4 sm:px-8 md:px-16">
@@ -31,91 +51,55 @@ const BlogRecentBlog = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
           {/* Large Image Blog Post */}
+          {multipleBlogData &&
           <div className="flex flex-col  text-center md:text-left">
+            {multipleBlogData[0]?.thumbnail && 
             <Image
-              src="/images/recentsblogs1.png"
+              src={multipleBlogData[0]?.thumbnail}
               className="w-full object-cover rounded-md"
               height={500}
               width={500}
-              alt=""
-            />
-            <span className="text-gray-700 text-xs sm:text-sm">30/1/2025</span>
+              alt="Head"
+            />}
+            <span className="text-gray-700 text-xs sm:text-sm">{getDate(multipleBlogData[0]?.createdAt)}</span>
             <h3 className="text-base sm:text-xl md:text-2xl text-[#0E2D5B] font-bold">
-              Today is Trending
+              {multipleBlogData[0]?.heading}
             </h3>
-            <p className="text-[#0E2D5B] font-normal leading-[20px] text-xs sm:text-sm md:text-base">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio iure
-              accusamus non, nulla tempora hic mollitia eius ea doloremque officiis asperiores.
-            </p>
+            <div className="text-[#0E2D5B] font-normal leading-[20px] text-xs sm:text-sm md:text-base" dangerouslySetInnerHTML={{__html:multipleBlogData[0]?.description.substring(0,10)}}>
+              
+            </div>
           </div>
-
+        }
       
           <div className="flex flex-col gap-6">
   {/* Blog Post 1 */}
-  <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
-    <div className="w-full sm:w-1/3">
-      <Image
-        src="/images/recentsBlogs2.png"
-        className="w-full object-cover rounded-md"
-        height={200}
-        width={200}
-        alt=""
-      />
-    </div>
-    <div className="w-full sm:w-2/3 text-center sm:text-left">
-      <span className="text-gray-700 text-xs sm:text-sm">30/1/2025</span>
-      <h3 className="text-base sm:text-xl md:text-lg text-[#0E2D5B] font-bold">
-        Today is Trending
-      </h3>
-      <p className="text-[#0E2D5B] font-normal leading-[20px] text-xs sm:text-sm md:text-xs">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio iure.
-      </p>
-    </div>
-  </div>
+    {multipleBlogData &&
+      blogData.map((data)=>{
+          return <Link key={data._id} href={`/blogs/${data.heading}`}>
+          <div  className="flex flex-col sm:flex-row gap-4 sm:items-center">
+            <div className="w-full sm:w-1/3">
+              <Image
+                src={data.thumbnail}
+                className="w-full object-cover rounded-md"
+                height={200}
+                width={200}
+                alt=""
+              />
+            </div>
+            <div className="w-full sm:w-2/3 text-center sm:text-left">
+              <span className="text-gray-700 text-xs sm:text-sm">{getDate(data.createdAt)}</span>
+              <h3 className="text-base sm:text-xl md:text-lg text-[#0E2D5B] font-bold">
+                {data.heading}
+              </h3>
+              
+              <div dangerouslySetInnerHTML={{ __html:data.description.slice(0,40)}} />
+            
+            </div>
+          </div></Link>
+  })
+  }
 
-  {/* Blog Post 2 */}
-  <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
-    <div className="w-full sm:w-1/3">
-      <Image
-        src="/images/recentsBlogs3.png"
-        className="w-full object-cover rounded-md"
-        height={200}
-        width={200}
-        alt=""
-      />
-    </div>
-    <div className="w-full sm:w-2/3 text-center sm:text-left">
-      <span className="text-gray-700 text-xs sm:text-sm">30/1/2025</span>
-      <h3 className="text-base sm:text-xl md:text-lg text-[#0E2D5B] font-bold">
-        Today is Trending
-      </h3>
-      <p className="text-[#0E2D5B] font-normal leading-[20px] text-xs sm:text-sm md:text-xs">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio iure.
-      </p>
-    </div>
-  </div>
-
-  {/* Blog Post 3 */}
-  <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
-    <div className="w-full sm:w-1/3">
-      <Image
-        src="/images/recentsBlogs4.png"
-        className="w-full object-cover rounded-md"
-        height={200}
-        width={200}
-        alt=""
-      />
-    </div>
-    <div className="w-full sm:w-2/3 text-center sm:text-left">
-      <span className="text-gray-700 text-xs sm:text-sm">30/1/2025</span>
-      <h3 className="text-base sm:text-xl md:text-lg text-[#0E2D5B] font-bold">
-        Today is Trending
-      </h3>
-      <p className="text-[#0E2D5B] font-normal leading-[20px] text-xs sm:text-sm md:text-xs">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio iure.
-      </p>
-    </div>
-  </div>
+ 
 </div>
 
         </div>
@@ -133,11 +117,16 @@ const BlogRecentBlog = () => {
       </div>
 
       {/* Load More Button */}
-      <div className="flex justify-center my-16">
-        <button className="bg-white border border-[#0E2D5B] hover:text-white hover:bg-[#0E2D5B] text-[#0E2D5B] px-6 py-2 rounded-md text-sm sm:text-base">
+      
+      {(initialBlog < multipleBlogData.length) ? <div className="flex justify-center my-16">
+        <button className="bg-white border border-[#0E2D5B] hover:text-white hover:bg-[#0E2D5B] text-[#0E2D5B] px-6 py-2 rounded-md text-sm sm:text-base" onClick={()=>setInitialBlog(initialBlog + 3)}>
           LOAD MORE
         </button>
-      </div>
+      </div> : <div className="flex justify-center my-16">
+        <button className="bg-white border border-[#0E2D5B] hover:text-white hover:bg-[#0E2D5B] text-[#0E2D5B] px-6 py-2 rounded-md text-sm sm:text-base" onClick={()=>setInitialBlog(4)}>
+          LOAD LESS
+        </button>
+      </div>}
     </div>
   );
 };
