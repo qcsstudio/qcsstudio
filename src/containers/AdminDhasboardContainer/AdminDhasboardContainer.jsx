@@ -1,6 +1,10 @@
 "use client"
 import QuizQuestionsComponent from '@/components/AdminDashboardComponents/QuizQuestionsComponent';
 import StudentsDataTableComponent from '@/components/AdminDashboardComponents/StudentsDataTableComponent';
+import ListBlog from '@/components/BlogpageComponents/UploadComponents/ListBlog';
+import ListCategory from '@/components/BlogpageComponents/UploadComponents/ListCategory';
+import UploadBlog from '@/components/BlogpageComponents/UploadComponents/UploadBlog';
+import UploadCategory from '@/components/BlogpageComponents/UploadComponents/UploadCategory';
 import QuestionsManager from '@/components/QuizComponents/QuestionsManager';
 import React, { useState } from 'react';
 
@@ -15,14 +19,18 @@ const AdminDashboardContainer = () => {
         return <StudentsDataTableComponent />;
       case 'quiz':
         return <QuestionsManager />;
+      case 'ListBlog':
+        return <ListBlog />;
+      case 'CategoryList':
+        return <ListCategory />;
       default:
         return <Dashboard />;
     }
   };
 
   return (
-    <div className="flex h-screen font-sans">
-      <div className="w-64 bg-gray-800 text-white flex flex-col">
+    <div className="flex min-h-[110vh] font-sans w-[100vw] ">
+      <div className="w-64 bg-gray-800 min-h-[110vh] text-white flex flex-col">
         <div className="px-6 py-4 text-2xl font-bold border-b border-gray-700">
           Admin Panel
         </div>
@@ -50,6 +58,22 @@ const AdminDashboardContainer = () => {
             onClick={() => setActiveComponent('quiz')}
           >
             Quiz Questions
+          </li>
+          <li
+            className={`px-6 py-3 cursor-pointer hover:bg-gray-700 ${
+              activeComponent === 'UploadBlog' ? 'bg-gray-700' : ''
+            }`}
+            onClick={() => setActiveComponent('ListBlog')}
+          >
+            Blog List
+          </li>
+          <li
+            className={`px-6 py-3 cursor-pointer hover:bg-gray-700 ${
+              activeComponent === 'CategoryList' ? 'bg-gray-700' : ''
+            }`}
+            onClick={() => setActiveComponent('CategoryList')}
+          >
+            Category List
           </li>
         </ul>
       </div>

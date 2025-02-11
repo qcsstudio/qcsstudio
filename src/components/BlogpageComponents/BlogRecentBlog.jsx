@@ -1,7 +1,11 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 
 const BlogRecentBlog = () => {
+
+  
+
   return (
     <div className="relative px-4 sm:px-8 md:px-16">
       {/* Floating images */}
