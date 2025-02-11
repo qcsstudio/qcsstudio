@@ -10,7 +10,9 @@ const { showQuiz  ,  setShowQuiz } = useContext(StudentDataContext);
 
   return (
     <div> 
-        { showQuiz ?  <Quiz/> : <StudentDetailForm/> }
+        {/* { showQuiz ?  <Quiz/> : <StudentDetailForm/> } */}
+        { true ?  <Quiz/> : <StudentDetailForm/> }
+
     </div>
   )
 }
