@@ -1,22 +1,35 @@
 "use client";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { StudentDataContext } from "@/context/StudentDataContext";
 import { useSearchParams } from "next/navigation";
 
-function SearchBarContentContainer() {
+function SearchBarContentContainer() {  
   const searchParams = useSearchParams();
-  const query = searchParams.get("q"); 
-  const { GetSerachedData } = useContext(StudentDataContext);
+  const query = searchParams.get("q");
 
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-     GetSerachedData(query); 
-  }, [query]); 
+    const getSearchedData = async () => {
+     
+      try {
+        const url = `/api/search?q=${query}`;
+        const response = await fetch(url);
+        if (response.ok) {
+          const result = await response.json();
+          console.log("result" , result);
+          setBlogs(result);
+        }
+      } catch (error) {
+        console.error("Error fetching search results:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  console.log("query"  , query)
+    getSearchedData();
+  }, [query]);
 
   return (
     <div className="p-4">
@@ -38,8 +51,8 @@ function Card({ data }) {
         <Image
           src={data.thumbnail}
           className="w-full object-cover rounded-md"
-          height={200}
-          width={200}
+          height={100}
+          width={100}
           alt={data.heading}
         />
       </div>
@@ -50,7 +63,11 @@ function Card({ data }) {
         <h3 className="text-base sm:text-xl md:text-lg text-[#0E2D5B] font-bold">
           {data.heading}
         </h3>
-        <div dangerouslySetInnerHTML={{ __html: data.description.slice(0, 40) }} />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data.description ? data.description.slice(0, 40) : "",
+          }}
+        />
       </div>
     </div>
   );
