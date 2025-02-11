@@ -34,10 +34,10 @@ const UploadBlog = ({setADD}) => {
 
     // Handle Images:
     const handleImageChange = (e) =>{
-        console.log("inside:---",(e.target));
-        setImageShow(e.target.files[0]);
-        // console.log(imageShow);
-        const file = e?.target?.files[0];
+        
+        const file = e.target.files[0];
+        setImageShow(URL.createObjectURL(file));
+        
         if (file) {
             const reader = new FileReader();
             reader.readAsDataURL(file); // Convert to Base64
@@ -45,14 +45,14 @@ const UploadBlog = ({setADD}) => {
         }
     }
 
-    console.log("outside:----",imageShow);
-
-    // Handle Images:
+    // Handle submit:
     const handleSubmit = async(e)=>{
         e.preventDefault();
         const cate = selectedCategories.map((data) => data.name);
         setCategory(cate);
-        PostBlogData(title,thumbnail,category,showOnFront,description);
+        const res = await PostBlogData(title,thumbnail,cate,showOnFront,description);
+        console.log("response @@@: ",res);
+        setImageShow(false);
         setADD(false);
     }
 
@@ -74,7 +74,7 @@ const UploadBlog = ({setADD}) => {
 
                     <input type="file" accept="image/*" onChange={handleImageChange} className="w-[100%] border border-[#d1d1d1] px-[1rem] py-[.5rem] rounded-[.5rem]"/>
 
-                    {/* {imageShow && <Image src={imageShow} width={100} height={100} alt="image" />} */}
+                    {imageShow && <Image src={imageShow} width={100} height={100} alt="image" />}
 
                     <JoditEditor 
                         ref={editor}
