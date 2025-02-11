@@ -4,10 +4,13 @@ import { data } from "../../../questionData";
 import QuestionComponent from "./QuestionComponent";
 import { useContext } from "react";
 import { StudentDataContext } from "@/context/StudentDataContext";
+import toast, { Toaster } from "react-hot-toast";
+import Loader from "../Loader";
 
 const Quiz = () => {
   const QUESTIONS_PER_PAGE = 5;
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading,setLoading]=useState(true);
   const [selectedOptions, setSelectedOptions] = useState({});
   const [optionCounts, setOptionCounts] = useState({
     option_a: 0,
@@ -16,6 +19,8 @@ const Quiz = () => {
     option_d: 0,
     option_e: 0,
   });
+  const [quizQuestions, setQuizQuestions] = useState([]); 
+
 
   const optionMapping = {
     option_a: 'Web Development',
@@ -31,9 +36,36 @@ const Quiz = () => {
     CreateStudentData,
   } = useContext(StudentDataContext);
 
-  const totalPages = Math.ceil(data.length / QUESTIONS_PER_PAGE);
 
-  const currentQuestions = data.slice(
+
+  useEffect(() => {
+    const fetchQuizQuestions = async () => {
+      try {
+        const response = await fetch("/api/questions");
+        if (!response.ok) throw new Error("Failed to fetch quiz questions");
+  
+        const result = await response.json();
+        console.log("API Response:", result); 
+  
+        if (Array.isArray(result.data)) {
+          setQuizQuestions(result.data); 
+          setLoading(false)
+        } else {
+          setQuizQuestions([]);
+        }
+      } catch (error) {
+        console.error("Error fetching quiz questions:", error);
+        setQuizQuestions([]); 
+        setLoading(false);
+      }
+    };
+  
+    fetchQuizQuestions();
+  }, []);
+  
+  const totalPages = quizQuestions?.length ? Math.ceil(quizQuestions.length / QUESTIONS_PER_PAGE) : 1;
+
+  const currentQuestions = quizQuestions.slice(
     (currentPage - 1) * QUESTIONS_PER_PAGE,
     currentPage * QUESTIONS_PER_PAGE
   );
@@ -74,7 +106,7 @@ const Quiz = () => {
 
   const handleNextPage = () => {
     if (!validateCurrentPage()) {
-      alert("Please select an option for all questions on this page.");
+      toast.error("Please select an option for all questions on this page.");
       return;
     }
     if (currentPage < totalPages) {
@@ -90,7 +122,7 @@ const Quiz = () => {
 
   const handleFinishQuiz = () => {
     if (!validateCurrentPage()) {
-      alert("Please select an option for all questions on this page.");
+      toast.error("Please select an option for all questions on this page.");
       return;
     }
 
@@ -129,15 +161,24 @@ const Quiz = () => {
     }
 
     CreateStudentData(APIData);
+    toast.success("Quiz submitted successfully!");
   };
 
 
   useEffect(() => {
+    
   }, [studentData]);
 
+  if (loading) return <Loader/>;
+
+
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-md">
-      <h1 className="text-2xl font-bold mb-6 text-center">Quiz</h1>
+    <div className="py-10" style={{ backgroundImage: "url('/images/Group (14).png')", backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+
+  
+    <div className="max-w-4xl mx-auto p-3   bg-white shadow-2xl">
+       <Toaster /> 
+       <h1 className="text-3xl font-bold mb-6 text-center text-[#112e58] ">Quiz</h1>
       <div>
         {currentQuestions.map((question, index) => {
           const questionIndex = (currentPage - 1) * QUESTIONS_PER_PAGE + index;
@@ -159,7 +200,7 @@ const Quiz = () => {
           disabled={currentPage === 1}
           className={`px-4 py-2 rounded-md ${currentPage === 1
             ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-            : "bg-blue-500 text-white hover:bg-blue-600"
+            : "bg-[#112e58] text-white hover:bg-[#112e58]"
             }`}
         >
           Previous
@@ -172,7 +213,7 @@ const Quiz = () => {
           disabled={currentPage === totalPages}
           className={`px-4 py-2 rounded-md ${currentPage === totalPages
             ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-            : "bg-blue-500 text-white hover:bg-blue-600"
+            : "bg-[#112e58] text-white hover:bg-[#112e58]"
             }`}
         >
           Next
@@ -186,6 +227,7 @@ const Quiz = () => {
           Finish Quiz
         </button>
       )}
+    </div>
     </div>
   );
 };
