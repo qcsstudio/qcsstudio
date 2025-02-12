@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-export default function SearchBar() {
+export default function SearchBar({color}) {
   const [query, setQuery] = useState("");
   const router = useRouter();
 
@@ -33,7 +33,7 @@ export default function SearchBar() {
       
       <button
         onClick={handleSearch} 
-        className="bg-[#C4EF01] hover:bg-green-500 w-auto px-3 sm:px-4 py-1 sm:py-2 text-sm sm:text-base rounded-md shrink-0"
+        className={`${color == "#001F61"?"bg-[#001F61]":"bg-[#C4EF01]"} ${color == "#001F61" ? "hover:bg-[#3e5c9c]" :"hover:bg-green-500"} w-auto px-3 sm:px-4 py-1 sm:py-2 text-sm sm:text-base rounded-md shrink-0 ${color == "#001F61" && "text-[#ffffff]"}`}
       >
         Search
       </button>

@@ -77,21 +77,31 @@ export default function HeroContent() {
           potential and achieve success in the ever-evolving tech industry. 
         </p>
 
+
         <Link className="mt-6 sm:mt-8" href={'/enroll-now'}>
           <button className="rounded-lg w-full sm:w-[220px] h-[50px] sm:h-[55px] bg-gradient-to-r from-[#cce973] to-[#46d3c1] text-white text-lg font-semibold hover:scale-105 transition-transform mt-5 lg:mt-2">
+
             ENROLL NOW
           </button>
         </Link>
       </div>
 
+      
+      
+
       {/* Hero Image */}
-      <div className="w-full  lg:w-[30%] xl:w-[40%]">
+      <div className="w-full relative  lg:w-[30%] xl:w-[40%]">
         <Image
           src={heroMain}
           alt="Hero Main"
           className="w-full h-auto rounded-lg shadow-lg"
           layout="responsive"
         />
+        <Link className="absolute bottom-5 left-5 " href={'/quiz'}>
+          <button className="rounded-xl mt-6 w-full sm:w-[200px] h-[50px] border border-white bg-gradient-to-r from-[#cffd46] to-[#03f3d3] text-white text-md font-semibold hover:scale-105 transition-transform ">
+           Find your passion
+          </button>
+        </Link>
       </div>
     </div>
   );

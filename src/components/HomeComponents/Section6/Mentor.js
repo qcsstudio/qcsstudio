@@ -9,6 +9,7 @@ import mbg3 from "../../../../public/images/mbg3.jpg";
 import mbg4 from "../../../../public/images/mbg4.jpg";
 import mbg5 from "../../../../public/images/mbg5.jpg";
 import mbg6 from "../../../../public/images/Mbg6.jpg";
+import Link from "next/link";
 
 const Mentor = () => {
   return (
@@ -56,10 +57,12 @@ const Mentor = () => {
           of the tech world.
         </span>
         </div>
-        
+        <Link href='/enroll-now'>
         <button className="bg-[#112E58]  text-white w-[10rem] h-[2rem] rounded-lg">
           Enroll Now
         </button>
+        </Link>
+        
         <Image height={400} width={500} alt="mentor-main" src={m1.src} />
       </div>
 

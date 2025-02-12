@@ -27,6 +27,7 @@ function HomeAboutSection() {
                 className="absolute top-0 -right-[2rem] sm:-right-[4rem] w-[180px] sm:w-[270px] object-contain"
               />
               <div className="text-center sm:text-left lg:pl-16 px-6  w-full   my-10 lg:my-28">
+
                 <h6 className="text-[#527CBD] lg:text-2xl text-[20px] py-2 font-semibold">
                   Who we are
                 </h6>

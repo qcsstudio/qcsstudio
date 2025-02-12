@@ -4,31 +4,32 @@ import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import side2pic from "../../../public/images/slide2pic.png";
-import Dm from "../../../public/images/DM.png";
-import seo from "../../../public/images/seo.png";
-import ai from "../../../public/images/coursesfirstsec.png";
-import react from "../../../public/images/react.png";
-import dj from "../../../public/images/dj.png";
-import python from "../../../public/images/python.png";
-import Figma from "../../../public/images/figma.png";
-import shark from "../../../public/images/wire-shark.png";
-import diamond from "../../../public/images/diamond.png";
-import graph from "../../../public/images/seo.png";
-import google from "../../../public/images/google-ana.png";
-import meta from "../../../public/images/meta.png";
-import nodejs from "../../../public/images/js.png";
-import kaliIcon from "../../../public/images/kaliIcon.png";
-import iconweb from "../../../public/images/iconweb.png";
-import seoicon from "../../../public/images/seoicon.png";
-import icondm from "../../../public/images/iconDm.png";
-import pencion from "../../../public/images/penicon.png";
-import iconcil from "../../../public/images/iconcil.png";
-import iconData from "../../../public/images/iconData.png";
-import cloudIcon from "../../../public/images/cloudIcon.png";
-import lock from "../../../public/images/lock.png";
-import board from "../../../public/images/board.png";
-import Link from "next/link";
+import side2pic from '../../../public/images/slide2pic.png'
+import Dm from '../../../public/images/DM.png'
+import seo from '../../../public/images/seo.png'
+import ai from '../../../public/images/coursesfirstsec.png'
+import react from '../../../public/images/react.png'
+import dj from '../../../public/images/dj.png'
+import python from '../../../public/images/python.png'
+import Figma from '../../../public/images/figma.png'
+import shark from '../../../public/images/wire-shark.png'
+import diamond from '../../../public/images/diamond.png'
+import graph from '../../../public/images/seo.png'
+import google from '../../../public/images/google-ana.png'
+import meta from '../../../public/images/meta.png';
+import nodejs from '../../../public/images/js.png';
+import kaliIcon from '../../../public/images/kaliIcon.png';
+import iconweb from '../../../public/images/iconweb.png';
+import seoicon from '../../../public/images/seoicon.png';
+import icondm from '../../../public/images/iconDm.png';
+import pencion from '../../../public/images/penicon.png';
+import iconcil from '../../../public/images/iconcil.png';
+import iconData from '../../../public/images/iconData.png';
+import cloudIcon from '../../../public/images/cloudIcon.png'; 
+import lock from '../../../public/images/lock.png'
+import board from '../../../public/images/board.png'
+import Link from 'next/link';
+
 
 const slides = [
   {
@@ -36,6 +37,7 @@ const slides = [
     description:
       "Harness the power of data to unlock insights, solve complex problems, and drive innovation. Become a data-driven decision-maker.",
     buttonText: "EXPLORE DATA SCIENCE & AI",
+    buttonURL: "/courses/data-analytics",
     image: ai,
     icon: {
       i1: { iconUrl: python, iconTop: "", iconLeft: "" },
@@ -58,6 +60,7 @@ const slides = [
     description:
       "From stunning websites to powerful web applications, master the art of coding and build the digital future.",
     buttonText: "EXPLORE WEB DEVELOPMENT",
+    buttonURL: "/courses/web-development",
     image: side2pic,
     icon: {
       i1: { iconUrl: react, iconTop: "", iconLeft: "" },
@@ -76,6 +79,7 @@ const slides = [
     description:
       "From stunning websites to powerful web applications, master the art of coding and build the digital future.",
     buttonText: "EXPLORE DIGITAL MARKETING",
+    buttonURL: "/courses/digital-marketing",
     image: Dm,
     icon: {
       i1: { iconUrl: react, iconTop: "", iconLeft: "left-[190px]" },
@@ -95,6 +99,7 @@ const slides = [
     description:
       "From stunning websites to powerful web applications, master the art of coding and build the digital future.",
     buttonText: "EXPLORE UI/UX DESIGNING",
+    buttonURL: "/courses/ui-ux",
     image: board,
     icon: {
       i1: { iconUrl: Figma, iconTop: "bottom-[270px]", iconLeft: "-left-[30]" },
@@ -114,9 +119,10 @@ const slides = [
   },
   {
     title: "NETWORK & NETWORK SECURITY",
-    description:
-      "From stunning websites to powerful web applications, master the art of coding and build the digital future.",
-    buttonText: "EXPLORE UI/UX DESIGNING",
+    description: "From stunning websites to powerful web applications, master the art of coding and build the digital future.",
+    buttonText: "EXPLORE NETWORKING COURSE",
+    buttonURL: "/courses/networking",
+
     image: lock,
     icon: {
       i1: { iconUrl: shark, iconTop: "-bottom-[80px]", iconLeft: "" },
@@ -143,6 +149,7 @@ const settings = {
   autoplay: true,
   autoplaySpeed: 2500, // Fixed typo
 };
+
 
 const Slide = ({ title, description, buttonText, image, icon  , url}) => (
   <div className="h-[70vh] w-full flex items-center justify-center px-10 ">

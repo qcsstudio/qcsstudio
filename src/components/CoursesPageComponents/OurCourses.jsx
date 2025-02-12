@@ -1,7 +1,8 @@
-"use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
+"use client"
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+
 
 const OurCourses = () => {
   // Animation variants
@@ -65,6 +66,7 @@ const OurCourses = () => {
             href={"/courses/web-development"}
             className=" w-full max-w-[250px] rounded border-[3px] border-gray-200 shadow-lg shadow-[#29ABE2] text-black bg-clip-text text-center"
           >
+
             <motion.div
               variants={courseItemAnimation}
               initial="initial"
