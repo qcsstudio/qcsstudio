@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ContactInfo = () =>{
   return (
@@ -45,18 +46,20 @@ const ContactInfo = () =>{
         </div>
       
       <div className='flex flex-wrap px-3 justify-center gap-10 items-center'>
-        <div className='flex items-center gap-2 justify-center '>
-        <Image src="/images/insta.png" height={40} width={40} alt="insta Icon" />
-        <p>Takshashila Labs</p>
-        </div>
-        <div className='flex items-center gap-2 justify-center'>
+       
+          <Link className='flex items-center gap-2 justify-center ' href='https://www.instagram.com/qcsstudio/'>
+          <Image src="/images/insta.png" height={40} width={40} alt="insta Icon" />
+          <p  className='hover:text-[#c4ef01]  hover:underline'>Quantum Crafters Studio</p>
+          </Link>
+       
+          <Link className='flex items-center gap-2 justify-center ' href='https://in.linkedin.com/company/qcsstudio'>
         <Image src="/images/fb.png" height={40} width={40} alt="linkedin Icon" />
-        <p>Takshashila Labs</p>
-        </div>
-        <div className='flex items-center gap-2 justify-center'>
+        <p  className='hover:text-[#c4ef01]  hover:underline'>Quantum Crafters Studio</p>
+        </Link>
+        <Link className='flex items-center gap-2 justify-center ' href='https://www.facebook.com/qcsstudio'>
         <Image src="/images/Linkdin.png" height={40} width={40} alt="linkedin Icon" />
-        <p>Takshashila Labs</p>
-        </div>
+        <p  className='hover:text-[#c4ef01]  hover:underline'>Quantum Crafters Studio</p>
+        </Link>
       </div>
       </div>
    

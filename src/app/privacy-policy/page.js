@@ -22,7 +22,7 @@ const PrivacyComponent = () => {
             <div className='flex flex-col gap-4 '>
             <h2 className='font-bold text-xl tracking-wide  text-[#001f61]'>2.2 Use of Information</h2>
             <p className='font-thin text-xl tracking-wider text-[#001f61]'>The personal information we collect is used for:</p>
-            <p className='font-thin tracking-wider text-[#212529]'>Enrolling you in courses and managing your participation Processing transactions and sending payment confirmations Communicating with you about your inquiries, projects, or updates on our services Sending marketing communications related to courses or IT services (only if you have opted in)</p>
+            <p className='font-thin tracking-wider text-[#212529]'> ing you in courses and managing your participation Processing transactions and sending payment confirmations Communicating with you about your inquiries, projects, or updates on our services Sending marketing communications related to courses or IT services (only if you have opted in)</p>
             </div>
     
             <div className='flex flex-col gap-4 '>

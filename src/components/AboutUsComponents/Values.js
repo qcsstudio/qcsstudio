@@ -1,6 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
-import student from '../../../public/images/student.png'
+import student from '../../../public/images/student.jpg'
+import prac from '../../../public/images/Prac.png'
+import industry from '../../../public/images/industry.png'
+import Mentorship from '../../../public/images/mentorship.png'
+import community from '../../../public/images/community.png'
+import CtoS from '../../../public/images/CtoS.png'
 import fly from '../../../public/images/fly.png'
 import bgBlu from '../../../public/images/bgBlu.png'
 
@@ -9,31 +14,32 @@ const valuesData = [
     title: "Student-Centric Learning",
     description: "We put your needs and aspirations first, providing personalized guidance and support throughout your journey.",
     image: student
+   
   },
   {
     title: "Practical, Hands-On Experience",
     description: "We believe in learn by doing. Our programs are designed around real-world, giving you the skills employers actually want.",
-    image: student
+    image:prac
   },
   {
     title: "Industry Relevance",
     description: "Our curriculum is constantly updated to reflect the latest trends and demands of the job market, ensuring you're always ahead.",
-    image: student
+    image:industry
   },
   {
     title: "Mentorship & Support",
     description: "Our experienced mentors are dedicated to your success, providing guidance, feedback, and encouragement every step of the way.",
-    image: student
+    image: Mentorship
   },
   {
     title: "Community & Collaboration",
     description: "We foster a vibrant and supportive learning community where you can connect with like-minded peers, share ideas, and grow together.",
-    image: student
+    image: community
   },
   {
     title: "Commitment to Success",
     description: "We're not satisfied until you achieve your goals. We offer a 100% job placement guarantee* and ongoing support to ensure your continued growth and success in the tech industry.",
-    image: student
+    image: CtoS
   }
 ];
 
@@ -56,7 +62,7 @@ const Values = () => {
           {valuesData.map((value, index) => (
             <div key={index} className="md:w-[48%] lg:w-[30%] justify-center align-middle items-center">
               <div className='flex flex-col justify-center align-middle items-center'>
-                <Image className="w-[100px] h-[110px] lg:h-[150px] lg:w-[150px]" height={100} width={100} src={value.image.src} alt='' />
+                <Image className="w-[50px] h-[50px] lg:h-[80px] lg:w-[80px] object-contain rounded-xl" height={100} width={100} src={value.image.src} alt='' />
                 <h3 className='text-[#0F2E5B] font-semibold tracking-wider lg:font-bold w-[90vw] lg:w-auto'>
                   {value.title}
                 </h3>
