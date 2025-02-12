@@ -5,13 +5,13 @@ import Link from "next/link";
 
 const Usp = () => {
   return (
-    <div className="usp bg-white px-6 md:px-12 lg:px-24 xl:px-40 py-16 flex flex-col lg:grid lg:grid-cols-2 gap-10 items-center">
+    <div className="usp bg-white px-6 md:px-12 lg:px-16 2xl:px-24 py-16 flex flex-col lg:grid lg:grid-cols-2 gap-10 items-center">
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
         <span className="text-[#527CBD] text-lg font-semibold">USP’s</span>
-        <h3 className="text-3xl md:text-4xl font-bold text-[#032263] uppercase">
+        <h3 className="text-2xl md:text-4xl font-bold text-[#032263] uppercase">
           Unique Value Proposition
         </h3>
-        <p className="text-4xl md:text-5xl font-bold text-[#032263] leading-tight">
+        <p className="text-3xl md:text-5xl font-bold text-[#032263] leading-tight">
           Why Choose QuantumCrafters Studio?
         </p>
 
@@ -19,7 +19,7 @@ const Usp = () => {
           <span className="bg-gray-200 px-3 py-1 rounded-md text-gray-900 font-semibold">
             Your
           </span>
-          <span className="ml-2">Dream Tech Job, Guaranteed</span>
+          <span className="ml-2  ">Dream Tech Job, Guaranteed</span>
         </p>
 
         <ul className="space-y-4 text-gray-700 text-lg list-disc list-inside">

@@ -27,10 +27,10 @@ function HomeAboutSection() {
                 className="absolute top-0 -right-[2rem] sm:-right-[4rem] w-[180px] sm:w-[270px] object-contain"
               />
               <div className="text-center sm:text-left lg:pl-16 px-6  w-full   my-10 lg:my-28">
-                <h6 className="text-[#527CBD] text-2xl py-2 font-semibold">
+                <h6 className="text-[#527CBD] text-3xl py-2 font-semibold">
                   Who we are
                 </h6>
-                <h2 className="text-[#032263] lg:text-[2vw] text-[3vw] z-20 relative leading-normal  font-bold">
+                <h2 className="text-[#032263] lg:text-[2vw] text-[4vw] z-20 relative leading-normal  font-bold">
                   &quot;Transforming Passion into Profession &quot; Welcome to
                   QuantumCrafters Studio, where learning meets opportunity. We
                   believe that every student’s journey starts with passion, and
@@ -119,7 +119,7 @@ function HomeAboutSection() {
               </div>
             </div>
             </div>
-            <div className="w-[full] relative  h-[100vh]  " >
+            <div className="w-[full] h-full  relative  lg:h-[100vh]   " >
             <Image
               src={HomeAbout}
               alt="Visual Representation"

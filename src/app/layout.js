@@ -3,6 +3,8 @@ import "./globals.css";
 import { StudentDataContextProvider } from "@/context/StudentDataContext";
 import { BlogDataContextProvider } from "@/context/BlogData";
 import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
+import Head from "next/head";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,16 +17,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "qcsstudio",
-  description: "quantumm crafters studio",
+  title: "QCS Best Industrial Training Company in Mohali",
+  description: "Discover your potential at QCS! Gain hands-on training in Web Development, UI/UX Design, Digital Marketing, Data Analytics, Cybersecurity, and more. Enroll now!",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+      <link rel="icon" type="image/png" href="/vercel.png" />
+        
+      </Head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
+
         <PrimeReactProvider>
           <BlogDataContextProvider>
             <StudentDataContextProvider>{children}</StudentDataContextProvider>
