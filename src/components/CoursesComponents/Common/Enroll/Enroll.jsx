@@ -3,6 +3,7 @@ import EnrollCard from "./EnrollCard";
 import Image from "next/image";
 import { enrollCardData } from "@/Data/enrollCard";
 import { enrollData } from "@/Data/enroll";
+import Link from "next/link";
 
 const Enroll = () => {
     const {id,heading,subHeading,description} = enrollData[0];
@@ -32,7 +33,7 @@ const Enroll = () => {
 
                     <div className="innerBottom flex lg:w-[100%] justify-center items-center sm:w-[100%]">
                         <Image src="/images/enrollImages/left.png" width={200} height={0} className="w-[200px] h-[1px] mr-[3rem]" alt="line"/>
-                        <Button data={{text:"Enroll Now",url:"#"}}/>
+                               <Link href={'/enroll-now'} className="text-white border-white cursor-pointer" > Enroll Now</Link>  
                         <Image src="/images/enrollImages/right.png"  width={200} height={0} className="w-[200px] h-[1px] ml-[3rem]" alt="line"/>
                     </div>
                     

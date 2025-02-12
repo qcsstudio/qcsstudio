@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 const CoursesEnroll = () => {
   return (
     <div className="">
@@ -58,7 +59,7 @@ const CoursesEnroll = () => {
         </div>
         <div className="flex items-center justify-center gap-2">
         <Image className="scale-x-[-1] hidden lg:block md:block" src='/images/vector 11.png' width={200} height={1} alt=""></Image>
-        <button className="text-white border p-2 rounded">Enroll now</button>
+          <Link className="text-white border p-2 rounded" href={'/enroll-now'}>Enroll now</Link>
         <Image className="hidden lg:block md:block" src='/images/vector 11.png' width={200} height={1} alt=""></Image>
       </div>
       </div>
