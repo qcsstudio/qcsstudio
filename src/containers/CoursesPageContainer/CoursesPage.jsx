@@ -4,6 +4,7 @@ import OurCourses from '@/components/CoursesPageComponents/OurCourses'
 import Navbar from '@/components/Navbar'
 import  Book  from '@/components/CoursesPageComponents/Book'
 import Footer from '@/components/Footer'
+import Success from '@/components/AboutUsComponents/Success'
 
 const CoursesPage = () => {
 
@@ -12,7 +13,8 @@ const CoursesPage = () => {
      <Navbar/>
      <CoursesFirstSection/>
      <OurCourses/>
-     <CoursesEnroll/>
+     {/* <CoursesEnroll/> */}
+     <Success />
      <Book />
      <Footer />
     </>
