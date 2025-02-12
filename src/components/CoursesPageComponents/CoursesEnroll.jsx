@@ -10,7 +10,7 @@ import CoursesBackground from '../../../public/images/CoursesBackground.png'
 
 const CoursesEnroll = () => {
   return (
-    <div className=" w-full h-[700] md:h-[700] lg:h-[600] ">
+    <div className=" w-full bg-blue-950 min-h-[70vh]">
       <div className="relative w-full h-[700] md:h-[700] lg:h-[600] flex items-center justify-start">
         <Image
           className="absolute z-10 top-0 left-1"
@@ -54,12 +54,12 @@ const CoursesEnroll = () => {
           height={150}
           alt="bg"
         />
-        <Image
+        {/* <Image
           src={CoursesBackground}
           className="object-cover"
           layout="fill"
           alt="test"
-        />
+        /> */}
 
         <div className="absolute mx-5 flex flex-col justify-center md:mx-10 lg:mx-32">
           <div className="headings">
