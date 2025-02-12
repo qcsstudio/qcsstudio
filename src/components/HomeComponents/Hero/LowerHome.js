@@ -25,7 +25,7 @@ function renderTechCard(icon, title, description, url) {
 
 function LowerHome() {
     return (
-        <div className="LowerHome w-full py-16 px-6 sm:px-12 lg:px-24">
+        <div className="LowerHome w-full py-16 px-6 sm:px-10 lg:px-24">
             <div className="max-w-[90rem] mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-center">
                     {techCategories.map((category) => (
