@@ -18,7 +18,7 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div className="flex flex-col gap-5 max-w-md">
-          <div className='flex gap-3 items-center'>
+          <div className='flex lg:gap-3 gap-5 items-center'>
             <Image src={location} width={30} height={30} alt='Location' />
             <p className="text-white text-sm md:text-base">Prosperity Arcade, D-229, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Punjab 160071</p>
           </div>
@@ -34,7 +34,7 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 py-3 mt-10 w-full text-white">
         {/* Navigation Links */}
         <div className='flex flex-col gap-10'>
-          <div className='grid grid-cols-4 gap-5 text-center'>
+          <div className='grid grid-cols-2 lg:grid-cols-4 gap-5 text-center'>
 
             {
               ["home", "about", "contact-us", "courses"].map((item, index) => {
@@ -51,7 +51,7 @@ const Footer = () => {
 
           </div>
 
-          <div className='grid grid-cols-3 gap-5 text-center pb-5'>
+          <div className='grid grid-cols-2 gap-3 lg:grid-cols-3 items-start text-center pb-5'>
             {
               ["terms-of-service", "privacy-policy", "refund-policy"].map((item, index) => {
                 return (
