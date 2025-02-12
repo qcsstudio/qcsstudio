@@ -5,9 +5,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { useContext, useEffect, useState } from "react"
 import SearchBar from "../QuizComponents/SearchBar"
+import Loader from "../Loader"
 
 const MainBlogComponent = ({blogData}) => {
-    const {categoryData,GetCategoryData,GetBlogData,multipleBlogData,setmultipleBlogData} = useContext(BlogDataContext);
+    const {categoryData,GetCategoryData,GetBlogData,multipleBlogData,setmultipleBlogData,showBlogsDataLoader} = useContext(BlogDataContext);
 
     const [blogsData,setBlogsData] = useState([]);
     const [initialBlog,setInitialBlog] = useState(4);
@@ -31,6 +32,7 @@ const MainBlogComponent = ({blogData}) => {
    return (
       <>
         <div className="mainContainer w-[100%] overflow-hidden ">
+            {showBlogsDataLoader ? <Loader/>:
             <div className="innerContainer flex items-start lg:flex-row gap-[2rem] w-[100%] xl:px-[10rem] py-[2rem] lg:px-[5rem] xs:flex-col md:px-[5rem] sm:px-[3rem] xs:px-[1rem]">
                 
                 <div className="left lg:w-[60%] xs:w-[100%]">
@@ -98,7 +100,7 @@ const MainBlogComponent = ({blogData}) => {
 
                 </div>
 
-            </div>
+            </div>}
         </div>
       </>
    )
