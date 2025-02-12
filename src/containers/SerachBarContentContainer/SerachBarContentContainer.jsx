@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
+import Loader from "@/components/Loader";
 
 function SearchBarContentContainer() {  
   const searchParams = useSearchParams();
@@ -34,7 +35,7 @@ function SearchBarContentContainer() {
   return (
     <div className="p-4">
       {loading ? (
-        <p className="text-gray-500">Loading...</p>
+        <p className="text-gray-500"><Loader/></p>
       ) : blogs.length > 0 ? (
         blogs.map((data, index) => <Card key={index} data={data} />)
       ) : (
