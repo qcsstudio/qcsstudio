@@ -8,10 +8,12 @@ import blogBg from '../../../public/images/blog-bg-img-3.png'
 import circlesbg from '../../../public/images/circlesbg.png'
 import CoursesBackground from '../../../public/images/CoursesBackground.png'
 
+
+
 const CoursesEnroll = () => {
   return (
-    <div className=" w-full bg-blue-950 min-h-[70vh]">
-      <div className="relative w-full h-[700] md:h-[700] lg:h-[600] flex items-center justify-start">
+    <div className=" w-full h-[100vh] bg-blue-950 ">
+      <div className="relative w-full h-[700px] md:h-[700] lg:h-[600px] flex items-center justify-start">
         <Image
           className="absolute z-10 top-0 left-1"
           src={rect}
