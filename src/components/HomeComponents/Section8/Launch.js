@@ -6,7 +6,7 @@ import socials from "../../../../public/images/socials.png";
 
 const Launch = () => {
   return (
-    <div className="px-5 py-10">
+    <div className="">
       <div className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#F9FAFB] sm:px-8 md:px-12 lg:px-24 p-6 ">
 
         <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">

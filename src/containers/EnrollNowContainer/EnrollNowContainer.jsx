@@ -47,7 +47,7 @@ const EnrollNowContainer = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white rounded shadow-md">
+    <div className="max-w-4xl mx-auto p-6 my-10 bg-white rounded shadow-2xl">
       <h2 className="bg-gradient-to-r from-[#c4ef01] to-[#01a6ff] bg-clip-text text-transparent text-[40px] p-0 font-bold mb-4">Registration Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -114,9 +114,9 @@ const EnrollNowContainer = () => {
             className={`border-b border-gray-600 p-2 w-full text-[#112e58] rounded-t-none  ${errors.program ? "border-red-500" : "border-gray-300"}`}
           >
             <option value="">Select a Course</option>
-            <option value="program1">Program 1</option>
-            <option value="program2">Program 2</option>
-            <option value="program3">Program 3</option>
+            <option value="program1">Web development</option>
+            <option value="program2">Digital Marketing</option>
+            <option value="program3">Data Scince And AI</option>
           </select>
           {errors.program && <p className="text-red-500 text-sm">{errors.program}</p>}
         </div>
@@ -173,7 +173,7 @@ const EnrollNowContainer = () => {
           {errors.source && <p className="text-red-500 text-sm">{errors.source}</p>}
         </div>
 
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Send Message</button>
+        <button type="submit" className="bg-blue-800 my-5 text-white px-4 py-2 rounded hover:bg-blue-900">Send Message</button>
       </form>
     </div>
   );

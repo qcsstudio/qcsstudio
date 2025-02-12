@@ -54,7 +54,7 @@ const TestimonialCarousel = () => {
   return (
     <>
       <div className="testimonial bg-[#EFFAFF] sm:px-12 md:px-24  px-5 lg:px-36">
-        <div className="flex flex-col gap-y-3 ml-[5%] pt-[2%]">
+        <div className="flex flex-col gap-y-3  pt-[2%]">
           <Image
             className="absolute -right-0 -bottom-[615%] z-10"
             src={redCircle}
