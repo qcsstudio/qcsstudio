@@ -78,7 +78,7 @@ export default function HeroContent() {
         </p>
 
         <Link className="mt-6 sm:mt-8" href={'/enroll-now'}>
-          <button className="rounded-lg w-full sm:w-[220px] h-[50px] sm:h-[55px] bg-gradient-to-r from-[#cce973] to-[#46d3c1] text-white text-lg font-semibold hover:scale-105 transition-transform">
+          <button className="rounded-lg w-full sm:w-[220px] h-[50px] sm:h-[55px] bg-gradient-to-r from-[#cce973] to-[#46d3c1] text-white text-lg font-semibold hover:scale-105 transition-transform mt-5 lg:mt-2">
             ENROLL NOW
           </button>
         </Link>

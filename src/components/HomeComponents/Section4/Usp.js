@@ -7,10 +7,10 @@ const Usp = () => {
   return (
     <div className="usp bg-white px-6 md:px-12 lg:px-16 2xl:px-24 py-16 flex flex-col lg:grid lg:grid-cols-2 gap-10 items-center">
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
-        <span className="text-[#527CBD] text-lg font-semibold">USP’s</span>
+        {/* <span className="text-[#527CBD] text-lg font-semibold">USP’s</span>
         <h3 className="text-2xl md:text-4xl font-bold text-[#032263] uppercase">
           Unique Value Proposition
-        </h3>
+        </h3> */}
         <p className="text-3xl md:text-5xl font-bold text-[#032263] leading-tight">
           Why Choose QuantumCrafters Studio?
         </p>
