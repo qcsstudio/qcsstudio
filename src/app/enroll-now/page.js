@@ -6,9 +6,9 @@ import React from 'react'
 function page() {
   return (
     <div>
-        <Navbar/>
-        <EnrollNowContainer/>
-        <Footer/>
+      <Navbar />
+      <EnrollNowContainer />
+      <Footer />
     </div>
   )
 }
