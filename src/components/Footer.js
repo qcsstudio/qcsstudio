@@ -37,7 +37,7 @@ const Footer = () => {
           <div className='grid grid-cols-4 gap-5 text-center'>
 
             {
-              ["home", "about-us", "contact-us", "coures"].map((item, index) => {
+              ["home", "about", "contact-us", "courses"].map((item, index) => {
                 return (
                   <Link
                     key={index}

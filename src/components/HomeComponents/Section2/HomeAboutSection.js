@@ -119,7 +119,7 @@ function HomeAboutSection() {
               </div>
             </div>
             </div>
-            <div className="w-[full] relative  h-[100vh]  " >
+            <div className="w-[full] h-full  relative  lg:h-[100vh]   " >
             <Image
               src={HomeAbout}
               alt="Visual Representation"
