@@ -86,6 +86,7 @@ const OurCourses = () => {
                 <Link
                   href={index === 0 ? "/courses/networking" : `/courses/ui-ux`}
                   className=" w-full max-w-[250px] rounded border-[3px] border-gray-200 shadow-lg shadow-[#29ABE2] text-black bg-clip-text text-center"
+                  key={index}
                 >
                   <motion.div
                     key={course}
@@ -111,8 +112,13 @@ const OurCourses = () => {
           <div className="flex flex-col md:flex-row justify-between lg:gap-16 md:gap-16 gap-5 items-center w-full">
             {["Digital Marketing", "Data Science & AI"].map((course, index) => (
               <Link
-                href={index === 0 ? "/courses/digital-marketing" : `/courses/data-analytics`}
+                href={
+                  index === 0
+                    ? "/courses/digital-marketing"
+                    : `/courses/data-analytics`
+                }
                 className=" w-full max-w-[250px] rounded border-[3px] border-gray-200 shadow-lg shadow-[#29ABE2] text-black bg-clip-text text-center"
+                key={index}
               >
                 <motion.div
                   key={course}
