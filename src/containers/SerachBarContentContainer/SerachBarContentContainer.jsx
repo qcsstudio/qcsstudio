@@ -13,17 +13,23 @@ function SearchBarContentContainer() {
 
   useEffect(() => {
     const getSearchedData = async () => {
-     
+      if (!query) return; // Prevent fetching if query is null/empty
+
+      setLoading(true); // Set loading before fetching data
+
       try {
         const url = `/api/search?q=${query}`;
         const response = await fetch(url);
         if (response.ok) {
           const result = await response.json();
-          console.log("result" , result);
+          console.log("Result:", result);
           setBlogs(result);
+        } else {
+          setBlogs([]); // Ensure empty state is handled properly
         }
       } catch (error) {
         console.error("Error fetching search results:", error);
+        setBlogs([]); // Handle errors by setting empty state
       } finally {
         setLoading(false);
       }
@@ -35,7 +41,7 @@ function SearchBarContentContainer() {
   return (
     <div className="p-4">
       {loading ? (
-        <p className="text-gray-500"><Loader/></p>
+        <Loader />
       ) : blogs.length > 0 ? (
         blogs.map((data, index) => <Card key={index} data={data} />)
       ) : (
