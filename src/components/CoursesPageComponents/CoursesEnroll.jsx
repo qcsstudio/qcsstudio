@@ -12,7 +12,8 @@ const CoursesEnroll = () => {
       <Image className="absolute z-30 left-5 bottom-5 scale-x-[-1]" src="/images/blog-bg-img-3.png" width={150} height={150} alt="bg" />
       <Image className="absolute z-30 bottom-10 right-5" src="/images/circlesbg.png" width={150} height={150} alt="bg" />
       {/* Background Image */}
-       <Image src="/images/Coursesbg2.png" className="object-cover" layout="fill" alt="" />
+      <Image src="/images/CoursesBackground.png" className="object-cover" layout="fill" alt="" />
+
       {/* Centered Image */}
       {/* <Image className="absolute top-1/2 left-1/2 object-contain" src="/images/Group(9).png" layout="fill" objectFit="contain" alt="" /> */}
       {/* Content Section */}

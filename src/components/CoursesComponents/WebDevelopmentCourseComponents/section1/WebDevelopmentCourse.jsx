@@ -21,7 +21,7 @@ const DataAnalyticsCourse = () => {
 
   const {id,technologies} = technologyData[1];
   return (
-    <div className="w-[100vw] overflow-hidden">
+    <div className="w-[100%] overflow-hidden">
       <CourseDetail courseDetailObject={courseDetailObject} />
       <RoadMap roadMapObject={roadMapObject} iconData={iconData} technologies={technologies}/>
       <Career careerObject={careerObject} />

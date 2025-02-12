@@ -46,13 +46,11 @@ const UploadBlog = ({setADD}) => {
     }
 
     // Handle submit:
-    const handleSubmit = async(e)=>{
+    const handleSubmit = (e)=>{
         e.preventDefault();
         const cate = selectedCategories.map((data) => data.name);
         setCategory(cate);
-        const res = await PostBlogData(title,thumbnail,cate,showOnFront,description);
-        console.log("response @@@: ",res);
-        setImageShow(false);
+        PostBlogData(title,thumbnail,cate,showOnFront,description);
         setADD(false);
     }
 

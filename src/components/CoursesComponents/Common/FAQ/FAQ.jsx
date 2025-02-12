@@ -8,7 +8,7 @@ const FAQ = () => {
   return (
     <>
     
-    <div className="cont flex justify-center py-[5rem] relative  overflow-hidden">
+    <div className="cont w-[100%] flex justify-center py-[5rem] relative  overflow-hidden">
         <div className="innerCont z-10 w-[80%]">
             <div className="topCont flex flex-col items-center justify-center">
                 <p className="heading text-[#527CBD] font-semibold text-[23px] ">FAQ</p>

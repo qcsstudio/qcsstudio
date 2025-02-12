@@ -171,7 +171,7 @@ export const BlogDataContextProvider = ({ children }) => {
   
       const data = await res.json();
       setmultipleBlogData(data);
-      return data;
+      console.log("data inside post backend :",multipleBlogData);
   } catch (error) {
       console.log("Upload Error :- ",error);
       alert("Upload Error !!! (check console)");

@@ -7,7 +7,7 @@ const CourseDetail = ({courseDetailObject}) => {
 
   return (
     <>
-      <div className={`flex  w-[100vw]  ${id==3 ? "justify-between  py-[4rem] ":"justify-center py-[4rem]" } lg:px-[0rem] xs:px-[2rem]  relative  overflow-hidden `} 
+      <div className={`flex  w-[100%]  ${id==3 ? "justify-between  py-[4rem] ":"justify-center py-[4rem]" } lg:px-[0rem] xs:px-[2rem]  relative  overflow-hidden `} 
         style={{background: "rgb(4,36,82)", background: "radial-gradient(circle, rgba(4,36,82,1) 0%, rgba(2,13,41,1) 100%)"}}>
         
             
@@ -49,8 +49,8 @@ const CourseDetail = ({courseDetailObject}) => {
                                 return (<>
                                 
                                 {images?.length > 1 ? 
-                                  <Image width={100} height={100} className={`${(data.id%2==0) ? "mt-[30]" : "mt-[17%]"} xl:w-[33%] xl:h-[30%] lg:w-[33%] lg:h-[30%] md:w-[33%] md:h-[70%] xs:w-[45%] `} key={index} src={data.url} alt={data.alt} /> : 
-                                  <Image width={100} height={100} className={`${id==3 ? "lg:w-[70%] right-[0rem] bottom-[0rem] xs:w-[60%]"  : "lg:w-[100%] sm:w-[70%]" } `} key={index} src={data.url} alt={data.alt} />}
+                                  <Image width={1024} height={100} className={`${(data.id%2==0) ? "mt-[30]" : "mt-[17%]"} xl:w-[33%] xl:h-[30%] lg:w-[33%] lg:h-[30%] md:w-[33%] md:h-[70%] xs:w-[45%] `} key={index} src={data.url} alt={data.alt} quality={100} priority/> : 
+                                  <Image width={1024} height={100} className={`${id==3 ? "lg:w-[70%] right-[0rem] bottom-[0rem] xs:w-[60%]"  : "lg:w-[100%] lg:h-[100%]  xs:w-[100%] sm:h-[20rem]" } `} key={index} src={data.url} alt={data.alt} quality={100} priority/>}
                                 </> )
                             })
                         }
@@ -61,23 +61,23 @@ const CourseDetail = ({courseDetailObject}) => {
             </div>
 
             <div className="circles absolute top-0 left-0 w-[131.56px] h-[185.36]">
-                <Image  src="/images/textures/courseHeaderTextures/circles.png" width={100} height={100} className="w-[100%] h-[100%]" alt="circles" />
+                <Image  src="/images/textures/courseHeaderTextures/circles.png" width={1024} height={100} className="w-[100%] h-[100%]" alt="circles" />
             </div>
 
             <div className="circles absolute  w-[1903.9px] h-[548.51px] top-[170.65px] left-[0px] rotate-[20.91deg]">
-                <Image  src="/images/textures/courseHeaderTextures/waves.png"width={100} height={100} className="w-[100%] h-[100%]" alt="waves" />
+                <Image  src="/images/textures/courseHeaderTextures/waves.png"width={1024} height={100} className="w-[100%] h-[100%]" alt="waves" />
             </div>
 
             <div className="circles absolute  w-[712px] h-[283px] bottom-[10px] left-[200px] ">
-                <Image  src="/images/textures/courseHeaderTextures/bubble.png" width={100} height={100} className="w-[100%] h-[100%]" alt="bubble" />
+                <Image  src="/images/textures/courseHeaderTextures/bubble.png" width={1024} height={100} className="w-[100%] h-[100%]" alt="bubble" />
             </div>
 
             <div className="circles absolute  w-[200px] h-[269px]  top-[0px] left-[45%] ">
-                <Image  src="/images/textures/courseHeaderTextures/multiRectangles.png" width={100} height={100} className="w-[100%] h-[100%]" alt="multiRectangle" />
+                <Image  src="/images/textures/courseHeaderTextures/multiRectangles.png" width={1024} height={100} className="w-[100%] h-[100%]" alt="multiRectangle" />
             </div>
 
             <div className="circles absolute  w-[200px] h-[269px]  bottom-[110px] right-0 ">
-                <Image  src="/images/textures/courseHeaderTextures/rectangleCircle.png" width={100} height={100} className="w-[100%] h-[100%]" alt="rectangle circle" />
+                <Image  src="/images/textures/courseHeaderTextures/rectangleCircle.png" width={1024} height={100} className="w-[100%] h-[100%]" alt="rectangle circle" />
             </div>
 
         </div>
