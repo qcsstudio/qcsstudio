@@ -21,7 +21,7 @@ const CoursesEnroll = () => {
       <Image className="absolute z-30 bottom-10 right-5" src="/images/circlesbg.png" width={150} height={150} alt="bg" />
 
       {/* Background Image */}
-      <Image src="/images/bluebg.png" className="object-cover" layout="fill" alt="" />
+      <Image src="/images/CoursesBackground.png" className="object-cover" layout="fill" alt="" />
 
       {/* Centered Image */}
       <Image className="absolute top-1/2 left-1/2 object-contain" src="/images/Group (9).png" layout="fill" objectFit="contain" alt="" />

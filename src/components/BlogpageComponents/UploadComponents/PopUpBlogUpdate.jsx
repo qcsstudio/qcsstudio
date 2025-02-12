@@ -17,19 +17,30 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState([]);
     const [showOnFront, setShowOnFront] = useState(false);
-    const [selectedCategories, setSelectedCategories] = useState(false);
+    const [selectedCategories, setSelectedCategories] = useState([]);
     // console.log("selectedCategories" , selectedCategories);
-    useEffect(() => {
+
+    useEffect(()=>{
         GetCategoryData();
+    },[])
+    useEffect(() => {
+        
         setTitle(updateObject.heading);
         setDescription(updateObject.description);
         setShowOnFront(updateObject.show_on_front);
         setThumbnail(updateObject.thumbnail);
 
-        const caterogyArrObj = updateObject.category.map((cate) => ({ name: cate }));
-        setSelectedCategories(caterogyArrObj);
+        if (updateObject.category && Array.isArray(updateObject.category) && categoryData.length > 0) {
+            // Find matching objects from categoryData based on names
+            const selectedCats = categoryData.filter(cat => updateObject.category.includes(cat.name));
+            setSelectedCategories(selectedCats);
+        }
 
-    }, [])
+    }, [updateObject,categoryData])
+
+    const handleCategoryChange = (e) => {
+        setSelectedCategories(e.value);
+    };
 
     const editor = useRef(null);
 
@@ -89,7 +100,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
                         {
                             selectedCategories && <MultiSelect
                                 value={selectedCategories}
-                                onChange={(e) => setSelectedCategories(e.value)}
+                                onChange={handleCategoryChange}
                                 options={categoryData}
                                 optionLabel="name"
                                 placeholder="Select Categories"

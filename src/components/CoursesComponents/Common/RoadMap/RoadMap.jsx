@@ -15,7 +15,7 @@ const RoadMap = ({roadMapObject,iconData,technologies}) => {
 
    return (
       <>
-        <div className={`RoadMapContainer w-[100vw] relative overflow-hidden bg-[url('/images/roadMapBGImages/grid.png')] ${course=="Digital Marketing Course" && "py-[4rem]"} `}>
+        <div className={`RoadMapContainer w-[100%] relative overflow-hidden bg-[url('/images/roadMapBGImages/grid.png')] ${course=="Digital Marketing Course" && "py-[4rem]"} `}>
 
             {/* =============================== Components =============================== */}
 
@@ -61,16 +61,16 @@ const RoadMap = ({roadMapObject,iconData,technologies}) => {
             {/* RoadMap lines (web Development course) ================================================== */}
 
             {(show_Lines && course == "Web Development Course") && <div className="lines w-[400px] h-[360px] z-2 absolute xl:top-[7%] xl:right-[20%] lg:top-[10%] lg:right-[18%] lg:block xs:hidden">
-                <Image src="/images/roadMapBGImages/line1.png" alt="grid image" width={220} height={150} className="w-[400px] h-[360px]"/>
+                <Image src="/images/roadMapBGImages/line1.png" alt="grid image" width={1024} height={150} className="w-[400px] h-[360px]" quality={100} priority/>
             </div>}
             {(show_Lines && course == "Web Development Course") && <div className="lines w-[400px] h-[360px] z-2 absolute top-[22%] left-[17%] lg:block xs:hidden">
-                <Image src="/images/roadMapBGImages/line2.png" alt="grid image" width={220} height={150} className="w-[400px] h-[360px]"/>
+                <Image src="/images/roadMapBGImages/line2.png" alt="grid image" width={1024} height={150} className="w-[400px] h-[360px]"/>
             </div>}
             {(show_Lines && course == "Web Development Course") && <div className="lines w-[400px] h-[360px] z-2 absolute 1xl:top-[40%] 1xl:right-[16%] lg:top-[37%] lg:right-[16%] lg:block xs:hidden">
-                <Image src="/images/roadMapBGImages/line3.png" alt="grid image" width={220} height={150} className="w-[400px] h-[360px]"/>
+                <Image src="/images/roadMapBGImages/line3.png" alt="grid image" width={1024} height={150} className="w-[400px] h-[360px]"/>
             </div>}
             {(show_Lines && course == "Web Development Course") && <div className="lines w-[400px] h-[360px] z-2 absolute 1xl:top-[50%] 1xl:left-[16%] lg:top-[50%] lg:left-[16%] lg:block xs:hidden">
-                <Image src="/images/roadMapBGImages/line4.png" alt="grid image" width={220} height={150} className="w-[400px] h-[360px]"/>
+                <Image src="/images/roadMapBGImages/line4.png" alt="grid image" width={1024} height={150} className="w-[400px] h-[360px]"/>
             </div>}
             
 
@@ -160,17 +160,17 @@ const RoadMap = ({roadMapObject,iconData,technologies}) => {
 
             {(course == "Ui Ux Design Course") && 
             <div className="xdIcon z-[11]  xl:w-[200px] xl:h-[325px] absolute top-[40%] left-[3%] lg:block xs:hidden lg:w-[150px] lg:h-[243px]">
-                <Image src="/images/roadMapBGImages/iconsSpl/tip.png" alt="xd Icon" width={80} height={80} className="xl:w-[200px] xl:h-[325px] lg:w-[150px] lg:h-[243px]"/>
+                <Image src="/images/roadMapBGImages/iconsSpl/tip.png" alt="xd Icon" width={1024} height={80} className="xl:w-[200px] xl:h-[325px] lg:w-[150px] lg:h-[243px]"/>
             </div>}
 
             {(course == "Ui Ux Design Course") && 
             <div className="xdIcon z-[11]  xl:w-[250px] xl:h-[600px] absolute top-[40%] right-[0%] lg:block xs:hidden lg:w-[200px] lg:h-[480px]">
-                <Image src="/images/roadMapBGImages/iconsSpl/blackBrush.png" alt="xd Icon" width={80} height={80} className="xl:w-[250px] xl:h-[600px] lg:w-[200px] lg:h-[480px]"/>
+                <Image src="/images/roadMapBGImages/iconsSpl/blackBrush.png" alt="xd Icon" width={1024} height={80} className="xl:w-[250px] xl:h-[600px] lg:w-[200px] lg:h-[480px]"/>
             </div>}
 
             {(course == "Ui Ux Design Course") && 
             <div className="xdIcon z-[11]  xl:w-[263px] xl:h-[640px] lg:w-[200px] lg:h-[460px] absolute top-[45%] right-[0%] rotate-[-10deg] lg:block xs:hidden">
-                <Image src="/images/roadMapBGImages/iconsSpl/blueBrush.png" alt="xd Icon" width={80} height={80} className="xl:w-[263px] xl:h-[640px] lg:w-[200px] lg:h-[460px]"/>
+                <Image src="/images/roadMapBGImages/iconsSpl/blueBrush.png" alt="xd Icon" width={1024} height={80} className="xl:w-[263px] xl:h-[640px] lg:w-[200px] lg:h-[460px]"/>
             </div>}
 
             {(course == "Ui Ux Design Course") && 

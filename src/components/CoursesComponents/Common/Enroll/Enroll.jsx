@@ -8,7 +8,7 @@ const Enroll = () => {
     const {id,heading,subHeading,description} = enrollData[0];
    return (
       <>
-         <div className="cont w-[100vw] py-[4rem] md:px-[5rem] overflow-hidden relative xs:px-[2.5rem]" style={{background: "rgb(4,36,82)", background: "radial-gradient(circle, rgba(4,36,82,1) 0%, rgba(2,13,41,1) 100%)"}}>
+         <div className="cont w-[100%] py-[4rem] md:px-[5rem] overflow-hidden relative xs:px-[2.5rem]" style={{background: "rgb(4,36,82)", background: "radial-gradient(circle, rgba(4,36,82,1) 0%, rgba(2,13,41,1) 100%)"}}>
 
             <div className="innerCont w-[100%]  flex flex-col items-center">
                 <div className="topCont w-[100%] overflow-hidden">
@@ -40,11 +40,11 @@ const Enroll = () => {
             </div>
 
             <div className="smallRectangle w-[130px] h-[105px] absolute top-[1rem] left-[-1rem] overflow-hidden">
-                <Image src="/images/enrollImages/smallRectangle.png" width={130} height={105} alt="small rectangle" className="w-[130px] h-[105px] "/>
+                <Image src="/images/enrollImages/smallRectangle.png" width={1024} height={105} alt="small rectangle" className="w-[130px] h-[105px] "/>
             </div>
 
             <div className="largeRectangle w-[200px] h-[160px] absolute top-[4rem] left-[1rem] overflow-hidden md:block xs:hidden">
-                <Image src="/images/enrollImages/largeRectangle.png" width={200} height={160} alt="large rectangle" className="w-[200px] h-[160px] "/>
+                <Image src="/images/enrollImages/largeRectangle.png" width={1024} height={160} alt="large rectangle" className="w-[200px] h-[160px] "/>
             </div>
 
             <div className="smallMultiRectangle w-[180px] h-[160px] absolute bottom-[1rem] left-[1rem] overflow-hidden">
@@ -52,19 +52,19 @@ const Enroll = () => {
             </div>
 
             <div className="waves w-[100vw] h-[70vh] absolute bottom-[0rem]  overflow-hidden">
-                <Image src="/images/enrollImages/waves.png" width={180} height={160} alt="wave Image" className="w-[100vw] h-[70vh] "/>
+                <Image src="/images/enrollImages/waves.png" width={1024} height={160} alt="wave Image" className="w-[100vw] h-[70vh] "/>
             </div>
 
             <div className="target lg:w-[189px] lg:h-[130px] sm:w-[169px] sm:h-[110px] sm:block xs:hidden absolute bottom-[1.5rem] right-[3rem]  overflow-hidden">
-                <Image src="/images/enrollImages/target.png" width={189} height={130} alt="wave Image" className="lg:w-[189px] lg:h-[130px] sm:w-[169px] sm:h-[110px] "/>
+                <Image src="/images/enrollImages/target.png" width={1024} height={130} alt="wave Image" className="lg:w-[189px] lg:h-[130px] sm:w-[169px] sm:h-[110px] "/>
             </div>
 
             <div className="largeMultiRectangle  w-[220px] h-[288px] absolute top-[1rem] right-[3rem]  overflow-hidden xl:block lg:hidden">
-                <Image src="/images/enrollImages/largeMultiRectangle.png" width={220} height={288} alt="large Multi Rectangle Image" className="w-[220px] h-[288px] "/>
+                <Image src="/images/enrollImages/largeMultiRectangle.png" width={1024} height={288} alt="large Multi Rectangle Image" className="w-[220px] h-[288px] "/>
             </div>
 
             <div className="Bubble w-[700px] h-[250px] absolute top-[1rem] left-[25%]  overflow-hidden lg:block xs:hidden">
-                <Image src="/images/enrollImages/bubble.png" width={220} height={288} alt="Bubble Rectangle Image" className="w-[700px] h-[250px] "/>
+                <Image src="/images/enrollImages/bubble.png" width={1024} height={288} alt="Bubble Rectangle Image" className="w-[700px] h-[250px] "/>
             </div>
 
          </div>
