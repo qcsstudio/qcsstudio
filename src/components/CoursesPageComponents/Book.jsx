@@ -15,12 +15,14 @@ const Book = () => {
               Enroll in our courses{" "}
               <span className="text-[#C4EF01]">today!</span>
             </h1>
-            <Link href='/courses'>
-            <button className="p-[12px] border border-[#032263] mt-4 text-[#032263] w-[250px] md:w-[250px] lg:w-[300px] rounded-lg">
+
+            <Link
+              href={"/contact-us"}
+              className="p-[12px] border  border-[#032263] mt-10 text-[#032263] w-[250px] md:w-[250px] lg:w-[300px] rounded-lg"
+            >
               Book a Free Consultation
-            </button>
             </Link>
-           
+
           </div>
         </div>
         <Image

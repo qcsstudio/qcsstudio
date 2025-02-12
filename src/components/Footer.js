@@ -41,7 +41,7 @@ const Footer = () => {
                 return (
                   <Link
                     key={index}
-                    href={`/${item}`}
+                    href={`${index === 1 ? '/about' : `/${item}`}`}
                     className='hover:text-[#c4ef01] uppercase list-none hover:underline'>
                     <li className='list-none'>{item.replace("-", " ")}</li>
                   </Link>
