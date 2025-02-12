@@ -13,6 +13,7 @@ const CoursesPage = () => {
      <CoursesFirstSection/>
      <OurCourses/>
      {/* <CoursesEnroll/> */}
+     
      <Book />
      <Footer />
     </>
