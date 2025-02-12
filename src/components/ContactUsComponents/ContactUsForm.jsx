@@ -1,16 +1,21 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
+import { StudentDataContext } from "@/context/StudentDataContext";
 
 const ContactUsForm = () => {
+
+  const {handleSendMail,status} = useContext(StudentDataContext);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone:"",
     message: "",
+    formType:"Contact Us"
   });
 
-  const [status, setStatus] = useState("");
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,24 +26,12 @@ const ContactUsForm = () => {
 
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) =>{
     e.preventDefault();
-    setStatus("Sending...");
-
-    const res = await fetch("/api/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (res.ok) {
-      setStatus("Message sent successfully!");
-    } else {
-      setStatus("Error sending message.");
-    }
+    console.log(formData);
+    handleSendMail(formData);
   }
+
 
   return (
     
