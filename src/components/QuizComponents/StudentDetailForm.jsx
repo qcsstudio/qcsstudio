@@ -2,6 +2,7 @@
 import { StudentDataContext } from "@/context/StudentDataContext";
 import { useState } from "react";
 import { useContext } from "react";
+import Image from "next/image";
 
 export default function StudentDetailForm() {
   const { setShowQuiz, setStudentData , studentData } = useContext(StudentDataContext);
@@ -67,12 +68,14 @@ export default function StudentDetailForm() {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 mt-[50px] bg-white shadow-md rounded-md">
-      <h1 className="text-2xl font-bold mb-6 text-center">Enter Your Details</h1>
+    <div className="py-20"   style={{ backgroundImage: "url('/images/Group (14).png')", backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+
+    <div className="max-w-4xl mx-auto p-6   bg-white shadow-2xl">
+    
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
-            Full Name <span className="text-red-500">*</span>
+           <span className="font-bold text-[#112e58] text-lg"> Full Name * </span> 
           </label>
           <input
             type="text"
@@ -81,14 +84,13 @@ export default function StudentDetailForm() {
             placeholder="Full Name"
             value={formData.fullName}
             onChange={handleChange}
-            className={`mt-1 block w-full px-4 py-2 border ${errors.fullName ? "border-red-500" : "border-gray-300"
-              } rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
+            className={`mt-1 block w-full px-4 py-2 border-b border-black shadow-sm text-sm lg:text-md focus:outline-none focus:ring-0 ` }
           />
-          {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
+          {errors.fullName && <p className="text-red-500 text-sm mt-1 bg-[#ffdfd5]">{errors.fullName}</p>}
         </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-            Email <span className="text-red-500">*</span>
+             <span className="font-bold text-[#112e58] text-lg " >Email*</span>
           </label>
           <input
             type="email"
@@ -97,14 +99,13 @@ export default function StudentDetailForm() {
             placeholder="E.g. john@doe.com"
             value={formData.email}
             onChange={handleChange}
-            className={`mt-1 block w-full px-4 py-2 border ${errors.email ? "border-red-500" : "border-gray-300"
-              } rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
+            className={`mt-1 block w-full px-4 py-2 border-b border-black shadow-sm text-sm lg:text-md focus:outline-none focus:ring-0 ` }
           />
-          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+          {errors.email && <p className="text-red-500 text-sm mt-1 bg-[#ffdfd5]">{errors.email}</p>}
         </div>
         <div>
           <label htmlFor="contactNumber" className="block text-sm font-medium text-gray-700">
-            Contact Number <span className="text-red-500">*</span>
+           <span className="font-bold text-[#112e58] text-lg " >Contact Number  *</span>
           </label>
           <input
             type="tel"
@@ -113,29 +114,27 @@ export default function StudentDetailForm() {
             placeholder="Contact Number"
             value={formData.contactNumber}
             onChange={handleChange}
-            className={`mt-1 block w-full px-4 py-2 border ${errors.contactNumber ? "border-red-500" : "border-gray-300"
-              } rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
+            className={`mt-1 block w-full px-4 py-2 border-b border-black shadow-sm text-sm lg:text-md focus:outline-none focus:ring-0 ` }
           />
-          {errors.contactNumber && <p className="text-red-500 text-sm mt-1">{errors.contactNumber}</p>}
+          {errors.contactNumber && <p className="text-red-500 text-sm mt-1 bg-[#ffdfd5]">{errors.contactNumber}</p>}
         </div>
         <div>
           <label htmlFor="address" className="block text-sm font-medium text-gray-700">
-            Address <span className="text-red-500">*</span>
+            <span className="font-bold text-[#112e58] text-lg" >Address  *</span>
           </label>
-          <textarea
+          <input
             id="address"
             name="address"
             placeholder="Address"
             value={formData.address}
             onChange={handleChange}
-            className={`mt-1 block w-full px-4 py-2 border ${errors.address ? "border-red-500" : "border-gray-300"
-              } rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
-          ></textarea>
-          {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
+            className={`mt-1 block w-full px-4 py-2 border-b border-black shadow-sm text-sm lg:text-md focus:outline-none focus:ring-0 ` }
+          ></input>
+          {errors.address && <p className="text-red-500 text-sm mt-1 bg-[#ffdfd5]">{errors.address}</p>}
         </div>
         <div>
           <label htmlFor="collegeName" className="block text-sm font-medium text-gray-700">
-            College Name <span className="text-red-500">*</span>
+             <span className="font-bold text-[#112e58] text-lg">College Name *</span>
           </label>
           <input
             type="text"
@@ -144,18 +143,21 @@ export default function StudentDetailForm() {
             placeholder="College Name"
             value={formData.collegeName}
             onChange={handleChange}
-            className={`mt-1 block w-full px-4 py-2 border ${errors.collegeName ? "border-red-500" : "border-gray-300"
-              } rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
+            className={`mt-1 block w-full px-4 py-2 border-b border-black shadow-sm text-sm lg:text-md focus:outline-none focus:ring-0 ` }
           />
-          {errors.collegeName && <p className="text-red-500 text-sm mt-1">{errors.collegeName}</p>}
+          {errors.collegeName && <p className="text-red-500 text-sm mt-1 bg-[#ffdfd5]">{errors.collegeName}</p>}
         </div>
+        <div className="flex items-end justify-end">
+        <div  className="max-w-40 flex text-xl text-white items-center text-center justify-center  border bg-[#112e58] py-2 px-9 rounded-full shadow">
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         >
-          NEXT
+         Next
         </button>
+        </div>
+        </div>
       </form>
+    </div>
     </div>
   );
 }
