@@ -12,8 +12,8 @@ const CoursesPage = () => {
      <Navbar/>
      <CoursesFirstSection/>
      <OurCourses/>
-     {/* <CoursesEnroll/> */}
-     
+     <CoursesEnroll/>
+
      <Book />
      <Footer />
     </>
