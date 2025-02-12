@@ -1,6 +1,7 @@
 "use client"
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const OurCourses = () => {
   // Animation variants
@@ -66,7 +67,9 @@ const OurCourses = () => {
               background: 'linear-gradient(3deg, rgba(162,219,244,1) 0%, rgba(255,255,255,1) 100%)' 
             }}
           >
+            <Link href={`/courses/web-development`}>
             Web Development
+            </Link>
           </motion.div>
 
           <div className='flex flex-col md:flex-row justify-between gap-5 items-center w-full'>
@@ -84,7 +87,9 @@ const OurCourses = () => {
                   background: 'linear-gradient(3deg, rgba(162,219,244,1) 0%, rgba(255,255,255,1) 100%)' 
                 }}
               >
+                <Link href={course=="Network & Network Security" ? "/courses/networking":"/courses/ui-ux"}>
                 {course}
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -102,9 +107,10 @@ const OurCourses = () => {
                 style={{ 
                   borderImage: 'linear-gradient(to right,black #1D4ED8) 1', 
                   background: 'linear-gradient(3deg, rgba(162,219,244,1) 0%, rgba(255,255,255,1) 100%)' 
-                }}
-              >
-                {course}
+                }}>
+                  <Link href={course=="Digital Marketing" ? "/courses/digital-marketing":"/courses/data-analytics"}>
+                    {course}
+                  </Link>
               </motion.div>
             ))}
           </div>

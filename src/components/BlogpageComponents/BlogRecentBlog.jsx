@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { BlogDataContext } from '@/context/BlogData';
 import Link from 'next/link';
+import Loader from '../Loader';
 
 const BlogRecentBlog = () => {
 
@@ -51,7 +52,8 @@ const BlogRecentBlog = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
           {/* Large Image Blog Post */}
-          {multipleBlogData &&
+          {multipleBlogData && <Link href={`/blogs/${multipleBlogData[0]?.heading}`}>
+          
           <div className="flex flex-col  text-center md:text-left">
             {multipleBlogData[0]?.thumbnail && 
             <Image
@@ -68,12 +70,12 @@ const BlogRecentBlog = () => {
             <div className="text-[#0E2D5B] font-normal leading-[20px] text-xs sm:text-sm md:text-base" dangerouslySetInnerHTML={{__html:multipleBlogData[0]?.description.substring(0,10)}}>
               
             </div>
-          </div>
+          </div></Link>
         }
       
           <div className="flex flex-col gap-6">
   {/* Blog Post 1 */}
-    {multipleBlogData &&
+    {multipleBlogData ?
       blogData.map((data)=>{
           return <Link key={data._id} href={`/blogs/${data.heading}`}>
           <div  className="flex flex-col sm:flex-row gap-4 sm:items-center">
@@ -92,11 +94,11 @@ const BlogRecentBlog = () => {
                 {data.heading}
               </h3>
               
-              <div dangerouslySetInnerHTML={{ __html:data.description.slice(0,40)}} />
+              <div className='bg-[#ffffff]' dangerouslySetInnerHTML={{ __html:data.description.slice(0,40)}} />
             
             </div>
           </div></Link>
-  })
+  }):<Loader/>
   }
 
  

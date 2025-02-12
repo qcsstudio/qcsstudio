@@ -15,7 +15,9 @@ const studentIntialData = {
   setApiQuizData: () => {},
   serachBlogsData: null,
   setSearchBlogsData: () => {},
-  GetSerachedData:()=>{ }
+  GetSerachedData:()=>{ },
+  status:"",
+  setStatus:()=>{ }
 };
 
 export const StudentDataContext = createContext(studentIntialData);
@@ -28,6 +30,7 @@ export const StudentDataContextProvider = ({ children }) => {
   );
   const [apiQuizData, setApiQuizData] = useState(studentIntialData.apiQuizData);
   const [serachBlogsData, setSearchBlogsData] = useState(studentIntialData.serachBlogsData);
+  const [status, setStatus] = useState("");
 
   const CreateStudentData = async (APIData) => {
     try {
@@ -128,6 +131,59 @@ export const StudentDataContextProvider = ({ children }) => {
       }
     } catch (error) {}
   };
+
+    const handleSendMail = async (formData) => {
+      
+      setStatus("Sending...");
+      console.log(formData);
+      formData.toMail = "company";
+      if(formData.message == undefined){
+        formData.message = "Any Message";
+      }
+  
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (res.ok) {
+        setStatus("Message sent successfully!");
+        if(formData.formType == "NewsLetters"){
+          formData.message = "Thanks for Subscribing our NewsLetters.";
+        }else{
+          formData.message = "Thanks for Contacing Us We will Be back to you Soon.";
+        }
+        formData.toMail = "user";
+        handleUserSendMail(formData);
+
+      } else {
+        setStatus("Error sending message.");
+      }
+    }
+
+    const handleUserSendMail = async (formData) => {
+      
+      setStatus("Sending...");
+      console.log(formData);
+      
+  
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (res.ok) {
+        setStatus("Message sent successfully!");
+      } else {
+        setStatus("Error sending message.");
+      }
+    }
   
   return (
     <StudentDataContext.Provider
@@ -146,7 +202,8 @@ export const StudentDataContextProvider = ({ children }) => {
         GetQuizQuestions,
         EditQuizQuestion,
         DeleteQuizQuestion,
-        GetSerachedData
+        GetSerachedData,
+        handleSendMail,status,
       }}
     >
       {children}

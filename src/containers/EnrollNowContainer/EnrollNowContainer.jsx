@@ -1,9 +1,13 @@
 "use client"
-import { useState } from "react";
+import { StudentDataContext } from "@/context/StudentDataContext";
+import { useContext, useEffect, useState } from "react";
 
 const EnrollNowContainer = () => {
+
+  const {handleSendMail,status} = useContext(StudentDataContext);
+
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
     phoneNumber: "",
     dateOfBirth: "",
@@ -12,6 +16,7 @@ const EnrollNowContainer = () => {
     motivation: "",
     careerGoal: "",
     source: "",
+    formType:"Enroll Now"
   });
 
   const [errors, setErrors] = useState({});
@@ -23,7 +28,7 @@ const EnrollNowContainer = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.fullName) newErrors.fullName = "Full name is required.";
+    if (!formData.name) newErrors.name = "Full name is required.";
     if (!formData.email) newErrors.email = "Email is required.";
     if (!formData.phoneNumber) newErrors.phoneNumber = "Phone number is required.";
     if (!formData.dateOfBirth) newErrors.dateOfBirth = "Date of birth is required.";
@@ -41,10 +46,30 @@ const EnrollNowContainer = () => {
     const formErrors = validateForm();
     if (Object.keys(formErrors).length === 0) {
       // Handle form submission (e.g., send to an API)
+      handleSendMail(formData);
+      
     } else {
       setErrors(formErrors);
     }
   };
+
+  useEffect(()=>{
+    if(status == "Message sent successfully!"){
+      setFormData({
+        name: "",
+        email: "",
+        phoneNumber: "",
+        dateOfBirth: "",
+        program: "",
+        preferredStartDate: "",
+        motivation: "",
+        careerGoal: "",
+        source: "",
+        formType:"Enroll Now"
+      })
+    }
+    
+  },[status])
 
   return (
     <div className="max-w-4xl mx-auto p-6 my-10 bg-white rounded shadow-2xl">
@@ -55,10 +80,10 @@ const EnrollNowContainer = () => {
           <input
             type="text"
             id="fullName"
-            name="fullName"
-            value={formData.fullName}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
-            className={`border-b border-gray-600 p-2 w-full rounded-t-none font-bold ${errors.fullName ? "border-red-500" : "border-gray-300"}`}
+            className={`border-b border-gray-600 p-2 w-full rounded-t-none font-bold ${errors.name ? "border-red-500" : "border-gray-300"}`}
           />
           {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
         </div>
@@ -175,6 +200,13 @@ const EnrollNowContainer = () => {
 
         <button type="submit" className="bg-blue-800 my-5 text-white px-4 py-2 rounded hover:bg-blue-900">Send Message</button>
       </form>
+      {status && (
+        <div className="mt-4 text-center">
+          <p className={`text-lg font-semibold ${status === "Message sent successfully!" ? "text-green-600" : "text-red-600"}`}>
+            {status}
+          </p>
+        </div>
+      )}
     </div>
   );
 };

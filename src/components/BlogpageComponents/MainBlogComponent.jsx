@@ -1,8 +1,10 @@
 "use client"
+import SearchBarContentContainer from "@/containers/SerachBarContentContainer/SerachBarContentContainer"
 import { BlogDataContext } from "@/context/BlogData"
 import Image from "next/image"
 import Link from "next/link"
 import { useContext, useEffect, useState } from "react"
+import SearchBar from "../QuizComponents/SearchBar"
 
 const MainBlogComponent = ({blogData}) => {
     const {categoryData,GetCategoryData,GetBlogData,multipleBlogData,setmultipleBlogData} = useContext(BlogDataContext);
@@ -29,11 +31,12 @@ const MainBlogComponent = ({blogData}) => {
    return (
       <>
         <div className="mainContainer w-[100%] overflow-hidden ">
-            <div className="innerContainer flex lg:flex-row gap-[2rem] w-[100%] xl:px-[10rem] py-[2rem] lg:px-[5rem] xs:flex-col md:px-[5rem] sm:px-[3rem] xs:px-[1rem]">
+            <div className="innerContainer flex items-start lg:flex-row gap-[2rem] w-[100%] xl:px-[10rem] py-[2rem] lg:px-[5rem] xs:flex-col md:px-[5rem] sm:px-[3rem] xs:px-[1rem]">
+                
                 <div className="left lg:w-[60%] xs:w-[100%]">
                     <div className="imageContainer w-[100%] h-[25rem] bg-[#949393]">
                         {blogData.thumbnail && 
-                        <Image src={blogData.thumbnail} width={100} height={100} alt={blogData.thumbnail} className="w-[100%] h-[25rem]"/>}
+                        <Image src={blogData.thumbnail} width={1024} height={100} alt={blogData.thumbnail} className="w-[100%] h-[25rem]"/>}
                     </div>
                     <div className="headingContainer">
                         <h2 className="heading text-[#0E2D5B] font-bold text-[2rem]">{blogData.heading}</h2>
@@ -43,26 +46,10 @@ const MainBlogComponent = ({blogData}) => {
                     </div>
 
                 </div>
-                <div className="right lg:w-[30%] flex justify-center flex-col gap-[2rem] xs:w-[100%]">
+                <div className="right lg:w-[35%] flex justify-center flex-col gap-[2rem] xs:w-[100%]">
                     
-                    {/* Search box */}
-                    <div className="flex items-center  w-[100%] h-[4rem] max-w-[100%] sm:max-w-[100%] md:max-w-[100%] bg-[#001F61] rounded-md gap-1 p-1 sm:p-2">
-                        <Image 
-                            src="/search.svg" 
-                            alt="Logo" 
-                            className="text-white" 
-                            width={30} 
-                            height={30} 
-                        />
-                        <input
-                            className="bg-[#001F61] text-white border-none w-full px-0 sm:px-0 py-1 sm:py-2 text-sm sm:text-base outline-none placeholder-gray-300 rounded-md"
-                            type="text"
-                            placeholder="Search"
-                        />
-                        <button className="bg-[#ffffff] hover:bg-[#cbcbcb] w-auto px-3 sm:px-4 py-1 sm:py-2 text-sm sm:text-base rounded-md shrink-0 text-[#000000]">
-                            Search
-                        </button>
-                    </div>
+                    
+                    <SearchBar color={"#001F61"}/>
 
                     {/* <div className="categoryContainer">
                         <p className="heading text-[#001F61] text-[1.5rem] font-normal">Categories</p>
@@ -88,9 +75,9 @@ const MainBlogComponent = ({blogData}) => {
                                     <div className="w-full h-[10rem] sm:w-1/3">
                                     <Image
                                         src={data.thumbnail}
-                                        className="md:w-full h-[10rem]   object-fill rounded-md"
+                                        className="md:w-full h-[100%]   object-fill rounded-md"
                                         height={200}
-                                        width={200}
+                                        width={1024}
                                         alt=""
                                     />
                                     </div>

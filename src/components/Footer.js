@@ -1,12 +1,33 @@
-import React from 'react';
+"use client"
+import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import footerLg from '../../public/images/footerLg.png';
 import location from '../../public/icons/location.png'
 import phone from '../../public/icons/phone.png'
 import RealLogo from '../../public/images/RealLogo.png'
 import Link from 'next/link';
+import { StudentDataContext } from '@/context/StudentDataContext';
 
 const Footer = () => {
+    
+  const [email,setEmail] = useState("");
+
+  const {handleSendMail,status} = useContext(StudentDataContext);
+
+  useEffect(()=>{
+    console.log(status);
+    if(status === "Message sent successfully!"){
+      setEmail("");
+    }
+  },[status])
+
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    if(email != ""){
+      handleSendMail({email:email,message:"Any",formType:"NewsLetters"});
+    }
+  }
+
   return (
     <footer className="bg-gradient-to-b from-[#112E58] via-[#224474] to-[#112E58] flex flex-col items-center px-6 py-12">
       {/* Top Section */}
@@ -70,8 +91,10 @@ const Footer = () => {
         <div className='flex flex-col gap-4 items-center'>
           <h1 className='font-bold text-lg text-center'>SIGN UP TO OUR NEWSLETTER</h1>
           <div className='flex border border-white rounded-md overflow-hidden w-full max-w-md'>
-            <input className='flex-1 bg-transparent text-white p-3 outline-none' type="email" placeholder='Your Email' />
+            <form onSubmit={handleSubmit} className='flex border border-white rounded-md overflow-hidden w-full max-w-md'>
+            <input onChange={(e)=>setEmail(e.target.value)} className='flex-1 bg-transparent text-white p-3 outline-none' type="email" placeholder='Your Email' value={email}/>
             <button className='bg-white text-[#112E58] px-4 py-2 font-bold'>SUBSCRIBE</button>
+            </form>
           </div>
         </div>
       </div>

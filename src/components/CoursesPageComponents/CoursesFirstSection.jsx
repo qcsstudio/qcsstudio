@@ -28,12 +28,14 @@ import iconData from '../../../public/images/iconData.png';
 import cloudIcon from '../../../public/images/cloudIcon.png'; 
 import lock from '../../../public/images/lock.png'
 import board from '../../../public/images/board.png'
+import Link from 'next/link';
 
 const slides = [
   {
     title: "DATA SCIENCE & AI",
     description: "Harness the power of data to unlock insights, solve complex problems, and drive innovation. Become a data-driven decision-maker.",
     buttonText: "EXPLORE DATA SCIENCE & AI",
+    buttonURL: "/courses/data-analytics",
     image: ai,
     icon: {
 
@@ -48,6 +50,7 @@ const slides = [
     title: "WEB DEVELOPMENT",
     description: "From stunning websites to powerful web applications, master the art of coding and build the digital future.",
     buttonText: "EXPLORE WEB DEVELOPMENT",
+    buttonURL: "/courses/web-development",
     image: side2pic,
     icon: {
 
@@ -62,6 +65,7 @@ const slides = [
     title: "DIGITAL MARKETING",
     description: "From stunning websites to powerful web applications, master the art of coding and build the digital future.",
     buttonText: "EXPLORE DIGITAL MARKETING",
+    buttonURL: "/courses/digital-marketing",
     image: Dm,
     icon: {
 
@@ -76,6 +80,7 @@ const slides = [
     title: "UI/UX DESIGNING",
     description: "From stunning websites to powerful web applications, master the art of coding and build the digital future.",
     buttonText: "EXPLORE UI/UX DESIGNING",
+    buttonURL: "/courses/ui-ux",
     image: board,
     icon: {
 
@@ -89,7 +94,8 @@ const slides = [
   {
     title: "NETWORK & NETWORK SECURITY",
     description: "From stunning websites to powerful web applications, master the art of coding and build the digital future.",
-    buttonText: "EXPLORE UI/UX DESIGNING",
+    buttonText: "EXPLORE NETWORKING COURSE",
+    buttonURL: "/courses/networking",
     image: lock,
     icon: {
 
@@ -113,14 +119,16 @@ const settings = {
   autoplaySpeed: 2500, // Fixed typo
 };
 
-const Slide = ({ title, description, buttonText, image, icon }) => (
+const Slide = ({ title, description, buttonText, image, icon,buttonURL }) => (
   <div className="h-[70vh] w-full flex items-center justify-center px-10 ">
     <div className="flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between lg:gap-6 md:gap-0 px-5 md:px-10 mt-2 lg:mt-20 relative">
       <div className="flex flex-col gap-10 max-w-lg text-center md:text-left">
         <h1 className="text-white font-bold text-2xl md:text-lg lg:text-[40px] lg:leading-normal">{title}</h1>
         <p className="text-[#C4EF01] text-sm lg:text-[16px] md:text-sm mt-2">{description}</p>
         <button className="mt-2 lg-py-2 lg-px-2 py-1 w-[280px] px-1 md:py-3 md:px-5 md:text-sm text-sm border border-white rounded-lg text-white hover:bg-white hover:text-black transition">
-          {buttonText}
+          <Link href={buttonURL}>
+            {buttonText}
+          </Link>
         </button>
       </div>
       <div className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px]">
