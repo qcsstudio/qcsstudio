@@ -15,7 +15,7 @@ const Mentor = () => {
   return (
     <div className="max-w-[1440px] mx-auto mentor relative w-full  flex justify-center items-center px-6 ">
       {/* Left Side Images */}
-      <div className="absolute left-[-60] max-lg:-[1080px]:left-4 top-[75%] transform -translate-y-1/2 flex flex-col gap-14">
+      <div className="absolute left-[-2%] max-lg:-[1080px]:left-4 top-[75%] transform -translate-y-1/2 flex flex-col gap-14">
         <Image
           height={60}
           width={60}
