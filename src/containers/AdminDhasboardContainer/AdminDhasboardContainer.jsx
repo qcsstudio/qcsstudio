@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import QuizQuestionsComponent from '@/components/AdminDashboardComponents/QuizQuestionsComponent';
 import StudentsDataTableComponent from '@/components/AdminDashboardComponents/StudentsDataTableComponent';
 import ListBlog from '@/components/BlogpageComponents/UploadComponents/ListBlog';
@@ -7,11 +7,38 @@ import UploadBlog from '@/components/BlogpageComponents/UploadComponents/UploadB
 import UploadCategory from '@/components/BlogpageComponents/UploadComponents/UploadCategory';
 import QuestionsManager from '@/components/QuizComponents/QuestionsManager';
 import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import Loader from '@/components/Loader';
+import Image from 'next/image';
+import { removeToken } from '@/utils/cookies';
 
 const AdminDashboardContainer = () => {
   const [activeComponent, setActiveComponent] = useState('dashboard');
+  const [loading, setLoading] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const handleChangePage = (component) => {
+    setLoading(true);
+    setTimeout(() => {
+      setActiveComponent(component);
+      setLoading(false);
+      setSidebarOpen(false); 
+    }, 300);
+  };
+
+  const handleLogout =  async() => {
+    await removeToken();
+    window.location.reload(); 
+  };
 
   const renderContent = () => {
+    if (loading) {
+      return (
+        <div className="flex justify-center items-center h-full">
+          <Loader/>
+        </div>
+      );
+    }
     switch (activeComponent) {
       case 'dashboard':
         return <Dashboard />;
@@ -29,56 +56,65 @@ const AdminDashboardContainer = () => {
   };
 
   return (
-    <div className="flex min-h-[110vh] font-sans w-[100vw] ">
-      <div className="w-64 bg-gray-800 min-h-[110vh] text-white flex flex-col">
-        <div className="px-6 py-4 text-2xl font-bold border-b border-gray-700">
-          Admin Panel
+    <div className="flex h-screen w-screen font-sans">
+      
+      <button
+        className="md:hidden absolute top-4 left-4 text-gray-900"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+      >
+        <Menu className="w-8 h-8" />
+      </button>
+
+      
+      <div
+        className={`fixed z-10 md:relative w-64 bg-gray-800 text-white flex flex-col h-screen transition-transform transform ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 md:flex`}
+      >
+        
+        <div className="px-6 py-4 text-2xl font-bold border-b border-gray-700 flex justify-between items-center">
+          <span>Admin Panel</span>
+          <button className="md:hidden" onClick={() => setSidebarOpen(false)}>
+            <X className="w-6 h-6" />
+          </button>
         </div>
+
+        
         <ul className="flex flex-col py-4">
-          <li
-            className={`px-6 py-3 cursor-pointer hover:bg-gray-700 ${
-              activeComponent === 'dashboard' ? 'bg-gray-700' : ''
-            }`}
-            onClick={() => setActiveComponent('dashboard')}
-          >
-            Dashboard
-          </li>
-          <li
-            className={`px-6 py-3 cursor-pointer hover:bg-gray-700 ${
-              activeComponent === 'users' ? 'bg-gray-700' : ''
-            }`}
-            onClick={() => setActiveComponent('Students')}
-          >
-            Students
-          </li>
-          <li
-            className={`px-6 py-3 cursor-pointer hover:bg-gray-700 ${
-              activeComponent === 'settings' ? 'bg-gray-700' : ''
-            }`}
-            onClick={() => setActiveComponent('quiz')}
-          >
-            Quiz Questions
-          </li>
-          <li
-            className={`px-6 py-3 cursor-pointer hover:bg-gray-700 ${
-              activeComponent === 'UploadBlog' ? 'bg-gray-700' : ''
-            }`}
-            onClick={() => setActiveComponent('ListBlog')}
-          >
-            Blog List
-          </li>
-          <li
-            className={`px-6 py-3 cursor-pointer hover:bg-gray-700 ${
-              activeComponent === 'CategoryList' ? 'bg-gray-700' : ''
-            }`}
-            onClick={() => setActiveComponent('CategoryList')}
-          >
-            Category List
-          </li>
+          {[
+            { name: "Dashboard", key: "dashboard" },
+            { name: "Students", key: "Students" },
+            { name: "Quiz Questions", key: "quiz" },
+            { name: "Blog List", key: "ListBlog" },
+            { name: "Category List", key: "CategoryList" },
+          ].map((item) => (
+            <li
+              key={item.key}
+              className={`px-6 py-3 cursor-pointer hover:bg-gray-700 ${
+                activeComponent === item.key ? "bg-gray-700" : ""
+              }`}
+              onClick={() => handleChangePage(item.key)}
+            >
+              {item.name}
+            </li>
+          ))}
+          
         </ul>
+        <div className='flex items-center justify-center'>
+        <div className='flex items-center justify-center gap-2 bg-red-500 w-24 p-2 rounded-md '  onClick={handleLogout}>
+        <button className=''>
+          Logout
+        </button>
+          <Image src='/logOut.svg' height={40} width={40} alt='logout'></Image>
+        </div>
+        </div>
+        
       </div>
 
-      <div className="flex-1 bg-gray-100 p-6">
+
+
+      
+      <div className="flex-1 mt-16 md:mt-0 bg-gray-100 p-6 overflow-y-auto h-screen">
         {renderContent()}
       </div>
     </div>
