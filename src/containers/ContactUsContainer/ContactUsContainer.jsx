@@ -6,6 +6,7 @@ import NextStep from "@/components/ContactUsComponents/NextStep";
 import FAQ from "@/components/CoursesComponents/Common/FAQ/FAQ";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import NewFooter from "@/components/NewFooter";
 
 const ContactUsContainer = () => {
   return (

@@ -113,8 +113,8 @@ const BlogRecentBlog = () => {
           alt=""
         />
       </div>
-
-      {(initialBlog < multipleBlogData.length) ? <div className="flex justify-center my-16">
+            {multipleBlogData.length > 4 ? 
+      (initialBlog < multipleBlogData.length) ? <div className="flex justify-center my-16">
         <button className="bg-white border border-[#0E2D5B] hover:text-white hover:bg-[#0E2D5B] text-[#0E2D5B] px-6 py-2 rounded-md text-sm sm:text-base" onClick={() => setInitialBlog(initialBlog + 3)}>
           LOAD MORE
         </button>
@@ -122,7 +122,8 @@ const BlogRecentBlog = () => {
         <button className="bg-white border border-[#0E2D5B] hover:text-white hover:bg-[#0E2D5B] text-[#0E2D5B] px-6 py-2 rounded-md text-sm sm:text-base" onClick={() => setInitialBlog(4)}>
           LOAD LESS
         </button>
-      </div>}
+      </div>
+      :<div className="w-[100%] my-[5rem]" ></div>}
     </div>
   );
 };

@@ -4,7 +4,9 @@ import Blog from "@/models/blog";
 export async function GET(req,{params}){
     try {
         await connectMongo();
-        const slug = decodeURIComponent(params.slug);
+        const slug = await decodeURIComponent(params.slug);
+
+        console.log("Slug from single blogs api backend : ================",slug);
 
         const blog = await Blog.findOne({heading:slug});
         console.log(blog);
