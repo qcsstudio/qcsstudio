@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import Loader from "@/components/Loader";
+import Link from "next/link";
 
 function SearchBarContentContainer() {  
   const searchParams = useSearchParams();
@@ -53,6 +54,7 @@ function SearchBarContentContainer() {
 
 function Card({ data }) {
   return (
+    <Link href={`/blogs/${data.heading}`}>
     <div className="flex flex-col sm:flex-row gap-4 sm:items-center border p-4 rounded-md shadow-md">
       <div className="w-full sm:w-1/3">
         <Image
@@ -77,6 +79,7 @@ function Card({ data }) {
         />
       </div>
     </div>
+    </Link>
   );
 }
 

@@ -326,16 +326,9 @@ body {
 
 
 /* Loading Spinner Code  */
-/* #container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
 
 .loading {
-  /* height: 100vh; */
+  height: 30vh;
   width: 100%;
   display: flex;
   align-items: center;

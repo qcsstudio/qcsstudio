@@ -29,24 +29,26 @@ export default function HeroContent() {
       <div className="relative  hidden lg:flex flex-col-reverse items-center gap-6 h-auto lg:h-[500px] justify-center">
         <div className="hidden lg:block w-[2px] h-[120px] bg-gradient-to-t from-white to-transparent"></div>
         <div className="flex flex-row lg:flex-col items-center gap-5">
-          <Link href="https://www.facebook.com/takshashilalabs" legacyBehavior>
-            <a className="hover:scale-110 transition-transform">
+          <Link href="https://www.facebook.com/takshashilalabs" target="_blank" legacyBehavior>
+            <a className="hover:scale-110 transition-transform" target="_blank">
               <Image src={Facebook} alt="Facebook" width={32} height={32} />
             </a>
           </Link>
           <Link
             href="https://www.linkedin.com/company/takshashilalabs/"
             legacyBehavior
+            target="_blank"
           >
-            <a className="hover:scale-110 transition-transform">
+            <a className="hover:scale-110 transition-transform" target="_blank">
               <Image src={Linkedin} alt="LinkedIn" width={32} height={32} />
             </a>
           </Link>
           <Link
             href="https://www.instagram.com/takshashilalabs/"
             legacyBehavior
+            target="_blank"
           >
-            <a className="hover:scale-110 transition-transform">
+            <a className="hover:scale-110 transition-transform" target="_blank">
               <Image src={Instagram} alt="Instagram" width={32} height={32} />
             </a>
           </Link>

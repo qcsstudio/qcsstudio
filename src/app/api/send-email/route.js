@@ -7,10 +7,9 @@ export async function POST(req) {
     
 
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
+      host: 'smtpout.secureserver.net',
       port: 587,
       secure: false,
-      service: "gmail",
       auth: {
         user: process.env.EMAIL,
         pass: process.env.EMAIL_PASSWORD,
@@ -18,15 +17,15 @@ export async function POST(req) {
     });
     let mailOptions = {};
     {formType == "NewsLetters" && (mailOptions = {
-      from: `${toMail == "user" ? email : process.env.EMAIL_TO}`,
-      to: `${toMail == "company" ? process.env.EMAIL_TO : email}`,
+      from: `${toMail == "company" ? email : process.env.EMAIL}`,
+      to: `${toMail == "company" ? process.env.EMAIL : email}`,
       subject: `Contact Form Submission from ${name}`,
       text: `You have received a message from ${name} (${email}):\n\n${message}`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6;">
           <h2 style="color: #333;">NewsLetters Form Submission</h2>
           <p><strong>Name:</strong> ${toMail == "company" ? name : "QuantumCrafters Studio"}</p>
-          <p><strong>Email:</strong> ${toMail == "company" ? email : process.env.EMAIL_TO}</p>
+          <p><strong>Email:</strong> ${toMail == "company" ? email : process.env.EMAIL}</p>
           <p><strong>Message:</strong></p>
           <p style="border-left: 4px solid #ccc; padding-left: 8px; color: #555;">${toMail == "company" ? ` ${name} Subscribed your NewsLetters` : `${message}`}</p>
           <hr>
@@ -36,15 +35,15 @@ export async function POST(req) {
     })}
 
     {formType == "Contact Us" && (mailOptions = {
-      from: `${toMail == "user" ? email : process.env.EMAIL_TO}`,
-      to: `${toMail == "company" ? process.env.EMAIL_TO : email}`,
+      from: `${toMail == "company" ? email : process.env.EMAIL}`,
+      to: `${toMail == "company" ? process.env.EMAIL : email}`,
       subject: `Contact Form Submission from ${name}`,
       text: `You have received a message from ${name} (${email}):\n\n${message}`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6;">
           <h2 style="color: #333;">Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${toMail == "company" ? name : "QuantumCrafters Studio"}</p>
-          <p><strong>Email:</strong> ${toMail == "company" ? email : process.env.EMAIL_TO}</p>
+          <p><strong>Name:</strong> ${toMail == "user" ? "QuantumCrafters Studio" : name}</p>
+          <p><strong>Email:</strong> ${toMail == "user" ? process.env.EMAIL : email}</p>
           <p><strong>Message:</strong></p>
           <p style="border-left: 4px solid #ccc; padding-left: 8px; color: #555;">${message}</p>
           <hr>
@@ -55,15 +54,15 @@ export async function POST(req) {
 
     // Enroll Now Handled
     {formType == "Enroll Now" && (mailOptions = {
-      from: `${toMail == "user" ? email : process.env.EMAIL_TO}`,
-      to: `${toMail == "company" ? process.env.EMAIL_TO : email}`,
+      from: `${toMail == "company" ? email : process.env.EMAIL}`,
+      to: `${toMail == "company" ? process.env.EMAIL : email}`,
       subject: `Enroll Form Submission from ${name}`,
       text: `You have received a message from ${name} (${email})`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6;">
           <h2 style="color: #333;">Enroll Form Submission</h2>
           <p><strong>Name:</strong> ${toMail == "company" ? name : "QuantumCrafters Studio"}</p>
-          <p><strong>Email:</strong> ${toMail == "company" ? email : process.env.EMAIL_TO}</p>
+          <p><strong>Email:</strong> ${toMail == "company" ? email : process.env.EMAIL}</p>
           ${toMail=="company" ?(`
           <p><strong>Phone No.:</strong> ${phoneNumber}</p>
           <p><strong>Date of Birth:</strong> ${dateOfBirth}</p>
@@ -82,7 +81,8 @@ export async function POST(req) {
     })}
 
     try {
-      await transporter.sendMail(mailOptions);
+      const info = await transporter.sendMail(mailOptions);
+      console.log("mail response data = ====> ",info)
       return Response.json({ message: "Email sent successfully" }, { status: 200 });
     } catch (error) {
       console.error(error);

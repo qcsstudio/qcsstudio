@@ -53,7 +53,7 @@ const HighlightHeader = () => (
 
 const ListItem = ({ text, onClick, isActive }) => (
   <li
-    className={`relative flex items-center pl-10cursor-pointer text-lg sm:text-xl md:text-2xl transition-all duration-300 ${isActive ? "text-black font-bold pl-[60px] text-4xl" : "text-gray-400 hover:text-black"
+    className={`relative flex items-center cursor-pointer pl-10cursor-pointer text-lg sm:text-xl md:text-2xl transition-all duration-300 ${isActive ? "text-black font-bold pl-[60px] text-4xl" : "text-gray-400 hover:text-black"
       }`}
     onClick={onClick}
   >

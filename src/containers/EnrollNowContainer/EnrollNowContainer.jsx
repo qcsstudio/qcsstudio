@@ -132,16 +132,19 @@ const EnrollNowContainer = () => {
         <div className="mb-4">
           <label className="block text-sm text-[#112e58] font-bold mb-1" htmlFor="program">Choose Your Program *</label>
           <select
+            
             id="program"
             name="program"
             value={formData.program}
             onChange={handleChange}
             className={`border-b border-gray-600 p-2 w-full text-[#112e58] rounded-t-none  ${errors.program ? "border-red-500" : "border-gray-300"}`}
           >
-            <option value="">Select a Course</option>
-            <option value="program1">Web development</option>
-            <option value="program2">Digital Marketing</option>
-            <option value="program3">Data Scince And AI</option>
+            <option value="" disabled>Select a Course</option>
+            <option value="Web development">Web development</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Data Scince And AI">Data Scince And AI</option>
+            <option value="UI/UX Designing">UI/UX Designing</option>
+            <option value="Networking">Networking</option>
           </select>
           {errors.program && <p className="text-red-500 text-sm">{errors.program}</p>}
         </div>

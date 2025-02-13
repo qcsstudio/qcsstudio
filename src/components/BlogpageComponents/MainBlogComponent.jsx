@@ -69,15 +69,15 @@ const MainBlogComponent = ({blogData}) => {
 
                     <div className="recentBlog w-[100%] flex flex-col gap-[2rem]">
                         <p className="recent text-[#001F61] text-[1.5rem] font-normal">Recent Blogs</p>
-                        <div className="blogCards flex flex-col md:gap-[5rem] xs:gap-[2rem] mt-[2rem]">
+                        <div className="blogCards flex w-[100%] flex-col md:gap-[5rem] xs:gap-[2rem] mt-[2rem]">
                         {multipleBlogData &&
                             blogsData.map((data)=>{
                                 return <Link key={data._id} href={`/blogs/${data.heading}`}>
-                                <div  className="flex  sm:flex-row gap-4 sm:items-center bg-[#ffffff] h-[10rem] px-[1rem] rounded-[1rem]">
-                                    <div className="w-full h-[10rem] sm:w-1/3">
+                                <div  className="flex w-[100%] sm:flex-row gap-4 sm:items-center bg-[#ffffff] h-[10rem] px-[1rem] rounded-[1rem]">
+                                    <div className=" h-[10rem]  w-[60%]">
                                     <Image
                                         src={data.thumbnail}
-                                        className="md:w-full h-[100%]   object-fill rounded-md"
+                                        className="md:w-full h-[100%]   object-cover rounded-md"
                                         height={200}
                                         width={1024}
                                         alt=""
