@@ -13,8 +13,8 @@ const AboutSection = () => {
           alt="Background Graphic  "
         />
         <div className="z-10 ml-[4%]">
-          <h6 className="text-[#527CBD] text-2xl">Who we are</h6>
-          <h2 className="text-[#032263] text-4xl leading-10 tracking-wide font-bold">
+          <h6 className="text-[#527CBD] lg:text-2xl !text-[17px] ">Who we are</h6>
+          <h2 className="text-[#032263] leading-10 tracking-wide font-bold">
             &quot;Transforming Passion into Profession&quot; Welcome to
             QuantumCrafters Studio, where learning meets opportunity. We believe
             that every student’s journey starts with passion, and we are here to

@@ -1,112 +1,139 @@
-"use client"
+"use client";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { BlogDataContext } from "@/context/BlogData";
-import { MultiSelect } from 'primereact/multiselect';
+import { MultiSelect } from "primereact/multiselect";
 import Image from "next/image";
 
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 
-const UploadBlog = ({setADD}) => {
-    const {GetCategoryData,categoryData,PostBlogData} = useContext(BlogDataContext);
-    
-    // Form Input Values:
-    const [title,setTitle] = useState("");
-    const [imageShow,setImageShow] = useState(null);
-    const [thumbnail,setThumbnail] = useState("");
-    const [description,setDescription] = useState("");
-    const [category,setCategory] = useState([]);
-    const [showOnFront,setShowOnFront] = useState(false);
-    const [selectedCategories, setSelectedCategories] = useState(false);
+const UploadBlog = ({ setADD }) => {
+  const { GetCategoryData, categoryData, PostBlogData } = useContext(BlogDataContext);
 
-    useEffect(()=>{
-        GetCategoryData();
-        console.log("Category data :",categoryData);
-        // const caterogyArrObj = categoryData.map((cate)=>({name:cate.name}));
-        // setSelectedCategories(caterogyArrObj);
-    },[])
+  // Form Input Values:
+  const [title, setTitle] = useState("");
+  const [imageShow, setImageShow] = useState(null);
+  const [thumbnail, setThumbnail] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState([]);
+  const [showOnFront, setShowOnFront] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
-    const editor = useRef(null);
-    const router = useRouter();
+  useEffect(() => {
+    GetCategoryData();
+  }, []);
 
+  const editor = useRef(null);
+  const router = useRouter();
 
+  // Handle Images:
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImageShow(URL.createObjectURL(file));
 
-    // Handle Images:
-    const handleImageChange = (e) =>{
-        
-        const file = e.target.files[0];
-        setImageShow(URL.createObjectURL(file));
-        
-        if (file) {
-            const reader = new FileReader();
-            reader.readAsDataURL(file); // Convert to Base64
-            reader.onload = () => setThumbnail(reader.result); // Store Base64 string
-        }
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file); // Convert to Base64
+      reader.onload = () => setThumbnail(reader.result); // Store Base64 string
     }
+  };
 
-    // Handle submit:
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        const cate = selectedCategories.map((data) => data.name);
-        setCategory(cate);
-        PostBlogData(title,thumbnail,cate,showOnFront,description);
-        setADD(false);
-    }
+  // Handle submit:
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const selectedCategoryNames = selectedCategories.map((data) => data.name);
+    setCategory(selectedCategoryNames);
+    PostBlogData(title, thumbnail, selectedCategoryNames, showOnFront, description);
+    setADD(false);
+  };
 
-   return (
-      <>
-         <div className="blogContainer w-[100%] absolute top-[0] left-[0] ">
-            <div className="innerContainer w-[100%]  flex  justify-center items-center">
-                
-                <form onSubmit={handleSubmit} className="blogForm w-[100%] flex flex-col p-[2rem] rounded-[1rem] bg-[#ffffff] gap-[2rem]">
-                    <div className="topParent w-[100%] flex justify-end">
+  return (
+    <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50 p-4">
+      <div className="bg-white w-full max-w-3xl p-6 rounded-lg shadow-lg overflow-y-auto max-h-[90vh]">
+        {/* Close Button */}
+        <div className="flex justify-end">
+          <button
+            onClick={() => setADD(false)}
+            className="text-gray-500 hover:text-red-500 transition"
+          >
+            ✖
+          </button>
+        </div>
 
-                        <div className="topCont px-[1rem] py-[.5rem]  cursor-pointer border border-[#c0c0c0] rounded-[.5rem] hover:bg-[red] hover:text-[#ffffff]" onClick={()=>setADD(false)}>X</div>
+        {/* Form */}
+        <h2 className="text-2xl font-semibold text-center mb-4">Upload Blog</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Title */}
+          <input
+            placeholder="Enter Blog Title"
+            type="text"
+            name="heading"
+            id="heading"
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+          />
 
-                    </div>
-                    <p className="heading text-center text-[2rem] font-semiblod">Upload Blog</p>
-
-                    <input placeholder="Enter Blog Title" type="text" name="heading" id="heading" 
-                    onChange={(e)=>setTitle(e.target.value)} className="w-[100%] border border-[#d1d1d1] px-[1rem] py-[.5rem] rounded-[.5rem]"/>
-
-                    <input type="file" accept="image/*" onChange={handleImageChange} className="w-[100%] border border-[#d1d1d1] px-[1rem] py-[.5rem] rounded-[.5rem]"/>
-
-                    {imageShow && <Image src={imageShow} width={100} height={100} alt="image" />}
-
-                    <JoditEditor 
-                        ref={editor}
-                        value={description}
-                        onChange={newContent=>setDescription(newContent)}
-                        className="w-[100%] min-h-[70vh] border  border-[#d1d1d1] px-[1rem] py-[.5rem] rounded-[.5rem]"
-                    />
-
-                    <div className="showOnFrontCont w-[100%] flex items-center gap-[1rem]">
-                        <label htmlFor="show_on_front">Show on Front</label>
-                        <input type="checkbox" name="show_on_front" id="show_on_front" onChange={(e)=>setShowOnFront(e.target.checked)}/>
-                    </div>
-
-                    <MultiSelect 
-                        value={selectedCategories} 
-                        onChange={(e) => setSelectedCategories(e.value)} 
-                        options={categoryData} 
-                        optionLabel="name" 
-                        placeholder="Select Categories" 
-                        maxSelectedLabels={3} 
-                        className="w-full md:w-[20rem] p-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 mb-4"
-                        panelClassName="z-50"
-                    />
-
-                    <div className="w-[100%] flex justify-center">
-                        <button className="px-[4rem] py-[.7rem] rounded-[.5rem] bg-[rgba(9,9,121,1)] text-[#ffffff] w-[30%]">Submit</button>
-                    </div>
-                    
-                </form>
+          {/* Image Upload */}
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="w-full border border-gray-300 px-3 py-2 rounded-lg"
+          />
+          {imageShow && (
+            <div className="flex justify-center">
+              <Image src={imageShow} width={100} height={100} alt="Preview" className="rounded-md" />
             </div>
-         </div>
-         
-      </>
-   )
-}
+          )}
 
-export default UploadBlog
+          {/* Rich Text Editor */}
+          <JoditEditor
+            ref={editor}
+            value={description}
+            onChange={(newContent) => setDescription(newContent)}
+            className="w-full min-h-[200px] border border-gray-300 px-3 py-2 rounded-lg"
+          />
+
+          {/* Show on Front Checkbox */}
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              name="show_on_front"
+              id="show_on_front"
+              onChange={(e) => setShowOnFront(e.target.checked)}
+              className="w-5 h-5"
+            />
+            <label htmlFor="show_on_front" className="text-gray-700">
+              Show on Front
+            </label>
+          </div>
+
+          {/* Category Selection */}
+          <MultiSelect
+            value={selectedCategories}
+            onChange={(e) => setSelectedCategories(e.value)}
+            options={categoryData}
+            optionLabel="name"
+            placeholder="Select Categories"
+            maxSelectedLabels={3}
+            className="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+            panelClassName="z-50"
+          />
+
+          {/* Submit Button */}
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-lg transition w-full md:w-1/2"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default UploadBlog;

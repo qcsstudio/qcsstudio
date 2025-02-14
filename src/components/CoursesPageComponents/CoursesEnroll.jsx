@@ -1,59 +1,67 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import rect from '../../../public/images/Rectangle.png'
+import bubblebg from '../../../public/images/bublebg.png'
+import recent from '../../../public/images/recentsBlogsbg1.png'
+import blogBg from '../../../public/images/blog-bg-img-3.png'
+import circlesbg from '../../../public/images/circlesbg.png'
+import CoursesBackground from '../../../public/images/CoursesBackground.png'
+
+
 
 const CoursesEnroll = () => {
   return (
-    <div className="">
-      <div className="relative w-full h-[700] md:h-[700] lg:h-[600] flex items-center justify-start">
+    <div className=" w-full bg-blue-950 ">
+      <div className="relative w-full h-[700] md:h-[700] lg:h-[600] mt-[100px] flex items-center justify-start">
         <Image
           className="absolute z-10 top-0 left-1"
-          src="/images/Rectangle.png"
+          src={rect}
           width={100}
           height={100}
           alt="rectangle"
         />
         <Image
           className="absolute z-10 top-7 left-10"
-          src="/images/Rectangle.png"
+          src={rect}
           width={150}
           height={150}
           alt="rectangle"
         />
         <Image
           className="hidden md:hidden lg:block absolute z-20 top-0 right-96"
-          src="/images/bublebg.png"
+          src={bubblebg}
           width={500}
           height={500}
           alt="bg"
         />
         <Image
           className="hidden lg:block absolute z-30 right-0 top-0"
-          src="/images/recentsBlogsbg1.png"
+          src={recent}
           width={150}
           height={150}
           alt="bg"
         />
         <Image
           className="absolute z-30 left-5 bottom-5 scale-x-[-1]"
-          src="/images/blog-bg-img-3.png"
+          src={blogBg}
           width={150}
           height={150}
           alt="bg"
         />
         <Image
           className="absolute z-30 bottom-10 right-5"
-          src="/images/circlesbg.png"
+          src={circlesbg}
           width={150}
           height={150}
           alt="bg"
         />
-        <Image
-          src="/images/CoursesBackground.png"
+        {/* <Image
+          src={CoursesBackground}
           className="object-cover"
           layout="fill"
           alt="test"
-        />
+        /> */}
 
         <div className="absolute mx-5 flex flex-col justify-center md:mx-10 lg:mx-32">
           <div className="headings">

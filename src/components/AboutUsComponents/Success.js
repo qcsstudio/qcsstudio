@@ -3,7 +3,7 @@ import React from 'react'
 const Success = () => {
     return (
         <div className='  sm:overflow-hidden'>
-            <div className=" w-[102vw] bg-[url('/images/bgSuccess.jpg')] bg-cover bg-center bg-no-repeat min-h-screen lg:h-[100vh] pl-2 flex flex-col justify-start items-start gap-10">
+            <div className=" w-[102vw] bg-[url('/images/bgSuccess.jpg')] bg-cover bg-center bg-no-repeat min-h-screen lg:h-[80vh] pl-2 flex flex-col justify-start items-start gap-10">
                 <div className='flex flex-col justify-start m-3 pt-14 lg:pt-0 lg:m-24 gap-3'>
                     <h4 className='text-[17px] lg:text-[21px] text-[#C1EE04]'>
                         Your Success Is

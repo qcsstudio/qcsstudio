@@ -228,7 +228,7 @@ const CoursesFirstSection = () => {
       <div
         className="w-[75vw] h-[70vh] items-center justify-center lg:h-[80vh] border rounded-xl"
         style={{
-          backgroundImage: "url('/images/CoursesBg2.png')",
+          backgroundImage: "url('https://drive.google.com/file/d/1aUsh6-4bqtQnbZ6ITQbYZfzDBL4wDxRI/view?usp=drive_link')",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}

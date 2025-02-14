@@ -1,32 +1,59 @@
-const PopUpCategoryDelete = ({heading,description,popUpOpener,deleteData}) => {
-    
-    const handleNo = ()=>{
-        popUpOpener(false);
-    }
-    
-    const handleYes = ()=>{
-        deleteData();
-        popUpOpener(false);
-    }
-
+const PopUpCategoryDelete = ({ heading, description, popUpOpener, deleteData }) => {
+    const handleNo = () => popUpOpener(false);
+    const handleYes = () => {
+      deleteData();
+      popUpOpener(false);
+    };
+  
     return (
-    <>
-        <div className="popUpCont w-[20vw] px-[2rem] py-[1rem] rounded-[1rem] absolute top-[50%] right-[50%] bg-[#ffffff] flex flex-col gap-[.5rem]">
-            <div className="topParent w-[100%] flex justify-end">
-
-                <div className="topCont px-[1rem] py-[.5rem]  cursor-pointer border border-[#c0c0c0] rounded-[.5rem] hover:bg-[red] hover:text-[#ffffff]" onClick={()=>setEdit(false)}>X</div>
-
+      <>
+        
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          onClick={handleNo}
+        >
+       
+          <div
+            className="w-[90%] sm:w-[70%] md:w-[50%] lg:w-[30%] bg-white rounded-lg px-6 py-4 shadow-lg relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+           
+            <div className="absolute top-2 right-2">
+              <button
+                className="px-3 py-1 border border-gray-300 rounded-md hover:bg-red-500 hover:text-white transition duration-200"
+                onClick={handleNo}
+                tabIndex={0}
+              >
+                X
+              </button>
             </div>
-
-            <h1 className="w-[100%]  text-[1.2rem] font-semiBold">{heading}</h1>
-            <p>{description}</p>
-            <div className="lowerContainer w-[100%] flex justify-end gap-[1rem] mt-[1rem]">
-                <button className="yes px-[1rem] py-[.3rem] rounded-[.5rem] text-[#ffffff] bg-[#39a339] hover:bg-[#267626]" onClick={handleYes}>Yes</button>
-                <button className="no px-[1rem] py-[.3rem] rounded-[.5rem] text-[#ffffff] bg-[#bf3f3f] hover:bg-[#d85e5e]" onClick={handleNo}>No</button>
+  
+            
+            <h1 className="text-lg font-semibold text-center">{heading}</h1>
+            <p className="text-gray-600 text-center">{description}</p>
+  
+            
+            <div className="w-full flex justify-center gap-4 flex-wrap mt-4">
+              <button
+                className="px-6 py-2 rounded-md text-white bg-green-600 hover:bg-green-700 transition duration-200"
+                onClick={handleYes}
+                tabIndex={0}
+              >
+                Yes
+              </button>
+              <button
+                className="px-6 py-2 rounded-md text-white bg-red-500 hover:bg-red-600 transition duration-200"
+                onClick={handleNo}
+                tabIndex={0}
+              >
+                No
+              </button>
             </div>
-         </div>
-    </>
-)
-}
-
-export default PopUpCategoryDelete
+          </div>
+        </div>
+      </>
+    );
+  };
+  
+  export default PopUpCategoryDelete;
+  

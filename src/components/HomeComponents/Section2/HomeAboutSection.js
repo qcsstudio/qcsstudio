@@ -27,10 +27,12 @@ function HomeAboutSection() {
                 className="absolute top-0 -right-[2rem] sm:-right-[4rem] w-[180px] sm:w-[270px] object-contain"
               />
               <div className="text-center sm:text-left lg:pl-16 px-6  w-full   my-10 lg:my-28">
+
                 <h6 className="text-[#527CBD] text-[4.1vw] py-2 font-semibold">
                   Who we are
                 </h6>
                 <h2 className="text-[#032263] lg:text-[1.7vw] md:text-[3vw] z-20 relative leading-normal  font-bold">
+
                   &quot;Transforming Passion into Profession &quot; Welcome to
                   QuantumCrafters Studio, where learning meets opportunity. We
                   believe that every student’s journey starts with passion, and
@@ -41,7 +43,7 @@ function HomeAboutSection() {
           </div>
 
           {/* Text Content */}
-          <div className="py-20 lg:px-16 px-6 text-gray-600 text-center sm:text-left h-full flex flex-col gap-0 items-center justify-around ">
+          <div className="py-20 lg:px-16 px-6 text-gray-600 text-center sm:text-left h-full flex flex-col gap-2 items-center justify-around ">
             <div className="py-0">
               <p className="text-2xl text-[#212529] font-bold">
                 Our Values: Educate | Empower | Elevate
@@ -50,13 +52,13 @@ function HomeAboutSection() {
             </div>
             <div className="bg-white  " >
               <ul className="list-disc list-inside space-y-2 text-[#4E535CE5] text-sm sm:text-base ">
-                <li>
+                <li className="flex flex-col justify-start lg:block items-start">
                   <span className="font-bold text-[#212529]">Educate –</span ><span> Transforming learning into action with real-world knowledge and in-demand skills for the future.</span>
                 </li>
-                <li>
+                <li className="flex flex-col justify-start lg:block items-start">
                   <span className="font-bold text-[#212529]">Empower –</span> <span>Inspiring confidence and growth through personalized mentorship that unlocks your true potential.</span>
                 </li>
-                <li>
+                <li className="flex flex-col justify-start lg:block items-start">
                   <span className="font-bold text-[#212529]">Elevate –</span> <span> Equipping you with the skills and support to achieve success and thrive in your dream career.</span>
                 </li>
               </ul>

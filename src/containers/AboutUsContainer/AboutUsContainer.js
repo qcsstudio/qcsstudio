@@ -14,7 +14,6 @@ import React from 'react'
 const AboutUsContainer = () => {
   return (
     <div className='overflow-hidden'>
-        <Location />
         <Navbar />
         <AboutHero />
         <Vison />

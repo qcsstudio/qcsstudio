@@ -6,14 +6,17 @@ const AdminLoginContainer = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     if (!email || !password) {
       setError("Please enter both email and password");
+      setLoading(false);
       return;
     }
 
@@ -27,16 +30,18 @@ const AdminLoginContainer = () => {
       });
 
       const data = await res.json();
-    
 
       if (res.status === 200) {
         router.push("/admin/dashboard");
+        setLoading(false);
       } else {
         setError(data.message || "Login failed");
       }
     } catch (err) {
       setError("An error occurred. Please try again.");
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -75,9 +80,17 @@ const AdminLoginContainer = () => {
           <div className="flex justify-between items-center">
             <button
               type="submit"
-              className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center"
+              disabled={loading}
             >
-              Login
+              {loading ? (
+                <svg
+                  className="animate-spin h-5 w-5 mr-3 border-white border-2 border-t-transparent rounded-full"
+                  viewBox="0 0 24 24"
+                ></svg>
+              ) : (
+                "Login"
+              )}
             </button>
           </div>
         </form>
