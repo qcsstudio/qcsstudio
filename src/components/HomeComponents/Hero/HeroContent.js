@@ -29,13 +29,13 @@ export default function HeroContent() {
       <div className="relative  hidden lg:flex flex-col-reverse items-center gap-6 h-auto lg:h-[500px] justify-center">
         <div className="hidden lg:block w-[2px] h-[120px] bg-gradient-to-t from-white to-transparent"></div>
         <div className="flex flex-row lg:flex-col items-center gap-5">
-          <Link href="https://www.facebook.com/takshashilalabs" target="_blank" legacyBehavior>
+          <Link href="https://www.facebook.com/qcsstudio" target="_blank" legacyBehavior>
             <a className="hover:scale-110 transition-transform" target="_blank">
-              <Image src={Facebook} alt="Facebook" width={32} height={32} />
+              <Image src={Facebook} alt="Facebook" width={32} height={32}/>
             </a>
           </Link>
           <Link
-            href="https://www.linkedin.com/company/takshashilalabs/"
+            href="https://www.linkedin.com/company/qcsstudio/posts/?feedView=all"
             legacyBehavior
             target="_blank"
           >
@@ -44,7 +44,7 @@ export default function HeroContent() {
             </a>
           </Link>
           <Link
-            href="https://www.instagram.com/takshashilalabs/"
+            href="https://www.instagram.com/qcsstudio/#"
             legacyBehavior
             target="_blank"
           >
@@ -59,7 +59,7 @@ export default function HeroContent() {
       {/* Hero Text Section */}
 
       <div className="text-center lg:text-left flex-1 text-div ">
-        <div className="lg:text-[3vw]  text-[5vw] leading-[5vw]  lg:leading-[3vw] text-white ">
+        <div className="lg:text-[3vw]  sm:text-[5vw] xs:text-[5.5vw] xs:leading-[7.5vw] sm:leading-[5vw] lg:leading-[3vw] text-white ">
           <span className="font-thin text-slate-300">IGNITE YOUR</span>
           <span className="font-bold"> TECH PASSION</span> <br />
           <span className="font-thin text-slate-300">LAUNCH YOUR DREAM</span>
@@ -98,7 +98,7 @@ export default function HeroContent() {
           layout="responsive"
         />
         <Link className="absolute bottom-5 left-5 " href={'/quiz'}>
-          <button className="rounded-xl mt-6 w-full sm:w-[200px] h-[50px] border border-white bg-gradient-to-r from-[#cffd46] to-[#03f3d3] text-white text-md font-semibold hover:scale-105 transition-transform ">
+          <button className="rounded-xl mt-6 w-full sm:w-[200px] xs:w-[130px] h-[50px] border border-white bg-gradient-to-r from-[#cffd46] to-[#03f3d3] text-[#ffffff]  sm:text-md xs:text-[.8rem] font-semibold hover:scale-105 transition-transform ">
            Find your passion
           </button>
         </Link>

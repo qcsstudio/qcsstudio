@@ -73,7 +73,7 @@ const EnrollNowContainer = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 my-10 bg-white rounded shadow-2xl">
-      <h2 className="bg-gradient-to-r from-[#c4ef01] to-[#01a6ff] bg-clip-text text-transparent text-[40px] p-0 font-bold mb-4">Registration Form</h2>
+      <h2 className="bg-gradient-to-r from-[#c4ef01] to-[#01a6ff] bg-clip-text text-transparent md:text-[40px] xs:text-[30px] p-0 font-bold mb-4">Registration Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-sm text-[#112e58] font-bold mb-1" htmlFor="fullName">Full Name *</label>
@@ -127,7 +127,7 @@ const EnrollNowContainer = () => {
           {errors.dateOfBirth && <p className="text-red-500 text-sm">{errors.dateOfBirth}</p>}
         </div>
 
-        <h2 className="bg-gradient-to-r from-[#c4ef01] to-[#01a6ff] bg-clip-text text-transparent text-[40px] p-0 font-bold mb-4">Choose Your Program</h2>
+        <h2 className="bg-gradient-to-r from-[#c4ef01] to-[#01a6ff] bg-clip-text text-transparent md:text-[40px] xs:text-[30px] p-0 font-bold mb-4 ">Choose Your Program</h2>
 
         <div className="mb-4">
           <label className="block text-sm text-[#112e58] font-bold mb-1" htmlFor="program">Choose Your Program *</label>
@@ -162,7 +162,7 @@ const EnrollNowContainer = () => {
           {errors.preferredStartDate && <p className="text-red-500 text-sm">{errors.preferredStartDate}</p>}
         </div>
 
-        <h2 className="bg-gradient-to-r from-[#c4ef01] to-[#01a6ff] bg-clip-text text-transparent text-[40px] p-0 font-bold mb-4">Quick Questions</h2>
+        <h2 className="bg-gradient-to-r from-[#c4ef01] to-[#01a6ff] bg-clip-text text-transparent md:text-[40px] xs:text-[30px] p-0 font-bold mb-4">Quick Questions</h2>
 
         <div className="mb-4">
           <label className="block text-sm text-[#112e58] font-bold mb-1" htmlFor="motivation">What motivates you to join this course? *</label>
@@ -187,7 +187,7 @@ const EnrollNowContainer = () => {
           />
           {errors.careerGoal && <p className="text-red-500 text-sm">{errors.careerGoal}</p>}
         </div>
-        <h2 className="bg-gradient-to-r from-[#c4ef01] to-[#01a6ff] bg-clip-text text-transparent text-[40px] p-0 font-bold mb-4">Survey</h2>
+        <h2 className="bg-gradient-to-r from-[#c4ef01] to-[#01a6ff] bg-clip-text text-transparent md:text-[40px] xs:text-[30px] p-0 font-bold mb-4">Survey</h2>
         <div className="mb-4">
           <label className="block text-sm text-[#112e58]  font-bold mb-1" htmlFor="source">How Did You Hear About Us? *</label>
           <input

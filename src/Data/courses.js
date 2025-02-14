@@ -184,7 +184,7 @@ export const coursesData = [
     images: [
       {
         id:1,
-        url: "/images/coursesHeader/digitalmarketingCourse.png",
+        url: "/images/coursesHeader/digitalMarketingCourse.png",
         alt: "Digital Marketing Course image",
       },
     ],

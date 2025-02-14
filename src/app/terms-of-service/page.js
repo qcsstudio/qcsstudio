@@ -108,28 +108,28 @@ const TermsComponent = () => {
           src="/images/recentsblogsbg3.png"
           height={200}
           width={100}
-          alt=""
+          alt="icon"
         />
         <Image
           className="absolute bottom-7 right-0 scale-x-[-1]"
-          src="/images/infoicon.png"
+          src="/images/infoIcon.png"
           height={300}
           width={300}
-          alt=""
+          alt="icon"
         />
         <Image
           className="absolute bottom-0 left-0 "
           src="/images/bgblu.png"
           height={100}
           width={100}
-          alt=""
+          alt="icon"
         />
         <Image
           className="absolute top-0 right-0 "
           src="/images/Group (15).png"
           height={100}
           width={100}
-          alt=""
+          alt="icon"
         />
       </div>
       <Footer />
