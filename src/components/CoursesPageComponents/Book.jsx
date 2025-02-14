@@ -10,15 +10,15 @@ const Book = () => {
     <div>
       <div className="relative flex flex-col lg:flex-row justify-between">
         <div className="flex flex-col justify-start lg:justify-center items-start lg:items-center w-full lg:w-[52vw] pt-10 lg:pt-0 lg:pl-24">
-          <div className="flex lg:block flex-col -gap-5 ml-4">
-            <h1 className="text-[24px] lg:text-[40px] text-[#032263] font-extrabold tracking-normal ">
+          <div className="flex lg:block flex-col gap-5 ml-4">
+            <h1 className="text-[24px] lg:text-[40px] text-[#032263] font-extrabold tracking-normal  mb-[3rem]">
               Enroll in our courses{" "}
               <span className="text-[#C4EF01]">today!</span>
             </h1>
 
             <Link
               href={"/contact-us"}
-              className="p-[12px] border  border-[#032263] mt-10 text-[#032263] w-[250px] md:w-[250px] lg:w-[300px] rounded-lg"
+              className="p-[12px] border  border-[#032263]  text-[#032263] w-[250px] md:w-[250px] lg:w-[300px] rounded-lg "
             >
               Book a Free Consultation
             </Link>

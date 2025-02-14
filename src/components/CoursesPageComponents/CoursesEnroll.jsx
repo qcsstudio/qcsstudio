@@ -70,7 +70,7 @@ const CoursesEnroll = () => {
             </h1>
             <div>
               <p className="text-[#FFFFFF] tracking-[2%] md:text-sm text-sm">
-                Embark on your UI/UX design journey with Takshashila Labs.
+                Embark on your UI/UX design journey with QuantumCrafters Studio.
               </p>
               <p className="text-[#FFFFFF] tracking-[2%] md:text-sm text-sm">
                 Here's how to get started:
@@ -114,7 +114,7 @@ const CoursesEnroll = () => {
               </ul>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-2 ">
             <Image
               className="scale-x-[-1] hidden lg:block md:block"
               src="/images/vector 11.png"

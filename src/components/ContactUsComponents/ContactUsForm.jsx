@@ -51,11 +51,11 @@ const ContactUsForm = () => {
         <h1 className="text-[#0F2E5B] font-bold  lg:text-5xl md:text-2xl text-xl max-w-2xl lg:leading-[56px] tracking-[3%] ">Get in touch</h1>
         <Image src='/images/formPic.png' height={500} width={600} alt='formpic'></Image>
       </div>
-      <div className="w-[500px] p-10 lg:p-16 rounded-lg shadow-md  " style={{background:'radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,21,70,1) 100%)'}}>
+      <div className="w-[500px] sm:p-10 xs:p-[1.5rem] lg:p-16 rounded-lg shadow-md  " style={{background:'radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,21,70,1) 100%)'}}>
       {/* <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">Contact Us</h1> */}
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="w-full px-5 py-2 border flex gap-0  border-gray-300 bg-[#DDF3FF] rounded-2xl focus-within:ring-2 focus-within:ring-indigo-500">
+        <div className="w-full sm:px-5 xs:px-3 py-2  border flex gap-0  border-gray-300 bg-[#DDF3FF] rounded-2xl focus-within:ring-2 focus-within:ring-indigo-500">
           {/* <label htmlFor="name" className="block text-gray-700 font-medium">Name</label> */}
           <Image src='/profile.svg' width={30} height={20} alt='profile'></Image>
           <input

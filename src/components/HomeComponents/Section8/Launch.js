@@ -18,7 +18,7 @@ const Launch = () => {
             Do not wait for opportunities to come to you –
           </h3>
           <p className="mt-2 text-sm text-gray-600 max-w-md">
-            Create them! Enroll in Takshashila Labs today and take the first
+            Create them! Enroll in QuantumCrafters Studio today and take the first
             step towards your dream tech career.
           </p>
         </div>

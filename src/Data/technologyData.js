@@ -90,7 +90,7 @@ export const technologyData = [
             {
                 id:3,
                 name:"Adobe Creative Cloud",
-                image:"/images/technologyImages/adobe.png"
+                image:"/images/technologyImages/Adobe.png"
             },
             {
                 id:4,
