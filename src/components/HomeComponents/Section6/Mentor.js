@@ -42,12 +42,12 @@ const Mentor = () => {
 
       {/* Content Section */}
       <div className="flex flex-col justify-center items-center text-center gap-5 pt-5 ">
-        <h1 className="text-[2rem] lg:text-[3rem] -m-5 mt-2 bg-gradient-to-r from-green-500 via-green-300 to-blue-500 bg-clip-text text-transparent text-4xl font-extrabold uppercase ">
+        <h4 className="text-[2rem] lg:text-[3rem] -m-5 mt-2 text-[#112E58] text-4xl font-extrabold uppercase ">
           Expert Mentors
-        </h1>
-        <h3 className="lg:text-4xl ltext-3xl font-semibold text-[#032263] tracking-wider">
+        </h4>
+        <h4 className="lg:text-4xl ltext-3xl font-semibold text-[#032263] tracking-wider">
           From the Industry
-        </h3>
+        </h4>
         <div>
         <p className="leading-tight text-sm text-[#424242]">
           Our instructors aren not just teachers; they are seasoned

@@ -51,9 +51,9 @@ const Values = () => {
           <span className='text-[#527CBD] text-[17px] lg:text-[21px]'>
             Our Values
           </span>
-          <h1 className='text-[#0E2D5B] text-[24px] lg:text-[40px] font-bold'>
+          <h3 className='text-[#0E2D5B] text-[24px] lg:text-[40px] font-bold'>
             Guiding Principles
-          </h1>
+          </h3>
           <p className='text-[#313131] text-[15px] lg:text-[16px] text-center opacity-70 p-2'>
             At QuantumCrafters Studio, our values are at the core of everything we do
           </p>

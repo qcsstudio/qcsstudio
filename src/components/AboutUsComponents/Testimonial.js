@@ -13,7 +13,7 @@ const Testimonial = () => {
                 {/* Heading */}
                 <div>
                     <span className='text-[21px] text-[#527CBD]'>Hear From</span>
-                    <h1 className='text-[#0E2D5B] text-[40px] font-bold'>Our Students</h1>
+                    <h3 className='text-[#0E2D5B] text-[40px] font-bold'>Our Students</h3>
                     <p>Do not just take our word for it – hear from the students whose lives have been transformed by QuantumCrafters Studio!</p>
                 </div>
 

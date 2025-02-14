@@ -18,9 +18,9 @@ const RefundComponent = () => {
             3.1 Educational Services Refund Policy
           </h2>
           <div className="flex flex-col gap-4 ">
-            <p className="font-thin text-xl tracking-wider text-[#001f61]">
+            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
               1. Before Course Start:
-            </p>
+            </h3>
             <p className="font-thin tracking-wider text-[#212529]">
               Full refund if the student cancels at least 7 days before the
               course start date (minus administrative fees). Partial refund of
@@ -29,9 +29,9 @@ const RefundComponent = () => {
             </p>
           </div>
           <div className="flex flex-col gap-4 ">
-            <p className="font-thin text-xl tracking-wider text-[#001f61]">
+            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
               2. After Course Start::
-            </p>
+            </h3>
             <p className="font-thin tracking-wider text-[#212529]">
               No refunds will be issued after the course begins unless there are
               exceptional circumstances such as medical or family emergencies
@@ -40,9 +40,9 @@ const RefundComponent = () => {
             </p>
           </div>
           <div className="flex flex-col gap-4 ">
-            <p className="font-thin text-xl tracking-wider text-[#001f61]">
+            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
               3. Course Transfer & Deferral:
-            </p>
+            </h3>
             <p className="font-thin tracking-wider text-[#212529]">
               Students can transfer to another course or defer their enrollment
               to a later date within the first week, subject to administrative
@@ -50,9 +50,9 @@ const RefundComponent = () => {
             </p>
           </div>
           <div className="flex flex-col gap-4 ">
-            <p className="font-thin text-xl tracking-wider text-[#001f61]">
+            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
               4. Dissatisfaction Clause:
-            </p>
+            </h3>
             <p className="font-thin tracking-wider text-[#212529]">
               If students are not satisfied with the course content within the
               first 3 days, they may be eligible for partial refunds or course
@@ -66,17 +66,17 @@ const RefundComponent = () => {
             3.2 IT Services Refund Policy
           </h2>
           <div className="flex flex-col gap-4 ">
-            <p className="font-thin text-xl tracking-wider text-[#001f61]">
+            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
               1. Before Service Commencement:
-            </p>
+            </h3>
             <p className="font-thin tracking-wider text-[#212529]">
               Full refund if cancellation occurs before the project has started.
             </p>
           </div>
           <div className="flex flex-col gap-4 ">
-            <p className="font-thin text-xl tracking-wider text-[#001f61]">
+            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
               2. During Project:
-            </p>
+            </h3>
             <p className="font-thin tracking-wider text-[#212529]">
               Partial refunds may be considered if the service is canceled after
               work has commenced but before major milestones are reached. No
@@ -86,9 +86,9 @@ const RefundComponent = () => {
             </p>
           </div>
           <div className="flex flex-col gap-4 ">
-            <p className="font-thin text-xl tracking-wider text-[#001f61]">
+            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
               3. Dissatisfaction Clause:
-            </p>
+            </h3>
             <p className="font-thin tracking-wider text-[#212529]">
               Clients dissatisfied with the services provided can request
               revisions within the project is scope. Partial refunds may be
@@ -109,9 +109,9 @@ const RefundComponent = () => {
             offered for defective products.
           </p>
           <div className="flex flex-col gap-4 ">
-            <p className="font-thin text-xl tracking-wider text-[#001f61]">
+            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
               Refund Processing:
-            </p>
+            </h3>
             <p className="font-thin tracking-wider text-[#212529]">
               All approved refunds will be processed within 7-10 business days,
               and the amount will be credited to the original payment method.
@@ -128,21 +128,21 @@ const RefundComponent = () => {
         />
         <Image
           className="absolute bottom-7 right-0 scale-x-[-1]"
-          src="/images/infoicon.png"
+          src="/images/infoIcon.png"
           height={300}
           width={300}
           alt=""
         />
         <Image
           className="absolute bottom-0 left-0 "
-          src="/images/bgblu.png"
+          src="/images/bgBlu.png"
           height={100}
           width={100}
           alt=""
         />
         <Image
           className="absolute top-0 right-0 "
-          src="/images/Group (15).png"
+          src="/images/arrowplane.png"
           height={100}
           width={100}
           alt=""

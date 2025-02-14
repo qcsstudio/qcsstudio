@@ -11,10 +11,10 @@ const Book = () => {
       <div className="relative flex flex-col lg:flex-row justify-between">
         <div className="flex flex-col justify-start lg:justify-center items-start lg:items-center w-full lg:w-[52vw] pt-10 lg:pt-0 lg:pl-24">
           <div className="flex lg:block flex-col gap-5 ml-4">
-            <h1 className="text-[24px] lg:text-[40px] text-[#032263] font-extrabold tracking-normal  mb-[3rem]">
+            <h4 className="text-[24px] lg:text-[40px] text-[#032263] font-extrabold tracking-normal  mb-[3rem]">
               Enroll in our courses{" "}
               <span className="text-[#C4EF01]">today!</span>
-            </h1>
+            </h4>
 
             <Link
               href={"/contact-us"}

@@ -150,10 +150,16 @@ export const StudentDataContextProvider = ({ children }) => {
       });
   
       if (res.ok) {
-        setStatus("Message sent successfully!");
+        
         if(formData.formType == "NewsLetters"){
           formData.message = "Thanks for Subscribing our NewsLetters.";
+          setStatus("newsletter sent successfully!");
         }else{
+          if(formData.formType == "Enroll Now"){
+            setStatus("enroll successfully!");
+          }else{
+            setStatus("contact successfully!");
+          }
           formData.message = "Thanks for Contacing Us We will Be back to you Soon.";
         }
         formData.toMail = "user";
@@ -166,7 +172,6 @@ export const StudentDataContextProvider = ({ children }) => {
 
     const handleUserSendMail = async (formData) => {
       
-      setStatus("Sending...");
       console.log(formData);
       
   
@@ -179,9 +184,7 @@ export const StudentDataContextProvider = ({ children }) => {
       });
   
       if (res.ok) {
-        setStatus("Message sent successfully!");
       } else {
-        setStatus("Error sending message.");
       }
     }
   

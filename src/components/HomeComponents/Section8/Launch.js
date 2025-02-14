@@ -10,7 +10,7 @@ const Launch = () => {
       <div className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#F9FAFB] sm:px-8 md:px-12 lg:px-24 p-6 ">
 
         <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-          <h2 className="text-3xl md:text-4xl uppercase font-extrabold bg-gradient-to-r from-green-500 via-green-300 to-blue-500 bg-clip-text text-transparent text-[#527CBD] mb-4">
+          <h2 className="text-3xl md:text-4xl uppercase font-extrabold  text-[#112E58] mb-4">
             Ready to Launch Your Tech Career?
           </h2>
           <Image src={lap} alt="Enroll" className="max-w-[400px] w-full rounded-lg" />
@@ -24,7 +24,7 @@ const Launch = () => {
         </div>
 
         <div className="w-full md:w-auto flex flex-col items-center text-center">
-          <h3 className="text-lg md:text-xl uppercase font-extrabold bg-gradient-to-r from-green-500 via-green-300 to-blue-500 bg-clip-text text-transparent text-[#527CBD] mb-3">
+          <h3 className="text-lg md:text-xl uppercase font-extrabold  text-[#527CBD] mb-3">
             Enroll Now
           </h3>
           <Link href={"/contact-us"}>

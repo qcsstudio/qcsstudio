@@ -1,6 +1,7 @@
 "use client"
 import { StudentDataContext } from "@/context/StudentDataContext";
 import { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const EnrollNowContainer = () => {
 
@@ -54,7 +55,7 @@ const EnrollNowContainer = () => {
   };
 
   useEffect(()=>{
-    if(status == "Message sent successfully!"){
+    if(status == "enroll successfully!"){
       setFormData({
         name: "",
         email: "",
@@ -67,6 +68,7 @@ const EnrollNowContainer = () => {
         source: "",
         formType:"Enroll Now"
       })
+      toast.success("Message submit successfully!");
     }
     
   },[status])
@@ -201,11 +203,11 @@ const EnrollNowContainer = () => {
           {errors.source && <p className="text-red-500 text-sm">{errors.source}</p>}
         </div>
 
-        <button type="submit" className="bg-blue-800 my-5 text-white px-4 py-2 rounded hover:bg-blue-900">Send Message</button>
+        <button type="submit" disabled={status == "Sending..." ? true:false} className={`bg-blue-800 my-5 text-white px-4 py-2 rounded hover:bg-blue-900 ${status === "Sending..." ? "disabled:opacity-50 disabled:cursor-not-allowed" : " cursor-pointer"}`}>Send Message</button>
       </form>
       {status && (
         <div className="mt-4 text-center">
-          <p className={`text-lg font-semibold ${status === "Message sent successfully!" ? "text-green-600" : "text-red-600"}`}>
+          <p className={`text-lg font-semibold ${status === "enroll successfully!" && "text-green-600"}`}>
             {status}
           </p>
         </div>

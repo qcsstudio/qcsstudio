@@ -11,9 +11,9 @@ const Vison = () => {
         </div>
         <div className='flex flex-col gap-2 lg:w-[50vw] pb-20 lg:mr-20 '>
           <div className='flex flex-col items-end bg-gradient-to-r from-transparent to-[#001f61] h-30 p-5 pr-8 lg:pr-20'>
-            <span className='text-[#c4ef01] text-[21px]'>
+            <h2 className='text-[#c4ef01] text-[21px]'>
               The Spark
-            </span>
+            </h2>
             <h3 className='text-[30px] lg:text-[40px] text-white font-bold'>
               Born from a vision
             </h3>

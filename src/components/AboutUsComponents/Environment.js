@@ -15,9 +15,9 @@ const Environment = () => {
                     <h4 className='text-[17px] lg:text-[21px] font-semibold text-[#527CBD]'>
                         Our Learning Environment
                     </h4>
-                    <h1 className='text-[24px] lg:text-[40px] font-bold text-[#0E2D5B]'>
+                    <h3 className='text-[24px] lg:text-[40px] font-bold text-[#0E2D5B]'>
                         Where Learning Comes To Life
-                    </h1>
+                    </h3>
                     <p className='text-[15px] w-[85vw] lg:w-auto lg:text-[16px] tracking-wider'>
                         At QuantumCrafters Studio, we've created a learning environment that's as dynamic and innovative as the tech industry itself.
                     </p>

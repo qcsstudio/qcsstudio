@@ -9,9 +9,9 @@ const TermsComponent = () => {
       <Navbar />
       <div className=" relative p-16 flex flex-col gap-5">
         <div className="flex flex-col gap-4 ">
-          <h1 className="font-bold text-3xl lg:text-4xl tracking-wide  text-[#001f61]">
+          <h2 className="font-bold text-3xl lg:text-4xl tracking-wide  text-[#001f61]">
             1. Terms of Service (TOS)
-          </h1>
+          </h2>
           <p className="font-thin tracking-wide text-[#212529]">
             Welcome to QuantumCrafters Studio. By using our services, including
             our website, educational offerings, IT solutions, and product
@@ -20,9 +20,9 @@ const TermsComponent = () => {
         </div>
 
         <div className="flex flex-col gap-4 ">
-          <h2 className="font-bold text-xl tracking-wide  text-[#001f61]">
+          <h3 className="font-bold text-xl tracking-wide  text-[#001f61]">
             1.1 General
-          </h2>
+          </h3>
           <p className="font-thin tracking-wide text-[#212529]">
             By accessing or using our website and services, you confirm that you
             are at least 18 years of age or using the services under the
@@ -36,9 +36,9 @@ const TermsComponent = () => {
         </div>
 
         <div className="flex flex-col gap-4 ">
-          <h2 className="font-bold text-xl tracking-wide  text-[#001f61]">
+          <h3 className="font-bold text-xl tracking-wide  text-[#001f61]">
             1.2 Educational Services
-          </h2>
+          </h3>
           <p className="font-thin tracking-wide text-[#212529]">
             Enrollment in courses requires full payment before access to the
             course materials or services. Students are required to adhere to
@@ -51,9 +51,9 @@ const TermsComponent = () => {
         </div>
 
         <div className="flex flex-col gap-4 ">
-          <h2 className="font-bold text-xl tracking-wide  text-[#001f61]">
+          <h3 className="font-bold text-xl tracking-wide  text-[#001f61]">
             1.3 IT Services
-          </h2>
+          </h3>
           <p className="font-thin tracking-wide text-[#212529]">
             QuantumCrafters Studio provides various IT services, including
             software development, IT infrastructure setup, digital marketing
@@ -65,9 +65,9 @@ const TermsComponent = () => {
           </p>
         </div>
         <div className="flex flex-col gap-4 ">
-          <h2 className="font-bold text-xl tracking-wide  text-[#001f61]">
+          <h3 className="font-bold text-xl tracking-wide  text-[#001f61]">
             1.4 IT Product Resale
-          </h2>
+          </h3>
           <p className="font-thin tracking-wide text-[#212529]">
             QuantumCrafters Studio acts as a reseller for top IT brands,
             including HP, and offers hardware like laptops, desktops, and
@@ -80,9 +80,9 @@ const TermsComponent = () => {
         </div>
 
         <div className="flex flex-col gap-4 ">
-          <h2 className="font-bold text-xl tracking-wide  text-[#001f61]">
+          <h4 className="font-bold text-xl tracking-wide  text-[#001f61]">
             Limitation of Liability
-          </h2>
+          </h4>
           <p className="font-thin tracking-wide text-[#212529]">
             QuantumCrafters Studio is not responsible for any direct, indirect,
             incidental, or consequential damages resulting from the use of our
@@ -91,9 +91,9 @@ const TermsComponent = () => {
         </div>
 
         <div className="flex flex-col gap-4 ">
-          <h2 className="font-bold text-xl tracking-wide  text-[#001f61]">
+          <h3 className="font-bold text-xl tracking-wide  text-[#001f61]">
             1.6 Intellectual Property
-          </h2>
+          </h3>
           <p className="font-thin tracking-wide text-[#212529]">
             All content on the website, including text, images, graphics, and
             videos, are the intellectual property of QuantumCrafters Studio. You
@@ -119,14 +119,14 @@ const TermsComponent = () => {
         />
         <Image
           className="absolute bottom-0 left-0 "
-          src="/images/bgblu.png"
+          src="/images/bgBlu.png"
           height={100}
           width={100}
           alt="icon"
         />
         <Image
           className="absolute top-0 right-0 "
-          src="/images/Group (15).png"
+          src="/images/arrowplane.png"
           height={100}
           width={100}
           alt="icon"
