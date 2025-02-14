@@ -22,7 +22,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8 gap-10 mx-auto">
-          <Link href="/home" className="text-white  hover:text-[#c4ef01] hover:underline transition">Home</Link>
+          <Link href="/" className="text-white  hover:text-[#c4ef01] hover:underline transition">Home</Link>
           <Link href="/about" className="text-white hover:text-[#c4ef01] hover:underline transition">About Us</Link>
           <Link href="/courses" className="text-white hover:text-[#c4ef01] hover:underline transition">Courses</Link>
           <Link href="/blogs" className="text-white hover:text-[#c4ef01] hover:underline transition">Blogs</Link>
