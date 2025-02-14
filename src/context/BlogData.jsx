@@ -30,7 +30,7 @@ export const BlogDataContextProvider = ({ children }) => {
         setCategoryData(result.category_data);
       }
     } catch (error) {
-      console.log("Category Data Not Get!! : ", error);
+      console.error("Category Data Not Get!! : ", error);
     }
   }
 
@@ -46,7 +46,7 @@ export const BlogDataContextProvider = ({ children }) => {
       const data = await res.json();
       setCategoryData(data.category_data);
     } catch (error) {
-      console.log("Error : ", error);
+      console.error("Error : ", error);
       alert("Error !! (open Console)")
     }
   }
@@ -63,7 +63,7 @@ export const BlogDataContextProvider = ({ children }) => {
         setCategoryData(result.category_data);
       }
     } catch (error) {
-      console.log("Category Data Not Get!! : ", error);
+      console.error("Category Data Not Get!! : ", error);
     }
   }
 
@@ -83,7 +83,7 @@ export const BlogDataContextProvider = ({ children }) => {
         setCategoryData(result.category_data);
       }
     } catch (error) {
-      console.log("Category Data Not Updated!! : ", error);
+      console.error("Category Data Not Updated!! : ", error);
     }
   }
 
@@ -99,7 +99,7 @@ export const BlogDataContextProvider = ({ children }) => {
         setShowBlogsDataLoader(false);
       }
     } catch (error) {
-      console.log("Blog data not get ! ", error);
+      console.error("Blog data not get ! ", error);
       setShowBlogsDataLoader(false);
     }
   }
@@ -116,7 +116,7 @@ export const BlogDataContextProvider = ({ children }) => {
         setShowBlogsDataLoader(false);
       }
     } catch (error) {
-      console.log("Blog data not get ! ", error);
+      console.error("Blog data not get ! ", error);
       setShowBlogsDataLoader(false);
     }
   }
@@ -158,7 +158,7 @@ export const BlogDataContextProvider = ({ children }) => {
       setShowLoader(true);
       const url = `/api/blogs/${slug}`
       const response = await fetch(url);
-      console.log(response);
+      console.error(response);
       if (response.status === 200) {
         const result = await response.json()
         setblogData(result.blog_data);
@@ -182,9 +182,9 @@ export const BlogDataContextProvider = ({ children }) => {
 
       const data = await res.json();
       setmultipleBlogData(data);
-      console.log("data inside post backend :", multipleBlogData);
+      console.error("data inside post backend :", multipleBlogData);
     } catch (error) {
-      console.log("Upload Error :- ", error);
+      console.error("Upload Error :- ", error);
       alert("Upload Error !!! (check console)");
       return false;
     }
