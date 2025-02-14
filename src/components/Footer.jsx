@@ -3,6 +3,7 @@ import { StudentDataContext } from "@/context/StudentDataContext";
 import Image from "next/image"
 import Link from "next/link"
 import { useContext, useEffect, useState } from "react";
+import toast,{ Toaster } from "react-hot-toast";
 
 const Footer = () => {
 
@@ -12,8 +13,9 @@ const Footer = () => {
    
      useEffect(()=>{
        console.log(status);
-       if(status === "Message sent successfully!"){
+       if(status === "newsletter sent successfully!"){
          setEmail("");
+         toast.success("Newsletters Subscribed successfully!");
        }
      },[status])
    
@@ -27,17 +29,18 @@ const Footer = () => {
    return (
       <>
          <footer className="footerConatiner w-[100%] bg-gradient-to-b from-[#112E58] via-[#224474] to-[#112E58] flex flex-col lg:px-[4rem] md:px-[2rem] xs:px-[2rem] py-[2rem]">
+         <Toaster />
             <div className="upperContainer w-[100%] flex md:flex-row md:gap-[0rem] xs:gap-[2rem] xs:flex-col md:justify-between md:items-center">
                <div className="logoContainer md:w-[30%] sm:w-[50%] xs:w-[100%]" >
                   <Link href="/">
-                     <Image src="/images/RealLogo.png" alt="quantumCrafters_logo" width={1024} height={1024} className="lg:w-[50%] sm:w-[55%] xs:w-[60%] h-[4rem]" />
+                     <Image src="/images/RealLogo.png" alt="quantumCrafters_logo" width={1024} height={1024} className="lg:w-[50%] h-[100%] sm:w-[55%] xs:w-[60%] " />
                   </Link>
                </div>
 
                <div className="newsLetterContainer lg:w-[40rem] flex items-center justify-between md:w-[30rem] xs:w-[100%]">
                 
                   <div className='flex flex-col gap-4 w-[100%]'>
-                     <h1 className='font-bold sm:text-[1.2rem] xs:text-[1rem] ml-[4rem]  text-[#C1EE04]'>SIGN UP TO OUR NEWSLETTER</h1>
+                     <h5 className='font-bold sm:text-[1.2rem] xs:text-[1rem] ml-[4rem]  text-[#C1EE04]'>SIGN UP TO OUR NEWSLETTER</h5>
                     <div className="cont flex gap-[1rem]">
 
                     
@@ -49,7 +52,7 @@ const Footer = () => {
                         
                         <form onSubmit={handleSubmit} className='flex border border-white rounded-md overflow-hidden w-[30rem] max-w-md'>
                         <input onChange={(e)=>setEmail(e.target.value)} className='flex-1 bg-transparent text-white sm:w-[70%] xs:w-[60%] p-3 outline-none' type="email" placeholder='Your Email' value={email}/>
-                        <button className='bg-white sm:w-[30%] md:[40%] lg:w-[30%] xs:w-[40%] text-[#112E58] sm:text-[1rem] xs:text-[.8rem] px-4 py-2 font-bold'>SUBSCRIBE</button>
+                        <button disabled={status === "Sending..."?true:false} className={`bg-white sm:w-[30%] md:[40%] lg:w-[30%] xs:w-[40%] text-[#112E58] sm:text-[1rem] xs:text-[.8rem] px-4 py-2 font-bold ${status === "Sending..." ? "disabled:opacity-50 disabled:cursor-not-allowed" : " cursor-pointer"}`}>SUBSCRIBE</button>
                         </form>
                      </div>
                      </div>

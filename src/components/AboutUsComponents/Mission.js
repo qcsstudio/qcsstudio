@@ -12,9 +12,9 @@ const Mission = () => {
                 <span className='text-[#527CBD] text-[21px]'>
                     Our Mission & Vision
                 </span>
-                <h1 className='text-[#032263] text-[24px] w-80 lg:w-full lg:text-[40px] font-bold'>
+                <h2 className='text-[#032263] text-[24px] w-80 lg:w-full lg:text-[40px] font-bold'>
                     Empowering the Next Generation of Tech Leaders
-                </h1>
+                </h2>
                 <div className='text-[16px] pt-4 lg:p-0 flex flex-col gap-3 lg:gap-5'>
                 <p>
                     🚀 At QuantumCrafters Studio, our vision is to bridge the gap between academic learning 📚 and industry demands 💼, creating a future where every individual discovers their passion ❤️ and is equipped to lead 🏆, innovate ✨, and thrive in the dynamic tech world. 🌐

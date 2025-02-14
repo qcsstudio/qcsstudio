@@ -1,7 +1,8 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { StudentDataContext } from "@/context/StudentDataContext";
+import toast,{ Toaster } from "react-hot-toast";
 
 const ContactUsForm = () => {
 
@@ -30,7 +31,14 @@ const ContactUsForm = () => {
     e.preventDefault();
     console.log(formData);
     handleSendMail(formData);
+
   }
+
+  useEffect(()=>{
+    if(status === "contact successfully!"){
+      toast.success("Message submit successfully!");
+    }
+  },[status])
 
 
   return (
@@ -116,8 +124,9 @@ const ContactUsForm = () => {
 
         <div className="flex justify-end items-end">
           <button
+            disabled={status === "Sending..."?true:false}
             type="submit"
-            className=" p-3 bg-[#0F2E5B]  text-white font-semibold rounded-2xl hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className={` p-3 bg-[#0F2E5B]  text-white font-semibold rounded-2xl hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${status === "Sending..." ? "disabled:opacity-50 disabled:cursor-not-allowed" : " cursor-pointer"}`}
           >
             Send Message
           </button>
@@ -126,7 +135,7 @@ const ContactUsForm = () => {
 
       {status && (
         <div className="mt-4 text-center">
-          <p className={`text-lg font-semibold ${status === "Message sent successfully!" ? "text-green-600" : "text-red-600"}`}>
+          <p className={`text-lg font-semibold ${status === "contact successfully!" ? "text-green-600" : "text-red-600"}`}>
             {status}
           </p>
         </div>

@@ -25,9 +25,10 @@ const BlogFirstSection = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#020D29] bg-opacity-80 text-white text-center h-[86vh] p-4">
         {/* Title */}
         <div className="text-3xl md:text-4xl lg:text-6xl flex flex-wrap items-center justify-center gap-4 font-bold mb-4">
+          <h1>
           <span>THE</span>
           <span className="text-[#C4EF01]">QCS</span>
-          <span>TIMES</span>
+          <span>TIMES</span></h1>
         </div>
 
         {/* Description */}

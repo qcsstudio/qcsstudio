@@ -100,7 +100,7 @@ function HomeAboutSection() {
             </h3>
 
             <div className="text-[#4E535CE5] flex flex-col gap-4  text-sm sm:text-base">
-              <div className="font-bold text-lg">Our Vision: Unlocking Passions, Empowering Futures</div>
+              <div className="font-bold text-lg"><h3>Our Vision: Unlocking Passions, Empowering Futures</h3></div>
 
               <div className=" sm:text-left leading-7 tracking-wide ">
                 At <span className='font-bold'> QuantumCrafters Studio,</span> our vision is to close the gap between  <span className='font-bold'> academic learning </span> and the <span className='font-bold'>practical skills </span> needed in the tech industry. By understanding your <span className='font-bold'>unique passions, interests,</span>  and <span className='font-bold'>career goals,</span> we focus on what excites and motivates you. Through <span className='font-bold'> real-world applications</span> and <span className='font-bold'> hands-on training,</span> we are committed to cultivating tech professionals who are prepared to <span className='font-bold'> lead</span> and <span className='font-bold'>innovate</span>
@@ -110,8 +110,8 @@ function HomeAboutSection() {
             <div className="w-full  h-[1px] bg-black opacity-25"></div>
 
             <div className="text-[#4E535CE5] flex flex-col mt-2  text-sm sm:text-base">
-              <div className="font-bold text-lg tracking-wide">
-                Our Mission: Providing Hands-On, Personalized Training that Transforms Passion into Profession
+              <div className="font-bold text-lg tracking-wide"><h3>
+                Our Mission: Providing Hands-On, Personalized Training that Transforms Passion into Profession</h3>
               </div>
               <br />
               <div className=" tracking-wider text-md  ">

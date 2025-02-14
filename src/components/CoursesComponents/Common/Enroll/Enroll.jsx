@@ -33,7 +33,7 @@ const Enroll = () => {
 
                     <div className="innerBottom flex lg:w-[100%] justify-center items-center sm:w-[100%]">
                         <Image src="/images/enrollImages/left.png" width={200} height={0} className="w-[200px] h-[1px] mr-[3rem]" alt="line"/>
-                               <Link href={'/enroll-now'} className="text-white border-white cursor-pointer" > Enroll Now</Link>  
+                               <button className="xl:w-[220px] xl:h-[60px] xl:rounded-[15px] text-[#ffffff] border lg:w-[190] lg:h-[40px] lg:rounded-[10px] xs:w-[30%] xs:h-[40px] xs:rounded-[10px] xs:text-[12px]"><Link href="/enroll-now">Enroll Now</Link></button>  
                         <Image src="/images/enrollImages/right.png"  width={200} height={0} className="w-[200px] h-[1px] ml-[3rem]" alt="line"/>
                     </div>
                     
