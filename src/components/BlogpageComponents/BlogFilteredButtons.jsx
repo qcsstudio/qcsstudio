@@ -38,14 +38,11 @@ const BlogFilteredButtons = () => {
         ALL
       </button>
 
-      {categoryData && categoryData.map((category, index) => (
+      {categoryData && categoryData.map((category, index) => ( category.show_on_front &&
         <button
           key={index}
           onClick={() => handleData(category)}
-          className="bg-white border border-[#0E2D5B] hover:text-white hover:bg-[#0E2D5B] text-[#0E2D5B] px-5 py-2 rounded-md w-full sm:w-auto"
-        >
-          {category.name}
-        </button>
+          className="bg-white border border-[#0E2D5B] hover:text-white hover:bg-[#0E2D5B] text-[#0E2D5B] px-5 py-2 rounded-md w-full sm:w-auto">{category.name}</button>
       ))}
     </div>
   )
