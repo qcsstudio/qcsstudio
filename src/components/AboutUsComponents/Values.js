@@ -57,6 +57,7 @@ const Values = () => {
           <p className='text-[#313131] text-[15px] lg:text-[16px] text-center opacity-70 p-2'>
             At QuantumCrafters Studio, our values are at the core of everything we do
           </p>
+          
         </div>
         <div className='flex flex-col lg:flex-row md:flex-row md:gap-4 gap-10 flex-wrap lg:gap-5 p-10 justify-center items-center align-middle'>
           {valuesData.map((value, index) => (
