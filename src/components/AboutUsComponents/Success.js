@@ -3,12 +3,12 @@ import React from 'react'
 const Success = () => {
     return (
         <div className='  sm:overflow-hidden'>
-            <div className=" w-[102vw] bg-[url('/images/bgSuccess.jpg')] bg-cover bg-center bg-no-repeat min-h-screen lg:h-[80vh] pl-2 flex flex-col justify-start items-start gap-10">
-                <div className='flex flex-col justify-start m-3 pt-14 lg:pt-0 lg:m-24 gap-3'>
+            <div className="px-2 w-[102vw] bg-[url('/images/bgSuccess.jpg')] bg-cover bg-center bg-no-repeat min-h-screen  lg:py-0  flex flex-col justify-start items-start gap-10">
+                <div className='flex flex-col justify-start m-3  lg:m-24 gap-3'>
                     <h4 className='text-[17px] lg:text-[21px] text-[#C1EE04]'>
                         Your Success Is
                     </h4>
-                    <h3 className=' text-[24px] -mt-5 lg:mt-auto lg:text-[40px] text-white uppercase font-bold '>
+                    <h3 className=' text-[24px]   lg:text-[40px] text-white uppercase font-bold '>
                         our Priority
                     </h3>
                     <p className=' tracking-wider lg:tracking-normal w-full lg:w-[30vw] text-white text-[16px]'>
@@ -16,7 +16,7 @@ const Success = () => {
                 </div>
                 <div className='flex flex-col lg:flex-row gap-2 m-2 -mt-4 lg:m-24 lg:-mt-10 '>
                     <div className='flex flex-col gap-2 '>
-                        <h4 className='text-white text-[19px] lg:text-[27px] lg:w-[20vw] font-bold'>
+                        <h4 className='text-white text-[19px] lg:text-[27px] leading-tight lg:w-[20vw] font-bold'>
                             <span className='text-[#C1EE04]'>100%</span> Job Placement <span className='text-[#C1EE04]'>Guarantee</span>
                         </h4>
                         <p className='text-white w-full lg:w-auto mb-5'>
@@ -24,16 +24,16 @@ const Success = () => {
                         </p>
                     </div>
                     <div className='flex flex-col gap-1 lg:gap-2'>
-                        <h4 className='text-white text-[19px] lg:text-[27px] lg:w-[20vw] font-bold'>
+                        <span className='text-white text-[19px] lg:text-[27px] leading-tight lg:w-[25vw] font-bold'>
                             Personalized <span className='text-[#C1EE04]'>Guidance & Mentorship
                             </span>
-                        </h4>
+                        </span>
                         <p className='text-white w-full lg:w-auto'>
                             We understand that every student is unique. That's why we provide individualised support and mentorship throughout your journey, helping you identify your strengths, overcome challenges, and achieve your goals.
                         </p>
                     </div>
                     <div className='flex flex-col gap-2 mt-6 lg:mt-0'>
-                        <h4 className='text-white text-[19px] lg:text-[27px] lg:w-[17vw] font-bold'>
+                        <h4 className='text-white text-[19px] leading-tight lg:text-[27px] lg:w-[17vw] font-bold'>
                             Ongoing <span className='text-[#C1EE04]'>Support & Community
                             </span></h4>
                         <p className='text-white w-full '>

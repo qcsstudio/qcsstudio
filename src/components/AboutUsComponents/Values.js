@@ -57,12 +57,13 @@ const Values = () => {
           <p className='text-[#313131] text-[15px] lg:text-[16px] text-center opacity-70 p-2'>
             At QuantumCrafters Studio, our values are at the core of everything we do
           </p>
+          
         </div>
-        <div className='flex flex-col lg:flex-row md:flex-row md:gap-4 flex-wrap lg:gap-5 p-10 justify-center items-center align-middle'>
+        <div className='flex flex-col lg:flex-row md:flex-row md:gap-4 gap-10 flex-wrap lg:gap-5 p-10 justify-center items-center align-middle'>
           {valuesData.map((value, index) => (
             <div key={index} className="md:w-[48%] lg:w-[30%] justify-center align-middle items-center">
-              <div className='flex flex-col justify-center align-middle items-center'>
-                <Image className="w-[50px] h-[50px] lg:h-[80px] lg:w-[80px] object-contain rounded-xl" height={100} width={100} src={value.image.src} alt='' />
+              <div className='flex gap-2 flex-col justify-center align-middle items-center'>
+                <Image className=" h-[60px] w-[60px] object-contain rounded-xl" height={100} width={100} src={value.image.src} alt='' />
                 <h3 className='text-[#0F2E5B] font-semibold tracking-wider lg:font-bold w-[90vw] lg:w-auto'>
                   {value.title}
                 </h3>

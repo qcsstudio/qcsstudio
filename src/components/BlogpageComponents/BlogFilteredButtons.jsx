@@ -14,7 +14,9 @@ const BlogFilteredButtons = () => {
 
     useEffect(() => {
       GetCategoryData();
-      GetBlogData();
+      if(!multipleBlogData){
+        GetBlogData();
+      }
     }, []);
     
     useEffect(() => {
