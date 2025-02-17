@@ -43,7 +43,7 @@ function HomeAboutSection() {
           </div>
 
           {/* Text Content */}
-          <div className="py-20 lg:px-16 px-6 text-gray-600 text-center sm:text-left h-full flex flex-col gap-2 items-center justify-around ">
+          <div className="py-5 md:py-20 lg:py-20 lg:px-16 px-6 text-gray-600 text-center sm:text-left h-full flex flex-col gap-2 items-center justify-around ">
             <div className="py-0">
               <p className="text-2xl text-[#212529] font-bold">
                 Our Values: Educate | Empower | Elevate

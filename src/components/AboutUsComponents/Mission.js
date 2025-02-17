@@ -12,7 +12,7 @@ const Mission = () => {
                 <span className='text-[#527CBD] text-[21px]'>
                     Our Mission & Vision
                 </span>
-                <h2 className='text-[#032263] text-[24px] w-80 lg:w-full lg:text-[40px] font-bold'>
+                <h2 className='text-[#032263] leading-tight text-[24px] w-80 lg:w-full lg:text-[40px] font-bold'>
                     Empowering the Next Generation of Tech Leaders
                 </h2>
                 <div className='text-[16px] pt-4 lg:p-0 flex flex-col gap-3 lg:gap-5'>

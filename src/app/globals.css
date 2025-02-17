@@ -74,7 +74,8 @@
 /* Ensure the parent container is relative */
 .courses {
   position: relative;
-  padding-bottom: 50px; /* Prevents arrows from overlapping content */
+ 
+   /* Prevents arrows from overlapping content */
 }
 
 

@@ -138,14 +138,14 @@ const TestimonialCarousel = () => {
           <motion.button
             onClick={prevTestimonial}
             whileHover={{ scale: 1.1 }}
-            className="w-8 h-8 text-white bg-[#051332] flex items-center justify-center "
+            className="px-4 py-3 text-white bg-[#051332] flex items-center justify-center "
           >
             &#8592;
           </motion.button>
           <motion.button
             onClick={nextTestimonial}
             whileHover={{ scale: 1.1 }}
-            className="w-8 h-8 text-white bg-[#051332] flex items-center justify-center"
+            className="px-4 py-3 text-white bg-[#051332] flex items-center justify-center"
           >
             &#8594;
           </motion.button>
