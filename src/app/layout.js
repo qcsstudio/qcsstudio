@@ -4,7 +4,7 @@ import { StudentDataContextProvider } from "@/context/StudentDataContext";
 import { BlogDataContextProvider } from "@/context/BlogData";
 import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
 import Head from "next/head";
-
+import { Analytics } from '@vercel/analytics/next';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +35,10 @@ export default function RootLayout({ children }) {
 
         <PrimeReactProvider>
           <BlogDataContextProvider>
-            <StudentDataContextProvider>{children}</StudentDataContextProvider>
+            <StudentDataContextProvider>
+              {children}
+             <Analytics/>
+            </StudentDataContextProvider>
           </BlogDataContextProvider>
         </PrimeReactProvider>
       </body>
