@@ -12,7 +12,7 @@ const Navbar = () => {
   // bg-[#060c18]
   // style={{background: "rgb(6,12,24)",background: "linear-gradient(180deg, rgba(6,12,24,1) 0%, rgba(20,49,96,1) 100%)"}}
   return (
-    <nav className="absolute top-2 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[80%] lg:w-[90%] px-6 py-4 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg transition-all z-50">
+    <nav className="Header w-full py-4 px-6 md:px-12  bg-[#060C19]">
       
       <div className="max-w-7xl mx-auto flex justify-between items-center">
 

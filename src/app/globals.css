@@ -48,29 +48,14 @@
   overflow: visible !important;
 }
 
-.Header{
-  .glassmorphism-3d {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 15px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    color: white;
-    transform: rotateX(10deg) rotateY(10deg);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .glassmorphism-3d:hover {
-    transform: rotateX(0deg) rotateY(0deg) scale(1.05);
-  }
-}
+
 
 .Hero{
   /* background: rgb(44,82,144);
   background: linear-gradient(0deg, rgba(44,82,144,1) 0%, rgba(20,47,93,1) 100%); */
 
   background: rgb(6,12,24);
-background: linear-gradient(180deg, rgba(6,12,24,1) 0%, rgba(20,47,93,1) 100%);
+  background: linear-gradient(180deg, rgba(6,12,24,1) 0%, rgba(20,47,93,1) 100%);
 }
 .LowerHome{
   
