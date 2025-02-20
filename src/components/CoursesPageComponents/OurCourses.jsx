@@ -26,7 +26,7 @@ const OurCourses = () => {
   };
 
   return (
-    <div className="relative py-[10rem]  flex justify-center items-center">
+    <div className="relative py-16  flex justify-center items-center">
       {/* Decorative images with animations */}
       <motion.div
         className="absolute top-8 right-20 hidden md:flex lg:flex"
@@ -53,7 +53,7 @@ const OurCourses = () => {
         transition={{ duration: 0.8 }}
       >
         <motion.h1
-          className="font-bold text-[#0D154B] lg:text-[2.7rem] md:text-[30px] text-center w-full"
+          className="font-bold text-[#0D154B]  lg:text-4xl text-3xl  text-center w-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -61,24 +61,32 @@ const OurCourses = () => {
           OUR COURSES
         </motion.h1>
 
-        
 
-        <div className="coursesContainer w-[100%] lg:h-[50vh] md:h-[40vh] xs:h-[40vh] relative ">
 
-          <div className={`innerContainer lg:w-[35%] md:w-[30%] sm:w-[35%] sm:text-[1.2rem] xs:w-[45%] xs:text-[.8rem]  flex justify-center items-center py-[2rem] left-1/2 -translate-x-1/2 bg-[#D4F0FD] rounded-[1rem] border border-[#ffffff] font-medium absolute `}><Link href="/courses/web-development">Web Development</Link></div>
+        <div className="coursesContainer flex flex-col justify-center gap-3 lg:gap-10 md:gap-5  w-[100%] ">
 
-          <div className={`innerContainer lg:w-[35%] md:w-[30%] sm:w-[35%] xs:w-[40%] flex justify-center items-center py-[2rem] bg-[#D4F0FD] rounded-[1rem] border border-[#ffffff] font-medium absolute top-[38%] right-[0%] sm:text-[1.2rem] xs:text-[.8rem]`}><Link href="/courses/ui-ux">UI/UX Designing</Link></div>
 
-          <div className={`innerContainer lg:w-[35%] md:w-[30%] sm:w-[35%] xs:w-[40%] flex justify-center items-center py-[2rem] bg-[#D4F0FD] rounded-[1rem] border border-[#ffffff] font-medium absolute bottom-[4%] right-[7%] sm:text-[1.2rem] xs:text-[.8rem]`}><Link href="/courses/networking">Networking</Link></div>
+          <div className={`innerContainer mx-auto  flex justify-center items-center  bg-[#D4F0FD] rounded-[1rem] border border-[#ffffff] font-semibold lg:w-72 w-60  p-6 text-[#0D154B] `}><Link href="/courses/web-development">Web Development</Link></div>
 
-          <div className={`innerContainer lg:w-[35%] md:w-[30%] sm:w-[35%] xs:w-[40%] flex justify-center items-center py-[2rem] bg-[#D4F0FD] rounded-[1rem] border border-[#ffffff] font-medium absolute bottom-[4%] left-[7%] sm:text-[1.2rem] xs:text-[.8rem]`}><Link href="/courses/data-analytics" >Data Analytics</Link></div>
 
-          <div className={`innerContainer lg:w-[35%] md:w-[30%] sm:w-[35%] xs:w-[40%] flex justify-center items-center py-[2rem] bg-[#D4F0FD] rounded-[1rem] border border-[#ffffff] font-medium absolute top-[38%] left-[0%] sm:text-[1.2rem] xs:text-[.8rem]`}><Link href="/courses/digital-marketing">Digital Marketing</Link></div>
-          
-          
+
+          <div className='flex flex-col md:flex-row lg:flex-row justify-between gap-3 '>
+            <div className={`innerContainer mx-auto  flex justify-center items-center  bg-[#D4F0FD] rounded-[1rem] border border-[#ffffff] font-semibold lg:w-72 w-60  p-6 text-[#0D154B] `}><Link href="/courses/ui-ux">UI/UX Designing</Link></div>
+
+            <div className={`innerContainer mx-auto  flex justify-center items-center  bg-[#D4F0FD] rounded-[1rem] border border-[#ffffff] font-semibold lg:w-72 w-60  p-6 text-[#0D154B] `}><Link href="/courses/networking">Networking</Link></div>
+          </div>
+
+          <div className='flex items-center justify-center flex-col md:flex-row lg:flex-row lg:gap-20 gap-3 '>
+            <div className={`innerContainer  flex justify-center items-center  bg-[#D4F0FD] rounded-[1rem] border border-[#ffffff] font-semibold lg:w-72 w-60  p-6 text-[#0D154B] `}><Link href="/courses/data-analytics" >Data Analytics</Link></div>
+
+            <div className={`innerContainer  flex justify-center items-center  bg-[#D4F0FD] rounded-[1rem] border border-[#ffffff] font-semibold lg:w-72 w-60   p-6 text-[#0D154B] `}><Link href="/courses/digital-marketing">Digital Marketing</Link></div>
+          </div>
+
+
+
         </div>
 
-{/* <div className="coursesContainer w-full h-[50vh] flex justify-center items-center relative">
+        {/* <div className="coursesContainer w-full h-[50vh] flex justify-center items-center relative">
   <div className="relative w-[90%] h-[90%] sm:w-[60%] sm:h-[60%] flex justify-center items-center">
     <div className="innerContainer w-[40%] sm:w-[35%] py-4 bg-[#D4F0FD] rounded-lg border border-white font-medium text-center absolute top-0 left-1/2 transform -translate-x-1/2 sm:text-[1.2rem] xs:text-[.8rem]">
       Web Development
