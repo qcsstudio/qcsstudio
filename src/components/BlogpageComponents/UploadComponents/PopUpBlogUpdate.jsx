@@ -53,7 +53,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const cate = selectedCategories.map((data) => data.name);
-    UpdateBlog(updateObject.heading, { title, thumbnail, category: cate, showOnFront, description });
+    UpdateBlog(updateObject.heading, {title, thumbnail, category: cate, showOnFront, description });
     setUpdateObject({});
     setEdit(false);
   };

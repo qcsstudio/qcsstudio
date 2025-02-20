@@ -12,6 +12,7 @@ const PopUpCategoryUpdate = ({ categoryUpdate, setCategoryUpdate, setEdit }) => 
   const handleSubmit = (e) => {
     e.preventDefault();
     const slug = categoryUpdate?.name;
+    
     const updatedData = { name: name, show_on_front: showOnFront };
     UpdateCategoryData(slug, updatedData);
     setEdit(false);
