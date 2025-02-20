@@ -13,6 +13,8 @@ const Navbar = () => {
   // style={{background: "rgb(6,12,24)",background: "linear-gradient(180deg, rgba(6,12,24,1) 0%, rgba(20,49,96,1) 100%)"}}
   return (
     <nav className="Header w-full py-4 px-6 md:px-12  bg-[#060C19]">
+      <div className="Navbar w-[100%] py-4">
+
       
       <div className="max-w-7xl mx-auto flex justify-between items-center">
 
@@ -65,6 +67,7 @@ const Navbar = () => {
         <button className="bg-[#0e2d5b] text-white border w-[150px] rounded-lg h-[40px] hover:bg-gradient-to-r from-[#cce973] to-[#46d3c1] transition">
           CONTACT US
         </button>
+      </div>
       </div>
     </nav>
   );
