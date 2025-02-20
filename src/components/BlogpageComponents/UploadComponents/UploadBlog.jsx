@@ -28,15 +28,17 @@ const UploadBlog = ({ setADD }) => {
   const router = useRouter();
 
   // Handle Images:
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setImageShow(URL.createObjectURL(file));
 
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file); // Convert to Base64
-      reader.onload = () => setThumbnail(reader.result); // Store Base64 string
-    }
+  const processImage = (link)=>{
+    const match = link.match(/file\/d\/(.*)\/view/);
+    return match ? `https://lh3.googleusercontent.com/d/${match[1]}=w1000` : link;
+  }
+  const handleImageChange = async(e) => {
+    const file = await processImage(e.target.value);
+    console.log(typeof file);
+    console.log(file);
+    setThumbnail(file);
+    setImageShow(file);
   };
 
   // Handle submit:
@@ -49,7 +51,7 @@ const UploadBlog = ({ setADD }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50 p-4">
+    <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50 p-4 overflow-y-scroll overflow-x-hidden">
       <div className="bg-white w-full max-w-3xl p-6 rounded-lg shadow-lg overflow-y-auto max-h-[90vh]">
         {/* Close Button */}
         <div className="flex justify-end">
@@ -76,8 +78,8 @@ const UploadBlog = ({ setADD }) => {
 
           {/* Image Upload */}
           <input
-            type="file"
-            accept="image/*"
+            type="text"
+            placeholder="Enter Image URL"
             onChange={handleImageChange}
             className="w-full border border-gray-300 px-3 py-2 rounded-lg"
           />
@@ -116,9 +118,9 @@ const UploadBlog = ({ setADD }) => {
             options={categoryData}
             optionLabel="name"
             placeholder="Select Categories"
-            maxSelectedLabels={3}
-            className="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
-            panelClassName="z-50"
+            maxSelectedLabels={3} 
+            className="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 flex flex-wrap items-center gap-2 overflow-hidden min-h-[44px]"
+            panelClassName="z-50 max-w-lg bg-white p-4 rounded-xl shadow-xl border border-gray-200 max-h-60 overflow-y-auto"
           />
 
           {/* Submit Button */}

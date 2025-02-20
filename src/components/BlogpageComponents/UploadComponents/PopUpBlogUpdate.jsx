@@ -36,17 +36,20 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
 
   const handleCategoryChange = (e) => setSelectedCategories(e.value);
 
+  const processImage = (link)=>{
+    const match = link.match(/file\/d\/(.*)\/view/);
+    return match ? `https://lh3.googleusercontent.com/d/${match[1]}=w1000` : link;
+  }
 
-  const handleImageChange = (e) => {
-    const file = e?.target?.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => setThumbnail(reader.result);
-    }
+  const handleImageChange = async(e) => {
+    const file = await processImage(e.target.value);
+    console.log(typeof file);
+    console.log(file);
+    setThumbnail(file);
+    setImageShow(file);
   };
 
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const cate = selectedCategories.map((data) => data.name);
@@ -57,17 +60,17 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
 
   return (
     <>
-     
+
       <div
         className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
         onClick={() => setEdit(false)}
       >
-       
+
         <div
           className="bg-white w-[90%] sm:w-[80%] md:w-[60%] lg:w-[40%] max-h-[90vh] overflow-y-auto rounded-lg p-6 shadow-lg relative"
           onClick={(e) => e.stopPropagation()}
         >
-          
+
           <button
             className="absolute top-3 right-3 px-3 py-1 border border-gray-300 rounded-md hover:bg-red-500 hover:text-white transition duration-200"
             onClick={() => setEdit(false)}
@@ -77,7 +80,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
 
           <h2 className="text-center text-2xl font-semibold mb-4">Update Blog</h2>
 
-         
+
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input
               placeholder="Enter Blog Title"
@@ -88,13 +91,13 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
               required
             />
 
-            
+
             <div className="w-full flex flex-col items-center gap-2">
               {thumbnail && <img src={thumbnail} alt="Preview" className="w-40 h-40 object-cover rounded-lg border" />}
-              <input type="file" accept="image/*" onChange={handleImageChange} className="w-full text-sm" />
+              <input type="text" placeholder="Enter Image URL"  onChange={handleImageChange} className="w-full border border-gray-300 px-3 py-2 rounded-lg" />
             </div>
 
-            
+
             <JoditEditor
               ref={editor}
               value={description}
@@ -102,7 +105,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
               className="w-full min-h-[200px] border border-gray-300 rounded-md"
             />
 
-           
+
             <div className="flex items-center gap-2">
               <input type="checkbox" id="show_on_front" checked={showOnFront} onChange={() => setShowOnFront(!showOnFront)} />
               <label htmlFor="show_on_front" className="text-gray-700">Show on Front</label>
@@ -116,9 +119,11 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
               placeholder="Select Categories"
               maxSelectedLabels={3}
               className="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+              panelClassName="z-50 max-w-lg bg-white p-4 rounded-xl shadow-xl border border-gray-200 max-h-60 overflow-y-auto"
             />
 
-            
+
+
             <button
               type="submit"
               className="w-full px-4 py-2 rounded-md text-white bg-blue-600 hover:bg-blue-700 transition duration-200"
