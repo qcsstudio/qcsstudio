@@ -19,7 +19,9 @@ const Navbar = () => {
         {/* Logo Container */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
-            <Image src={RealLogo} alt="Logo" width={1024} height={100} className="w-[270px] "/>
+
+            <Image src={RealLogo} alt="Logo" width={1024} height={1024} className="w-[250px]"/>
+
           </Link>
         </div>
 
