@@ -14,10 +14,11 @@ const BlogSinglePage = () => {
     const slug = params.slug;
 
     useEffect(()=>{
+        console.log(slug);
         GetSingleBlogData(slug);
     },[slug]);
 
-    console.log(blogData);
+    // console.log(blogData);
 
    return (
       <>
