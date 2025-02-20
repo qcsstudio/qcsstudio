@@ -14,6 +14,12 @@ import Link from "next/link";
 const Mentor = () => {
   return (
     <div className="max-w-[1440px] mx-auto mentor relative w-full  flex justify-center items-center px-6 ">
+      
+      {/* <div className="innerContainer w-[100%] relative flex justify-center items-center px-6 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-xl p-6"> */}
+
+      
+
+
       {/* Left Side Images */}
       <div className="absolute left-[-2%] max-lg:-[1080px]:left-4 top-[75%] transform -translate-y-1/2 flex flex-col gap-14">
         <Image
@@ -90,6 +96,9 @@ const Mentor = () => {
           className="self-end rounded-2xl  md:mr-[30%]  xl:mr-[350%]  animate-scale-pulse hidden lg:block"   
         />
       </div>
+
+      {/* </div> */}
+
     </div>
   );
 };

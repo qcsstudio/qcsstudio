@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="Header w-full py-4 px-6 md:px-12 bg-[#0e2d5b]">
+    <nav className="Header w-full py-4 px-6 md:px-12 bg-[#2b5594]">
       <div className="max-w-7xl mx-auto flex items-center justify-between relative top-[10px]">
         
         {/* Logo */}

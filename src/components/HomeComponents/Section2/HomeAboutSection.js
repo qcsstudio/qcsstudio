@@ -13,9 +13,10 @@ function HomeAboutSection() {
     <div className="w-full flex flex-col relative mx-auto justify-center border border-b-[1.4px] border-black ">
       <div className="flex flex-col lg:flex-row w-full">
         {/* Left Section */}
-        <div className="w-full flex flex-col justify-between bg-white">
-          <div className="flex flex-col items-center justify-center h-full">
-            <div className="relative w-full overflow-hidden py-[60px] sm:py-[100px] border-b-[1.4px] border-black">
+        <div className="w-full flex flex-col  bg-white">
+
+          <div className="flex flex-col items-center justify-center ">
+            <div className="relative w-full overflow-hidden border-b-[1.4px] border-black">
               <Image
                 className="absolute top-0 object-contain w-[150px] sm:w-[200px] h-[250px] sm:h-[300px]"
                 src={bgGraphic}
@@ -26,7 +27,7 @@ function HomeAboutSection() {
                 alt="Arrow"
                 className="absolute top-0 -right-[2rem] sm:-right-[4rem] w-[180px] sm:w-[270px] object-contain"
               />
-              <div className="text-center sm:text-left lg:pl-16 px-6  w-full   my-10 lg:my-28">
+              <div className="text-center sm:text-left lg:pl-16 px-6  w-full lg:my-20">
 
                 <h6 className="text-[#527CBD] text-[4.1vw] py-2 font-semibold">
                   Who we are
@@ -43,7 +44,9 @@ function HomeAboutSection() {
           </div>
 
           {/* Text Content */}
-          <div className="py-5 md:py-20 lg:py-20 lg:px-16 px-6 text-gray-600 text-center sm:text-left h-full flex flex-col gap-2 items-center justify-around ">
+
+          <div className=" w-[100%] lg:px-16 px-6 text-gray-600 text-center h-[100%] sm:text-left py-[4rem] flex flex-col gap-2 items-center justify-center ">
+
             <div className="py-0">
               <p className="text-2xl text-[#212529] font-bold">
                 Our Values: Educate | Empower | Elevate
@@ -75,6 +78,7 @@ function HomeAboutSection() {
             </Link>
 
           </div>
+
         </div>
 
         {/* Right Section */}
@@ -121,7 +125,7 @@ function HomeAboutSection() {
               </div>
             </div>
             </div>
-            <div className="w-[full] h-full  relative  lg:h-[100vh]   " >
+            <div className="w-[full] relative  lg:h-[60vh]   " >
             <Image
               src={HomeAbout}
               alt="Visual Representation"
@@ -133,6 +137,7 @@ function HomeAboutSection() {
           </div>
           
         </div>
+
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ const Footer = () => {
             <div className="upperContainer w-[100%] flex md:flex-row md:gap-[0rem] xs:gap-[2rem] xs:flex-col md:justify-between md:items-center">
                <div className="logoContainer md:w-[30%] sm:w-[50%] xs:w-[100%]" >
                   <Link href="/">
-                     <Image src="/images/RealLogo.png" alt="quantumCrafters_logo" width={1024} height={1024} className="lg:w-[50%] h-[100%] sm:w-[55%] xs:w-[60%] " />
+                     <Image src="/images/RealLogo.png" alt="quantumCrafters_logo" width={1024} height={1024} className="lg:w-[60%] h-[100%] sm:w-[55%] xs:w-[60%] " />
                   </Link>
                </div>
 
@@ -69,19 +69,19 @@ const Footer = () => {
                     
 
                      <Link href="/">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">Home</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">Home</li>
                      </Link>
 
                      <Link href="/courses">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">Courses</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">Courses</li>
                      </Link>
 
                      <Link href="/about">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">About Us</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">About Us</li>
                      </Link>
 
                      <Link href="/contact-us">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">Contact Us</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">Contact Us</li>
                      </Link>
                   </ul>
                </div>
@@ -92,19 +92,19 @@ const Footer = () => {
                   <li className="links lg:text-[1.2rem] mb-[.5rem] xs:text-[1rem] text-[#ffffff] font-bold">Courses</li>
 
                      <Link href="/courses/web-development">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">Web Development</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">Web Development</li>
                      </Link>
 
                      <Link href="/courses/ui-ux">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">UI/UX Designing</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">UI/UX Designing</li>
                      </Link>
 
                      <Link href="/courses/networking">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">Networking</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">Networking</li>
                      </Link>
 
                      <Link href="/courses/digital-marketing">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">Digital Marketing</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">Digital Marketing</li>
                      </Link>
                   </ul>
                </div>
@@ -114,19 +114,19 @@ const Footer = () => {
                   <li className="links lg:text-[1.2rem] mb-[.5rem] xs:text-[1rem] text-[#ffffff] font-bold">Support</li>
 
                      <Link href="/blogs">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">Blogs</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">Blogs</li>
                      </Link>
 
                      <Link href="/terms-of-service">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">Term & Conditions</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">Term & Conditions</li>
                      </Link>
 
                      <Link href="/privacy-policy">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">Privacy Policy</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">Privacy Policy</li>
                      </Link>
 
                      <Link href="/refund-policy">
-                        <li className="links lg:text-[1rem] xs:text-[.8rem] text-[#ffffff] font-medium hover:text-[#C1EE04]">Refund Policy</li>
+                        <li className="links lg:text-[.9rem] xs:text-[.8rem] text-[#dad9d9] font-medium hover:text-[#C1EE04]">Refund Policy</li>
                      </Link>
                   </ul>
                </div>

@@ -2,21 +2,24 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react"; // Icons for mobile menu
-import logo from "../../public/images/logo.png"; // Adjust the path as needed
+import { Menu, X } from "lucide-react"; 
+import logo from "../../public/images/logo.png"; 
 import RealLogo from '../../public/images/RealLogo.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  // #0e2d5b
+  // bg-[#060c18]
+  // style={{background: "rgb(6,12,24)",background: "linear-gradient(180deg, rgba(6,12,24,1) 0%, rgba(20,49,96,1) 100%)"}}
   return (
-    <nav className=" Header w-full py-4 px-6 md:px-12  bg-[#0e2d5b]">
+    <nav className="absolute top-2 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[80%] lg:w-[90%] px-6 py-4 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg transition-all z-50">
+      
       <div className="max-w-7xl mx-auto flex justify-between items-center">
 
         {/* Logo Container */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
-            <Image src={RealLogo} alt="Logo" width={150} height={100} />
+            <Image src={RealLogo} alt="Logo" width={1024} height={100} className="w-[270px] "/>
           </Link>
         </div>
 

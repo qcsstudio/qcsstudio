@@ -52,17 +52,17 @@ const ContactInfo = () =>{
           <p  className='hover:text-[#47a5ee]  hover:underline'>Quantum Crafters Studio</p>
           </Link>
        
-          <Link className='flex items-center gap-2 justify-center ' href='https://www.linkedin.com/company/qcsstudio/posts/?feedView=all'>
+          <Link className='flex items-center gap-2 justify-center ' href='https://www.facebook.com/qcsstudio'>
         <Image src="/images/fb.png" height={40} width={40} alt="linkedin Icon" />
         <p  className='hover:text-[#47a5ee]  hover:underline'>Quantum Crafters Studio</p>
         </Link>
-        <Link className='flex items-center gap-2 justify-center ' href='https://www.facebook.com/qcsstudio'>
+        <Link className='flex items-center gap-2 justify-center ' href='https://www.linkedin.com/company/qcsstudio/posts/?feedView=all'>
         <Image src="/images/Linkdin.png" height={40} width={40} alt="linkedin Icon" />
         <p  className='hover:text-[#47a5ee]  hover:underline'>Quantum Crafters Studio</p>
         </Link>
       </div>
       </div>
-   
+
   );
 };
 
