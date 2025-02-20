@@ -84,7 +84,7 @@ const UploadBlog = ({ setADD }) => {
             onChange={handleImageChange}
             className="w-full border border-gray-300 px-3 py-2 rounded-lg"
           />
-          {imageShow && (
+          {imageShow && imageShow.startsWith("http") && (
             <div className="flex justify-center">
               <Image src={imageShow} width={100} height={100} alt="Preview" className="rounded-md" />
             </div>

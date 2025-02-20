@@ -43,7 +43,7 @@ const BlogRecentBlog = () => {
         width={120}
         alt=""
       />
-      {      showBlogsDataLoader  ? <Loader/> :
+      {      showBlogsDataLoader  ? <Loader/> : multipleBlogData.length == 0 ? <p>Blogs not found.</p> :
       <div className="max-w-6xl mx-auto">
         <h2 className="text-lg sm:text-2xl md:text-3xl font-bold mb-6 text-[#0E2D5B] mt-10 sm:mt-20">
           RECENT BLOG POSTS
@@ -63,7 +63,7 @@ const BlogRecentBlog = () => {
                 />}
               <span className="text-gray-700 text-xs sm:text-sm">{multipleBlogData[0]?.createdAt && getDate(multipleBlogData[0]?.createdAt)}</span>
               <h3 className="text-base sm:text-xl md:text-2xl text-[#0E2D5B] font-bold">
-                {multipleBlogData[0]?.heading}
+                {multipleBlogData[0]?.heading.replace(/_/g, " ").split(' ').map((word)=>word.charAt(0).toUpperCase()+word.slice(1)).join(' ')}
               </h3>
               <div className="text-[#0E2D5B] font-normal leading-[20px] text-xs sm:text-sm md:text-base" dangerouslySetInnerHTML={{ __html: multipleBlogData[0]?.description.substring(0, 10) }}>
 
