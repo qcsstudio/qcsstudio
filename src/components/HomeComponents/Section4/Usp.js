@@ -16,10 +16,10 @@ const Usp = () => {
         </p>
 
         <p className="text-[#051332] text-xl flex items-center">
-          <span className="bg-gray-200 px-3 py-1 rounded-md text-gray-900 font-semibold">
+          <span className="bg-gray-200 px-3 py-1 text-sm lg:text-lg rounded-md text-gray-900 font-semibold">
             Your
           </span>
-          <span className="ml-2  ">Dream Tech Job, Guaranteed</span>
+          <span className="ml-2 text-sm lg:text-lg ">Dream Tech Job, Guaranteed</span>
         </p>
 
         <ul className="space-y-4 text-gray-700 text-lg list-disc list-inside">

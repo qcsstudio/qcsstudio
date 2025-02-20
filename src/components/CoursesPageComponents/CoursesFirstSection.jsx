@@ -152,17 +152,17 @@ const settings = {
 
 
 const Slide = ({ title, description, buttonText, image, icon  , url}) => (
-  <div className="h-[70vh] w-full flex items-center justify-center px-10 ">
-    <div className="flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between lg:gap-6 md:gap-0 px-5 md:px-10 mt-2 lg:mt-20 relative">
-      <div className="flex flex-col gap-10 max-w-lg text-center md:text-left">
-        <h1 className="text-white font-bold text-2xl md:text-lg lg:text-[40px] lg:leading-normal">
+  <div className=" w-full flex items-center h-full justify-center px-0 lg:py-14 py-5   ">
+    <div className="flex flex-col-reverse lg:flex-row h-full items-center justify-between lg:gap-6 md:gap-0 gap-5 px-5 md:px-10  relative">
+      <div className="flex flex-col lg:gap-10 justify-center items-center md:items-start  lg:items-start    gap-6 max-w-lg  ">
+        <h1 className="text-white font-bold  text-xl md:text-lg lg:text-[40px] lg:leading-normal">
           {title}
         </h1>
-        <p className="text-[#C4EF01] text-sm lg:text-[16px] md:text-sm mt-2">
+        <p className="text-[#C4EF01] text-sm lg:text-[16px] md:text-sm ">
           {description}
         </p>
         <Link href={url}>
-          <button className="mt-2 lg-py-2 lg-px-2 py-1 w-[280px] px-1 md:py-3 md:px-5 md:text-sm text-sm border border-white rounded-lg text-white hover:bg-white hover:text-black transition">
+          <button className=" lg:w-[280px] p-2 md:w-[280px] w-[200px] md:text-sm text-sm border border-white rounded-lg text-white hover:bg-white hover:text-black transition">
             {buttonText}
           </button>
         </Link>
@@ -217,7 +217,7 @@ const Slide = ({ title, description, buttonText, image, icon  , url}) => (
 const CoursesFirstSection = () => {
   return (
     <div
-      className="h-[100vh] flex justify-center items-center"
+      className="py-16 px-0 flex justify-center items-center"
       style={{
         backgroundImage: "url('/images/CoursesBackground.png')",
         backgroundSize: "cover",
@@ -226,7 +226,7 @@ const CoursesFirstSection = () => {
       }}
     >
       <div
-        className="w-[75vw] h-[70vh] items-center justify-center lg:h-[80vh] border rounded-xl"
+        className=" w-[85vw] md:w-[75vw]  items-center justify-center  border rounded-xl"
         style={{
           backgroundImage: "url('https://drive.google.com/file/d/1aUsh6-4bqtQnbZ6ITQbYZfzDBL4wDxRI/view?usp=drive_link')",
           backgroundPosition: "center",

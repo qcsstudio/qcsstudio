@@ -40,12 +40,12 @@ const Footer = () => {
                <div className="newsLetterContainer lg:w-[40rem] flex items-center justify-between md:w-[30rem] xs:w-[100%]">
                 
                   <div className='flex flex-col gap-4 w-[100%]'>
-                     <h5 className='font-bold sm:text-[1.2rem] xs:text-[1rem] ml-[4rem]  text-[#C1EE04]'>SIGN UP TO OUR NEWSLETTER</h5>
-                    <div className="cont flex gap-[1rem]">
+                     <h5 className='font-bold sm:text-[1.2rem] xs:text-[1rem] lg:ml-[4rem] ml-0   text-[#C1EE04]'>SIGN UP TO OUR NEWSLETTER</h5>
+                    <div className="cont flex gap-[1rem] items-center justify-center">
 
-                    
-                      <Link href="https://g.co/kgs/qiu18gC">
-                          <Image src="/images/gmp.jpg" width={1024} height={1024} alt="GMP Image" className="w-[3rem] h-[3rem] rounded-[1rem]" />
+      
+                      <Link  href="https://g.co/kgs/qiu18gC">
+                          <Image className="rounded-[1rem] object-cover" src="/images/gmp.jpg" width={50} height={50} alt="GMP Image"  />
                       </Link>
 
                      <div className='flex border border-white rounded-md overflow-hidden lg:w-[100%] md:w-[90%] max-w-md'>
