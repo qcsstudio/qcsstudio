@@ -35,13 +35,19 @@ const ListBlog = () => {
 
    const columns = [
       { name: "Heading",wrap: true, selector: (row) => row.heading.length > 30 ? row.heading.slice(0, 30) + "..." : row.heading, sortable: true },
+
       { name: "Description",wrap: true, selector: (row) => row.description.length > 30 ? row.description.slice(0, 30) + "..." : row.description },
+
       { name: "Categories",wrap: true,  selector: (row) => row.category?.join(", ") || "" },
+
       {
          name: "Show On Front", cell: (row) => (
-            <input type="checkbox" name="showOnFront" checked={row?.show_on_front} onChange={() => handleShowOnFront(row)} className="w-4 h-4" />
+            
+               row?.show_on_front ? <div className="green min-w-[1rem] min-h-[1rem]  rounded-[5rem] bg-[#51e151]"></div> :<div className="red w-[1rem] h-[1rem] rounded-[5rem] bg-[#ff6868]"></div>
+            
          )
       },
+      
       {
          name: "Edit", Button: true,wrap: true, cell: (row) => (
             <button onClick={() => handleUpdate(row)}

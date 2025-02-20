@@ -42,12 +42,7 @@ const ListCategory = () => {
         {
             name: "Show on Front",
             cell: (row) => (
-                <input
-                    type="checkbox"
-                    checked={row?.show_on_front}
-                    onChange={() => handleShowOnFront(row)}
-                    className="w-5 h-5"
-                />
+                row?.show_on_front ? <div className="green min-w-[1rem] min-h-[1rem]  rounded-[5rem] bg-[#51e151]"></div> :<div className="red w-[1rem] h-[1rem] rounded-[5rem] bg-[#ff6868]"></div>
             ),
             center: true,
         },

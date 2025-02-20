@@ -12,6 +12,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
 
   const [title, setTitle] = useState("");
   const [thumbnail, setThumbnail] = useState("");
+  const [previewImage,setPreviewImage] = useState("");
   const [description, setDescription] = useState("");
   const [showOnFront, setShowOnFront] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -26,6 +27,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
     setDescription(updateObject.description || "");
     setShowOnFront(updateObject.show_on_front || false);
     setThumbnail(updateObject.thumbnail || "");
+    setPreviewImage(updateObject.thumbnail || "");
 
     if (updateObject.category && Array.isArray(updateObject.category) && categoryData.length > 0) {
       const selectedCats = categoryData.filter((cat) => updateObject.category.includes(cat.name));
@@ -46,7 +48,6 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
     console.log(typeof file);
     console.log(file);
     setThumbnail(file);
-    setImageShow(file);
   };
 
 
@@ -93,8 +94,8 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
 
 
             <div className="w-full flex flex-col items-center gap-2">
-              {thumbnail && <img src={thumbnail} alt="Preview" className="w-40 h-40 object-cover rounded-lg border" />}
-              <input type="text" placeholder="Enter Image URL"  onChange={handleImageChange} className="w-full border border-gray-300 px-3 py-2 rounded-lg" />
+              {previewImage && previewImage.startsWith("http") && <img src={previewImage} alt="Preview" className="w-40 h-40 object-cover rounded-lg border" />}
+              <input type="text" placeholder="Enter Image URL" value={thumbnail}  onChange={handleImageChange} className="w-full border border-gray-300 px-3 py-2 rounded-lg" />
             </div>
 
 
