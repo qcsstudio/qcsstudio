@@ -46,7 +46,8 @@ const UploadBlog = ({ setADD }) => {
     e.preventDefault();
     const selectedCategoryNames = selectedCategories.map((data) => data.name);
     setCategory(selectedCategoryNames);
-    PostBlogData(title, thumbnail, selectedCategoryNames, showOnFront, description);
+    const finalTitle=title.toLowerCase().trim().replace(/\s+/g, '_')
+    PostBlogData(finalTitle, thumbnail, selectedCategoryNames, showOnFront, description);
     setADD(false);
   };
 

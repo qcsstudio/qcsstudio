@@ -41,7 +41,8 @@ const MainBlogComponent = ({blogData}) => {
                         <Image src={blogData.thumbnail} width={1024} height={100} alt={blogData.thumbnail} className="w-[100%] h-[25rem]"/>}
                     </div>
                     <div className="headingContainer">
-                        <h2 className="heading text-[#0E2D5B] font-bold text-[2rem]">{blogData.heading}</h2>
+                        <h2 className="heading text-[#0E2D5B] font-bold text-[2rem]">  {blogData.heading ? blogData.heading.replace(/_/g, " ").split(' ').map((word)=>word.charAt(0).toUpperCase()+word.slice(1)).join(' ') : "Untitled"}
+                        </h2>
                     </div>
                     <div className="descriptionContainer" dangerouslySetInnerHTML={{__html:blogData.description}}>
                         
