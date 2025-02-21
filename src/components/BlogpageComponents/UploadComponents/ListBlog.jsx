@@ -5,14 +5,16 @@ import DataTable from 'react-data-table-component';
 import UploadBlog from './UploadBlog';
 import PopUpCategoryDelete from './PopUpCategoryDelete';
 import PopUpBlogUpdate from './PopUpBlogUpdate';
+import Loader from '@/components/Loader';
 
 const ListBlog = () => {
-   const { multipleBlogData, GetBlogData, DeleteBlog, categoryData, GetCategoryData } = useContext(BlogDataContext);
+   const { multipleBlogData, GetBlogData, DeleteBlog, categoryData, GetCategoryData,blogLoadingStatus } = useContext(BlogDataContext);
    const [ADD, setADD] = useState(false);
    const [edit, setEdit] = useState(false);
    const [deleteData, setDeleteData] = useState(false);
    const [deleteObject, setDeleteObject] = useState({});
    const [updateObject, setUpdateObject] = useState({});
+
 
    useEffect(() => {
       GetBlogData();
@@ -49,14 +51,14 @@ const ListBlog = () => {
       },
       
       {
-         name: "Edit", Button: true,wrap: true, cell: (row) => (
+         name: "Edit",wrap: true, cell: (row) => (
             <button onClick={() => handleUpdate(row)}
                className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-400 transition"
             >Edit</button>
          )
       },
       {
-         name: "Delete", Button: true,wrap: true, cell: (row) => (
+         name: "Delete",wrap: true, cell: (row) => (
             <button onClick={() => handleDelete(row)}
                className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-400 transition"
             >Delete</button>
@@ -65,7 +67,10 @@ const ListBlog = () => {
    ];
 
    return (
+       
+      <>
       <div className="p-4 max-w-7xl mx-auto">
+         {!blogLoadingStatus ? (<>
          <div className="flex  items-center justify-between mb-4">
             <h1 className='text-center text-2xl font-semibold mb-2 md:mb-0'>Blog List</h1>
             <button 
@@ -83,12 +88,13 @@ const ListBlog = () => {
                highlightOnHover
                striped
             />
-         </div>
+         </div></>):<Loader/>}
          
          {ADD && <UploadBlog categoryData={categoryData} setADD={setADD} />}
          {deleteData && <PopUpCategoryDelete heading="Delete" description="Do you want to Delete Blog?" popUpOpener={setDeleteData} deleteData={deleteBlogData} />}
          {edit && <PopUpBlogUpdate setUpdateObject={setUpdateObject} updateObject={updateObject} setEdit={setEdit} />}
       </div>
+      </>
    );
 };
 

@@ -44,7 +44,7 @@ const PrivacyComponent = () => {
     
         {/* floating images */}
          <Image className='absolute bottom-7 right-96' src='/images/recentsblogsbg3.png' height={200} width={100} alt=''/>
-         <Image className='absolute bottom-7 right-0 scale-x-[-1]' src='/images/infoIcon.png' height={300} width={300} alt=''/>
+         <Image className='absolute bottom-7 right-0 scale-x-[-1]' src='/images/infoIcon.png' height={200} width={200} alt=''/>
          <Image className='absolute bottom-0 left-0 ' src='/images/bgBlu.png' height={100} width={100} alt=''/>
          <Image className='absolute top-0 right-0 ' src='/images/arrowplane.png' height={100} width={100} alt=''/>
         </div>

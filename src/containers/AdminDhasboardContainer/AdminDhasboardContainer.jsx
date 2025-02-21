@@ -14,16 +14,11 @@ import { removeToken } from '@/utils/cookies';
 
 const AdminDashboardContainer = () => {
   const [activeComponent, setActiveComponent] = useState('dashboard');
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleChangePage = (component) => {
-    setLoading(true);
-    setTimeout(() => {
-      setActiveComponent(component);
-      setLoading(false);
-      setSidebarOpen(false); 
-    }, 300);
+    setActiveComponent(component);
   };
 
   const handleLogout =  async() => {
@@ -32,13 +27,13 @@ const AdminDashboardContainer = () => {
   };
 
   const renderContent = () => {
-    if (loading) {
-      return (
-        <div className="flex justify-center items-center h-full">
-          <Loader/>
-        </div>
-      );
-    }
+    // if (loading) {
+    //   return (
+    //     <div className="flex justify-center items-center h-full">
+          // <Loader/>
+    //     </div>
+    //   );
+    // }
     switch (activeComponent) {
       case 'dashboard':
         return <Dashboard />;

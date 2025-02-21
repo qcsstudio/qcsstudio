@@ -17,7 +17,9 @@ const studentIntialData = {
   setSearchBlogsData: () => {},
   GetSerachedData:()=>{ },
   status:"",
-  setStatus:()=>{ }
+  setStatus:()=>{ },
+  loadingStatus:false,
+  setLoadingStatus:()=>{},
 };
 
 export const StudentDataContext = createContext(studentIntialData);
@@ -32,6 +34,9 @@ export const StudentDataContextProvider = ({ children }) => {
   const [serachBlogsData, setSearchBlogsData] = useState(studentIntialData.serachBlogsData);
   const [status, setStatus] = useState("");
 
+  const [loadingStatus,setLoadingStatus] = useState(studentIntialData.loadingStatus);
+
+  // Create Student Data
   const CreateStudentData = async (APIData) => {
     try {
       const url = "api/students";
@@ -49,17 +54,23 @@ export const StudentDataContextProvider = ({ children }) => {
     }
   };
 
+  // Get Student Data
   const GetStudentData = async () => {
     try {
+      setLoadingStatus(true);
       const url = "/api/students";
       const response = await fetch(url);
       if (response.status === 200) {
         const result = await response.json();
         setApiStudentData(result.students);
       }
-    } catch (error) {}
+      setLoadingStatus(false);
+    } catch (error) {
+      setLoadingStatus(false);
+    }
   };
 
+  // Create Quiz Question
   const CreateQuizQuestion = async (APIData) => {
     try {
       "Quiz Data Before submission", APIData;
@@ -78,17 +89,23 @@ export const StudentDataContextProvider = ({ children }) => {
     }
   };
 
+  // Get Quiz Questions
   const GetQuizQuestions = async () => {
     try {
+      setLoadingStatus(true);
       const url = "/api/questions";
       const response = await fetch(url);
       if (response.status === 200) {
         const result = await response.json();
         setApiQuizData(result.students);
       }
-    } catch (error) {}
+      setLoadingStatus(false);
+    } catch (error) {
+      setLoadingStatus(false);
+    }
   };
 
+  // Edit Quiz Question
   const EditQuizQuestion = async (APIData, id) => {
     try {
       const url = `api/questions/${id}`;
@@ -106,6 +123,7 @@ export const StudentDataContextProvider = ({ children }) => {
     }
   };
 
+  // Delete Quiz Question
   const DeleteQuizQuestion = async (id) => {
     try {
       const url = `api/questions/${id}`;
@@ -119,6 +137,7 @@ export const StudentDataContextProvider = ({ children }) => {
     } 
   };
 
+  // Get Searched Data
   const GetSerachedData = async () => {
     try {
       console.log("hello")
@@ -132,6 +151,7 @@ export const StudentDataContextProvider = ({ children }) => {
     } catch (error) {}
   };
 
+  // Handle Send Mail
     const handleSendMail = async (formData) => {
       
       setStatus("Sending...");
@@ -170,6 +190,7 @@ export const StudentDataContextProvider = ({ children }) => {
       }
     }
 
+    // Handle User Send Mail
     const handleUserSendMail = async (formData) => {
       
       console.log(formData);
@@ -185,6 +206,7 @@ export const StudentDataContextProvider = ({ children }) => {
   
       if (res.ok) {
       } else {
+
       }
     }
   
@@ -206,7 +228,10 @@ export const StudentDataContextProvider = ({ children }) => {
         EditQuizQuestion,
         DeleteQuizQuestion,
         GetSerachedData,
-        handleSendMail,status,
+        handleSendMail,
+        status,
+        loadingStatus,
+        setLoadingStatus
       }}
     >
       {children}

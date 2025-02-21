@@ -20,7 +20,7 @@ const MainBlogComponent = ({blogData}) => {
     },[]);
 
     useEffect(()=>{
-        const newArray = multipleBlogData.slice(1,initialBlog);
+        const newArray = multipleBlogData.slice(0,initialBlog);
         setBlogsData(newArray);
       },[multipleBlogData,initialBlog]);
 
@@ -87,7 +87,7 @@ const MainBlogComponent = ({blogData}) => {
                                     <div className="w-full sm:w-2/3 text-center sm:text-left">
                                     <span className="text-gray-700 text-xs sm:text-sm">{getDate(data.createdAt)}</span>
                                     <h3 className="text-base sm:text-xl md:text-lg text-[#0E2D5B] font-bold">
-                                        {data.heading}
+                                        {data.heading.replace(/_/g, " ").split(' ').map((word)=>word.charAt(0).toUpperCase()+word.slice(1)).join(' ')}
                                     </h3>
                                     
                                     <div dangerouslySetInnerHTML={{ __html:data.description.slice(0,40)}} />

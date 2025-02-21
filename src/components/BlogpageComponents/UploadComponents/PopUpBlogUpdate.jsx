@@ -9,7 +9,7 @@ const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
   const { GetCategoryData, categoryData, UpdateBlog } = useContext(BlogDataContext);
 
-
+  
   const [title, setTitle] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [previewImage,setPreviewImage] = useState("");
