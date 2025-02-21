@@ -39,6 +39,10 @@ function SearchBarContentContainer() {
     getSearchedData();
   }, [query]);
 
+
+
+  
+
   return (
     <div className="p-4">
       {loading ? (
@@ -53,6 +57,11 @@ function SearchBarContentContainer() {
 }
 
 function Card({ data }) {
+
+  const getDate = (createdAt) => {
+    const newDate = new Date(createdAt).toLocaleDateString();
+    return newDate;
+  }
   return (
     <Link href={`/blogs/${data.heading}`}>
     <div className="flex flex-col sm:flex-row gap-4 sm:items-center border p-4 rounded-md shadow-md">
@@ -66,11 +75,9 @@ function Card({ data }) {
         />
       </div>
       <div className="w-full sm:w-2/3 text-center sm:text-left">
-        <span className="text-gray-700 text-xs sm:text-sm">
-          {new Date(data.createdAt).toLocaleDateString()}
-        </span>
+        {/* <span className="text-gray-700 text-xs sm:text-sm">{getDate(data.createdAt)}</span> */}
         <h3 className="text-base sm:text-xl md:text-lg text-[#0E2D5B] font-bold">
-          {data.heading}
+          {data.heading.replace(/_/g, " ").split(' ').map((word)=>word.charAt(0).toUpperCase()+word.slice(1)).join(' ')}
         </h3>
         <div
           dangerouslySetInnerHTML={{
