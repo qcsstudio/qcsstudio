@@ -9,7 +9,9 @@ const blogIntialData = {
   categoryData: [],
   setCategoryData: () => { },
   showBlogsDataLoader: false,
-  setShowBlogsDataLoader: () => { }
+  setShowBlogsDataLoader: () => { },
+  blogLoadingStatus:false,
+  setBlogLoadingStatus:()=>{}
 }
 
 export const BlogDataContext = createContext(blogIntialData);
@@ -20,20 +22,26 @@ export const BlogDataContextProvider = ({ children }) => {
   const [multipleBlogData, setmultipleBlogData] = useState(blogIntialData.multipleBlogData);
   const [categoryData, setCategoryData] = useState(blogIntialData.categoryData);
   const [showBlogsDataLoader, setShowBlogsDataLoader] = useState(blogIntialData.showBlogsDataLoader);
+  const [blogLoadingStatus,setBlogLoadingStatus] = useState(blogIntialData.blogLoadingStatus);
 
+  // Get Category Data
   const GetCategoryData = async () => {
     try {
+      setBlogLoadingStatus(true);
       const url = "/api/category/"
       const response = await fetch(url);
       if (response.status === 200) {
         const result = await response.json();
         setCategoryData(result.category_data);
       }
+      setBlogLoadingStatus(false);
     } catch (error) {
       console.error("Category Data Not Get!! : ", error);
+      setBlogLoadingStatus(false);
     }
   }
 
+  // Post Category Data
   const PostCategoryData = async (category, showOnFront) => {
     try {
       const res = await fetch("/api/admin/uploadblog-category", {
@@ -51,7 +59,7 @@ export const BlogDataContextProvider = ({ children }) => {
     }
   }
 
-
+  // Delete Category Data
   const DeleteCategoryData = async (slug) => {
     try {
       const url = `/api/category/${slug}`;
@@ -67,6 +75,7 @@ export const BlogDataContextProvider = ({ children }) => {
     }
   }
 
+  // Update Category Data
   const UpdateCategoryData = async (slug, data) => {
     try {
       const url = `/api/category/${slug}`;
@@ -87,9 +96,11 @@ export const BlogDataContextProvider = ({ children }) => {
     }
   }
 
+  // Get Blog Data
   const GetBlogData = async () => {
     try {
       setShowBlogsDataLoader(true);
+      setBlogLoadingStatus(true);
       const url = "/api/blogs/"
       const response = await fetch(url);
 
@@ -98,12 +109,15 @@ export const BlogDataContextProvider = ({ children }) => {
         setmultipleBlogData(result.blog_data);
         setShowBlogsDataLoader(false);
       }
+      setBlogLoadingStatus(false);
     } catch (error) {
       console.error("Blog data not get ! ", error);
       setShowBlogsDataLoader(false);
+      setBlogLoadingStatus(false);
     }
   }
 
+  // Get Single Blog Data
   const GetSingleBlogData = async (slug) => {
     try {
       setShowBlogsDataLoader(true);
@@ -121,6 +135,7 @@ export const BlogDataContextProvider = ({ children }) => {
     }
   }
 
+  // Delete Blog Data
   const DeleteBlog = async (slug) => {
     try {
       const url = `/api/blogs/${slug}`;
@@ -135,6 +150,7 @@ export const BlogDataContextProvider = ({ children }) => {
     }
   }
 
+  // Update Blog Data
   const UpdateBlog = async (slug, data) => {
     try {
       const url = `/api/blogs/${slug}`;
@@ -153,6 +169,7 @@ export const BlogDataContextProvider = ({ children }) => {
     }
   }
 
+  // Get Single Blog Data
   const GetSingleBlog = async (slug) => {
     try {
       setShowLoader(true);
@@ -169,7 +186,7 @@ export const BlogDataContextProvider = ({ children }) => {
     }
   }
 
-
+  // Post Blog Data
   const PostBlogData = async (title, thumbnail, category, showOnFront, description) => {
     try {
       const res = await fetch("/api/admin/uploadblog", {
@@ -179,10 +196,15 @@ export const BlogDataContextProvider = ({ children }) => {
         },
         body: JSON.stringify({ title, thumbnail, category, showOnFront, description }),
       });
-
-      const data = await res.json();
-      setmultipleBlogData(data);
-      console.error("data inside post backend :", multipleBlogData);
+      
+      if(res.status === 200){
+        const data = await res.json();
+        console.log("Data ====== ",data.blog_data);
+        setmultipleBlogData(data.blog_data);
+      }
+      
+      
+      // console.error("data inside post backend :", multipleBlogData);  // ERROR DUE TO console.error();
     } catch (error) {
       console.error("Upload Error :- ", error);
       alert("Upload Error !!! (check console)");
@@ -209,7 +231,9 @@ export const BlogDataContextProvider = ({ children }) => {
       setblogData,
       blogData,
       showBlogsDataLoader,
-      setShowBlogsDataLoader
+      setShowBlogsDataLoader,
+      blogLoadingStatus,
+      setBlogLoadingStatus
     }}>
       {children}
     </BlogDataContext.Provider>

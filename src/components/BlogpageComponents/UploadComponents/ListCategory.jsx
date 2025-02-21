@@ -6,9 +6,10 @@ import DataTable from 'react-data-table-component';
 import PopUpCategoryUpdate from './PopUpCategoryUpdate';
 import UploadCategory from './UploadCategory';
 import PopUpCategoryDelete from './PopUpCategoryDelete';
+import Loader from '@/components/Loader';
 
 const ListCategory = () => {
-    const { categoryData, setCategoryData, GetCategoryData, DeleteCategoryData } = useContext(BlogDataContext);
+    const { categoryData, setCategoryData, GetCategoryData, DeleteCategoryData,blogLoadingStatus } = useContext(BlogDataContext);
     const [edit, setEdit] = useState(false);
     const [ADD, setADD] = useState(false);
     const [deleteData, setDeleteData] = useState(false);
@@ -44,11 +45,9 @@ const ListCategory = () => {
             cell: (row) => (
                 row?.show_on_front ? <div className="green min-w-[1rem] min-h-[1rem]  rounded-[5rem] bg-[#51e151]"></div> :<div className="red w-[1rem] h-[1rem] rounded-[5rem] bg-[#ff6868]"></div>
             ),
-            center: true,
         },
         {
             name: "Edit",
-            button: true,
             cell: (row) => (
                 <button
                     onClick={() => handleUpdate(row)}
@@ -57,11 +56,9 @@ const ListCategory = () => {
                     Edit
                 </button>
             ),
-            center: true,
         },
         {
             name: "Delete",
-            button: true,
             cell: (row) => (
                 <button
                     onClick={() => handleDelete(row)}
@@ -70,11 +67,12 @@ const ListCategory = () => {
                     Delete
                 </button>
             ),
-            center: true,
         },
     ];
 
     return (
+        <>
+        {categoryData?
         <div className="relative p-4 flex flex-col gap-5">
             
             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -118,7 +116,7 @@ const ListCategory = () => {
                     deleteData={deleteCategoryData}
                 />
             )}
-        </div>
+        </div>:<Loader/>}</>
     );
 };
 

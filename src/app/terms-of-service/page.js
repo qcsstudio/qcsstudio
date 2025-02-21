@@ -113,8 +113,8 @@ const TermsComponent = () => {
         <Image
           className="absolute bottom-7 right-0 scale-x-[-1]"
           src="/images/infoIcon.png"
-          height={300}
-          width={300}
+          height={200}
+          width={200}
           alt="icon"
         />
         <Image

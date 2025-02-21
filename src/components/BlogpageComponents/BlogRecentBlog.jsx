@@ -7,7 +7,7 @@ import Loader from '../Loader';
 
 const BlogRecentBlog = () => {
 
-  const { multipleBlogData, GetBlogData, DeleteBlog, categoryData, GetCategoryData,       showBlogsDataLoader } = useContext(BlogDataContext);
+  const { multipleBlogData, GetBlogData, DeleteBlog, categoryData, GetCategoryData,showBlogsDataLoader } = useContext(BlogDataContext);
   const [blogData, setBlogData] = useState([]);
   const [initialBlog, setInitialBlog] = useState(4);
 
@@ -43,7 +43,11 @@ const BlogRecentBlog = () => {
         width={120}
         alt=""
       />
-      {      showBlogsDataLoader  ? <Loader/> : multipleBlogData.length == 0 ? <p>Blogs not found.</p> :
+      {      showBlogsDataLoader  ? <Loader/> : multipleBlogData.length == 0 ? 
+      <div className="noticeCont w-[100%] flex justify-center ">
+        <p className="text-[1.5rem] font-semibold text-[#0E2D5B] mt-[2rem]">Blogs not found.</p> 
+      </div>
+      :
       <div className="max-w-6xl mx-auto">
         <h2 className="text-lg sm:text-2xl md:text-3xl font-bold mb-6 text-[#0E2D5B] mt-10 sm:mt-20">
           RECENT BLOG POSTS
