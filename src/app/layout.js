@@ -25,7 +25,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head >
+
       <link rel="icon" type="image/png" href="/vercel.png" />
       
       <Script
@@ -42,7 +42,6 @@ export default function RootLayout({ children }) {
           }}
         />
 
-      </Head>
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
