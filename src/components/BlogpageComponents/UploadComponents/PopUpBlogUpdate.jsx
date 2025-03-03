@@ -68,7 +68,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
       >
 
         <div
-          className="bg-white w-[90%] sm:w-[80%] md:w-[60%] lg:w-[40%] max-h-[90vh] overflow-y-auto rounded-lg p-6 shadow-lg relative"
+          className="bg-white  w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-lg p-6 shadow-lg relative"
           onClick={(e) => e.stopPropagation()}
         >
 

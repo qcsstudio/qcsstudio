@@ -6,6 +6,9 @@ import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
 import Head from "next/head";
 import { Analytics } from '@vercel/analytics/next';
 import Script from "next/script";
+import "primereact/resources/themes/lara-light-blue/theme.css";
+import "primereact/resources/primereact.min.css"; 
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
