@@ -89,7 +89,7 @@ const BlogRecentBlog = () => {
                     <div className="w-full sm:w-2/3 text-center sm:text-left">
                       <span className="text-gray-700 text-xs sm:text-sm">{getDate(data.createdAt)}</span>
                       <h3 className="text-base sm:text-xl md:text-lg text-[#0E2D5B] font-bold">
-                      {data.heading.replace(/_/g, " ").split(' ').map((word)=>word.charAt(0).toUpperCase()+word.slice(1)).join(' ')}
+                        {data.heading}
                       </h3>
 
                       <div className='bg-[#ffffff]' dangerouslySetInnerHTML={{ __html: data.description.slice(0, 40) }} />

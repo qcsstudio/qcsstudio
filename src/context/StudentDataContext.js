@@ -15,7 +15,7 @@ const studentIntialData = {
   setApiQuizData: () => {},
   serachBlogsData: null,
   setSearchBlogsData: () => {},
-  GetSerachedData:()=>{ },
+  GetSerachedData:()=>{},
   status:"",
   setStatus:()=>{ }
 };

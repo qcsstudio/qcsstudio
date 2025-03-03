@@ -19,12 +19,35 @@ const Footer = () => {
        }
      },[status])
    
-     const handleSubmit = (e)=>{
-       e.preventDefault();
+    
+     const handleSubmit = async (e) => {
+      e.preventDefault();
+      if (!email) {
+          toast.error("Email is required!");
+          return;
+      }
        if(email != ""){
          handleSendMail({email:email,message:"Any",formType:"NewsLetters"});
        }
-     }
+      try {
+          const response = await fetch("/api/newsLetter", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email }),
+          });
+          const data = await response.json();
+  
+          if (response.ok) {
+              setEmail("");
+              toast.success("Subscribed successfully!");
+          } else {
+              toast.error(data.error || "Something went wrong!");
+          }
+      } catch (error) {
+          toast.error("Failed to subscribe! Try again later.");
+          console.error("Subscription error:", error);
+      }
+  };
 
    return (
       <>
