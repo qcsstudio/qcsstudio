@@ -36,7 +36,10 @@ const ListBlog = () => {
    };
 
    const columns = [
-      { name: "Heading",wrap: true, selector: (row) => row.heading.length > 30 ? row.heading.slice(0, 30) + "..." : row.heading, sortable: true },
+      { name: "Heading",wrap: true, selector: (row) => {
+         const formattedHeading = row.heading.replace(/_/g, " "); 
+         return formattedHeading.length > 30 ? formattedHeading.slice(0, 30) + "..." : formattedHeading;
+       }, sortable: true },
 
       { name: "Description",wrap: true, selector: (row) => row.description.length > 30 ? row.description.slice(0, 30) + "..." : row.description },
 
@@ -79,7 +82,7 @@ const ListBlog = () => {
             >ADD</button>
          </div>
          
-         <div className="overflow-x-auto bg-white shadow-md rounded-lg">
+         <div className="overflow-auto max-h-[70vh] bg-white shadow-md rounded-lg">
             <DataTable
                title="Blog List"
                columns={columns}

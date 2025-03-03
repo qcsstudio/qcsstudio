@@ -24,6 +24,8 @@ const UploadBlog = ({ setADD }) => {
     GetCategoryData();
   }, []);
 
+  
+
   const editor = useRef(null);
   const router = useRouter();
 
@@ -52,17 +54,17 @@ const UploadBlog = ({ setADD }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50 p-4 overflow-y-scroll overflow-x-hidden">
-      <div className="bg-white w-full max-w-3xl p-6 rounded-lg shadow-lg overflow-y-auto max-h-[90vh]">
+    <div className="fixed  inset-0 z-50 flex items-center overflow-hidden justify-center bg-black bg-opacity-50 p-4 overflow-y-scroll overflow-x-hidden">
+      <div className=" bg-white w-full max-w-5xl p-6 overflow-hidden rounded-lg shadow-lg overflow-y-auto max-h-[90vh]">
         {/* Close Button */}
-        <div className="flex justify-end">
+        <span className="flex justify-end sticky top-0 bg-white z-10 p-2">
           <button
             onClick={() => setADD(false)}
             className="text-gray-500 hover:text-red-500 transition"
           >
             ✖
           </button>
-        </div>
+        </span>
 
         {/* Form */}
         <h2 className="text-2xl font-semibold text-center mb-4">Upload Blog</h2>
