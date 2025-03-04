@@ -1,13 +1,17 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
+import dynamic from "next/dynamic";
 import { BlogDataContext } from "@/context/BlogData";
 import { MultiSelect } from "primereact/multiselect";
-import JoditReact from "jodit-react-ts";
 import "jodit/build/jodit.min.css";
+
+// Dynamically import JoditReact to prevent SSR issues
+const JoditReact = dynamic(() => import("jodit-react-ts"), { ssr: false });
 
 const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
   const { GetCategoryData, categoryData, UpdateBlog } = useContext(BlogDataContext);
+  const editor = useRef(null);
 
   const [title, setTitle] = useState("");
   const [thumbnail, setThumbnail] = useState("");
@@ -94,7 +98,22 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
           </div>
 
           {/* JoditReact Editor */}
-          <JoditReact onChange={(content) => setDescription(content)} defaultValue={description} />
+          <JoditReact
+            ref={editor}
+            value={description}
+            config={{
+              askBeforePasteHTML: false,
+              askBeforePasteFromWord: false,
+              enableDragAndDropFileToEditor: false,
+              spellcheck: true,
+              height: 300,
+              readonly: false,
+              toolbarAdaptive: false,
+              toolbarSticky: false,
+              buttons: "bold,italic,underline,|,ul,ol,|,left,center,right,|,link,unlink,|,source",
+            }}
+            onChange={(content) => setDescription(content)}
+          />
 
           {/* Show on Front Checkbox */}
           <div className="flex items-center gap-2">

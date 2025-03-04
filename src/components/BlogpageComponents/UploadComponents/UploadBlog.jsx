@@ -4,8 +4,14 @@ import { useRouter } from "next/navigation";
 import { BlogDataContext } from "@/context/BlogData";
 import { MultiSelect } from "primereact/multiselect";
 import Image from "next/image";
-import JoditReact from "jodit-react-ts";
-import "jodit/build/jodit.min.css";
+import dynamic from "next/dynamic";
+import NoSSRWrapper from "./NoSSRWrapper"; // Safe SSR Wrapper
+
+// Dynamically import JoditReact with SSR disabled
+const JoditReact = dynamic(() => import("jodit-react-ts"), {
+  ssr: false,
+  loading: () => <p>Loading editor...</p>, // Show loading state
+});
 
 const UploadBlog = ({ setADD }) => {
   const { GetCategoryData, categoryData, PostBlogData } = useContext(BlogDataContext);
@@ -85,7 +91,9 @@ const UploadBlog = ({ setADD }) => {
           )}
 
           {/* Rich Text Editor */}
-          <JoditReact onChange={(content) => setDescription(content)} defaultValue="Hi" />
+          <NoSSRWrapper>
+            <JoditReact onChange={(content) => setDescription(content)} defaultValue={description}/>
+          </NoSSRWrapper>
 
           {/* Show on Front Checkbox */}
           <div className="flex items-center gap-2">
