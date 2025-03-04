@@ -43,4 +43,4 @@ const StudentSchema = new mongoose.Schema(
 );
 
 // Export the model (reuse if already defined)
-export default mongoose.models.Student || mongoose.model("Student", StudentSchema);
+export default mongoose.models.Student || mongoose.model("`Student`", StudentSchema);
