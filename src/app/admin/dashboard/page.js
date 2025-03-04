@@ -1,3 +1,4 @@
+"use client"
 import AdminDashboardContainer from '@/containers/AdminDhasboardContainer/AdminDhasboardContainer'
 import React from 'react'
 

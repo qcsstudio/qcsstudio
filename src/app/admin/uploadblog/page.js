@@ -1,3 +1,4 @@
+"use client";
 import UploadBlogContainer from "@/containers/BlogContainer/UploadBlogContainer";
 
 const UploadBlog = () => {

@@ -1,3 +1,4 @@
+"use client"
 import UploadBlog from "@/components/BlogpageComponents/UploadComponents/UploadBlog"
 
 const UploadBlogContainer = () => {
