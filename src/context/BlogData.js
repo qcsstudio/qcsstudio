@@ -187,14 +187,14 @@ export const BlogDataContextProvider = ({ children }) => {
   }
 
   // Post Blog Data
-  const PostBlogData = async (title, thumbnail, category, showOnFront, description) => {
+  const PostBlogData = async (title, thumbnail, category, showOnFront, description,metaTitle,metaDescription) => {
     try {
       const res = await fetch("/api/admin/uploadblog", {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify({ title, thumbnail, category, showOnFront, description }),
+        body: JSON.stringify({ title, thumbnail, category, showOnFront, description, metaTitle, metaDescription }),
       });
       
       if(res.status === 200){

@@ -14,6 +14,8 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
   const [thumbnail, setThumbnail] = useState("");
   const [previewImage,setPreviewImage] = useState("");
   const [description, setDescription] = useState("");
+  const [metaDescription, setMetaDescription] = useState("");
+  const [metaTitle, setMetaTitle] = useState("");
   const [showOnFront, setShowOnFront] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const editor = useRef(null);
@@ -28,6 +30,8 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
     setShowOnFront(updateObject.show_on_front || false);
     setThumbnail(updateObject.thumbnail || "");
     setPreviewImage(updateObject.thumbnail || "");
+    setMetaDescription(updateObject.metaDescription || "")
+    setMetaTitle(updateObject.metaTitle || "")
 
     if (updateObject.category && Array.isArray(updateObject.category) && categoryData.length > 0) {
       const selectedCats = categoryData.filter((cat) => updateObject.category.includes(cat.name));
@@ -54,7 +58,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const cate = selectedCategories.map((data) => data.name);
-    UpdateBlog(updateObject.heading, {title, thumbnail, category: cate, showOnFront, description });
+    UpdateBlog(updateObject.heading, {title, thumbnail, category: cate, showOnFront, description, metaTitle, metaDescription });
     setUpdateObject({});
     setEdit(false);
   };
@@ -97,6 +101,30 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
               {previewImage && previewImage.startsWith("http") && <img src={previewImage} alt="Preview" className="w-40 h-40 object-cover rounded-lg border" />}
               <input type="text" placeholder="Enter Image URL" value={thumbnail}  onChange={handleImageChange} className="w-full border border-gray-300 px-3 py-2 rounded-lg" />
             </div>
+
+
+            {/* Meta Title */}
+          <input
+            placeholder="Enter Meta Title"
+            type="text"
+            name="metaTitle"
+            id="metaTitle"
+            value={metaTitle}
+            onChange={(e) => setMetaTitle(e.target.value)}
+            className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+          />
+
+          {/* Meta Description */}
+          <input
+            placeholder="Enter Meta Description"
+            type="text"
+            name="metaDescription"
+            id="metaDescription"
+            value={metaDescription}
+            onChange={(e) => setMetaDescription(e.target.value)}
+            className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+          />
+
 
 
             <JoditEditor
