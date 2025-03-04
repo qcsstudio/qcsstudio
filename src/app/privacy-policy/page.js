@@ -6,20 +6,20 @@ const PrivacyComponent = () => {
   return (
     <>
       <Navbar />
-      <div className=' relative p-16 flex flex-col gap-5'>
+      <div className=' relative p-4 lg:p-16 flex flex-col gap-5'>
         <div className='flex flex-col gap-4'>
-          <h1 className='font-bold text-3xl lg:text-4xl tracking-wide  text-[#001f61]'>2. Privacy Policy</h1>
+          <h1 className='font-bold  flex justify-center text-3xl lg:text-4xl tracking-wide  text-[#001f61]'> Privacy Policy</h1>
           <p className='font-thin tracking-wider text-[#212529]'> QuantumCrafters Studio Private Limited</p>
         </div>
 
         <div className='flex flex-col gap-4'>
-          <h2 className='font-bold text-xl tracking-wide  text-[#001f61]'>2.1 Information Collection</h2>
+          <h2 className='font-bold text-xl tracking-wide  text-[#001f61]'>1 Information </h2>
           <p className='font-thin  tracking-wider text-[#212529]'>QuantumCrafters Studio Private Limited ("Company," "we," "us," or "our") is committed to protecting the privacy and security of our users' data. This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you access and use our AI-powered social media management platform, ElevateX ("Platform").</p>
           <p className='font-thin tracking-wider text-[#212529]'>By using ElevateX, you agree to the collection, use, and disclosure of your personal information in accordance with this Privacy Policy. If you do not agree, please refrain from using our services.</p>
         </div>
 
         <div className='flex flex-col gap-2 '>
-          <h2 className='font-bold text-xl tracking-wide  text-[#001f61]'>2.2 What This Privacy Policy Covers</h2>
+          <h2 className='font-bold text-xl tracking-wide  text-[#001f61]'>2 What This Privacy Policy Covers</h2>
           <p className='font-thin text-xl tracking-wider text-[#001f61]'>This Privacy Policy applies to:</p>
           <li className='font-thin tracking-wider text-[#212529]'>Users accessing the ElevateX platform for social media automation, analytics, and AI-driven content management.</li>
           <li className='font-thin tracking-wider text-[#212529]'>Visitors to our QuantumCrafters website, mobile applications, and other digital properties.
@@ -31,13 +31,13 @@ const PrivacyComponent = () => {
 
         <div className='flex flex-col gap-4 '>
           <div className='flex flex-col gap-2'>
-            <h2 className='font-bold text-xl tracking-wide  text-[#001f61]'>2.3 Information We Collect
+            <h2 className='font-bold text-xl tracking-wide  text-[#001f61]'>3 Information We Collect
             </h2>
             <p className='font-thin tracking-wider text-[#212529]'>We collect different types of information to provide and improve our services. This includes:</p>
           </div>
 
           <div className='flex flex-col gap-2'>
-            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>1.Personal Information
+            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>3.1 Personal Information
             </h2>
             <p className='font-thin tracking-wider text-[#212529]'>We may collect and store personally identifiable information ("Personal Data") that you provide to us, such as:
             </p>
@@ -50,7 +50,7 @@ const PrivacyComponent = () => {
           </div>
 
           <div className='flex flex-col gap-2'>
-            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>2.Social Media Information
+            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>3.3 Social Media Information
             </h2>
             <p className='font-thin tracking-wider text-[#212529]'>When you connect your social media accounts to ElevateX, we collect data from these accounts, including:
             </p>
@@ -62,7 +62,7 @@ const PrivacyComponent = () => {
             </div>
           </div>
           <div className='flex flex-col gap-2'>
-            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>3 Automatically Collected Information
+            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>3.4 Automatically Collected Information
             </h2>
             <p className='font-thin tracking-wider text-[#212529]'>We collect certain information automatically when you use our Platform, including:
             </p>
@@ -74,7 +74,7 @@ const PrivacyComponent = () => {
             </div>
           </div>
           <div className='flex flex-col gap-2'>
-            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>4 Third-Party Data
+            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>3.4 Third-Party Data
             </h2>
             <p className='font-thin tracking-wider text-[#212529]'>We may receive additional information from third-party partners, such as:
             </p>
@@ -94,7 +94,7 @@ const PrivacyComponent = () => {
           <p className='font-thin tracking-wider text-[#212529]'>We use your data for the following purposes:</p>
           </div>
           <div className='flex flex-col gap-2'>
-            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>1 Service Provision & Platform Functionality
+            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>4.1 Service Provision & Platform Functionality
             </h2>
             <div className='flex flex-col gap-2'>
               <li>Managing user accounts, authentication, and security.
@@ -105,7 +105,7 @@ const PrivacyComponent = () => {
             </div>
           </div>
           <div className='flex flex-col gap-2'>
-            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>2 Communication & Customer Support
+            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>4.2 Communication & Customer Support
             </h2>
             <div className='flex flex-col gap-2'>
               <li>Responding to inquiries and customer support requests.
@@ -116,7 +116,7 @@ const PrivacyComponent = () => {
             </div>
           </div>
           <div className='flex flex-col gap-2'>
-            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>3 Analytics & Performance Monitoring
+            <h2 className='font-bold text-lg tracking-wide  text-[#001f61]'>4.3 Analytics & Performance Monitoring
             </h2>
             <div className='flex flex-col gap-2'>
               <li>Analyzing user behavior and improving platform functionality.
