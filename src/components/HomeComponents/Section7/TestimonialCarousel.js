@@ -7,12 +7,16 @@ import blueBg from "../../../../public/images/bluebg.png";
 import Stu1 from '../../../../public/images/Stu1.png'  
 import Stu2 from '../../../../public/images/Stu2.png'
 import Stu3 from '../../../../public/images/Stu3.png'
+import omkar from '../../../../public/images/Omkar.png'
+import navjot from '../../../../public/images/Navjot.png'
+import arsh from '../../../../public/images/Arsh.png'
+
 
 const testimonials = [
   {
     id: 1,
-    image:Stu1,
-    name: "Vishal Verma",
+    image:omkar,
+    name: "Omkar",
     role: "Software Developer",
     content:
       "I was hesitant to switch careers, but QCS made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
@@ -20,18 +24,18 @@ const testimonials = [
   },
   {
     id: 2,
-    image:Stu2,
-    name: "Amit Kumar",
-    role: "Digital Marketing",
+    image:navjot,
+    name: "Navjot Kaur",
+    role: "Frontend Developer",
     content:
       "QCS gave me the confidence and skills to land my dream job as a front-end developer. The hands-on projects and mentorship were invaluable.",
     rating: 4,
   },
   {
     id: 3,
-    image:Stu3,
-    name: "Aman Kashyap",
-    role: "UX Designer",
+    image:arsh,
+    name: "Arshdeep Singh",
+    role: "Frontend Developer",
     content:
       "QCS taught me the latest digital marketing strategies and tools, and I'm now confidently managing campaigns for multiple clients.",
     rating: 4, 
