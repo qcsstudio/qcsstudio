@@ -6,9 +6,9 @@ export async function POST(req) {
         return Response.json({ message: 'Method Not Allowed' } , {status:405});
     }
 
-    const { title, thumbnail, category, showOnFront, description } = await req.json();
+    const { title, thumbnail, category, showOnFront, description, metaTitle, metaDescription } = await req.json();
 
-    console.log({title,thumbnail,category,showOnFront,description});
+    console.log({title,thumbnail,category,showOnFront,description,metaTitle,metaDescription});
     try {
         await connectMongo();
         
@@ -18,7 +18,7 @@ export async function POST(req) {
             return Response.json({ message: 'Blog Already Exist ' } , {status:401});
         }
 
-        const newBlog = new Blog({heading:title,thumbnail:thumbnail,category:category,show_on_front:showOnFront,description:description});
+        const newBlog = new Blog({heading:title,thumbnail:thumbnail,category:category,show_on_front:showOnFront,description:description,metaTitle,metaDescription});
 
         const savedBlog = await newBlog.save();
 
@@ -27,7 +27,7 @@ export async function POST(req) {
         return Response.json({ message: 'Blog created successfully', blog_data: blogs } , {status:200});
 
     } catch (error) {
-        console.error('Blog Error:', error);
-        return  Response.json({ message: 'Blog Error' } , {status:500});
+        console.log('Blog Error:', error);
+        return Response.json({ message: 'Blog Error' } , {status:500});
     }
 }

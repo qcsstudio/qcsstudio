@@ -16,7 +16,9 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
   const [title, setTitle] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [previewImage, setPreviewImage] = useState("");
-  const [description, setDescription] = useState(false);
+  const [description, setDescription] = useState("");
+  const [metaDescription, setMetaDescription] = useState("");
+  const [metaTitle, setMetaTitle] = useState("");
   const [showOnFront, setShowOnFront] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
@@ -25,17 +27,17 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
   }, []);
 
   useEffect(() => {
-    if (updateObject) {
-      setTitle(updateObject.heading || "");
-      setDescription(updateObject.description);
-      setShowOnFront(updateObject.show_on_front || false);
-      setThumbnail(updateObject.thumbnail || "");
-      setPreviewImage(updateObject.thumbnail || "");
+    setTitle(updateObject.heading || "");
+    setDescription(updateObject.description || "");
+    setShowOnFront(updateObject.show_on_front || false);
+    setThumbnail(updateObject.thumbnail || "");
+    setPreviewImage(updateObject.thumbnail || "");
+    setMetaDescription(updateObject.metaDescription || "");
+    setMetaTitle(updateObject.metaTitle || "");
 
-      if (updateObject.category && Array.isArray(updateObject.category) && categoryData.length > 0) {
-        const selectedCats = categoryData.filter((cat) => updateObject.category.includes(cat.name));
-        setSelectedCategories(selectedCats);
-      }
+    if (updateObject.category && Array.isArray(updateObject.category) && categoryData.length > 0) {
+      const selectedCats = categoryData.filter((cat) => updateObject.category.includes(cat.name));
+      setSelectedCategories(selectedCats);
     }
   }, [updateObject, categoryData]);
 
@@ -57,15 +59,17 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
     if (!title.trim() || !description.trim()) return;
 
     const categoryNames = selectedCategories.map((data) => data.name);
-    const updatedBlog = {
+    
+    UpdateBlog(updateObject.heading, {
       title,
       thumbnail,
       category: categoryNames,
       showOnFront,
       description,
-    };
+      metaTitle,
+      metaDescription,
+    });
 
-    UpdateBlog(updateObject.heading, updatedBlog);
     setUpdateObject({});
     setEdit(false);
   };
@@ -93,42 +97,81 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
 
           {/* Image Upload */}
           <div className="w-full flex flex-col items-center gap-2">
-            {previewImage && previewImage.startsWith("http") && <img src={previewImage} alt="Preview" className="w-40 h-40 object-cover rounded-lg border" />}
-            <input type="text" placeholder="Enter Image URL" value={thumbnail} onChange={handleImageChange} className="w-full border border-gray-300 px-3 py-2 rounded-lg" />
+            {previewImage && previewImage.startsWith("http") && (
+              <img src={previewImage} alt="Preview" className="w-40 h-40 object-cover rounded-lg border" />
+            )}
+            <input
+              type="text"
+              placeholder="Enter Image URL"
+              value={thumbnail}
+              onChange={handleImageChange}
+              className="w-full border border-gray-300 px-3 py-2 rounded-lg"
+            />
           </div>
 
-          {/* JoditReact Editor */}
-          {description &&  <JoditReact
-            ref={editor}
-            defaultValue={description}
+          {/* Meta Title */}
+          <input
+            placeholder="Enter Meta Title"
+            type="text"
+            name="metaTitle"
+            id="metaTitle"
+            value={metaTitle}
+            onChange={(e) => setMetaTitle(e.target.value)}
+            className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+          />
 
-            config={{
-              askBeforePasteHTML: false,
-              askBeforePasteFromWord: false,
-              enableDragAndDropFileToEditor: false,
-              spellcheck: true,
-              height: 300,
-              readonly: false,
-              toolbarAdaptive: false,
-              toolbarSticky: false,
-              Image:true,
-              buttons: "bold,italic,underline,|,ul,ol,|,left,center,right,|,link,unlink,|,source,image,video,font,paragraph,brush",
-              uploader: {
-                insertImageAsBase64URI: true, 
-              },
-              filebrowser: {
-                ajax: {
-                  url: "YOUR_IMAGE_UPLOAD_API", 
+          {/* Meta Description */}
+          <input
+            placeholder="Enter Meta Description"
+            type="text"
+            name="metaDescription"
+            id="metaDescription"
+            value={metaDescription}
+            onChange={(e) => setMetaDescription(e.target.value)}
+            className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+          />
+
+          {/* JoditReact Editor */}
+          {description && (
+            <JoditReact
+              ref={editor}
+              defaultValue={description}
+              config={{
+                askBeforePasteHTML: false,
+                askBeforePasteFromWord: false,
+                enableDragAndDropFileToEditor: false,
+                spellcheck: true,
+                height: 300,
+                readonly: false,
+                toolbarAdaptive: false,
+                toolbarSticky: false,
+                Image: true,
+                buttons:
+                  "bold,italic,underline,|,ul,ol,|,left,center,right,|,link,unlink,|,source,image,video,font,paragraph,brush",
+                uploader: {
+                  insertImageAsBase64URI: true,
                 },
-              }
-            }}
-            onChange={(content) => setDescription(content)}
-          />}
+                filebrowser: {
+                  ajax: {
+                    url: "YOUR_IMAGE_UPLOAD_API",
+                  },
+                },
+              }}
+              onChange={(content) => setDescription(content)}
+            />
+          )}
 
           {/* Show on Front Checkbox */}
           <div className="flex items-center gap-2">
-            <input type="checkbox" id="show_on_front" checked={showOnFront} onChange={() => setShowOnFront(!showOnFront)} />
-            <label htmlFor="show_on_front" className="text-gray-700">Show on Front</label>
+            <input
+              type="checkbox"
+              id="show_on_front"
+              checked={showOnFront}
+              onChange={() => setShowOnFront(!showOnFront)}
+            />
+            <label htmlFor="show_on_front" className="text-gray-700">
+              Show on Front
+            </label>
           </div>
 
           {/* MultiSelect Categories */}
