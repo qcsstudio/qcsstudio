@@ -92,7 +92,16 @@ const UploadBlog = ({ setADD }) => {
 
           {/* Rich Text Editor */}
           <NoSSRWrapper>
-            <JoditReact onChange={(content) => setDescription(content)} defaultValue={description}/>
+            <JoditReact onChange={(content) => setDescription(content)} defaultValue={description} config={{
+              uploader: {
+                insertImageAsBase64URI: true, 
+              },
+              filebrowser: {
+                ajax: {
+                  url: "YOUR_IMAGE_UPLOAD_API", 
+                },
+              }
+            }}/>
           </NoSSRWrapper>
 
           {/* Show on Front Checkbox */}

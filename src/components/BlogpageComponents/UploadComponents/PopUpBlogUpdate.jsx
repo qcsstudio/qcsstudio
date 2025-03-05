@@ -112,13 +112,13 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
               toolbarAdaptive: false,
               toolbarSticky: false,
               Image:true,
-              buttons: "bold,italic,underline,|,ul,ol,|,left,center,right,|,link,unlink,|,source,image",
+              buttons: "bold,italic,underline,|,ul,ol,|,left,center,right,|,link,unlink,|,source,image,video,font,paragraph,brush",
               uploader: {
                 insertImageAsBase64URI: true, 
               },
               filebrowser: {
                 ajax: {
-                  url: "YOUR_IMAGE_UPLOAD_API", // Set your API endpoint if needed
+                  url: "YOUR_IMAGE_UPLOAD_API", 
                 },
               }
             }}
