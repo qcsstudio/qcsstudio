@@ -5,7 +5,7 @@ export async function GET(req){
     try {
         await connectMongo();
 
-        const blogs = await Blog.find();
+        const blogs = await Blog.find().sort({createdAt:-1});
         // console.log("Data From Blog Backend :------",blogs);
         return Response.json({ message: 'Blog Data get successfully', blog_data:blogs } , {status:200});
 
