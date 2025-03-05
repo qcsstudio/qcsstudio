@@ -12,7 +12,7 @@ const connectMongo = async () => {
     return mongoose.connection.asPromise();
   }
 
-  return mongoose.connect(process.env.MONGO_URI, {
+  return mongoose.connect(process.env.MONGO_URI , {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
