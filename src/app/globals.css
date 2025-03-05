@@ -566,3 +566,10 @@ body {
     stroke-dashoffset: -440;
   }
 }
+
+
+/* Rich text editor  */
+
+.jodit-editor__resize{
+  display: none;
+}

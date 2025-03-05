@@ -16,7 +16,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
   const [title, setTitle] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [previewImage, setPreviewImage] = useState("");
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(false);
   const [showOnFront, setShowOnFront] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
@@ -27,7 +27,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
   useEffect(() => {
     if (updateObject) {
       setTitle(updateObject.heading || "");
-      setDescription(updateObject.description || "");
+      setDescription(updateObject.description);
       setShowOnFront(updateObject.show_on_front || false);
       setThumbnail(updateObject.thumbnail || "");
       setPreviewImage(updateObject.thumbnail || "");
@@ -98,9 +98,10 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
           </div>
 
           {/* JoditReact Editor */}
-          <JoditReact
+          {description &&  <JoditReact
             ref={editor}
-            value={description}
+            defaultValue={description}
+
             config={{
               askBeforePasteHTML: false,
               askBeforePasteFromWord: false,
@@ -110,10 +111,19 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
               readonly: false,
               toolbarAdaptive: false,
               toolbarSticky: false,
-              buttons: "bold,italic,underline,|,ul,ol,|,left,center,right,|,link,unlink,|,source",
+              Image:true,
+              buttons: "bold,italic,underline,|,ul,ol,|,left,center,right,|,link,unlink,|,source,image",
+              uploader: {
+                insertImageAsBase64URI: true, 
+              },
+              filebrowser: {
+                ajax: {
+                  url: "YOUR_IMAGE_UPLOAD_API", // Set your API endpoint if needed
+                },
+              }
             }}
             onChange={(content) => setDescription(content)}
-          />
+          />}
 
           {/* Show on Front Checkbox */}
           <div className="flex items-center gap-2">
