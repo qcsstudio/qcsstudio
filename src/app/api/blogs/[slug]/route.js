@@ -7,16 +7,12 @@ export async function GET(req,{params}){
         // const slug = await decodeURIComponent(params.slug);
         const slugData = await params.slug;
 
-        console.log("Slug from single blogs api backend : ================",slugData);
-
         const blog = await Blog.findOne({heading:slugData});
-        console.log(blog);
-        
 
         return Response.json({ message: 'Blog Data get successfully', blog_data: blog } , {status:200});
 
     } catch (error) {
-        console.log('Blog Error:', error);
+        console.log('Blog Error Server:', error);
         return  Response.json({ message: 'Blog not get Error' } , {status:500});
     }
 }

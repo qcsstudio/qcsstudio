@@ -1,40 +1,48 @@
-import SingleBlogPageContainer from "@/containers/SingleBlogPageContainer/SingleBlogPageContainer"
+import SingleBlogPageContainer from "@/containers/SingleBlogPageContainer/SingleBlogPageContainer";
 
-export async function generateMetadata(slug) {
+export async function generateMetadata({ params }) {
    try {
-      // const slugData = await params.slug;
-      console.log("Slug val >>>>>>>>>>>>>>>>> ",slug);
-      const url = `/api/blogs/${slug}`
-      console.log("Url Link >>>>>>>>>>>> ",url);
-      const response = await fetch(url);
-      console.log("Response >>>>>>>>>>>> ",response);
-
-      if (response.status === 200) {
-         const result = await response.json();
-         console.log("Page Data fetch :",result);
-
+      if (!params?.slug) {
          return {
-            title: result.blog_data.metaTitle,
-            description: result.blog_data.metaDescription || 'A detailed blog post',
+            title: "Blog Not Found",
+            description: "The blog you are looking for does not exist.",
          };
       }
-    } catch (error) {
-      console.error("Blog data not get ! ", error);
-    }
-   
-   
-   
- }
 
-const page = async({params}) => {
-   const slugData = await params.slug;
-   await generateMetadata(slugData);
+      const slug = params.slug;
+      const url = `http://localhost:3000/api/blogs/${slug}`; 
+      const response = await fetch(url, { cache: "no-store" }); // Prevent caching issues
+
+      if (!response.ok) {
+         throw new Error(`Failed to fetch metadata: ${response.status}`);
+      }
+
+      const result = await response.json();
+      const data = result?.blog_data;
+
+      return {
+         title: data?.metaTitle || "Default Blog Title",
+         description: data?.metaDescription || "Default Blog Description",
+      };
+   } catch (error) {
+      console.error("Error fetching blog metadata:", error);
+      return {
+         title: "Default Blog Title",
+         description: "Default Blog Description",
+      };
+   }
+}
+
+const page = async ({ params }) => {
+   if (!params?.slug) {
+      return <p className="text-center text-red-500">Blog not found.</p>;
+   }
 
    return (
       <>
-         <SingleBlogPageContainer/>
+         <SingleBlogPageContainer />
       </>
-   )
-}
+   );
+};
 
-export default page
+export default page;

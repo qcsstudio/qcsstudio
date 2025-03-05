@@ -192,7 +192,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
           </button>
         </form>
       </div>
-    </div>
+      </div> 
   );
 };
 
