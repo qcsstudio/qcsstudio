@@ -21,6 +21,11 @@ const UploadBlog = ({ setADD }) => {
   const [imageShow, setImageShow] = useState(null);
   const [thumbnail, setThumbnail] = useState("");
   const [description, setDescription] = useState("");
+
+  const [metaDescription, setMetaDescription] = useState("");
+  const [metaTitle, setMetaTitle] = useState("");
+  const [category, setCategory] = useState([]);
+
   const [showOnFront, setShowOnFront] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
@@ -46,8 +51,11 @@ const UploadBlog = ({ setADD }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const selectedCategoryNames = selectedCategories.map((data) => data.name);
-    const finalTitle = title.toLowerCase().trim().replace(/\s+/g, "_");
-    PostBlogData(finalTitle, thumbnail, selectedCategoryNames, showOnFront, description);
+
+    setCategory(selectedCategoryNames);
+    const finalTitle=title.toLowerCase().trim().replace(/\s+/g, '_')
+    PostBlogData(finalTitle, thumbnail, selectedCategoryNames, showOnFront, description,metaTitle,metaDescription);
+
     setADD(false);
   };
 
@@ -76,6 +84,7 @@ const UploadBlog = ({ setADD }) => {
             onChange={(e) => setTitle(e.target.value)}
             className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
           />
+          
 
           {/* Image Upload */}
           <input
@@ -89,6 +98,26 @@ const UploadBlog = ({ setADD }) => {
               <Image src={imageShow} width={100} height={100} alt="Preview" className="rounded-md" />
             </div>
           )}
+
+          {/* Meta Title */}
+          <input
+            placeholder="Enter Meta Title"
+            type="text"
+            name="metaTitle"
+            id="metaTitle"
+            onChange={(e) => setMetaTitle(e.target.value)}
+            className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+          />
+
+          {/* Meta Description */}
+          <input
+            placeholder="Enter Meta Description"
+            type="text"
+            name="metaDescription"
+            id="metaDescription"
+            onChange={(e) => setMetaDescription(e.target.value)}
+            className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+          />
 
           {/* Rich Text Editor */}
           <NoSSRWrapper>

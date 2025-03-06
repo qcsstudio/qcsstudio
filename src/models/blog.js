@@ -30,7 +30,15 @@ const BlogSchema = new mongoose.Schema(
         {
             type:String
         }
-    ]
+    ],
+    metaTitle:{
+        type:String,
+        default:"Title"
+    },
+    metaDescription:{
+        type:String,
+        default:"Description"
+    }
 },
 { timestamps: true }
 );

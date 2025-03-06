@@ -1,6 +1,6 @@
 import BlogSinglePage from "@/components/BlogpageComponents/BlogSinglePage"
 
-const SingleBlogPageContainer = () => {
+const SingleBlogPageContainer = async() => {
    return (
       <>
          <BlogSinglePage/>
