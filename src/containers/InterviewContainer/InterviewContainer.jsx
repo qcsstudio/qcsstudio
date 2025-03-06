@@ -6,6 +6,7 @@ import StudentDetailForm from '@/components/QuizComponents/StudentDetailForm'
 import { StudentDataContext } from '@/context/StudentDataContext'
 import { useContext } from 'react'
 import React from 'react'
+import InterviewQuestionContainer from '../InterviewQuestionContainer/InterviewQuestionContainer'
 
 const InterviewContainer = () => {
 const { showQuiz  ,  setShowQuiz } = useContext(StudentDataContext);
@@ -13,7 +14,7 @@ const { showQuiz  ,  setShowQuiz } = useContext(StudentDataContext);
   return (
     <div> 
         <Navbar/>
-        { showQuiz ?  <Quiz/> : <StudentDetailForm/> }
+        { false ?  <Quiz/> : <InterviewQuestionContainer/> }
         <Footer/>
     </div>
   )
