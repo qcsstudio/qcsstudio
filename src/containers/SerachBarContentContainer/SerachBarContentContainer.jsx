@@ -14,23 +14,21 @@ function SearchBarContentContainer() {
 
   useEffect(() => {
     const getSearchedData = async () => {
-      if (!query) return; // Prevent fetching if query is null/empty
-
-      setLoading(true); // Set loading before fetching data
+      if (!query) return;
+      setLoading(true);
 
       try {
         const url = `/api/search?q=${query}`;
         const response = await fetch(url);
         if (response.ok) {
           const result = await response.json();
-          console.log("Result:", result);
           setBlogs(result);
         } else {
-          setBlogs([]); // Ensure empty state is handled properly
+          setBlogs([]);
         }
       } catch (error) {
         console.error("Error fetching search results:", error);
-        setBlogs([]); // Handle errors by setting empty state
+        setBlogs([]);
       } finally {
         setLoading(false);
       }
@@ -39,53 +37,42 @@ function SearchBarContentContainer() {
     getSearchedData();
   }, [query]);
 
-
-
-  
-
   return (
-    <div className="p-4">
+    <div className="p-6">
       {loading ? (
         <Loader />
       ) : blogs.length > 0 ? (
-        blogs.map((data, index) => <Card key={index} data={data} />)
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {blogs.map((data, index) => (
+            <Card key={index} data={data} />
+          ))}
+        </div>
       ) : (
-        <p className="text-gray-500">No results found</p>
+        <p className="text-gray-500 text-center text-lg">No results found</p>
       )}
     </div>
   );
 }
 
 function Card({ data }) {
-
-  const getDate = (createdAt) => {
-    const newDate = new Date(createdAt).toLocaleDateString();
-    return newDate;
-  }
   return (
-    <Link href={`/blogs/${data.heading}`}>
-    <div className="flex flex-col sm:flex-row gap-4 sm:items-center border p-4 rounded-md shadow-md">
-      <div className="w-full sm:w-1/3">
-        <Image
-          src={data.thumbnail}
-          className="w-full object-cover rounded-md"
-          height={100}
-          width={100}
-          alt={data.heading}
-        />
+    <Link href={`/blogs/${data.heading}`} className="block hover:scale-105 transition-transform duration-300">
+      <div className="border p-5 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 bg-white overflow-hidden h-[300px] flex flex-col">
+        <div className="w-full h-48 relative rounded-lg overflow-hidden">
+          <Image
+            src={data.thumbnail}
+            className="object-cover"
+            layout="fill"
+            alt={data.heading}
+            priority
+          />
+        </div>
+        <div className="mt-4 flex-1 flex flex-col justify-between">
+          <h3 className="text-xl font-semibold text-[#0E2D5B] capitalize line-clamp-2">
+            {data.heading.replace(/_/g, " ")}
+          </h3>
+        </div>
       </div>
-      <div className="w-full sm:w-2/3 text-center sm:text-left">
-        {/* <span className="text-gray-700 text-xs sm:text-sm">{getDate(data.createdAt)}</span> */}
-        <h3 className="text-base sm:text-xl md:text-lg text-[#0E2D5B] font-bold">
-          {data.heading.replace(/_/g, " ").split(' ').map((word)=>word.charAt(0).toUpperCase()+word.slice(1)).join(' ')}
-        </h3>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data.description ? data.description.slice(0, 40) : "",
-          }}
-        />
-      </div>
-    </div>
     </Link>
   );
 }
