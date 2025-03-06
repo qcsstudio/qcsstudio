@@ -122,6 +122,9 @@ const UploadBlog = ({ setADD }) => {
           {/* Rich Text Editor */}
           <NoSSRWrapper>
             <JoditReact onChange={(content) => setDescription(content)} defaultValue={description} config={{
+              askBeforePasteHTML: false,
+              askBeforePasteFromWord: false,
+              enableDragAndDropFileToEditor: false,
               uploader: {
                 insertImageAsBase64URI: true, 
               },
