@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { CandidateDataContext } from "@/context/CandidateDataContext";
+import { useState, useContext } from "react";
 
 export default function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -7,10 +8,14 @@ export default function RegistrationForm() {
     contactNumber: "",
     address: "",
     collegeName: "",
+    quiz_status: "started"
   });
+
   const [errors, setErrors] = useState({});
   const [submittedData, setSubmittedData] = useState(null);
+  const [showRules, setShowRules] = useState(false);
 
+  const { CreateCandidateAPI  , setCandiDateData} = useContext(CandidateDataContext)
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -34,17 +39,22 @@ export default function RegistrationForm() {
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
       setSubmittedData(formData);
-      console.log("Form Submitted:", formData);
       setErrors({});
+      setShowRules(true); // Show rules modal on form submission
     } else {
       setErrors(validationErrors);
     }
   };
 
+  const handleStartQuiz = () => {
+    CreateCandidateAPI(formData);
+    setCandiDateData(formData);
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-100 via-pink-100 to-red-100 p-4">
-      <div className="w-full max-w-lg p-8 bg-white/85 shadow-2xl rounded-3xl  ">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">student Form</h2>
+      <div className="w-full max-w-lg p-8 bg-white/85 shadow-2xl rounded-3xl">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Candidate Details</h2>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <input
@@ -101,15 +111,31 @@ export default function RegistrationForm() {
             />
             {errors.collegeName && <p className="text-red-500 text-sm mt-1">{errors.collegeName}</p>}
           </div>
-          <button type="submit" className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-xl text-lg font-semibold shadow-lg hover:opacity-90 transition">Submit</button>
+          <button type="submit" className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-xl text-lg font-semibold shadow-lg hover:opacity-90 transition">
+            Start Test
+          </button>
         </form>
-        {submittedData && (
-          <div className="mt-6 p-4 bg-green-100 rounded-2xl shadow-md">
-            <h3 className="text-lg font-semibold text-gray-800">Submitted Data:</h3>
-            <pre className="text-sm text-gray-700 p-2 bg-white rounded-xl">{JSON.stringify(submittedData, null, 2)}</pre>
-          </div>
-        )}
       </div>
+
+      {showRules && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-[80%]  md:w-[40%]">
+            <h2 className="text-xl font-bold text-gray-800">Test Rules</h2>
+            <ul className="mt-3 text-gray-700 list-disc list-inside">
+              <li>If you switch tabs, your quiz will be automatically canceled.</li>
+              <li>There are 25 questions.</li>
+              <li>Each question has a 50-second timer.</li>
+              <li>Do not refresh screen.</li>
+              <li>Make sure you have good  internet conectivity</li>
+            </ul>
+            <div className="mt-4 flex justify-end">
+              <button onClick={handleStartQuiz} className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg">
+                Start Quiz
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

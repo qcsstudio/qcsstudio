@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import "primereact/resources/themes/lara-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
+import { CandidateDataContextProvider } from "@/context/CandidateDataContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,7 +45,7 @@ export default function RootLayout({ children }) {
         }}
       />
 
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-7JRBR0RQGH"/>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-7JRBR0RQGH" />
 
       <Script
         id="gtag-init"
@@ -72,13 +73,16 @@ export default function RootLayout({ children }) {
         </noscript>
 
         <PrimeReactProvider>
-          <BlogDataContextProvider>
-            <StudentDataContextProvider>
-              {children}
-              <Analytics />
-            </StudentDataContextProvider>
-          </BlogDataContextProvider>
+          <CandidateDataContextProvider>
+            <BlogDataContextProvider>
+              <StudentDataContextProvider>
+                {children}
+                <Analytics />
+              </StudentDataContextProvider>
+            </BlogDataContextProvider>
+          </CandidateDataContextProvider>
         </PrimeReactProvider>
+        
       </body>
     </html>
   );

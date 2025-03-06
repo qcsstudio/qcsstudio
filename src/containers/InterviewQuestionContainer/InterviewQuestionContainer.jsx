@@ -1,18 +1,50 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { quizData } from "@/Data/interviewQuestion";
+import { CandidateDataContext } from "@/context/CandidateDataContext";
+import Link from "next/link";
 
 function InterviewQuestionContainer() {
-  const [currentSection, setCurrentSection] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(30);
+  const [timeLeft, setTimeLeft] = useState(50);
   const [tabSwitchCount, setTabSwitchCount] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
 
-  // Handle tab switching
+  const { UpdateCandidateAPI, candidateData } = useContext(CandidateDataContext);
+
+  // Prevent Cheating
+  // useEffect(() => {
+  //   // Disable right-click
+  //   const disableRightClick = (event) => event.preventDefault();
+  //   document.addEventListener("contextmenu", disableRightClick);
+
+  //   // Prevent Developer Tools (F12, Ctrl+Shift+I, etc.)
+  //   const disableDevTools = (event) => {
+  //     if (
+  //       event.key === "F12" ||
+  //       (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J" || event.key === "C"))
+  //     ) {
+  //       event.preventDefault();
+  //       alert("Cheating attempt detected! Developer tools are disabled.");
+  //     }
+  //   };
+  //   document.addEventListener("keydown", disableDevTools);
+
+  //   // Detect copy attempts
+  //   const detectCopy = () => alert("Copying is not allowed!");
+  //   document.addEventListener("copy", detectCopy);
+
+  //   return () => {
+  //     document.removeEventListener("contextmenu", disableRightClick);
+  //     document.removeEventListener("keydown", disableDevTools);
+  //     document.removeEventListener("copy", detectCopy);
+  //   };
+  // }, []);
+
+  // Handle Tab Switching
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.hidden) {
@@ -25,14 +57,14 @@ function InterviewQuestionContainer() {
     return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
 
-  // If user switches tabs more than once, cancel the quiz
+  // If the candidate switches tabs more than once, cancel the quiz
   useEffect(() => {
     if (tabSwitchCount > 1) {
       setShowResult(true);
     }
   }, [tabSwitchCount]);
 
-  // Handle Timer
+  // Timer logic
   useEffect(() => {
     if (timeLeft <= 0) {
       handleNextQuestion();
@@ -45,38 +77,36 @@ function InterviewQuestionContainer() {
   const handleOptionClick = (option) => setSelectedOption(option);
 
   const handleNextQuestion = () => {
-    const section = quizData[currentSection];
-    const question = section.questions[currentQuestion];
-
-    if (selectedOption === question.answer) {
+    if (selectedOption === quizData[currentQuestion].answer) {
       setScore((prev) => prev + 1);
     }
 
     setSelectedOption(null);
-    setTimeLeft(30);
+    setTimeLeft(50);
 
-    if (currentQuestion + 1 < section.questions.length) {
+    if (currentQuestion + 1 < quizData.length) {
       setCurrentQuestion((prev) => prev + 1);
-    } else if (currentSection + 1 < quizData.length) {
-      setCurrentSection((prev) => prev + 1);
-      setCurrentQuestion(0);
     } else {
+      console.log(candidateData);
       setShowResult(true);
+      const data = {
+        ...candidateData , score: score , quiz_status:"finished"
+      }
+      UpdateCandidateAPI(  candidateData.email,  data);
     }
   };
 
   return (
-    <div className="p-4 bg-gray-100 min-h-screen flex flex-col items-center">
-      <h1 className="text-2xl font-bold mb-4">Interview Quiz</h1>
+    <div className="p-6 bg-gradient-to-r from-purple-100 via-pink-100 to-red-100 min-h-screen flex flex-col items-center justify-center">
 
-      {/* Show Popup if User Switches Tab Once */}
+      {/* Popup warning for tab switching */}
       {showPopup && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-md shadow-md text-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
             <h2 className="text-xl font-bold text-red-600">Warning! 🚨</h2>
             <p className="mt-2 text-gray-700">You switched tabs! Stay on this page or the quiz will be canceled.</p>
             <button
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg"
               onClick={() => setShowPopup(false)}
             >
               Continue Quiz
@@ -86,20 +116,23 @@ function InterviewQuestionContainer() {
       )}
 
       {!showResult ? (
-        <div className="bg-white p-6 shadow-md rounded-md w-96 select-none">
-          <h2 className="text-lg font-semibold">{quizData[currentSection].section}</h2>
-          <h3 className="text-md mt-2">{quizData[currentSection].questions[currentQuestion].question}</h3>
+        <div className="bg-white/50 p-6 shadow-2xl rounded-2xl w-full max-w-[700px] select-none">
+          {/* Question Counter */}
+          <div className="text-gray-600 mb-2">
+            Question {currentQuestion + 1} of {quizData.length}
+          </div>
 
-          <p className="text-red-500 mt-2">Time Left: {timeLeft} sec</p>
+          <h3 className="text-lg font-semibold">{quizData[currentQuestion].question}</h3>
+
+          <p className="text-red-500 mt-2 font-bold">Time Left: {timeLeft} sec</p>
 
           <div className="mt-4">
-            {quizData[currentSection].questions[currentQuestion].options.map((option, index) => (
+            {quizData[currentQuestion].options.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleOptionClick(option)}
-                className={`block w-full p-2 my-2 border rounded-md text-left transition ${
-                  selectedOption === option ? "bg-blue-500 text-white" : "bg-gray-200 hover:bg-gray-300"
-                }`}
+                className={`block w-full p-3 my-2 border rounded-md text-left font-medium transition-all ${selectedOption === option ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white" : "bg-gray-200 hover:bg-gray-300"
+                  }`}
               >
                 {option}
               </button>
@@ -109,23 +142,23 @@ function InterviewQuestionContainer() {
           <button
             onClick={handleNextQuestion}
             disabled={!selectedOption}
-            className={`mt-4 p-2 rounded-md w-full ${
-              selectedOption ? "bg-blue-500 text-white" : "bg-gray-300 cursor-not-allowed"
-            }`}
+            className={`mt-4 p-3 rounded-md w-full font-bold transition ${selectedOption ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:bg-blue-700" : "bg-gray-300 cursor-not-allowed"
+              }`}
           >
-            {currentQuestion + 1 < quizData[currentSection].questions.length || currentSection + 1 < quizData.length
-              ? "Next Question"
-              : "See Results"}
+            {currentQuestion + 1 < quizData.length ? "Next Question" : "See Results"}
           </button>
         </div>
       ) : (
-        <div className="bg-white p-6 shadow-md rounded-md w-96 text-center">
-          <h2 className="text-xl font-bold">{tabSwitchCount > 1 ? "Quiz Cancelled! ❌" : "Quiz Completed!"}</h2>
-          <p className="text-lg mt-2">
+        <div className="bg-white p-6 shadow-lg rounded-lg w-96 text-center">
+          <h2 className="text-2xl font-bold text-blue-700">
+            {tabSwitchCount > 1 ? "Quiz Cancelled! ❌" : "Quiz Completed!"}
+          </h2>
+          <p className="text-lg mt-2 font-medium">
             {tabSwitchCount > 1
               ? "You switched tabs multiple times. The quiz has been canceled."
-              : `Your score: ${score} / ${quizData.reduce((total, section) => total + section.questions.length, 0)}`}
+              : `Your Score: ${score} / ${quizData.length}`}
           </p>
+          <Link href={'/'} className="flex justify-center"> Go to home</Link>
         </div>
       )}
     </div>

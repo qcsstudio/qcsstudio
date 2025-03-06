@@ -1,7 +1,4 @@
 export const quizData = [
-    {
-      section: "Aptitude Questions",
-      questions: [
         {
           question: "A company’s website traffic grows by 15% every month. If it had 20,000 visitors in January, how many visitors will it have in March?",
           options: ["23,000", "26,450", "28,000", "30,500"],
@@ -51,12 +48,7 @@ export const quizData = [
           question: "If a cybersecurity team identifies 300 phishing emails and blocks 85% of them, how many phishing emails get through?",
           options: ["35", "45", "50", "60"],
           answer: "45",
-        }
-      ]
-    },
-    {
-      section: "Technical Questions",
-      questions: [
+        },
         {
           question: "Which metric measures how often an ad is clicked compared to how often it is shown?",
           options: ["CPC", "CTR", "CPM", "CPA"],
@@ -97,6 +89,4 @@ export const quizData = [
           options: ["Visual Studio Code", "Figma", "MySQL", "TensorFlow"],
           answer: "Figma",
         }
-      ]
-    }
   ];
