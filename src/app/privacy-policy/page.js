@@ -183,7 +183,7 @@ const PrivacyComponent = () => {
               <li><span className='font-bold'>Right to Restrict Processing:</span> Limit how we use your data.</li>
               <li><span className='font-bold'>Right to Withdraw Consent:</span>Revoke consent for data collection and usage.</li>
             </div>
-            <p className='font-thin tracking-wider text-[#212529]'>To exercise these rights, contact us at<span className='font-bold'>[Insert Contact Email].</span>
+            <p className='font-thin tracking-wider text-[#212529]'>To exercise these rights, contact us at<span className='font-bold'>info@qcsstudio.com</span>
             </p>
         </div>
 
