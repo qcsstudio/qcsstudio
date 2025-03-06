@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 
 const JoditReact = dynamic(() => import("jodit-react-ts"), {
     ssr: false,
-    loading: () => <p>Loading editor...</p>, // Show loading state
+    loading: () => <p>Loading editor...</p>, 
   });
 
 const UploadPrivacy = ({setAdd}) => {
@@ -27,7 +27,7 @@ const UploadPrivacy = ({setAdd}) => {
           if(res.status === 200){
             const data = await res.json();
             console.log("Data ====== ",data.privacy_data);
-            // setmultipleBlogData(data.privacy_data);
+           
           }
           
           
@@ -66,7 +66,7 @@ const UploadPrivacy = ({setAdd}) => {
             className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
           />
           
-            <JoditReact onChange={(content) => setDescription(content)} value={description}/>
+            <JoditReact onChange={(content) => setDescription(content)} DefaultValue={description}/>
           <div className="flex justify-center">
             <button onClick={handleSubmit}
               type="submit"

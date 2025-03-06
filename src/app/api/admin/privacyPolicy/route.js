@@ -1,5 +1,7 @@
 import connectMongo from "@/lib/mongodb";
+import privacyPolicy from "@/models/privacyPolicy";
 import PrivacyPolicy from "@/models/privacyPolicy"
+import { NextResponse } from 'next/server';
 
 export async function POST(req) {
     if (req.method !== 'POST') {
@@ -45,9 +47,6 @@ export async function GET(req){
         return  Response.json({ message: 'Blog not get Error' } , {status:500});
     }
 }
-import { NextResponse } from 'next/server';
-import connectMongo from "@/lib/mongodb";
-import PrivacyPolicy from "@/models/privacyPolicy";
 
 export async function DELETE(req) {
     try {
@@ -75,5 +74,33 @@ export async function DELETE(req) {
     } catch (error) {
         console.error('Delete Error:', error);
         return NextResponse.json({ message: 'Error deleting policy' }, { status: 500 });
+    }
+}
+
+
+export async function PUT(req) {
+    try {
+        await connectMongo();
+        const { title, description  , _id} = await req.json();
+
+        console.log("title" ,title )
+        console.log("description" , description)
+
+        const updatedPolicy = await privacyPolicy.findOneAndUpdate(
+            { _id: _id },
+            { heading: title, description: description },
+            { new: true }
+        );
+        console.log(updatedPolicy)
+        const allPolicies = await privacyPolicy.find();
+        console.log(allPolicies)
+        return Response.json({ 
+            message: 'Policy updated successfully', 
+            policy_data: allPolicies 
+        }, { status: 200 });
+
+    } catch (error) {
+        console.error('Policy Update Error:', error);
+        return Response.json({ message: 'Update Error' }, { status: 500 });
     }
 }
