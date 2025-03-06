@@ -111,7 +111,7 @@ export const BlogDataContextProvider = ({ children }) => {
       }
       setBlogLoadingStatus(false);
     } catch (error) {
-      console.error("Blog data not get ! ", error);
+      console.error("Blog data not get! ", error);
       setShowBlogsDataLoader(false);
       setBlogLoadingStatus(false);
     }

@@ -17,9 +17,14 @@ const ListBlog = () => {
 
 
    useEffect(() => {
-      GetBlogData();
+      if(multipleBlogData.length == 0){
+         GetBlogData();
+      }
+      
       GetCategoryData();
    }, []);
+
+   console.log("multipleBlogData" , multipleBlogData)
 
    const handleUpdate = (row) => {
       setEdit(true);
@@ -73,7 +78,7 @@ const ListBlog = () => {
        
       <>
       <div className="p-4 max-w-7xl mx-auto">
-         {!blogLoadingStatus ? (<>
+         {  multipleBlogData.length != 0 ? (<>
          <div className="flex  items-center justify-between mb-4">
             <h1 className='text-center text-2xl font-semibold mb-2 md:mb-0'>Blog List</h1>
             <button 
