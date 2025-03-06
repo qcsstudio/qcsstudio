@@ -16,33 +16,33 @@ function InterviewQuestionContainer() {
   const { UpdateCandidateAPI, candidateData } = useContext(CandidateDataContext);
 
   // Prevent Cheating
-  // useEffect(() => {
-  //   // Disable right-click
-  //   const disableRightClick = (event) => event.preventDefault();
-  //   document.addEventListener("contextmenu", disableRightClick);
+  useEffect(() => {
+    // Disable right-click
+    const disableRightClick = (event) => event.preventDefault();
+    document.addEventListener("contextmenu", disableRightClick);
 
-  //   // Prevent Developer Tools (F12, Ctrl+Shift+I, etc.)
-  //   const disableDevTools = (event) => {
-  //     if (
-  //       event.key === "F12" ||
-  //       (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J" || event.key === "C"))
-  //     ) {
-  //       event.preventDefault();
-  //       alert("Cheating attempt detected! Developer tools are disabled.");
-  //     }
-  //   };
-  //   document.addEventListener("keydown", disableDevTools);
+    // Prevent Developer Tools (F12, Ctrl+Shift+I, etc.)
+    const disableDevTools = (event) => {
+      if (
+        event.key === "F12" ||
+        (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J" || event.key === "C"))
+      ) {
+        event.preventDefault();
+        alert("Cheating attempt detected! Developer tools are disabled.");
+      }
+    };
+    document.addEventListener("keydown", disableDevTools);
 
-  //   // Detect copy attempts
-  //   const detectCopy = () => alert("Copying is not allowed!");
-  //   document.addEventListener("copy", detectCopy);
+    // Detect copy attempts
+    const detectCopy = () => alert("Copying is not allowed!");
+    document.addEventListener("copy", detectCopy);
 
-  //   return () => {
-  //     document.removeEventListener("contextmenu", disableRightClick);
-  //     document.removeEventListener("keydown", disableDevTools);
-  //     document.removeEventListener("copy", detectCopy);
-  //   };
-  // }, []);
+    return () => {
+      document.removeEventListener("contextmenu", disableRightClick);
+      document.removeEventListener("keydown", disableDevTools);
+      document.removeEventListener("copy", detectCopy);
+    };
+  }, []);
 
   // Handle Tab Switching
   useEffect(() => {
