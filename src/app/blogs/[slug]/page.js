@@ -10,7 +10,7 @@ export async function generateMetadata({ params }) {
       }
 
       const slug = params.slug;
-      const url = `http://localhost:3000/api/blogs/${slug}`; 
+      const url = `https://www.qcsstudio.in/api/blogs/${slug}`; 
       const response = await fetch(url, { cache: "no-store" }); // Prevent caching issues
 
       if (!response.ok) {
