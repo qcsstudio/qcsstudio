@@ -7,14 +7,15 @@ import { StudentDataContext } from '@/context/StudentDataContext'
 import { useContext } from 'react'
 import React from 'react'
 import InterviewQuestionContainer from '../InterviewQuestionContainer/InterviewQuestionContainer'
+import InterviewStudentForm from '../InterviewQuestionContainer/InterviewSudentForm'
 
 const InterviewContainer = () => {
 const { showQuiz  ,  setShowQuiz } = useContext(StudentDataContext);
 
-  return (
+  return (  
     <div> 
         <Navbar/>
-        { false ?  <Quiz/> : <InterviewQuestionContainer/> }
+        { false ?  <InterviewStudentForm/> : <InterviewQuestionContainer/> }
         <Footer/>
     </div>
   )
