@@ -35,8 +35,8 @@ export const CandidateDataContextProvider = ({ children }) => {
             setShowTest(true);
             return responseData;
         } catch (error) {
-            console.error("Error:", error);
-            alert("Error! Check Console.");
+            console.log("Error:", error);
+            alert("You Given The Test Already!");
         }
     };
 
@@ -58,8 +58,8 @@ export const CandidateDataContextProvider = ({ children }) => {
             setShowTest(true);
             return responseData;
         } catch (error) {
-            console.error("Error:", error);
-            alert("Error! Check Console.");
+            console.log("Error:", error);
+            alert("You Given The Test Already!");
         }
     };
 
