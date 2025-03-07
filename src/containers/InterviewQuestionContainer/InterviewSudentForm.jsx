@@ -118,6 +118,7 @@ export default function RegistrationForm() {
             Start Test
           </button>
         </form>
+        
       </div>
 
       {showRules && (
