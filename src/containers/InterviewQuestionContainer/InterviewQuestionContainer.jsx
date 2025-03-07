@@ -21,14 +21,13 @@ function InterviewQuestionContainer() {
     const disableRightClick = (event) => event.preventDefault();
     document.addEventListener("contextmenu", disableRightClick);
 
-    // Prevent Developer Tools (F12, Ctrl+Shift+I, etc.)
+    
     const disableDevTools = (event) => {
       if (
         event.key === "F12" ||
         (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J" || event.key === "C"))
       ) {
         event.preventDefault();
-        alert("Cheating attempt detected! Developer tools are disabled.");
       }
     };
     document.addEventListener("keydown", disableDevTools);
@@ -61,6 +60,15 @@ function InterviewQuestionContainer() {
   useEffect(() => {
     if (tabSwitchCount > 1) {
       setShowResult(true);
+
+      const data = {
+        ...candidateData,
+        score: score, 
+        quiz_status: "cancelled"
+      };
+  
+      UpdateCandidateAPI(candidateData.email, data);
+  
     }
   }, [tabSwitchCount]);
 
@@ -100,13 +108,13 @@ function InterviewQuestionContainer() {
     <div className="p-6 bg-gradient-to-r from-purple-100 via-pink-100 to-red-100 min-h-screen flex flex-col items-center justify-center">
 
       {/* Popup warning for tab switching */}
-      {showPopup && (
+      {showPopup && tabSwitchCount == 1 && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg text-center">
             <h2 className="text-xl font-bold text-red-600">Warning! 🚨</h2>
-            <p className="mt-2 text-gray-700">You switched tabs! Stay on this page or the quiz will be canceled.</p>
+            <p className="mt-2 text-gray-700">{tabSwitchCount == 1 ? "You switched tabs! Stay on this page or the quiz will be canceled.":"You switched tabs! Your Quiz is Cancelled"}</p>
             <button
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg"
+              className="mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg"
               onClick={() => setShowPopup(false)}
             >
               Continue Quiz
@@ -156,9 +164,9 @@ function InterviewQuestionContainer() {
           <p className="text-lg mt-2 font-medium">
             {tabSwitchCount > 1
               ? "You switched tabs multiple times. The quiz has been canceled."
-              : `Your Score: ${score} / ${quizData.length}`}
+              : `Your Score: ${((score / quizData.length) * 100).toFixed(2)}%`}
           </p>
-          <Link href={'/'} className="flex justify-center"> Go to home</Link>
+          <Link href={'/'} className="flex justify-center  text-white font-bold  mt-4 py-2 text-lg bg-gradient-to-r from-purple-500 to-pink-500 "> Go to home</Link>
         </div>
       )}
     </div>
