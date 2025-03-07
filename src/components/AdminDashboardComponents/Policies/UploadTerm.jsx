@@ -80,8 +80,10 @@ const UploadTerm = ({setAdd,url}) => {
                     url: "YOUR_IMAGE_UPLOAD_API",
                   },
                 },
+
               }}/>
             <div className="flex justify-center"> 
+
             <button onClick={PostTerms}
               type="submit"
               className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-lg transition w-full md:w-1/2"

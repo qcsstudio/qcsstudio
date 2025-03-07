@@ -1,4 +1,5 @@
 "use client";
+
 import QuizQuestionsComponent from "@/components/AdminDashboardComponents/QuizQuestionsComponent";
 import StudentsDataTableComponent from "@/components/AdminDashboardComponents/StudentsDataTableComponent";
 import ListBlog from "@/components/BlogpageComponents/UploadComponents/ListBlog";
@@ -16,6 +17,8 @@ import TermsAndCondition from "@/components/AdminDashboardComponents/Policies/Te
 import TermsOfServices from "@/components/AdminDashboardComponents/Policies/TermsOfServices";
 import IntellectualPropertyPolicy from "@/components/AdminDashboardComponents/Policies/IntellectualPropertyPolicy";
 import ComplianceRegulatoryPoliciesPage from "@/components/AdminDashboardComponents/Policies/ComplianceRegulatoryPolicies";
+import LiabilityDisclaimerPolicy from '@/components/AdminDashboardComponents/Policies/LiabilityDisclaimerPolicy';
+
 
 const AdminDashboardContainer = () => {
   const [activeComponent, setActiveComponent] = useState("dashboard");
@@ -53,6 +56,8 @@ const AdminDashboardContainer = () => {
         return <IntellectualPropertyPolicy />;
       case "ComplianceRegulatoryPoliciesPage":
         return <ComplianceRegulatoryPoliciesPage />;
+      case 'LiabilityDisclaimerPolicy':
+          return <LiabilityDisclaimerPolicy/>
 
       default:
         return <Dashboard />;
@@ -87,6 +92,7 @@ const AdminDashboardContainer = () => {
             { name: "Quiz Questions", key: "quiz" },
             { name: "Blog List", key: "ListBlog" },
             { name: "Category List", key: "CategoryList" },
+
             { name: "Privacy policies", key: "PrivacyPolicy" },
             { name: "Terms and Conditions", key: "TermsAndConditions" },
             { name: "Terms of Services", key: "TermsOfServices" },
@@ -98,6 +104,8 @@ const AdminDashboardContainer = () => {
               name: "Compliance & Regulatory Policies ",
               key: "ComplianceRegulatoryPoliciesPage",
             },
+            {name:"Liability Disclaimer Policy",key:"LiabilityDisclaimerPolicy"}
+
           ].map((item) => (
             <li
               key={item.key}
