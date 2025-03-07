@@ -11,6 +11,7 @@ import { Menu, X } from 'lucide-react';
 import Loader from '@/components/Loader';
 import Image from 'next/image';
 import { removeToken } from '@/utils/cookies';
+import PrivacyAdmin from '@/components/AdminDashboardComponents/PrivacyAdminComponents/PrivacyAdmin';
 
 const AdminDashboardContainer = () => {
   const [activeComponent, setActiveComponent] = useState('dashboard');
@@ -45,6 +46,9 @@ const AdminDashboardContainer = () => {
         return <ListBlog />;
       case 'CategoryList':
         return <ListCategory />;
+      case 'PrivacyPolicy':
+        return <PrivacyAdmin/>
+        return 
       default:
         return <Dashboard />;
     }
@@ -82,6 +86,7 @@ const AdminDashboardContainer = () => {
             { name: "Quiz Questions", key: "quiz" },
             { name: "Blog List", key: "ListBlog" },
             { name: "Category List", key: "CategoryList" },
+            { name:"Privacy Policy",key:"PrivacyPolicy"}
           ].map((item) => (
             <li
               key={item.key}
