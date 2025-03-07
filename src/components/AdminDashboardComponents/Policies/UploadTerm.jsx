@@ -60,8 +60,28 @@ const UploadTerm = ({setAdd,url}) => {
             className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
           />
           
-            <JoditReact onChange={(content) => setDescription(content)} DefaultValue={description}/>
-            <div className="flex justify-center">
+            <JoditReact onChange={(content) => setDescription(content)} DefaultValue={description} config={{
+                askBeforePasteHTML: false,
+                askBeforePasteFromWord: false,
+                enableDragAndDropFileToEditor: false,
+                spellcheck: true,
+                height: 300,
+                readonly: false,
+                toolbarAdaptive: false,
+                toolbarSticky: false,
+                Image: true,
+                buttons:
+                  "bold,italic,underline,|,ul,ol,|,left,center,right,|,link,unlink,|,source,image,video,font,paragraph,brush",
+                uploader: {
+                  insertImageAsBase64URI: true,
+                },
+                filebrowser: {
+                  ajax: {
+                    url: "YOUR_IMAGE_UPLOAD_API",
+                  },
+                },
+              }}/>
+            <div className="flex justify-center"> 
             <button onClick={PostTerms}
               type="submit"
               className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-lg transition w-full md:w-1/2"
