@@ -1,11 +1,12 @@
 'use client'
 import React, { useState,useEffect } from 'react'
-import Navbar from '@/components/HomeComponents/Hero/Header'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
+import Loader from '@/components/Loader'
+import Navbar from '@/components/Navbar'
 
-const page = () => {
-    const [TermsData,setTermsData]=useState([])
+const TermsService = () => {
+    const [TermsData,setTermsData]=useState(false)
     const [loading,setLoading]=useState(false)
 
      useEffect(()=>{
@@ -33,6 +34,17 @@ const page = () => {
           setLoading(false);
         }
       };
+
+      if(!TermsData){
+        return(
+          <>
+          <Navbar/>
+          <Loader/>
+          <Footer/>
+          </>
+        )
+      };
+
   return (
       <>
         <Navbar />
@@ -57,4 +69,4 @@ const page = () => {
   )
 }
 
-export default page
+export default TermsService
