@@ -14,6 +14,7 @@ import { removeToken } from '@/utils/cookies';
 import PrivacyAdmin from '@/components/AdminDashboardComponents/PrivacyAdminComponents/PrivacyAdmin';
 import TermsAndCondition from '@/components/AdminDashboardComponents/Policies/TermsAndCondition';
 import TermsOfServices from '@/components/AdminDashboardComponents/Policies/TermsOfServices';
+import LiabilityDisclaimerPolicy from '@/components/AdminDashboardComponents/Policies/LiabilityDisclaimerPolicy';
 
 const AdminDashboardContainer = () => {
   const [activeComponent, setActiveComponent] = useState('dashboard');
@@ -54,7 +55,8 @@ const AdminDashboardContainer = () => {
           return <TermsAndCondition/>
         case 'TermsOfServices':
          return <TermsOfServices/>
-        return 
+        case 'LiabilityDisclaimerPolicy':
+          return <LiabilityDisclaimerPolicy/>
       default:
         return <Dashboard />;
     }
@@ -95,6 +97,7 @@ const AdminDashboardContainer = () => {
             { name:"Privacy policies",key:"PrivacyPolicy"},
             { name:"Terms and Conditions",key:"TermsAndConditions"},
             { name:"Terms of Services",key:"TermsOfServices"},
+            {name:"Liability Disclaimer Policy",key:"LiabilityDisclaimerPolicy"}
           ].map((item) => (
             <li
               key={item.key}
