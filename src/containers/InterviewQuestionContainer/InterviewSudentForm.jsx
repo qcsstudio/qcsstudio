@@ -14,6 +14,8 @@ export default function RegistrationForm() {
   const [errors, setErrors] = useState({});
   const [submittedData, setSubmittedData] = useState(null);
   const [showRules, setShowRules] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+  
 
   const { CreateCandidateAPI  , setCandiDateData} = useContext(CandidateDataContext)
   const handleChange = (e) => {
@@ -47,6 +49,7 @@ export default function RegistrationForm() {
   };
 
   const handleStartQuiz = () => {
+    setButtonDisabled(true)
     CreateCandidateAPI(formData);
     setCandiDateData(formData);
   };
@@ -123,13 +126,13 @@ export default function RegistrationForm() {
             <h2 className="text-xl font-bold text-gray-800">Test Rules</h2>
             <ul className="mt-3 text-gray-700 list-disc list-inside">
               <li>If you switch tabs, your quiz will be automatically canceled.</li>
-              <li>There are 25 questions.</li>
+              <li>There are 35 questions.</li>
               <li>Each question has a 50-second timer.</li>
-              <li>Do not refresh screen.</li>
+              <li>Do not refresh screen. you can't re-submit test.</li>
               <li>Make sure you have good  internet conectivity</li>
             </ul>
             <div className="mt-4 flex justify-end">
-              <button onClick={handleStartQuiz} className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg">
+              <button onClick={handleStartQuiz} className="bg-gradient-to-r from-purple-500 disabled:cursor-not-allowed disabled:bg-[#ababab] to-pink-500 text-white px-4 py-2 rounded-lg" disabled={buttonDisabled}>
                 Start Quiz
               </button>
             </div>
