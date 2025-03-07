@@ -15,7 +15,7 @@ const page = () => {
     const GetTermsData = async () => {
         try {
           setLoading(true);
-          const response = await fetch('/api/admin/termsOfServices', {
+          const response = await fetch('/api/admin/termsAndCondition', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
           });

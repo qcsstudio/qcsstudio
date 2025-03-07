@@ -12,6 +12,8 @@ import Loader from '@/components/Loader';
 import Image from 'next/image';
 import { removeToken } from '@/utils/cookies';
 import PrivacyAdmin from '@/components/AdminDashboardComponents/PrivacyAdminComponents/PrivacyAdmin';
+import TermsAndCondition from '@/components/AdminDashboardComponents/Policies/TermsAndCondition';
+import TermsOfServices from '@/components/AdminDashboardComponents/Policies/TermsOfServices';
 
 const AdminDashboardContainer = () => {
   const [activeComponent, setActiveComponent] = useState('dashboard');
@@ -47,7 +49,11 @@ const AdminDashboardContainer = () => {
       case 'CategoryList':
         return <ListCategory />;
       case 'PrivacyPolicy':
-        return <PrivacyAdmin/>
+        return <PrivacyAdmin/>;
+        case 'TermsAndConditions':
+          return <TermsAndCondition/>
+        case 'TermsOfServices':
+         return <TermsOfServices/>
         return 
       default:
         return <Dashboard />;
@@ -86,7 +92,9 @@ const AdminDashboardContainer = () => {
             { name: "Quiz Questions", key: "quiz" },
             { name: "Blog List", key: "ListBlog" },
             { name: "Category List", key: "CategoryList" },
-            { name:"Privacy Policy",key:"PrivacyPolicy"}
+            { name:"Privacy policies",key:"PrivacyPolicy"},
+            { name:"Terms and Conditions",key:"TermsAndConditions"},
+            { name:"Terms of Services",key:"TermsOfServices"},
           ].map((item) => (
             <li
               key={item.key}

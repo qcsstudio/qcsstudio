@@ -8,7 +8,7 @@ export async function POST(req) {
         return Response.json({ message: 'Method Not Allowed' } , {status:405});
     }
 
-    const { title, description } = await req.json();
+    const { title, description,content } = await req.json();
 
     console.log({title,description});
     try {
