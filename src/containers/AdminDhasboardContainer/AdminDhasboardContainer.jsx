@@ -12,12 +12,11 @@ import { Menu, X } from "lucide-react";
 import Loader from "@/components/Loader";
 import Image from "next/image";
 import { removeToken } from "@/utils/cookies";
-import PrivacyAdmin from "@/components/AdminDashboardComponents/PrivacyAdminComponents/PrivacyAdmin";
-import TermsAndCondition from "@/components/AdminDashboardComponents/Policies/TermsAndCondition";
-import TermsOfServices from "@/components/AdminDashboardComponents/Policies/TermsOfServices";
+
 import IntellectualPropertyPolicy from "@/components/AdminDashboardComponents/Policies/IntellectualPropertyPolicy";
 import ComplianceRegulatoryPoliciesPage from "@/components/AdminDashboardComponents/Policies/ComplianceRegulatoryPolicies";
 import LiabilityDisclaimerPolicy from '@/components/AdminDashboardComponents/Policies/LiabilityDisclaimerPolicy';
+import PoliciesContainer from "../PolciesContainer/PoliciesContainer";
 
 
 const AdminDashboardContainer = () => {
@@ -46,18 +45,8 @@ const AdminDashboardContainer = () => {
         return <ListBlog />;
       case "CategoryList":
         return <ListCategory />;
-      case "PrivacyPolicy":
-        return <PrivacyAdmin />;
-      case "TermsAndConditions":
-        return <TermsAndCondition />;
-      case "TermsOfServices":
-        return <TermsOfServices />;
-      case "IntellectualPropertyPolicy":
-        return <IntellectualPropertyPolicy />;
-      case "ComplianceRegulatoryPoliciesPage":
-        return <ComplianceRegulatoryPoliciesPage />;
-      case 'LiabilityDisclaimerPolicy':
-          return <LiabilityDisclaimerPolicy/>
+      case "Policies":
+        return <PoliciesContainer />;
 
       default:
         return <Dashboard />;
@@ -93,18 +82,8 @@ const AdminDashboardContainer = () => {
             { name: "Blog List", key: "ListBlog" },
             { name: "Category List", key: "CategoryList" },
 
-            { name: "Privacy policies", key: "PrivacyPolicy" },
-            { name: "Terms and Conditions", key: "TermsAndConditions" },
-            { name: "Terms of Services", key: "TermsOfServices" },
-            {
-              name: "Intellectual Property Policy",
-              key: "IntellectualPropertyPolicy",
-            },
-            {
-              name: "Compliance & Regulatory Policies ",
-              key: "ComplianceRegulatoryPoliciesPage",
-            },
-            {name:"Liability Disclaimer Policy",key:"LiabilityDisclaimerPolicy"}
+            { name: "Policies", key: "Policies" },
+           
 
           ].map((item) => (
             <li

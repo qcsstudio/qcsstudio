@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import UploadTerm from "./UploadTerm";
 import Loader from "@/components/Loader";
 import DataTable from "react-data-table-component";
 import EditTerms from "./EditTerms";
 
-const LiabilityDisclaimerPolicy = () => {
+const RefundPolicy = () => {
   const [add, setAdd] = useState(false);
-  const [LiabilityDisclaimerData, setLiabilityDisclaimerData] = useState([]);
+  const [RefundData, setRefundData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [updateRow, setUpdateRow] = useState(null);
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
-    if(LiabilityDisclaimerData.length === 0 ){
-        GetLiabilityDisclaimerPolicy("liability_Disclaimer");
+    if (RefundData.length === 0) {
+      GetRefundData("refund_cancellation");
     }
   }, []);
 
-  const GetLiabilityDisclaimerPolicy = async (policyType) => {
+  const GetRefundData = async (policyType) => {
     try {
       setLoading(true);
       const response = await fetch(`/api/admin/Policies?type=${policyType}`, {
@@ -30,10 +30,10 @@ const LiabilityDisclaimerPolicy = () => {
       }
 
       const result = await response.json();
-      setLiabilityDisclaimerData(result.data || []);
+      setRefundData(result.data || []);
     } catch (error) {
       console.error("Error fetching policy data: ", error);
-      setLiabilityDisclaimerData([]);
+      setRefundData([]);
     } finally {
       setLoading(false);
     }
@@ -67,13 +67,12 @@ const LiabilityDisclaimerPolicy = () => {
       ),
     },
   ];
-
   return (
     <div className="p-4 max-w-7xl mx-auto">
-      {LiabilityDisclaimerData.length === 0 && (
+      {RefundData.length === 0 && (
         <div className="flex items-center justify-between mb-4">
           <h1 className="text-center text-2xl font-semibold mb-2 md:mb-0">
-            Liability Disclaimer Policy List
+            Refund page
           </h1>
           <button
             className="bg-blue-500 px-4 py-2 text-white rounded-md hover:bg-blue-400 transition"
@@ -86,30 +85,32 @@ const LiabilityDisclaimerPolicy = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className="overflow-auto max-h-[70vh] bg-white shadow-md rounded-lg">
-          <DataTable
-            title="Liability Disclaimer Policy List"
-            columns={columns}
-            data={LiabilityDisclaimerData}
-            pagination
-            highlightOnHover
-            striped
-          />
-        </div>
+        <>
+          <div className="overflow-auto max-h-[70vh] bg-white shadow-md rounded-lg">
+            <DataTable
+              title="Refund Policy Page"
+              columns={columns}
+              data={RefundData}
+              pagination
+              highlightOnHover
+              striped
+            />
+          </div>
+        </>
       )}
 
       {add && (
         <UploadTerm
           setAdd={setAdd}
-          type="liability_Disclaimer"
+          type="refund_cancellation"
           url="/api/admin/Policies"
         />
       )}
       {edit && (
         <EditTerms
+          type="refund_cancellation"
           setEdit={setEdit}
-          type="liability_Disclaimer"
-          GetData={GetLiabilityDisclaimerPolicy}
+          GetData={GetRefundData}
           updateRow={updateRow}
           setUpdateRow={setUpdateRow}
           url="/api/admin/Policies"
@@ -119,4 +120,4 @@ const LiabilityDisclaimerPolicy = () => {
   );
 };
 
-export default LiabilityDisclaimerPolicy;
+export default RefundPolicy;

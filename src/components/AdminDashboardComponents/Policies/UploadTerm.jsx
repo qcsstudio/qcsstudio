@@ -6,7 +6,7 @@ const JoditReact = dynamic(() => import("jodit-react-ts"), {
   loading: () => <p>Loading editor...</p>,
 });
 
-const UploadTerm = ({setAdd,url}) => {
+const UploadTerm = ({setAdd,url,type}) => {
     const [title,setTittle]=useState('');
         const [description,setDescription]=useState('');
     
@@ -18,7 +18,7 @@ const UploadTerm = ({setAdd,url}) => {
                   headers: {
                     "content-type": "application/json",
                   },
-                  body: JSON.stringify({ title, description }),
+                  body: JSON.stringify({type, heading:title, description }),
                 });
                 
                 if(res.status === 201){

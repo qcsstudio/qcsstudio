@@ -6,19 +6,21 @@ import EditTerms from "./EditTerms";
 
 const ComplianceRegulatoryPoliciesPage = () => {
   const [add, setAdd] = useState(false);
-  const [termsData, setTermsData] = useState([]);
+  const [ComplianceRegulatoryData, setComplianceRegulatoryData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [updateRow, setUpdateRow] = useState(null);
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
-    GetTermsOfServices();
+    if(ComplianceRegulatoryData.length === 0){
+      GetComplianceRegulatoryData("Compliance_regulatory");
+    }
   }, []);
 
-  const GetTermsOfServices = async () => {
+  const GetComplianceRegulatoryData = async (policyType) => {
     try {
       setLoading(true);
-      const response = await fetch("/api/admin/ComplianceRegulatoryPolicies", {
+      const response = await fetch(`/api/admin/Policies?type=${policyType}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -28,10 +30,10 @@ const ComplianceRegulatoryPoliciesPage = () => {
       }
 
       const result = await response.json();
-      setTermsData(result.terms_data || []);
+      setComplianceRegulatoryData(result.data || []);
     } catch (error) {
       console.error("Error fetching policy data: ", error);
-      setTermsData([]);
+      setComplianceRegulatoryData([]);
     } finally {
       setLoading(false);
     }
@@ -67,26 +69,28 @@ const ComplianceRegulatoryPoliciesPage = () => {
   ];
   return (
     <div className="p-4 max-w-7xl mx-auto">
-      <div className="flex items-center justify-between mb-4">
-        <h1 className="text-center text-2xl font-semibold mb-2 md:mb-0">
-          Privacy Policy List
-        </h1>
-        <button
-          className="bg-blue-500 px-4 py-2 text-white rounded-md hover:bg-blue-400 transition"
-          onClick={() => setAdd(true)}
-        >
-          ADD
-        </button>
-      </div>
+      {ComplianceRegulatoryData.length === 0 && (
+        <div className="flex items-center justify-between mb-4">
+          <h1 className="text-center text-2xl font-semibold mb-2 md:mb-0">
+            Compliance Regulatory Policy Page
+          </h1>
+          <button
+            className="bg-blue-500 px-4 py-2 text-white rounded-md hover:bg-blue-400 transition"
+            onClick={() => setAdd(true)}
+          >
+            ADD
+          </button>
+        </div>
+      )}
       {loading ? (
         <Loader />
       ) : (
         <>
           <div className="overflow-auto max-h-[70vh] bg-white shadow-md rounded-lg">
             <DataTable
-              title="Terms of Services List"
+              title="Compliance Regulatory Policy Page"
               columns={columns}
-              data={termsData}
+              data={ComplianceRegulatoryData}
               pagination
               highlightOnHover
               striped
@@ -98,16 +102,18 @@ const ComplianceRegulatoryPoliciesPage = () => {
       {add && (
         <UploadTerm
           setAdd={setAdd}
-          url="/api/admin/ComplianceRegulatoryPolicies"
+          type="Compliance_regulatory"
+          url="/api/admin/Policies"
         />
       )}
       {edit && (
         <EditTerms
+          type="Compliance_regulatory"
           setEdit={setEdit}
-          GetData={GetTermsOfServices}
+          GetData={GetComplianceRegulatoryData}
           updateRow={updateRow}
           setUpdateRow={setUpdateRow}
-          url="/api/admin/ComplianceRegulatoryPolicies"
+          url="/api/admin/Policies"
         />
       )}
     </div>

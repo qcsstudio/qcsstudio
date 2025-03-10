@@ -12,13 +12,15 @@ const IntellectualPropertyPolicy = () => {
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
-    GetTermsOfServices();
+    if(termsData.length === 0){
+      GetTermsData("intellectual_property");
+    }
   }, []);
 
-  const GetTermsOfServices = async () => {
+  const GetTermsData = async (policyType) => {
     try {
       setLoading(true);
-      const response = await fetch("/api/admin/IntellectualPropertyPolicy", {
+      const response = await fetch(`/api/admin/Policies?type=${policyType}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -28,7 +30,7 @@ const IntellectualPropertyPolicy = () => {
       }
 
       const result = await response.json();
-      setTermsData(result.terms_data || []);
+      setTermsData(result.data || []);
     } catch (error) {
       console.error("Error fetching policy data: ", error);
       setTermsData([]);
@@ -67,24 +69,26 @@ const IntellectualPropertyPolicy = () => {
   ];
   return (
     <div className="p-4 max-w-7xl mx-auto">
-      <div className="flex items-center justify-between mb-4">
-        <h1 className="text-center text-2xl font-semibold mb-2 md:mb-0">
-          Privacy Policy List
-        </h1>
-        <button
-          className="bg-blue-500 px-4 py-2 text-white rounded-md hover:bg-blue-400 transition"
-          onClick={() => setAdd(true)}
-        >
-          ADD
-        </button>
-      </div>
+      {termsData.length === 0 && (
+        <div className="flex items-center justify-between mb-4">
+          <h1 className="text-center text-2xl font-semibold mb-2 md:mb-0">
+            Intellectual Property Policy Page
+          </h1>
+          <button
+            className="bg-blue-500 px-4 py-2 text-white rounded-md hover:bg-blue-400 transition"
+            onClick={() => setAdd(true)}
+          >
+            ADD
+          </button>
+        </div>
+      )}
       {loading ? (
         <Loader />
       ) : (
         <>
           <div className="overflow-auto max-h-[70vh] bg-white shadow-md rounded-lg">
             <DataTable
-              title="Terms of Services List"
+              title="Intellectual Property Policy Page"
               columns={columns}
               data={termsData}
               pagination
@@ -98,16 +102,18 @@ const IntellectualPropertyPolicy = () => {
       {add && (
         <UploadTerm
           setAdd={setAdd}
-          url="/api/admin/IntellectualPropertyPolicy"
+          type="intellectual_property"
+          url="/api/admin/Policies"
         />
       )}
       {edit && (
         <EditTerms
           setEdit={setEdit}
-          GetData={GetTermsOfServices}
+          type="intellectual_property"
+          GetData={GetTermsData}
           updateRow={updateRow}
           setUpdateRow={setUpdateRow}
-          url="/api/admin/IntellectualPropertyPolicy"
+          url="/api/admin/Policies"
         />
       )}
     </div>
