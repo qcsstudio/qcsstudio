@@ -13,7 +13,9 @@ const TermsAndCondition = () => {
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
-    GetTermsData("terms_condition");
+    if(termsData.length===0){
+      GetTermsData("terms_condition");
+    }
   }, []);
 
   const GetTermsData = async (policyType) => {

@@ -1,32 +1,25 @@
-import React from 'react'
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
+
+const policies = [
+  { href: '/terms-of-service', label: 'Terms of Service' },
+  { href: '/Intellectual-Property-Policy', label: 'Intellectual Property Policy' },
+  { href: '/compliance-Regulatory-Policies', label: 'Compliance & Regulatory Policies Refund Policy' },
+  { href: '/liability-disclaimer-policy', label: 'Liability & Disclaimer Policy' },
+];
 
 const PolicyButtons = () => {
   return (
     <div className="flex flex-wrap justify-center gap-4 mt-10">
-                  <Link href="/terms-of-service">
-                    <button className="bg-[#0e2d5b] px-6 py-2 text-white rounded-md hover:bg-blue-400 transition text-sm md:text-base w-full sm:w-auto">
-                      Terms of services
-                    </button>
-                  </Link>
-                  <Link href="/Intellectual-Property-Policy">
-                    <button className="bg-[#0e2d5b] px-6 py-2 text-white rounded-md hover:bg-blue-400 transition text-sm md:text-base w-full sm:w-auto">
-                    Intellectual Property Policy
-                    </button>
-                  </Link>
-                  <Link href="/compliance-Regulatory-Policies">
-                    <button className="bg-[#0e2d5b] px-6 py-2 text-white rounded-md hover:bg-blue-400 transition text-sm md:text-base w-full sm:w-auto">
-                    Compliance & Regulatory Policies Refund Policy
-                    </button>
-                  </Link>
-                  <Link href="/liability-disclaimer-policy">
-                    <button className="bg-[#0e2d5b] px-6 py-2 text-white rounded-md hover:bg-blue-400 transition text-sm md:text-base w-full sm:w-auto">
-                    Liability & Disclaimer Policy
-              
-                    </button>
-                  </Link>
-                </div>
-  )
-}
+      {policies.map((policy, index) => (
+        <Link key={index} href={policy.href}>
+          <button className="bg-[#0e2d5b] px-6 py-2 text-white rounded-md hover:bg-blue-900 transition text-sm md:text-base w-full sm:w-auto">
+            {policy.label}
+          </button>
+        </Link>
+      ))}
+    </div>
+  );
+};
 
-export default PolicyButtons
+export default PolicyButtons;

@@ -44,7 +44,7 @@ const EditTerms = ({type, setEdit, GetData, updateRow, setUpdateRow, url }) => {
 
       if (response.ok) {
         toast.success('Policy updated successfully!');
-        GetData();
+        GetData(type);
         setUpdateRow(null);
         setEdit(false);
       } else {
