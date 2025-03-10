@@ -13,6 +13,10 @@ export async function middleware(request) {
   if (!token && request.nextUrl.pathname.startsWith('/admin/dashboard')) {
     return NextResponse.redirect(new URL('/admin/login', request.url));  
   }
+  
+  if (request.nextUrl.pathname.startsWith('/interview')) {
+    return NextResponse.redirect(new URL('/' , request.url));  
+  }
 
   return NextResponse.next();  
 }
