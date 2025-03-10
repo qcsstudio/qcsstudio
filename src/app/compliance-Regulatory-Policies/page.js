@@ -4,35 +4,34 @@ import Footer from '@/components/Footer'
 import Image from 'next/image'
 import Loader from '@/components/Loader'
 import Navbar from '@/components/Navbar'
-
+import PolicyButtons from '@/components/PolicyButtons'
 const  IntellectualPropertyPolicyPage = () => {
-    const [TermsData,setTermsData]=useState(false)
+  const [TermsData,setTermsData]=useState(false)
+ useEffect(() => {
+    GetTermsData("Compliance_regulatory");
+  }, []);
 
-     useEffect(()=>{
-        GetTermsData()
-      },[])
-
-    const GetTermsData = async () => {
-        try {
-
-          const response = await fetch('/api/admin/ComplianceRegulatoryPolicies', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-          });
+  const GetTermsData = async (policyType) => {
     
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-    
-          const result = await response.json();
-          setTermsData(result.terms_data || []);
-        } catch (error) {
-          console.error('Error fetching policy data: ', error);
-          setTermsData([]);
-        } finally {
-       
-        }
-      };
+    try {
+     
+      const response = await fetch(`/api/admin/Policies?type=${policyType}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      setTermsData(result.data || []); 
+    } catch (error) {
+      console.error('Error fetching policy data: ', error);
+      setTermsData([]);
+    } 
+  };
+  
 
       if(!TermsData){
         return(
@@ -57,13 +56,40 @@ const  IntellectualPropertyPolicyPage = () => {
             })
           }
           
-          <Image className='absolute bottom-7 right-96' src='/images/recentsblogsbg3.png' height={200} width={100} alt='' />
-          <Image className='absolute bottom-7 right-0 scale-x-[-1]' src='/images/infoIcon.png' height={200} width={200} alt='' />
-          <Image className='absolute bottom-0 left-0 ' src='/images/bgBlu.png' height={100} width={100} alt='' />
-          <Image className='absolute top-0 right-0 ' src='/images/arrowplane.png' height={100} width={100} alt='' />
-
-        </div>
-        <Footer />
+          <PolicyButtons/>
+          
+          
+                  {/* floating images */}
+                  <Image
+                    className="absolute bottom-7 right-96 hidden lg:block"
+                    src="/images/recentsblogsbg3.png"
+                    height={200}
+                    width={100}
+                    alt=""
+                  />
+                  <Image
+                    className="absolute bottom-7 right-0 scale-x-[-1] hidden lg:block"
+                    src="/images/infoIcon.png"
+                    height={200}
+                    width={200}
+                    alt=""
+                  />
+                  <Image
+                    className="absolute bottom-0 left-0 hidden lg:block "
+                    src="/images/bgBlu.png"
+                    height={100}
+                    width={100}
+                    alt=""
+                  />
+                  <Image
+                    className="absolute top-0 right-0 hidden lg:block "
+                    src="/images/arrowplane.png"
+                    height={100}
+                    width={100}
+                    alt=""
+                  />
+                </div>
+                <Footer />
       </>
   )
 }

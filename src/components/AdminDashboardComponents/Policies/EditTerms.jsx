@@ -9,12 +9,14 @@ const JoditReact = dynamic(() => import('jodit-react-ts'), {
   loading: () => <p>Loading editor...</p>,
 });
 
-const EditTerms = ({ setEdit, GetData, updateRow, setUpdateRow, url }) => {
+const EditTerms = ({type, setEdit, GetData, updateRow, setUpdateRow, url }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
   useEffect(() => {
-    GetData();
+    if (type) {
+    GetData(type);
+    }
   }, []);
 
   useEffect(() => {
@@ -34,7 +36,7 @@ const EditTerms = ({ setEdit, GetData, updateRow, setUpdateRow, url }) => {
       const response = await fetch(url, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, description, _id: updateRow?._id }),
+        body: JSON.stringify({type, title, description, _id: updateRow?._id }),
       });
 
       const result = await response.json();

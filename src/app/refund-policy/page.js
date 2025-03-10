@@ -1,157 +1,101 @@
-import React from "react";
+'use client'
+import React,{useState,useEffect} from "react";
 import Image from "next/image";
+import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PolicyButtons from "@/components/PolicyButtons";
+
 const RefundComponent = () => {
-  return (
-    <>
-   
-    <Navbar/>
-    <div>
-      <div className=" relative p-16 flex flex-col gap-5">
-        <h1 className="font-bold text-3xl lg:text-4xl tracking-wide  text-[#001f61]">
-          3. Refund Policy
-        </h1>
+  const [PrivacyData, setPrivacyData] = useState(false);
+  
+    useEffect(() => {
+      GetPrivacyData('refund_cancellation');
+    }, []);
+  
+     const GetPrivacyData = async (policyType) => {
+      try {
+        const response = await fetch(`/api/admin/Policies?type=${policyType}`, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        });
+    
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+    
+        const result = await response.json();
+        setPrivacyData(result.data || []); 
+      } catch (error) {
+        console.error('Error fetching policy data: ', error);
+        setPrivacyData([]);
+      } 
+    };
+ 
+   if (!PrivacyData) {
+     return (
+       <>
+         <Navbar />
+         <Loader />
+         <Footer />
+       </>
+     );
+   }
+ 
+   return (
+     <>
+       <Navbar />
+       <div className=" relative p-4 lg:p-16 flex flex-col gap-5">
+         {PrivacyData.map((data, i) => {
+           return (
+             <div key={i}>
+               <h1 className="font-bold  flex justify-center text-3xl lg:text-4xl tracking-wide  text-[#001f61]">
+                 {data.heading}
+               </h1>
+               <p
+                 className="font-thin tracking-wider text-[#212529]"
+                 dangerouslySetInnerHTML={{ __html: data.description }}
+               ></p>
+             </div>
+           );
+         })}
+ 
+ <PolicyButtons/>
 
-        <div className="flex flex-col gap-4 ">
-          <h2 className="font-bold text-xl tracking-wide  text-[#001f61]">
-            3.1 Educational Services Refund Policy
-          </h2>
-          <div className="flex flex-col gap-4 ">
-            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
-              1. Before Course Start:
-            </h3>
-            <p className="font-thin tracking-wider text-[#212529]">
-              Full refund if the student cancels at least 7 days before the
-              course start date (minus administrative fees). Partial refund of
-              up to 50% if cancellation occurs within 7 days of the course
-              starting
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 ">
-            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
-              2. After Course Start::
-            </h3>
-            <p className="font-thin tracking-wider text-[#212529]">
-              No refunds will be issued after the course begins unless there are
-              exceptional circumstances such as medical or family emergencies
-              (documentation required). In these cases, the student may receive
-              a course deferral or partial refund on a case-by-case basis.
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 ">
-            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
-              3. Course Transfer & Deferral:
-            </h3>
-            <p className="font-thin tracking-wider text-[#212529]">
-              Students can transfer to another course or defer their enrollment
-              to a later date within the first week, subject to administrative
-              fees.
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 ">
-            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
-              4. Dissatisfaction Clause:
-            </h3>
-            <p className="font-thin tracking-wider text-[#212529]">
-              If students are not satisfied with the course content within the
-              first 3 days, they may be eligible for partial refunds or course
-              credit for another program.
-            </p>
-          </div>
-        </div>
 
-        <div className="flex flex-col gap-4 ">
-          <h2 className="font-bold text-xl tracking-wide  text-[#001f61]">
-            3.2 IT Services Refund Policy
-          </h2>
-          <div className="flex flex-col gap-4 ">
-            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
-              1. Before Service Commencement:
-            </h3>
-            <p className="font-thin tracking-wider text-[#212529]">
-              Full refund if cancellation occurs before the project has started.
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 ">
-            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
-              2. During Project:
-            </h3>
-            <p className="font-thin tracking-wider text-[#212529]">
-              Partial refunds may be considered if the service is canceled after
-              work has commenced but before major milestones are reached. No
-              refund will be issued after significant project work has been
-              completed (such as development, implementation, or testing
-              phases).
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 ">
-            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
-              3. Dissatisfaction Clause:
-            </h3>
-            <p className="font-thin tracking-wider text-[#212529]">
-              Clients dissatisfied with the services provided can request
-              revisions within the project is scope. Partial refunds may be
-              considered in exceptional cases after reviewing the project is
-              status and deliverables.
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col gap-4 ">
-          <h2 className="font-bold text-xl tracking-wide  text-[#001f61]">
-            3.3 IT Products Refund Policy
-          </h2>
-          <p className="font-thin tracking-wider text-[#212529]">
-            Products purchased through QuantumCrafters Studio as a reseller are
-            not eligible for returns or exchanges. In case of product defects,
-            the warranty provided by the manufacturer will apply. QCS will
-            assist with the warranty claim process, but refunds will not be
-            offered for defective products.
-          </p>
-          <div className="flex flex-col gap-4 ">
-            <h3 className="font-thin text-xl tracking-wider text-[#001f61]">
-              Refund Processing:
-            </h3>
-            <p className="font-thin tracking-wider text-[#212529]">
-              All approved refunds will be processed within 7-10 business days,
-              and the amount will be credited to the original payment method.
-            </p>
-          </div>
-        </div>
-
+        {/* floating images */}
         <Image
-          className="absolute bottom-7 right-96"
+          className="absolute bottom-7 right-96 hidden lg:block"
           src="/images/recentsblogsbg3.png"
           height={200}
           width={100}
           alt=""
         />
         <Image
-          className="absolute bottom-7 right-0 scale-x-[-1]"
+          className="absolute bottom-7 right-0 scale-x-[-1] hidden lg:block"
           src="/images/infoIcon.png"
-          height={300}
-          width={300}
+          height={200}
+          width={200}
           alt=""
         />
         <Image
-          className="absolute bottom-0 left-0 "
+          className="absolute bottom-0 left-0 hidden lg:block "
           src="/images/bgBlu.png"
           height={100}
           width={100}
           alt=""
         />
         <Image
-          className="absolute top-0 right-0 "
+          className="absolute top-0 right-0 hidden lg:block "
           src="/images/arrowplane.png"
           height={100}
           width={100}
           alt=""
         />
       </div>
-      <Footer/>
-    </div>
-    </>
-  );
+      <Footer />
+     </>
+   );
 };
 
 export default RefundComponent;

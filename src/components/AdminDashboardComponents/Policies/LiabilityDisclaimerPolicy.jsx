@@ -6,36 +6,36 @@ import EditTerms from './EditTerms';
 
 const LiabilityDisclaimerPolicy = () => {
     const [add, setAdd] = useState(false);
-    const [policyData, setPolicyData] = useState([]);
+    const [LiabilityDisclaimerData, setLiabilityDisclaimerData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [updateRow, setUpdateRow] = useState(null);
     const [edit, setEdit] = useState(false);
 
     useEffect(() => {
-        GetLiabilityDisclaimerPolicy();
+        GetLiabilityDisclaimerPolicy('liability_Disclaimer');
     }, []);
 
-    const GetLiabilityDisclaimerPolicy = async () => {
+    const GetLiabilityDisclaimerPolicy = async (policyType) => {
         try {
             setLoading(true);
-            const response = await fetch('/api/admin/liabilityDisclaimerPolicy', {
-                method: 'GET',
-                headers: { 'Content-Type': 'application/json' },
+            const response = await fetch(`/api/admin/Policies?type=${policyType}`, {
+              method: 'GET',
+              headers: { 'Content-Type': 'application/json' },
             });
-
+        
             if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+              throw new Error(`HTTP error! Status: ${response.status}`);
             }
-
+        
             const result = await response.json();
-            setPolicyData(result.policy_data || []);
-        } catch (error) {
+            setLiabilityDisclaimerData(result.data || []); 
+          } catch (error) {
             console.error('Error fetching policy data: ', error);
-            setPolicyData([]);
-        } finally {
+            setLiabilityDisclaimerData([]);
+          } finally {
             setLoading(false);
-        }
-    };
+          }
+        };
 
     const handleUpdate = (row) => {
         setUpdateRow(row);
@@ -65,7 +65,7 @@ const LiabilityDisclaimerPolicy = () => {
 
     return (
         <div className="p-4 max-w-7xl mx-auto">
-            <div className="flex items-center justify-between mb-4">
+            {LiabilityDisclaimerData.length===0 && <div className="flex items-center justify-between mb-4">
                 <h1 className="text-center text-2xl font-semibold mb-2 md:mb-0">Liability Disclaimer Policy List</h1>
                 <button
                     className="bg-blue-500 px-4 py-2 text-white rounded-md hover:bg-blue-400 transition"
@@ -73,7 +73,7 @@ const LiabilityDisclaimerPolicy = () => {
                 >
                     ADD
                 </button>
-            </div>
+            </div>}
             {loading ? (
                 <Loader />
             ) : (
@@ -81,7 +81,7 @@ const LiabilityDisclaimerPolicy = () => {
                     <DataTable
                         title="Liability Disclaimer Policy List"
                         columns={columns}
-                        data={policyData}
+                        data={LiabilityDisclaimerData}
                         pagination
                         highlightOnHover
                         striped
@@ -89,16 +89,17 @@ const LiabilityDisclaimerPolicy = () => {
                 </div>
             )}
 
-            {add && <UploadTerm setAdd={setAdd} url="/api/admin/liabilityDisclaimerPolicy" />}
-            {edit && (
-                <EditTerms
-                    setEdit={setEdit}
-                    GetData={GetLiabilityDisclaimerPolicy}
-                    updateRow={updateRow}
-                    setUpdateRow={setUpdateRow}
-                    url="/api/admin/liabilityDisclaimerPolicy"
-                />
-            )}
+{add && <UploadTerm setAdd={setAdd}  type='liability_Disclaimer'   url="/api/admin/Policies" />}
+               {edit && (
+                 <EditTerms
+                   setEdit={setEdit}
+                   type='liability_Disclaimer'
+                   GetData={GetLiabilityDisclaimerPolicy}
+                   updateRow={updateRow} 
+                   setUpdateRow={setUpdateRow} 
+                   url="/api/admin/Policies"
+                 />
+               )}
         </div>
     );
 };
