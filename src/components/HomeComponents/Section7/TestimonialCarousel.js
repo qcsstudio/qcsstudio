@@ -17,9 +17,8 @@ const testimonials = [
     id: 1,
     image:omkar,
     name: "Omkar",
-    role: "Software Developer",
-    content:
-      "I was hesitant to switch careers, but QCS made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
+    role: "Backend Developer",
+    content:"I was initially hesitant about backend development, but joining QCS as a Backend Intern has been a game-changer. The hands-on experience and real-world projects have boosted my skills and confidence. I’m excited about the growth opportunities here!",
     rating: 5, 
   },
   {
@@ -27,8 +26,7 @@ const testimonials = [
     image:navjot,
     name: "Navjot Kaur",
     role: "Frontend Developer",
-    content:
-      "QCS gave me the confidence and skills to land my dream job as a front-end developer. The hands-on projects and mentorship were invaluable.",
+    content:"Starting my journey as a Frontend Developer Intern at QCS has been an incredible experience. Working on real projects has sharpened my skills and given me the confidence to create intuitive and engaging user interfaces. Excited to keep learning and growing here!", 
     rating: 4,
   },
   {
@@ -36,9 +34,24 @@ const testimonials = [
     image:arsh,
     name: "Arshdeep Singh",
     role: "Frontend Developer",
-    content:
-      "QCS taught me the latest digital marketing strategies and tools, and I'm now confidently managing campaigns for multiple clients.",
+    content:"Joining QCS as a Frontend Developer Intern has been a game-changer. The exposure to real-world projects and guidance from the team have helped me level up my skills and build confidence in my work. Looking forward to more exciting challenges ahead!",
     rating: 4, 
+  },
+  {
+    id: 4,
+    image:Stu1,
+    name: "Vishal Verma",
+    role: "Frontend Developer",
+    content:"QCS gave me the confidence and skills to land my dream job as a front-end developer. The hands-on projects and mentorship were invaluable",
+    rating: 4, 
+  },
+  {
+    id: 5,
+    image:Stu2,
+    name: "Aman Kashyap",
+    role: "UI/UX Design",
+    content:"I hesitated to switch careers, but QCS made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
+    rating: 5, 
   },
 ];
 

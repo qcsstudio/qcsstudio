@@ -83,6 +83,7 @@ const UploadBlog = ({ setADD }) => {
             id="heading"
             onChange={(e) => setTitle(e.target.value)}
             className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+            required
           />
           
 
@@ -92,6 +93,7 @@ const UploadBlog = ({ setADD }) => {
             placeholder="Enter Image URL"
             onChange={handleImageChange}
             className="w-full border border-gray-300 px-3 py-2 rounded-lg"
+            required
           />
           {imageShow && imageShow.startsWith("http") && (
             <div className="flex justify-center">
@@ -107,6 +109,7 @@ const UploadBlog = ({ setADD }) => {
             id="metaTitle"
             onChange={(e) => setMetaTitle(e.target.value)}
             className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+            required
           />
 
           {/* Meta Description */}
@@ -117,6 +120,7 @@ const UploadBlog = ({ setADD }) => {
             id="metaDescription"
             onChange={(e) => setMetaDescription(e.target.value)}
             className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+            required
           />
 
           {/* Rich Text Editor */}
