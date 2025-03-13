@@ -49,7 +49,7 @@ const testimonials = [
     id: 5,
     image:Stu2,
     name: "Aman Kashyap",
-    role: "UI/UX Design",
+    role: "UI/UX Designer ",
     content:"I hesitated to switch careers, but QCS made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
     rating: 5, 
   },
