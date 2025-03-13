@@ -106,6 +106,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
               value={thumbnail}
               onChange={handleImageChange}
               className="w-full border border-gray-300 px-3 py-2 rounded-lg"
+              required
             />
           </div>
 
@@ -118,6 +119,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
             value={metaTitle}
             onChange={(e) => setMetaTitle(e.target.value)}
             className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+            required
           />
 
           {/* Meta Description */}
@@ -129,6 +131,7 @@ const PopUpBlogUpdate = ({ setUpdateObject, setEdit, updateObject }) => {
             value={metaDescription}
             onChange={(e) => setMetaDescription(e.target.value)}
             className="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring focus:ring-blue-200"
+            required
           />
 
           {/* JoditReact Editor */}
