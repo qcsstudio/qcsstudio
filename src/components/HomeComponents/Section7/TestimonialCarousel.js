@@ -6,7 +6,7 @@ import Image from "next/image";
 import blueBg from "../../../../public/images/bluebg.png";
 import Stu1 from '../../../../public/images/Stu1.png'  
 import Stu2 from '../../../../public/images/Stu2.png'
-import Stu3 from '../../../../public/images/Stu3.png'
+import pankaj from '../../../../public/images/pankaj.png'
 import omkar from '../../../../public/images/Omkar.png'
 import navjot from '../../../../public/images/Navjot.png'
 import arsh from '../../../../public/images/Arsh.png'
@@ -51,6 +51,14 @@ const testimonials = [
     name: "Aman Kashyap",
     role: "UI/UX Designer ",
     content:"I hesitated to switch careers, but QCS made the transition seamless. The program gave me the practical experience and portfolio I needed to land a UI/UX design role at a top company.",
+    rating: 5, 
+  },
+  {
+    id: 6,
+    image:pankaj,
+    name: "Pankaj",
+    role: "Frontend Developer ",
+    content:"Joining QCS as a Frontend Developer Intern has been an incredible journey. The hands-on projects and team support have significantly improved my coding and design skills. Looking forward to learning and growing even more!",
     rating: 5, 
   },
 ];
