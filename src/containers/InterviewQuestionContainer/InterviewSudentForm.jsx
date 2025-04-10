@@ -8,6 +8,7 @@ export default function RegistrationForm() {
     contactNumber: "",
     address: "",
     collegeName: "",
+    course: "",
     quiz_status: "started"
   });
 
@@ -15,9 +16,9 @@ export default function RegistrationForm() {
   const [submittedData, setSubmittedData] = useState(null);
   const [showRules, setShowRules] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
-  
 
-  const { CreateCandidateAPI  , setCandiDateData} = useContext(CandidateDataContext)
+
+  const { CreateCandidateAPI, setCandiDateData } = useContext(CandidateDataContext)
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -33,6 +34,7 @@ export default function RegistrationForm() {
     if (!formData.contactNumber) newErrors.contactNumber = "Contact Number is required";
     if (!formData.address) newErrors.address = "Address is required";
     if (!formData.collegeName) newErrors.collegeName = "College Name is required";
+    if (!formData.course) newErrors.course = "Course is required";
     return newErrors;
   };
 
@@ -41,6 +43,7 @@ export default function RegistrationForm() {
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
       setSubmittedData(formData);
+      console.log("form data :",formData);
       setErrors({});
       setShowRules(true); // Show rules modal on form submission
     } else {
@@ -114,20 +117,33 @@ export default function RegistrationForm() {
             />
             {errors.collegeName && <p className="text-red-500 text-sm mt-1">{errors.collegeName}</p>}
           </div>
+          <div>
+            <select
+              name="course"
+              value={formData.course || ""}
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+              <option value="">Select Course</option>
+              <option value="bca">BCA</option>
+              <option value="bba">BBA</option>
+            </select>
+            {errors.course && <p className="text-red-500 text-sm mt-1">{errors.course}</p>}
+          </div>
           <button type="submit" className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-xl text-lg font-semibold shadow-lg hover:opacity-90 transition">
             Start Test
           </button>
         </form>
-        
+
       </div>
 
       {showRules && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-[80%]  md:w-[40%]">
-            <h2 className="text-xl font-bold text-gray-800">Test Rules</h2>
+            <h2 className="text-xl font-bold text-gray-800">Quiz Instructions</h2>
             <ul className="mt-3 text-gray-700 list-disc list-inside">
               <li>If you switch tabs, your quiz will be automatically canceled.</li>
-              <li>There are 35 questions.</li>
+              <li>There are 30 questions.</li>
               <li>Each question has a 50-second timer.</li>
               <li>Do not refresh screen. you can't re-submit test.</li>
               <li>Make sure you have good  internet conectivity</li>

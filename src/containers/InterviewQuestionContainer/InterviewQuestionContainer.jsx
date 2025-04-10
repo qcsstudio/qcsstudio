@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { quizData } from "@/Data/interviewQuestion";
 import { CandidateDataContext } from "@/context/CandidateDataContext";
 import Link from "next/link";
+import { quizData2 } from "@/Data/interviewQuestion2";
 
 function InterviewQuestionContainer() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -13,7 +14,16 @@ function InterviewQuestionContainer() {
   const [tabSwitchCount, setTabSwitchCount] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
 
+  const [shuffledQuiz, setShuffledQuiz] = useState([]);
+
   const { UpdateCandidateAPI, candidateData } = useContext(CandidateDataContext);
+
+  useEffect(()=>{
+    const filtered = quizData2?.filter(q => q.course === candidateData?.course);
+    const shuffled = filtered.sort(() => Math.random() - 0.5);
+    // console.log("shuffled Data : ",shuffled);
+    setShuffledQuiz(shuffled);
+  },[candidateData])
 
   // Prevent Cheating
   useEffect(() => {
@@ -85,14 +95,14 @@ function InterviewQuestionContainer() {
   const handleOptionClick = (option) => setSelectedOption(option);
 
   const handleNextQuestion = () => {
-    if (selectedOption === quizData[currentQuestion].answer) {
+    if (selectedOption === shuffledQuiz[currentQuestion]?.answer) {
       setScore((prev) => prev + 1);
     }
 
     setSelectedOption(null);
     setTimeLeft(50);
 
-    if (currentQuestion + 1 < quizData.length) {
+    if (currentQuestion + 1 < shuffledQuiz?.length) {
       setCurrentQuestion((prev) => prev + 1);
     } else {
       console.log(candidateData);
@@ -127,15 +137,15 @@ function InterviewQuestionContainer() {
         <div className="bg-white/50 p-6 shadow-2xl rounded-2xl w-full max-w-[700px] select-none">
           {/* Question Counter */}
           <div className="text-gray-600 mb-2">
-            Question {currentQuestion + 1} of {quizData.length}
+            Question {currentQuestion + 1} of {shuffledQuiz?.length}
           </div>
 
-          <h3 className="text-lg font-semibold">{quizData[currentQuestion].question}</h3>
+          <h3 className="text-lg font-semibold">{shuffledQuiz[currentQuestion]?.question}</h3>
 
           <p className="text-red-500 mt-2 font-bold">Time Left: {timeLeft} sec</p>
 
           <div className="mt-4">
-            {quizData[currentQuestion].options.map((option, index) => (
+            {shuffledQuiz[currentQuestion]?.options.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleOptionClick(option)}
@@ -153,7 +163,7 @@ function InterviewQuestionContainer() {
             className={`mt-4 p-3 rounded-md w-full font-bold transition ${selectedOption ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:bg-blue-700" : "bg-gray-300 cursor-not-allowed"
               }`}
           >
-            {currentQuestion + 1 < quizData.length ? "Next Question" : "See Results"}
+            {currentQuestion + 1 < shuffledQuiz?.length ? "Next Question" : "See Results"}
           </button>
         </div>
       ) : (
@@ -161,11 +171,20 @@ function InterviewQuestionContainer() {
           <h2 className="text-2xl font-bold text-blue-700">
             {tabSwitchCount > 1 ? "Quiz Cancelled! ❌" : "Quiz Completed!"}
           </h2>
-          <p className="text-lg mt-2 font-medium">
+          <div className="text-lg mt-2 font-medium">
             {tabSwitchCount > 1
               ? "You switched tabs multiple times. The quiz has been canceled."
-              : `Your Score: ${((score / quizData.length) * 100).toFixed(2)}%`}
-          </p>
+              : (((score / shuffledQuiz?.length) * 100).toFixed(2) >= 85) ?
+              <div className="flex flex-col items-center">
+                <p className="text-lg mt-2 font-medium">Your Score: {((score / shuffledQuiz?.length) * 100).toFixed(2) }%</p>
+                <p>Congratulations you are selected for next round</p>
+              </div>
+              :<div>
+                <p className="text-lg mt-2 font-medium">Your Score: {((score / shuffledQuiz?.length) * 100).toFixed(2) }%</p>
+                <p>Thanks for your response.</p>
+              </div>
+            }
+          </div>
           <Link href={'/'} className="flex justify-center  text-white font-bold  mt-4 py-2 text-lg bg-gradient-to-r from-purple-500 to-pink-500 "> Go to home</Link>
         </div>
       )}
