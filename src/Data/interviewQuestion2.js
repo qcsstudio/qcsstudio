@@ -1,0 +1,523 @@
+export const quizData2 = [
+  {
+    course: "bca",
+    question: "Which of the following HTML5 elements defines navigation links?",
+    options: ["<nav>", "<link>", "<footer>", "<aside>"],
+    answer: "<nav>",
+  },
+  {
+    course: "bca",
+    question:
+      "What is the output of this JavaScript?\n\nconsole.log(typeof null);",
+    options: ['"null"', '"undefined"', '"object"', '"string"'],
+    answer: '"object"',
+  },
+  {
+    course: "bca",
+    question:
+      "Which of the following is used to make an API request in modern JS?",
+    options: ["fetch()", "apiCall()", "request.get()", "connect()"],
+    answer: "fetch()",
+  },
+  {
+    course: "bca",
+    question: "What’s the default display property of a <div> element?",
+    options: ["inline", "flex", "block", "none"],
+    answer: "block",
+  },
+  {
+    course: "bca",
+    question: "Which command installs React in a project?",
+    options: [
+      "npm react install",
+      "create-react-app",
+      "npm install react",
+      "yarn new react",
+    ],
+    answer: "npm install react",
+  },
+  {
+    course: "bca",
+    question: "Which of the following represents a design system?",
+    options: ["React", "Adobe XD", "Material Design", "GitHub"],
+    answer: "Material Design",
+  },
+  {
+    course: "bca",
+    question: "What is the primary goal of UX design?",
+    options: [
+      "Making the UI look beautiful",
+      "Improving performance",
+      "Enhancing user satisfaction",
+      "Increasing traffic",
+    ],
+    answer: "Enhancing user satisfaction",
+  },
+  {
+    course: "bca",
+    question: "What does “Mobile First Design” mean?",
+    options: [
+      "Mobile apps are built before websites",
+      "Mobile screen is the smallest, so design starts there",
+      "Website is copied from the mobile app",
+      "Responsive design is not used",
+    ],
+    answer: "Mobile screen is the smallest, so design starts there",
+  },
+  {
+    course: "bca",
+    question: "Which tool is widely used for prototyping UI/UX designs?",
+    options: ["PyCharm", "Postman", "Figma", "Visual Studio"],
+    answer: "Figma",
+  },
+  {
+    course: "bca",
+    question: "Which of the following is NOT an SEO ranking factor?",
+    options: ["Backlinks", "Page speed", "Keyword stuffing", "Domain age"],
+    answer: "Keyword stuffing",
+  },
+  {
+    course: "bca",
+    question: "What does CTR stand for in Digital Marketing?",
+    options: [
+      "Click Through Rate",
+      "Click Text Rate",
+      "Customer Target Ratio",
+      "Cost to Revenue",
+    ],
+    answer: "Click Through Rate",
+  },
+  {
+    course: "bca",
+    question: "Which Google tool is used for keyword planning?",
+    options: [
+      "Google Trends",
+      "Google Ads",
+      "Google Search Console",
+      "Google Optimize",
+    ],
+    answer: "Google Ads",
+  },
+  {
+    course: "bca",
+    question:
+      "Which format is best for social media content for higher engagement?",
+    options: ["Long text", "Infographic", "PDF", "Carousel with hashtags"],
+    answer: "Carousel with hashtags",
+  },
+  {
+    course: "bca",
+    question: "What does HTTPS stand for?",
+    options: [
+      "Hyperlink Transfer Protocol Secure",
+      "HyperText Transfer Protocol Secure",
+      "Hybrid Text Transfer Protocol Server",
+      "Host Transfer Protocol Server",
+    ],
+    answer: "HyperText Transfer Protocol Secure",
+  },
+  {
+    course: "bca",
+    question: "Which of the following is a type of phishing attack?",
+    options: ["SQL Injection", "Whaling", "Malware", "VPN tunneling"],
+    answer: "Whaling",
+  },
+  {
+    course: "bca",
+    question: "Which port number does SSH use?",
+    options: ["22", "21", "23", "443"],
+    answer: "22",
+  },
+  {
+    course: "bca",
+    question: "What is the strongest type of password encryption?",
+    options: ["SHA-1", "MD5", "AES-256", "ROT13"],
+    answer: "AES-256",
+  },
+  {
+    course: "bca",
+    question: "Which of the following is NOT a supervised learning algorithm?",
+    options: [
+      "Linear Regression",
+      "Decision Trees",
+      "K-Means Clustering",
+      "Support Vector Machines",
+    ],
+    answer: "K-Means Clustering",
+  },
+  {
+    course: "bca",
+    question: "Which library is commonly used for data analysis in Python?",
+    options: ["NumPy", "Matplotlib", "Pandas", "TensorFlow"],
+    answer: "Pandas",
+  },
+  {
+    course: "bca",
+    question: "What does the confusion matrix in ML measure?",
+    options: [
+      "Model complexity",
+      "Prediction accuracy",
+      "Training data size",
+      "GPU usage",
+    ],
+    answer: "Prediction accuracy",
+  },
+  {
+    course: "bca",
+    question:
+      "Which AI field focuses on teaching machines to understand human language?",
+    options: ["NLP", "Neural Networks", "Computer Vision", "Data Mining"],
+    answer: "NLP",
+  },
+  {
+    course: "bca",
+    question: "What does overfitting in ML mean?",
+    options: [
+      "High bias and low variance",
+      "Model performs well on training data but poorly on test data",
+      "Model performs equally well on all data",
+      "Using too many irrelevant features",
+    ],
+    answer: "Model performs well on training data but poorly on test data",
+  },
+  {
+    course: "bca",
+    question: "If 2x + 3 = 11, then x = ?",
+    options: ["4", "3", "5", "6"],
+    answer: "4",
+  },
+  {
+    course: "bca",
+    question: "Find the missing number in the series: 3, 6, 11, 18, ?, 38",
+    options: ["27", "24", "25", "26"],
+    answer: "27",
+  },
+  {
+    course: "bca",
+    question: "If TODAY is coded as UPEBZ, what is CODE?",
+    options: ["DPEF", "EQEF", "DPDF", "EPDF"],
+    answer: "DPEF",
+  },
+  {
+    course: "bca",
+    question: "Which shape does not belong?",
+    options: ["Triangle", "Square", "Cube", "Rectangle"],
+    answer: "Cube",
+  },
+  {
+    course: "bca",
+    question:
+      "A man walks 4 km North, then 3 km East. What's the shortest distance to the start?",
+    options: ["7 km", "5 km", "6 km", "4 km"],
+    answer: "5 km",
+  },
+  {
+    course: "bca",
+    question: "Which number comes next? 1, 4, 9, 16, 25, ?",
+    options: ["36", "30", "49", "34"],
+    answer: "36",
+  },
+  {
+    course: "bca",
+    question:
+      "If all coders are smart and some students are coders, which is true?",
+    options: [
+      "All students are smart",
+      "Some students are smart",
+      "All smart people are students",
+      "None",
+    ],
+    answer: "Some students are smart",
+  },
+  {
+    course: "bca",
+    question:
+      "If P is the father of Q and Q is the father of R, what is P to R?",
+    options: ["Grandfather", "Uncle", "Father", "Cousin"],
+    answer: "Grandfather",
+  },
+  {
+    course: "bba",
+    question: "Who is known as the father of modern management?",
+    options: ["Philip Kotler", "Henry Fayol", "Peter Drucker", "Adam Smith"],
+    answer: "Peter Drucker",
+  },
+  {
+    course: "bba",
+    question: "What is a balance sheet used for?",
+    options: [
+      "Tracking daily sales",
+      "Measuring profits and losses",
+      "Showing assets, liabilities, and equity",
+      "Recording customer feedback",
+    ],
+    answer: "Showing assets, liabilities, and equity",
+  },
+  {
+    course: "bba",
+    question: "Which pricing strategy involves setting a high initial price?",
+    options: [
+      "Penetration pricing",
+      "Loss-leader pricing",
+      "Skimming pricing",
+      "Psychological pricing",
+    ],
+    answer: "Skimming pricing",
+  },
+  {
+    course: "bba",
+    question: "SWOT stands for:",
+    options: [
+      "Strengths, Weaknesses, Objectives, Trends",
+      "Strategy, Weakness, Opportunities, Threats",
+      "Strengths, Weaknesses, Opportunities, Threats",
+      "Strategy, Work, Organization, Time",
+    ],
+    answer: "Strengths, Weaknesses, Opportunities, Threats",
+  },
+  {
+    course: "bba",
+    question: "Which is a responsibility of Human Resource Management?",
+    options: [
+      "Accounting",
+      "Employee recruitment",
+      "Web Development",
+      "Media buying",
+    ],
+    answer: "Employee recruitment",
+  },
+  {
+    course: "bba",
+    question: "What does ‘Operations Management’ primarily deal with?",
+    options: [
+      "Market strategy",
+      "Social media posts",
+      "Resource planning and product delivery",
+      "Brand partnerships",
+    ],
+    answer: "Resource planning and product delivery",
+  },
+  {
+    course: "bba",
+    question: "Which of these is a part of on-page SEO?",
+    options: [
+      "External backlinks",
+      "Meta title & description",
+      "PPC ad setup",
+      "Guest blogging",
+    ],
+    answer: "Meta title & description",
+  },
+  {
+    course: "bba",
+    question:
+      "What is the most cost-effective marketing for early-stage startups?",
+    options: [
+      "TV advertising",
+      "Direct mail",
+      "Influencer marketing",
+      "Content marketing",
+    ],
+    answer: "Content marketing",
+  },
+  {
+    course: "bba",
+    question: "A/B testing helps you:",
+    options: [
+      "Find new products",
+      "Increase ad cost",
+      "Compare 2 variations of a campaign",
+      "Analyze profits",
+    ],
+    answer: "Compare 2 variations of a campaign",
+  },
+  {
+    course: "bba",
+    question: "What is a landing page used for?",
+    options: [
+      "Homepage branding",
+      "Capturing leads or conversions",
+      "Increasing page views",
+      "Improving site speed",
+    ],
+    answer: "Capturing leads or conversions",
+  },
+  {
+    course: "bba",
+    question: "What is the goal of a lead magnet?",
+    options: [
+      "Reduce website bounce rate",
+      "Increase your follower count",
+      "Get user data in exchange for value",
+      "Rank higher in SEO",
+    ],
+    answer: "Get user data in exchange for value",
+  },
+  {
+    course: "bba",
+    question: "Which platform offers keyword-based paid advertising?",
+    options: ["Canva", "Shopify", "Google Ads", "Zoom"],
+    answer: "Google Ads",
+  },
+  {
+    course: "bba",
+    question: "Which of the following increases post reach organically?",
+    options: [
+      "Paid ads",
+      "Daily reels",
+      "Engagement (likes, shares, comments)",
+      "Boosting followers",
+    ],
+    answer: "Engagement (likes, shares, comments)",
+  },
+  {
+    course: "bba",
+    question: "Which is an example of evergreen content?",
+    options: [
+      "2024 Trends",
+      "Product launch update",
+      "“How to write a resume” guide",
+      "IPL score updates",
+    ],
+    answer: "“How to write a resume” guide",
+  },
+  {
+    course: "bba",
+    question: "Which tool helps create social media post visuals easily?",
+    options: ["Canva", "SEMrush", "Notion", "WordPress"],
+    answer: "Canva",
+  },
+  {
+    course: "bba",
+    question: "Which tone of voice does a luxury brand usually follow?",
+    options: [
+      "Playful and quirky",
+      "Professional and exclusive",
+      "Casual and fun",
+      "Humorous and relaxed",
+    ],
+    answer: "Professional and exclusive",
+  },
+  {
+    course: "bba",
+    question: "What does a good Call-to-Action (CTA) do?",
+    options: [
+      "Confuse the reader",
+      "Increase bounce rate",
+      "Guide the user toward a desired action",
+      "Add brand colors",
+    ],
+    answer: "Guide the user toward a desired action",
+  },
+  {
+    course: "bba",
+    question: "What is the goal of ROI in marketing?",
+    options: [
+      "Reduce ad fatigue",
+      "Track budget leakages",
+      "Measure return on campaign spend",
+      "Analyze creative performance only",
+    ],
+    answer: "Measure return on campaign spend",
+  },
+  {
+    course: "bba",
+    question: "What’s the best metric to track email open rate?",
+    options: ["CTR", "Unique opens", "CPM", "Follower count"],
+    answer: "Unique opens",
+  },
+  {
+    course: "bba",
+    question: "What does “CPM” stand for in advertising?",
+    options: [
+      "Cost Per Metric",
+      "Click Per Media",
+      "Cost Per Mille (thousand impressions)",
+      "Conversion Per Million",
+    ],
+    answer: "Cost Per Mille (thousand impressions)",
+  },
+  {
+    course: "bba",
+    question: "Which Google tool tracks user activity on your website?",
+    options: [
+      "Google Sheets",
+      "Google Ads",
+      "Google Analytics",
+      "Google Slides",
+    ],
+    answer: "Google Analytics",
+  },
+  {
+    course: "bba",
+    question: "Which email marketing tool is beginner-friendly and popular?",
+    options: ["Salesforce", "Google Forms", "Mailchimp", "OBS Studio"],
+    answer: "Mailchimp",
+  },
+  {
+    course: "bba",
+    question: "Facebook & Instagram ads can be managed using:",
+    options: [
+      "Meta Ads Manager",
+      "WhatsApp Web",
+      "Google Ads",
+      "Shopify Admin",
+    ],
+    answer: "Meta Ads Manager",
+  },
+  {
+    course: "bba",
+    question: "Which platform helps design ad copies with AI?",
+    options: ["Midjourney", "Jasper AI", "Zapier", "SEMrush"],
+    answer: "Jasper AI",
+  },
+  {
+    course: "bba",
+    question: "To plan Instagram posts visually, which is most useful?",
+    options: ["Excel", "Creator Studio", "Word", "Notepad"],
+    answer: "Creator Studio",
+  },
+  {
+    course: "bba",
+    question:
+      "If a campaign budget is ₹10,000 and ROI is 4x, what’s the revenue?",
+    options: ["₹4,000", "₹20,000", "₹40,000", "₹2,000"],
+    answer: "₹40,000",
+  },
+  {
+    course: "bba",
+    question:
+      "A product has a margin of 60%, cost is ₹100. What is the selling price?",
+    options: ["₹140", "₹160", "₹250", "₹180"],
+    answer: "₹160",
+  },
+  {
+    course: "bba",
+    question: "Which is odd one out?",
+    options: ["SEO", "PPC", "Social Media", "Manufacturing"],
+    answer: "Manufacturing",
+  },
+  {
+    course: "bba",
+    question: "Customer churn refers to:",
+    options: [
+      "Product defect",
+      "Employee leaving",
+      "Customers who stop buying",
+      "Sales growth",
+    ],
+    answer: "Customers who stop buying",
+  },
+  {
+    course: "bba",
+    question:
+      "You are asked to promote a tech startup on a low budget. You suggest:",
+    options: [
+      "Paid YouTube Ads",
+      "Cold Calling",
+      "Organic LinkedIn Content",
+      "Celebrity Influencers",
+    ],
+    answer: "Organic LinkedIn Content",
+  },
+];
