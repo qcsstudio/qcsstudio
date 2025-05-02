@@ -9,7 +9,8 @@ export default function RegistrationForm() {
     address: "",
     collegeName: "",
     course: "",
-    quiz_status: "started"
+    quiz_status: "started",
+    careerOption: ""
   });
 
   const [errors, setErrors] = useState({});
@@ -43,7 +44,7 @@ export default function RegistrationForm() {
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
       setSubmittedData(formData);
-      console.log("form data :",formData);
+      console.log("form data :", formData);
       setErrors({});
       setShowRules(true); // Show rules modal on form submission
     } else {
@@ -57,6 +58,8 @@ export default function RegistrationForm() {
     setCandiDateData(formData);
   };
 
+  console.log("formData", formData);
+  
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-100 via-pink-100 to-red-100 p-4">
       <div className="w-full max-w-lg p-8 bg-white/85 shadow-2xl rounded-3xl">
@@ -127,9 +130,31 @@ export default function RegistrationForm() {
               <option value="">Select Course</option>
               <option value="bca">BCA</option>
               <option value="bba">BBA</option>
+              <option value="Diploma-(Computer-Science)">Diploma (Computer Science)</option>
             </select>
             {errors.course && <p className="text-red-500 text-sm mt-1">{errors.course}</p>}
           </div>
+
+
+          {
+            formData.course == "Diploma-(Computer-Science)" && <div>
+              <select
+                name="careerOption"
+                value={formData.careerOption || ""}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+              >
+                <option value="">Select Career Option </option>
+                <option value="UI/UX-Designer">UI/UX Designer</option>
+                <option value="Web-Developer-(Frontend)">Web Developer (Frontend)</option>
+                <option value="Web-Developer-(Backend)"> Web Developer (Backend)</option>
+                <option value="Digital-Marketing"> Digital Marketing</option>
+
+              </select>
+              {errors.course && <p className="text-red-500 text-sm mt-1">{errors.course}</p>}
+            </div>
+          }
+
           <button type="submit" className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-xl text-lg font-semibold shadow-lg hover:opacity-90 transition">
             Start Test
           </button>
