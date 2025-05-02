@@ -7,7 +7,8 @@ const CandidatesSchema = new mongoose.Schema(
     contactNumber: { type: String, required: true },
     address: { type: String, required: true },
     collegeName: { type: String, required: true },
-    course:{type:String},
+    course: { type: String },
+    careerOption: { type: String }, // ✅ Correct spelling
     score: { type: Number, default: null },
     quiz_status: { 
       type: String, 
@@ -15,9 +16,12 @@ const CandidatesSchema = new mongoose.Schema(
       required: true 
     }
   },
-  { timestamps: true },
-  { strict: false }
+  {
+    timestamps: true,
+    strict: false 
+  }
 );
+
 
 
 export default mongoose.models.Candidates || mongoose.model("Candidates", CandidatesSchema);

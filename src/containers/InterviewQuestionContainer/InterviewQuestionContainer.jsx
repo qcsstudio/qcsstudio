@@ -1,9 +1,8 @@
 "use client";
 import React, { useState, useEffect, useContext } from "react";
-import { quizData } from "@/Data/interviewQuestion";
 import { CandidateDataContext } from "@/context/CandidateDataContext";
 import Link from "next/link";
-import { quizData2 } from "@/Data/interviewQuestion2";
+import { quizData } from "@/Data/testx";
 
 function InterviewQuestionContainer() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -19,8 +18,9 @@ function InterviewQuestionContainer() {
   const { UpdateCandidateAPI, candidateData } = useContext(CandidateDataContext);
 
   useEffect(()=>{
-    const filtered = quizData2?.filter(q => q.course === candidateData?.course);
-    const shuffled = filtered.sort(() => Math.random() - 0.5);
+    const filtered = quizData?.filter(
+      q => q.course === candidateData?.course && q.careerOption === candidateData?.careerOption
+    );    const shuffled = filtered.sort(() => Math.random() - 0.5);
     // console.log("shuffled Data : ",shuffled);
     setShuffledQuiz(shuffled);
   },[candidateData])
