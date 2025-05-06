@@ -14,9 +14,9 @@ export async function middleware(request) {
     return NextResponse.redirect(new URL('/admin/login', request.url));  
   }
   
-  // if (request.nextUrl.pathname.startsWith('/interview')) {
-  //   return NextResponse.redirect(new URL('/' , request.url));  
-  // }
+  if (request.nextUrl.pathname.startsWith('/interview')) {
+    return NextResponse.redirect(new URL('/' , request.url));  
+  }
 
   return NextResponse.next();  
 }
