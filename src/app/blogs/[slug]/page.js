@@ -34,6 +34,8 @@ export async function generateMetadata({ params }) {
 }
 
 const page = async ({ params }) => {
+   const urlData =  await params;
+   console.log("params: ",urlData)
    if (!params?.slug) {
       return <p className="text-center text-red-500">Blog not found.</p>;
    }
